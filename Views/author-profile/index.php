@@ -1,5 +1,6 @@
 <?php
 include_once "../../Config.php";
+include "../../Core/AuteurCore.php";
 function getONE($atribute,$condition)
 {
     $sql=Connexion::getConnexion()->prepare("select $atribute from auteurs WHERE ID_AUT=$condition ");

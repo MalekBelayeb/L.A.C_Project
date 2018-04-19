@@ -565,11 +565,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503975536992 vc_row-has-fill"><div class="column-wg-left wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div  class="wpb_widgetised_column wpb_content_element">
-
-
-
                             <div class="wpb_wrapper">
-			
 			<aside id="recent_product-2" class="widget-home widget_recent_product">
                 <h3 class="wg-home-title">LES NOUVEAUTÉS</h3>
                 <?php
