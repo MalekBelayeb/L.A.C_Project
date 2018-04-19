@@ -195,7 +195,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                     }
                         ?>
 <a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id']; ?> </strong>
+    <strong> <?php echo $_SESSION['id'];
+                    echo $_SESSION['NOM'] ?> </strong>
 </a>
                                   <?php
                                 }
@@ -239,25 +240,25 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
             </div>
         </div>
             <br>
-        	<div class="wrap-middler">
-	    <div class="container">
+            <div class="wrap-middler">
+        <div class="container">
 
-	        <div class="row">
+            <div class="row">
 
-	            <div class="col-xs-12 col-md-4 col-lg-3">
+                <div class="col-xs-12 col-md-4 col-lg-3">
 
-	                <div class="main-logo-3"><a href="index.php"><img alt="Book Junky" src="wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
-	                <a href="#" class="menu"><i class="fa fa-bars"></i> Menu</a>
-	            </div>
+                    <div class="main-logo-3"><a href="index.php"><img alt="Book Junky" src="wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
+                    <a href="#" class="menu"><i class="fa fa-bars"></i> Menu</a>
+                </div>
 
-	            <div class="col-xs-12 col-md-8 col-lg-9">
-	               	
-	               	<form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
-						<div class="wrap-search clearfix">
-							<input type="text" class="form-search" name="s" value="" placeholder="Rechercher un livre, un auteur, une collection ...">
+                <div class="col-xs-12 col-md-8 col-lg-9">
+                    
+                    <form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
+                        <div class="wrap-search clearfix">
+                            <input type="text" class="form-search" name="s" value="" placeholder="Rechercher un livre, un auteur, une collection ...">
 
-								<div class="wrap-cat">
-									
+                                <div class="wrap-cat">
+                                    
     <select name="product_cat" id="product_cat">
 
         <option value="">Catégories </option>
@@ -277,113 +278,113 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
         <option value=Humaines>Sciences Humaines</option>
         <option value=Humaines>Sciences Techniques &amp; High-Tech </option>
         </select>
-    								</div>
-					 	</div>
-						 <button type="submit" class="search-submit">Ok</button>
-					 	<input type="hidden" name="post_type" value="product" />
-					</form>
-	            </div><!-- #site-logo -->
-	        </div>
-	    </div>
+                                    </div>
+                        </div>
+                         <button type="submit" class="search-submit">Ok</button>
+                        <input type="hidden" name="post_type" value="product" />
+                    </form>
+                </div><!-- #site-logo -->
+            </div>
+        </div>
     </div>
 
     <div class="container">
-    	<div class="row">
-    		<div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
+        <div class="row">
+            <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
 
                 <nav id="site-navigation" class="main-navigation">
 
                     <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children no_group abccs menu-item-11" data-depth="0"><a href="index.php" class=""><span class="menu-title">Accueil</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-420" data-depth="1"><a href="homepage-1/index.html" class=""><span class="menu-title">Page 1</span></a></li>
-	<li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-419" data-depth="1"><a href="homepage-2/index.html" class=""><span class="menu-title">Page 2</span></a></li>
-	<li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-421" data-depth="1"><a href="homepage-3/index.html" class=""><span class="menu-title">Page 3</span></a></li>
-	<li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-418" data-depth="1"><a href="homepage-4/index.html" class=""><span class="menu-title">Page 4</span></a></li>
-	<li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="homepage-5/index.html" class=""><span class="menu-title">Page 5</span></a></li>
+    <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-420" data-depth="1"><a href="homepage-1/index.html" class=""><span class="menu-title">Page 1</span></a></li>
+    <li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-419" data-depth="1"><a href="homepage-2/index.html" class=""><span class="menu-title">Page 2</span></a></li>
+    <li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-421" data-depth="1"><a href="homepage-3/index.html" class=""><span class="menu-title">Page 3</span></a></li>
+    <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-418" data-depth="1"><a href="homepage-4/index.html" class=""><span class="menu-title">Page 4</span></a></li>
+    <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="homepage-5/index.html" class=""><span class="menu-title">Page 5</span></a></li>
 </ul>
 </li>
 <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="#" class=""><span class="menu-title">Catalogue</span></a>
 <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
-	<li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
-		<li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
-		<li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
-		<li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
-		<li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
-	</ul>
+    <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
+    <ul class='   sub-menu' style="">
+        <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
+        <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
+        <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
+        <li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
+        <li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
+    </ul>
 </li>
-	<li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
-		<li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
-		<li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
-		<li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
-		<li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
-		<li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
-		<li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
-		<li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
-	</ul>
+    <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
+    <ul class='   sub-menu' style="">
+        <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
+        <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
+        <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
+        <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
+        <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
+        <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
+        <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
+        <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
+    </ul>
 </li>
-	<li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
-		<li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
-		<li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
-		<li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
-		<li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
-		<li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
-		<li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
-	</ul>
+    <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
+    <ul class='   sub-menu' style="">
+        <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
+        <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
+        <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
+        <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
+        <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
+        <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
+        <li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
+    </ul>
 </li>
-	<li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
+    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
+    <ul class='   sub-menu' style="">
+        <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
 </li>
-	</ul>
+    </ul>
 </li>
 </ul>
 </li>
 <li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="shop/index.html" class=""><span class="menu-title">événement</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="shop-cart/index.html" class=""><span class="menu-title">événements programmés</span></a></li>
-	<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="shop-checkout/index.html" class=""><span class="menu-title">Historique des événements</span></a></li>
+    <li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="shop-cart/index.html" class=""><span class="menu-title">événements programmés</span></a></li>
+    <li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="shop-checkout/index.html" class=""><span class="menu-title">Historique des événements</span></a></li>
 </ul>
 </li>
 <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Maisons d'édition</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-242" data-depth="2"><a href="buttons/index.html" class=""><span class="menu-title">Buttons</span></a></li>
-		<li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-241" data-depth="2"><a href="lightboxes/index.html" class=""><span class="menu-title">Lightboxes</span></a></li>
-		<li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-426" data-depth="2"><a href="book-displays/index.html" class=""><span class="menu-title">Book Displays</span></a></li>
-		<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-240" data-depth="2"><a href="message-boxes/index.html" class=""><span class="menu-title">Message Boxes</span></a></li>
-		<li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-239" data-depth="2"><a href="team/index.html" class=""><span class="menu-title">Team</span></a></li>
-		<li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-238" data-depth="2"><a href="accordions/index.html" class=""><span class="menu-title">Accordions</span></a></li>
-		<li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-237" data-depth="2"><a href="news-styles/index.html" class=""><span class="menu-title">News Styles</span></a></li>
-	</ul>
+    <li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
+    <ul class='   sub-menu' style="">
+        <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-242" data-depth="2"><a href="buttons/index.html" class=""><span class="menu-title">Buttons</span></a></li>
+        <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-241" data-depth="2"><a href="lightboxes/index.html" class=""><span class="menu-title">Lightboxes</span></a></li>
+        <li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-426" data-depth="2"><a href="book-displays/index.html" class=""><span class="menu-title">Book Displays</span></a></li>
+        <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-240" data-depth="2"><a href="message-boxes/index.html" class=""><span class="menu-title">Message Boxes</span></a></li>
+        <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-239" data-depth="2"><a href="team/index.html" class=""><span class="menu-title">Team</span></a></li>
+        <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-238" data-depth="2"><a href="accordions/index.html" class=""><span class="menu-title">Accordions</span></a></li>
+        <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-237" data-depth="2"><a href="news-styles/index.html" class=""><span class="menu-title">News Styles</span></a></li>
+    </ul>
 </li>
 </ul>
 </li>
 <li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="news/index.html" class=""><span class="menu-title">Forum</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
-	<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
-	<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
-	<li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
-	<li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
+    <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
+    <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
+    <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
+    <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
+    <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
 </ul>
 </li>
 <li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
 </ul></div>                </nav>
             </div>
-    	</div>
+        </div>
     </div>
 
 </div><!-- #site-navigation -->
 
 
-	</header><!-- #masthead -->
+    </header><!-- #masthead -->
                     <!-- #page-title -->
 
 
@@ -403,16 +404,16 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
         </div>
         <script type='text/javascript' src='wp-content/themes/book-junky/assets/js/Slide.js'></script>
 
-	<div id="content" class="site-content">
+    <div id="content" class="site-content">
 <div id="primary" class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <main id="main" class="site-main">
 
                 <article id="post-271" class="post-271 page type-page status-publish hentry">
-	<div class="entry-content">
+    <div class="entry-content">
 
-			<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503973713559 vc_row-has-fill"><div class="column-fill wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">        <div class="carousel-product extend-right">
+            <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503973713559 vc_row-has-fill"><div class="column-fill wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">        <div class="carousel-product extend-right">
 
 
 <p class="title-carousel">LES MEILLEURES VENTES DE LA SEMAINE</p>
@@ -569,8 +570,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
                             <div class="wpb_wrapper">
-			
-			<aside id="recent_product-2" class="widget-home widget_recent_product">
+            
+            <aside id="recent_product-2" class="widget-home widget_recent_product">
                 <h3 class="wg-home-title">LES NOUVEAUTÉS</h3>
                 <?php
 
@@ -626,8 +627,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
     }
     ?>
             </aside>
-		</div>
-	</div>
+        </div>
+    </div>
 </div></div></div><div class="column-cont-right wpb_column vc_column_container vc_col-sm-12 vc_col-lg-9 vc_col-md-9">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
@@ -635,29 +636,29 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
-    		<div class="cms-grid-wraper grid-2 extend-space" id="cms-grid">
-    				 <div class="cms-grid-filter clearfix">
-	    			       <h3 class="title">PAR GENRE</h3>
-	    				 <ul class="cms-filter-category list-unstyled list-inline">
-			                <li><a class="active" href="index.php" data-group="all">Tous</a></li>
+            <div class="cms-grid-wraper grid-2 extend-space" id="cms-grid">
+                     <div class="cms-grid-filter clearfix">
+                           <h3 class="title">PAR GENRE</h3>
+                         <ul class="cms-filter-category list-unstyled list-inline">
+                            <li><a class="active" href="index.php" data-group="all">Tous</a></li>
 
-			               <li>
+                           <li>
                                <a href="index.php?Category=CULTURE" data-group="category-comedy">Culture</a>
-			                    </li>
-			                    <li>
+                                </li>
+                                <li>
                                 <a href="index.php?Category=LOISIRS" data-group="category-romance">Loisirs</a>
-			                    </li>
-			                	<li>
+                                </li>
+                                <li>
                                     <a href="index.php?Category=TECHNOLOGIE" data-group="category-thriller">Technologies</a>
-			                    </li>
-			                	<li>
+                                </li>
+                                <li>
                                     <a href="index.php?Category=ARTS" data-group="category-media">Arts</a>
-			                    </li>
-			                	<li>
+                                </li>
+                                <li>
                                     <a href="index.php?Category=CUISINE" data-group="category-cooking">Cuisine</a>
-			                    </li>
+                                </li>
                          </ul>
-			    </div>
+                </div>
                 <div class="row cms-grid cms-grid-masonry-2">
                 <?php
                 $LCore=new LivreCore();
@@ -690,7 +691,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
      data-groups='["all","category-comedy","category-thriller"]'>
     <figure class="zoom_livre" >
     <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 20px #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -20px #e9e7e8';">
-                     <a href="shop/Livres/index?Livre=<?php echo $row['ID'];?>">
+                     <a href="shop/Livres/index.php?Livre=<?php echo $row['ID'];?>">
                       <img alt="<?php echo $row['CATEGORY'];?>" title="<?php echo $row['DESCRIPTION'];?>" width="330" height="500" src="<?php echo $row['IMG_PATH']?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" />
                          <figcaption class="category_text"><?php echo $row['CATEGORY'];?></figcaption>
                      </a>
@@ -742,49 +743,49 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                                     <span class="vc_empty_space_inner"></span></div>
 
                                                 <div class="cms-category">
-			<div class="row">
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/thriller/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/cate-thrillers.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Thriller</h5>
-			    				<h6>Edge of your seat type and more think</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/romance/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/cate-romantic.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Romance</h5>
-			    				<h6>Fall in love with a book today</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/children/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/childrens.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Childrens</h5>
-			    				<h6>Amazing stories for kids</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-							</div>
-		</div>
-	</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid">
+            <div class="row">
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/thriller/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/cate-thrillers.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Thriller</h5>
+                                <h6>Edge of your seat type and more think</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/romance/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/cate-romantic.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Romance</h5>
+                                <h6>Fall in love with a book today</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/children/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/childrens.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Childrens</h5>
+                                <h6>Amazing stories for kids</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
                   <div class="vc_column-inner ">
            <div class="wpb_wrapper">
@@ -794,86 +795,86 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
       </a></div></div></div></div></div></div>
     <div class="vc_empty_space"   style="height: 12px" ><span class="vc_empty_space_inner"></span></div>
 
-    		<div class="cms-grid-wraper grid-2 extend-space" id="cms-grid-2">
-    			 
+            <div class="cms-grid-wraper grid-2 extend-space" id="cms-grid-2">
+                 
 
-			    <div class="row cms-grid">
+                <div class="row cms-grid">
 <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/index.html"><img width="330" height="500" src="wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/shattered/index.html">Shattered</a>
-				                <p class="product-author">by: Peter Cawdron</p>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/index.html"><img width="330" height="500" src="wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/shattered/index.html">Shattered</a>
+                                <p class="product-author">by: Peter Cawdron</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="shop/freefall/index.html"><img width="330" height="500" src="wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/freefall/index.html">Freefall</a>
-				                <p class="product-author">by: Peter Cawdron</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="shop/freefall/index.html"><img width="330" height="500" src="wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/freefall/index.html">Freefall</a>
+                                <p class="product-author">by: Peter Cawdron</p>
 
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="shop/darknet/index.html"><img width="330" height="500" src="wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/darknet/index.html">Darknet</a>
-				                <p class="product-author">by: Matthew Mather</p>
+                                
+    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="shop/darknet/index.html"><img width="330" height="500" src="wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/darknet/index.html">Darknet</a>
+                                <p class="product-author">by: Matthew Mather</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="shop/holy-ghosts/index.html"><img width="330" height="500" src="wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/holy-ghosts/index.html">Holy Ghosts</a>
-				                <p class="product-author">by: David J. Schmidt</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="shop/holy-ghosts/index.html"><img width="330" height="500" src="wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/holy-ghosts/index.html">Holy Ghosts</a>
+                                <p class="product-author">by: David J. Schmidt</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/radical_gardening.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html">Radical Gardening</a>
-				                <p class="product-author">by: George McKay</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/radical_gardening.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html">Radical Gardening</a>
+                                <p class="product-author">by: George McKay</p>
 
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>4.00</span></span>
-							</div>
-			            </div>
-			            			    </div>
+                                
+    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>4.00</span></span>
+                            </div>
+                        </div>
+                                        </div>
 
-			    			</div>
+                            </div>
 
-    	<div class="cms-button-wrapper text-center " id="cms-button">
+        <div class="cms-button-wrapper text-center " id="cms-button">
 
     <a class="text-center" target="_self" href="#" 
     style="transition: all 0.5s ease 0s ; background: #ffffff; color: #7e5bef; border: 1px solid #7e5bef; border-radius:6px; width:155px;" onmouseout="this.style.color='#7e5bef';this.style.background='#ffffff';this.style.borderColor='#7e5bef';" onmouseover="this.style.background='#7e5bef';this.style.color='#ffffff';this.style.borderColor='#7e5bef';">
         Voir plus    </a>
 </div>
 </div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1504086144605 vc_row-has-fill row-gradient-color">
-	<div class="gradient-color" 
-		style="
-			height: 100%;
-		    background: #6b4dcc;   
-		    background: -webkit-linear-gradient(#6b4dcc , #523bc9);
-		    background: -o-linear-gradient(#6b4dcc, #523bc9);
-		    background: -moz-linear-gradient(#6b4dcc, #523bc9);
-		    background: linear-gradient(#6b4dcc , #523bc9);
-		    opacity: 1;
-		">
-	</div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1505871144817"><div class="wpb_wrapper"><div class="wrap-cms-popuplar-book">
+    <div class="gradient-color" 
+        style="
+            height: 100%;
+            background: #6b4dcc;   
+            background: -webkit-linear-gradient(#6b4dcc , #523bc9);
+            background: -o-linear-gradient(#6b4dcc, #523bc9);
+            background: -moz-linear-gradient(#6b4dcc, #523bc9);
+            background: linear-gradient(#6b4dcc , #523bc9);
+            opacity: 1;
+        ">
+    </div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1505871144817"><div class="wpb_wrapper"><div class="wrap-cms-popuplar-book">
     <div class="row">
         <div class="most-popular-info col-xs-12 col-md-4 col-lg-3">
             <p class="title-1">our</p>
@@ -986,10 +987,10 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 </div></div></div></div><div class="vc_row-full-width"></div>
 
-	</div><!-- .entry-content -->
-	<footer class="edit-page">
+    </div><!-- .entry-content -->
+    <footer class="edit-page">
 
-				</footer><!-- .entry-meta -->
+                </footer><!-- .entry-meta -->
 </article><!-- #post -->
 
             </main><!-- .site-main -->
