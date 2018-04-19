@@ -1,0 +1,1 @@
+<?phpinclude "../../../../Config.php";function getRate($ID_C,$ID_L){    $sql=Connexion::getConnexion()->prepare("select RATE from rating WHERE ID_COMPTE='$ID_C' AND ID_LIVRE='$ID_L' ");    $sql->execute();    while($result=$sql->fetch(PDO::FETCH_ASSOC))    {        return $result['RATE'];    }}echo getRate($_GET['idCompte'],$_GET['idLivre']);?>

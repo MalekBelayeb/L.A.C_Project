@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="df3eb908-0c82-4327-b5b5-43b8b233eaf3" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="616" column="137" lean-forward="true" selection-start-line="616" selection-start-column="29" selection-end-line="616" selection-end-column="137" />
+              <folding>
+                <marker date="1524132225789" expanded="true" signature="181:233" ph="select * fro... bibliotheque" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LivreCore.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/LivreCore.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="29" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/shop/Livres/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-378">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="49" selection-end-column="1" />
+              <folding>
+                <marker date="1523974648550" expanded="true" signature="219:293" ph="select * fro... bibliotheque" />
+                <marker date="1523974648550" expanded="true" signature="596:664" ph="select * fro... rating" />
+                <marker date="1523974648550" expanded="true" signature="970:1007" ph="select ${$at... livre" />
+                <marker date="1523974648550" expanded="true" signature="1219:1287" ph="select RATE rating" />
+                <marker date="1523974648550" expanded="true" signature="1481:1531" ph="select * fro... bibliotheque" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Check_mail.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/Verif/Check_mail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding>
+                <marker date="1523654144957" expanded="true" signature="108:148" ph="select * fro... compte" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuteurCore.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/AuteurCore.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <marker date="1524129432210" expanded="true" signature="189:210" ph="select * fro... auteurs" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Auteur.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Entity/Auteur.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="702">
+              <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Check_username.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/Verif/Check_username.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1107">
+              <caret line="41" column="1" lean-forward="false" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+              <folding>
+                <marker date="1523738804784" expanded="true" signature="112:154" ph="select * fro... compte" />
+                <marker date="1523738804784" expanded="true" signature="450:490" ph="select * fro... compte" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/author-profile/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+              <folding>
+                <element signature="e#36371#36376#0#HTML" expanded="true" />
+                <element signature="e#36813#36818#0#HTML" expanded="true" />
+                <marker date="1524137688711" expanded="true" signature="124:167" ph="select ${$at... auteurs" />
+                <marker date="1524137688711" expanded="true" signature="388:429" ph="select ${$at... livre" />
+                <marker date="1524137688711" expanded="true" signature="905:1247" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goe.html" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Documents/GitHub/L.A.C_Project/goe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <marker date="1524081082018" expanded="true" signature="215:267" ph="select * fro... bibliotheque" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>woocommerce</find>
+      <find>bj-color-#7151ed</find>
+      <find>design</find>
+      <find>woocommerce-product-rating</find>
+      <find>bj-rating-counts</find>
+      <find>star-rating</find>
+      <find>radio</find>
+      <find>rating</find>
+      <find>Verif_connexion</find>
+      <find>ff-label</find>
+      <find>content</find>
+      <find>menu-title</find>
+      <find>go_to_login_link</find>
+      <find>container</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\wamp64\www\AvenirCulturel\Views\wp-content\plugins</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Autoloader.php" />
+        <option value="$PROJECT_DIR$/Core/RankingCore.php" />
+        <option value="$PROJECT_DIR$/Views/wp-content/themes/book-junky/assets/css/Slide.css" />
+        <option value="$PROJECT_DIR$/Entity/bibliotheque.php" />
+        <option value="$PROJECT_DIR$/Entity/Bibliotheque.php" />
+        <option value="$PROJECT_DIR$/Core/LoginCore.php" />
+        <option value="$PROJECT_DIR$/Views/book-displays/index.html" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/index.html" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/Bib.php" />
+        <option value="$PROJECT_DIR$/Core/BibliothequeCore.php" />
+        <option value="$PROJECT_DIR$/Core/LivreCore.php" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/Rating/Rating.php" />
+        <option value="$PROJECT_DIR$/Entity/Compte.php" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/Rating/getRate.php" />
+        <option value="$PROJECT_DIR$/Core/ParametresCompte.php" />
+        <option value="$PROJECT_DIR$/Views/ADMIN/index.php" />
+        <option value="$PROJECT_DIR$/Views/ADMIN/tables.php" />
+        <option value="$PROJECT_DIR$/Views/ADMIN/navbar.php" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/BibliothequeCore.php" />
+        <option value="$USER_HOME$/Desktop/facebook_login.php" />
+        <option value="$PROJECT_DIR$/facebook_login.php" />
+        <option value="$PROJECT_DIR$/Core/google_login_api_HRWNdR/User.php" />
+        <option value="$PROJECT_DIR$/Core/google_login_api_HRWNdR/gpConfig.php" />
+        <option value="$PROJECT_DIR$/../googleapi/gpConfig.php" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/Rating/fontawesome-all.js" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/Rating/Get_rate_ajx.js" />
+        <option value="$PROJECT_DIR$/Core/DeconnexionCore.php" />
+        <option value="$PROJECT_DIR$/Views/Verif/Check_mail.php" />
+        <option value="$PROJECT_DIR$/../Atelier4/Views/AjouterCompte.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Core/AjoutCompte.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Entities/compteepargne.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteCourantCore.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteEpargneCore.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteCore.php" />
+        <option value="$USER_HOME$/Desktop/TP4_correctionPart1/Entities/comptecourant.php" />
+        <option value="$PROJECT_DIR$/Views/Verif/Check_username.php" />
+        <option value="$PROJECT_DIR$/../test/Views/index.php" />
+        <option value="$PROJECT_DIR$/Views/wp-content/themes/book-junky/assets/css/mail.css" />
+        <option value="$PROJECT_DIR$/Core/OublieCore.php" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/Rating/RankingCore.php" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/ParametresCompte.php" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/DonnesProfile.php" />
+        <option value="$USER_HOME$/Desktop/bookjunky/wp-content/themes/book-junky/assets/css/scrollablemenu.css" />
+        <option value="$PROJECT_DIR$/Views/wp-content/themes/book-junky/assets/css/scrollablemenu.css" />
+        <option value="$PROJECT_DIR$/Views/shop/Livres/index.php" />
+        <option value="$PROJECT_DIR$/Views/user-profile/book-shelf/index.php" />
+        <option value="$PROJECT_DIR$/Core/CompteCore.php" />
+        <option value="$PROJECT_DIR$/Entity/Auteur.php" />
+        <option value="$PROJECT_DIR$/Core/AuteurCore.php" />
+        <option value="$PROJECT_DIR$/Views/index.php" />
+        <option value="$PROJECT_DIR$/Views/author-profile/index.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/facebook/graph-sdk" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-35" />
+    <option name="y" value="94" />
+    <option name="width" value="1378" />
+    <option name="height" value="733" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Core" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="author-profile" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AvenirCulturel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AvenirCulturel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Verif" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last.edited.regexp" value="555yyyy//" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Atelier3/Entity/Employe.php" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="princip&#9;FILE&#9;file://C:/wamp64/www/AvenirCulturel/Views/shop/principals-of-agricultural-economics" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Atelier3\Core" />
+      <recent name="C:\wamp64\www" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Rating" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/Views/shop/Livres/Rating" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.Rating" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df3eb908-0c82-4327-b5b5-43b8b233eaf3" name="Default" comment="" />
+      <created>1520858871903</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520858871903</updated>
+      <workItem from="1520858873169" duration="700000" />
+      <workItem from="1520860372641" duration="217000" />
+      <workItem from="1520861795897" duration="8234000" />
+      <workItem from="1520947320860" duration="4255000" />
+      <workItem from="1520968519725" duration="1711000" />
+      <workItem from="1520985969019" duration="95000" />
+      <workItem from="1521037218595" duration="712000" />
+      <workItem from="1521038909778" duration="1616000" />
+      <workItem from="1521056626072" duration="4684000" />
+      <workItem from="1521109806692" duration="2937000" />
+      <workItem from="1521121906278" duration="150000" />
+      <workItem from="1521122271858" duration="15737000" />
+      <workItem from="1521198041497" duration="712000" />
+      <workItem from="1521390816780" duration="19684000" />
+      <workItem from="1521484049030" duration="6453000" />
+      <workItem from="1521502228261" duration="5185000" />
+      <workItem from="1521549963066" duration="15126000" />
+      <workItem from="1521654543240" duration="8870000" />
+      <workItem from="1521674847436" duration="6969000" />
+      <workItem from="1521727563834" duration="9901000" />
+      <workItem from="1521755148802" duration="13556000" />
+      <workItem from="1521826582940" duration="9618000" />
+      <workItem from="1521853285579" duration="2093000" />
+      <workItem from="1521908183335" duration="20878000" />
+      <workItem from="1521984750487" duration="24577000" />
+      <workItem from="1522069714344" duration="2659000" />
+      <workItem from="1522080430337" duration="4122000" />
+      <workItem from="1522101619124" duration="8405000" />
+      <workItem from="1522124662868" duration="17662000" />
+      <workItem from="1522222575171" duration="1575000" />
+      <workItem from="1522231362246" duration="21766000" />
+      <workItem from="1522333494240" duration="5029000" />
+      <workItem from="1522367742073" duration="1474000" />
+      <workItem from="1522422325287" duration="3806000" />
+      <workItem from="1522500461786" duration="976000" />
+      <workItem from="1522640788563" duration="1577000" />
+      <workItem from="1522665518813" duration="5638000" />
+      <workItem from="1522691014932" duration="13084000" />
+      <workItem from="1522757557952" duration="2458000" />
+      <workItem from="1522760439422" duration="4074000" />
+      <workItem from="1522768899051" duration="158000" />
+      <workItem from="1522785969496" duration="3771000" />
+      <workItem from="1522845388704" duration="6395000" />
+      <workItem from="1522869955881" duration="3660000" />
+      <workItem from="1522877535617" duration="1702000" />
+      <workItem from="1522918720285" duration="2013000" />
+      <workItem from="1523529465201" duration="129000" />
+      <workItem from="1523530671139" duration="913000" />
+      <workItem from="1523556563351" duration="6285000" />
+      <workItem from="1523614931799" duration="5264000" />
+      <workItem from="1523640618566" duration="9359000" />
+      <workItem from="1523693850227" duration="4707000" />
+      <workItem from="1523737319879" duration="10003000" />
+      <workItem from="1523792811628" duration="11481000" />
+      <workItem from="1523972257027" duration="4587000" />
+      <workItem from="1524080528379" duration="3892000" />
+      <workItem from="1524126300343" duration="136000" />
+      <workItem from="1524127757539" duration="5006000" />
+      <workItem from="1524134761078" duration="3780000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="362216000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-35" y="94" width="1378" height="733" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16691957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0022761761" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.044407893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Core/LoginCore.php</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Entity/Compte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autoloader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/facebook_login.php" />
+    <entry file="file://$PROJECT_DIR$/facebook_login.php" />
+    <entry file="file://$PROJECT_DIR$/Core/google_login_api_HRWNdR/User.php" />
+    <entry file="file://$PROJECT_DIR$/Core/google_login_api_HRWNdR/gpConfig.php" />
+    <entry file="file://$PROJECT_DIR$/../googleapi/index.php" />
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/Rating/fontawesome-all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/Rating/Get_rate_ajx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../googleapi/gpConfig.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="241" column="15" lean-forward="true" selection-start-line="241" selection-start-column="15" selection-end-line="241" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/Views/Ajouter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/Views/Modifier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/Rating/Rating.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Views/ajoutCompte.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Core/AjoutCompte.php" />
+    <entry file="file://$PROJECT_DIR$/../Atelier4/Views/AjouterCompte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Entities/employe.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Entities/compteepargne.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Entities/compte.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Entities/comptecourant.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteCore.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteCourantCore.php" />
+    <entry file="file://$USER_HOME$/Desktop/TP4_correctionPart1/Core/CompteEpargneCore.php" />
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/Abibliotheque_ajx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/Views/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/ParametresCompte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/wp-content/themes/book-junky/assets/css/mail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/Bibliotheque.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/Rating/RankingCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="98" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/DonnesProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9585">
+          <caret line="355" column="50" lean-forward="false" selection-start-line="355" selection-start-column="50" selection-end-line="355" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/ParametresCompte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2106">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/bookjunky/wp-content/themes/book-junky/assets/css/scrollablemenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/wp-content/themes/book-junky/assets/css/scrollablemenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/DeconnexionCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/BibliothequeCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2106">
+          <caret line="78" column="5" lean-forward="false" selection-start-line="67" selection-start-column="3" selection-end-line="78" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/OublieCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/CompteCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="62" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/LoginCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="33" column="9" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <marker date="1522011161850" expanded="true" signature="270:294" ph="select LOGIN... compte" />
+            <marker date="1522011161850" expanded="true" signature="564:619" ph="select MDP f... compte" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/user-profile/book-shelf/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1524081082018" expanded="true" signature="215:267" ph="select * fro... bibliotheque" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/LivreCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="29" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Entity/Auteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Verif/Check_mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <marker date="1523654144957" expanded="true" signature="108:148" ph="select * fro... compte" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Verif/Check_username.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="41" column="1" lean-forward="false" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+          <folding>
+            <marker date="1523738804784" expanded="true" signature="112:154" ph="select * fro... compte" />
+            <marker date="1523738804784" expanded="true" signature="450:490" ph="select * fro... compte" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="616" column="137" lean-forward="true" selection-start-line="616" selection-start-column="29" selection-end-line="616" selection-end-column="137" />
+          <folding>
+            <marker date="1524132225789" expanded="true" signature="181:233" ph="select * fro... bibliotheque" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/AuteurCore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1524129432210" expanded="true" signature="189:210" ph="select * fro... auteurs" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/shop/Livres/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="49" selection-end-column="1" />
+          <folding>
+            <marker date="1523974648550" expanded="true" signature="219:293" ph="select * fro... bibliotheque" />
+            <marker date="1523974648550" expanded="true" signature="596:664" ph="select * fro... rating" />
+            <marker date="1523974648550" expanded="true" signature="970:1007" ph="select ${$at... livre" />
+            <marker date="1523974648550" expanded="true" signature="1219:1287" ph="select RATE rating" />
+            <marker date="1523974648550" expanded="true" signature="1481:1531" ph="select * fro... bibliotheque" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/author-profile/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="e#36371#36376#0#HTML" expanded="true" />
+            <element signature="e#36813#36818#0#HTML" expanded="true" />
+            <marker date="1524137688711" expanded="true" signature="124:167" ph="select ${$at... auteurs" />
+            <marker date="1524137688711" expanded="true" signature="388:429" ph="select ${$at... livre" />
+            <marker date="1524137688711" expanded="true" signature="905:1247" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/GitHub/L.A.C_Project/goe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
