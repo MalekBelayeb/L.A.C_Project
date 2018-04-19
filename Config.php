@@ -17,6 +17,22 @@ class Connexion
             die( "Echec de connexion".$e->getMessage());
         }
         return self::$connexion;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 }
 //Connexion::getConnexion();
