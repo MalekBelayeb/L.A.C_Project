@@ -65,6 +65,25 @@
               </li>
           </ul>
         </li>
+
+
+ <li class="nav-item" data-toggle="tooltip" data-placement="right" title="livraison">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapselivraison" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">livraison</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapselivraison">
+            <li>
+              <a href="livraison1.php">livraison</a>
+            </li>
+            <li>
+              <a href="register.php">livreur</a>
+            </li>
+           
+          </ul>
+        </li>
+
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>

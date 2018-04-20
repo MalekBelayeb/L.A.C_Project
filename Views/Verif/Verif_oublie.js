@@ -7,7 +7,7 @@ $(document).ready(function(){
 
            $.ajax({
               
-     url:"http://localhost/AvenirCulturel/Core/OublieCore.php?username="+username+"&"+"email="+email,
+     url:"http://localhost/version0/Core/OublieCore.php?username="+username+"&"+"email="+email,
       success:function(data)
          {
              if(data!=1)
@@ -47,7 +47,7 @@ var username=$("#nom_utilisateur").val();
 
               $.ajax({
               
-     url:"http://localhost/AvenirCulturel/Core/OublieCore.php?username="+username+"&"+"email="+email,
+     url:"http://localhost/version0/Core/OublieCore.php?username="+username+"&"+"email="+email,
       success:function(data)
          {
              

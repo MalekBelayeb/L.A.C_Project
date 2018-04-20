@@ -195,7 +195,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                     }
                         ?>
 <a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id']; ?> </strong>
+    <strong> <?php echo $_SESSION['id'];
+                    echo $_SESSION['NOM'] ?> </strong>
 </a>
                                   <?php
                                 }
@@ -565,7 +566,11 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503975536992 vc_row-has-fill"><div class="column-wg-left wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div  class="wpb_widgetised_column wpb_content_element">
+
+
+
                             <div class="wpb_wrapper">
+			
 			<aside id="recent_product-2" class="widget-home widget_recent_product">
                 <h3 class="wg-home-title">LES NOUVEAUTÉS</h3>
                 <?php
@@ -686,7 +691,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
      data-groups='["all","category-comedy","category-thriller"]'>
     <figure class="zoom_livre" >
     <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 20px #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -20px #e9e7e8';">
-                     <a href="shop/Livres/index?Livre=<?php echo $row['ID'];?>">
+                     <a href="shop/Livres/index.php?Livre=<?php echo $row['ID'];?>">
                       <img alt="<?php echo $row['CATEGORY'];?>" title="<?php echo $row['DESCRIPTION'];?>" width="330" height="500" src="<?php echo $row['IMG_PATH']?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" />
                          <figcaption class="category_text"><?php echo $row['CATEGORY'];?></figcaption>
                      </a>
