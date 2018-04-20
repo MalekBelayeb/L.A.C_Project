@@ -262,14 +262,102 @@
       </ol>
 
 
-      <a class="btn btn-primary" href="afficherLivraison_admin1.php" id="toggleNavPosition">afficher laivraison adomicile</a>
-      <a class="btn btn-primary" href="afficherlaivraison_poste.php" id="toggleNavColor">afficher laivraison pose </a>
+
+    <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+             <?php
+                             include "core/laivraison_postC.php";
+                             $employe1C=new laivraison_posteC();
+                             $listeEmployes=$employe1C->afficherLaivraison_p();
+
+                             
+
+                                
+                             ?>
 
 
-      <a class="btn btn-primary" href="pourcentageutilisateur.php" id="toggleNavColor">Percentage des utilisateur et leur livraison </a>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>code_Livraison</th>
+                  <th>nom</th>
+                  <th>prenom</th>
+                  <th>code_postale</th>
+                  <th>ville</th>
+                  <th>mail</th>
+                  <th>num_tel</th>
+                  <th>code_livre</th>
+                  <th>date_laivraison_p</th>
+                  
+
+
+                 
+                  
+                  
+
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                   <th>code_Livraison</th>
+                  <th>nom</th>
+                  <th>prenom</th>
+                  <th>code_postale</th>
+                  <th>ville</th>
+                  <th>mail</th>
+                  <th>num_tel</th>
+                  <th>code_livre</th>
+                  <th>date_laivraison_p</th>
+                  
+                  
+                  
+                </tr>
+              </tfoot>
+              <tbody>
+                <?PHP
+foreach($listeEmployes as $row){
+    ?>
+
+    <tr>
+   <td><?PHP echo $row['code_Livraison_p']; ?></td>
+    <td><?PHP echo $row['nom']; ?></td>
+    <td><?PHP echo $row['prenom']; ?></td>
+    <td><?PHP echo $row['code_postale']; ?></td> 
+    <td><?PHP echo $row['ville']; ?></td>
+    <td><?PHP echo $row['mail']; ?></td>
+    <td><?PHP echo $row['num_tel']; ?></td>
+    <td><?PHP echo $row['code_livre']; ?></td>
+    <td><?PHP echo $row['date_laivraison_p']; ?></td>
+
+
+    
+
+   
+    </tr>
+
+     <?PHP
+}
+?>
 
 
 
+
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+                <br>
+
+        <br>
+
+
+      
       
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

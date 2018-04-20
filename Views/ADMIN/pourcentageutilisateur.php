@@ -253,24 +253,65 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+
+
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">livreur</li>
       </ol>
+      <h1>pourcentage des utilisateurs et leurs livraisons</h1>
+      <hr>
+     
+  <?php  
+
+include_once"config.php";
+$connect =config::getconnexion();
+ $query = "SELECT nom, count(*) as number FROM laivraison GROUP BY nom";  
+ $res = $connect->query($query);  
+ ?> 
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+           <script type="text/javascript">  
+           google.charts.load('current', {'packages':['corechart']});  
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+                var data = google.visualization.arrayToDataTable([  
+                          ['ff', 'Number'],  
+                          <?php  
+                          while($row =$res->fetch())  
+                          {  
+                               echo "['".$row["nom"]."', ".$row["number"]."],";  
+                          }  
+                          ?>  
+                     ]);  
+                var options = {  
+                      title: '',  
+                      //is3D:true,  
+                      pieHole: 0.4  
+                     };  
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
+                chart.draw(data, options);  
+           }  
+           </script>  
+
+            <br /><br />  
+           <div style="width:900px;">  
+                  
+                <br />  
+                <div id="piechart" style="width: 900px; height: 500px;"></div>  
+           </div>  
 
 
-      <a class="btn btn-primary" href="afficherLivraison_admin1.php" id="toggleNavPosition">afficher laivraison adomicile</a>
-      <a class="btn btn-primary" href="afficherlaivraison_poste.php" id="toggleNavColor">afficher laivraison pose </a>
-
-
-      <a class="btn btn-primary" href="pourcentageutilisateur.php" id="toggleNavColor">Percentage des utilisateur et leur livraison </a>
 
 
 
-      
+      <!-- Blank div to give the page height to preview the fixed vs. static navbar-->
+      <div style="height: 1000px;"></div>
+    </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -307,15 +348,26 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+    <!-- Toggle between fixed and static navbar-->
+    <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    });
+
+    </script>
+    <!-- Toggle between dark and light navbar-->
+    <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
+
+    </script>
   </div>
 </body>
 
