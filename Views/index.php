@@ -771,14 +771,14 @@ $count=0;
 
 
                     <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #e9e7e8">
-                        <a href="shop/shattered/index.html">
+                        <a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>">
                             <img src="wp-content/uploads/<?= $product['IMAGE']?>"
                              alt="Thumbnail">
                          </a>
                     </div>
 
                     <div class="contents">
-                        <a href="shop/shattered/index.html" class="title">
+                        <a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>" class="title">
                            <?php echo $product['NOM']; ?>                        </a>
                         <div class="author-product">
                             by <?php echo $donnes_auteur['NOM']; ?>                        </div>
@@ -905,9 +905,9 @@ $bks = $book->afficher_book();
 
                     
                         <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/profil.php?id_book=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
                             <div class="info-product">
-                                <a class="product-title" href="shop/shattered/profil.php?id_book=<?php echo $product['ID'] ?>"><?php  echo $product['NOM'] ; ?></a>
+                                <a class="product-title" href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><?php  echo $product['NOM'] ; ?></a>
                                 <p class="product-author">by: <?php echo $donnes_auteur['NOM'] ;   ?></p>                           
     <span class="price"><del><span class="woocommerce-Price-amount amount">
 

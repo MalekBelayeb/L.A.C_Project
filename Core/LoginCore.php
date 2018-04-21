@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once '../Config.php';
-include '../Entity/Login.php';
+include_once 'C:/wamp64/www/AvenirCulturel/Config.php';
+include 'C:/wamp64/www/AvenirCulturel/Entity/Login.php';
 
 class LoginCore extends Login
 {
