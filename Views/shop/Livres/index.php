@@ -3,12 +3,37 @@
 
 <html lang="en-US">
 <?php
+
+
+include_once "C:/wamp64/www/AvenirCulturel/Core/auteurcore.php";
+
+include_once "../../../core/commentaireCore.php";
+include_once "../../../core/usercore.php";
+
+
+$user = new Usercore();
+
+
+$commentaire = New commentaireCore();
+
+
+
+
+
+//$auteur = New Auteurcore();
+
+
+
+
+
 if(session_status()==PHP_SESSION_NONE)
 {
     session_start();
 }
 
-include "../../../Config.php";
+include_once "../../../Config.php";
+
+
  function Existe($livre,$compte)
 {
     $c=Connexion::getConnexion();
@@ -41,7 +66,7 @@ function existeRate($compte,$livre)
 }
 function getONE($atribute,$condition)
 {
-    $sql=Connexion::getConnexion()->prepare("select $atribute from livre WHERE ID=$condition ");
+    $sql=Connexion::getConnexion()->prepare("select $atribute from book WHERE ID=$condition ");
     $sql->execute();
     while($result=$sql->fetch(PDO::FETCH_ASSOC))
     {
@@ -290,7 +315,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 	<li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="../../homepage-5/index.html" class=""><span class="menu-title">HomePage 5</span></a></li>
 </ul>
 </li>
-                            <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="#" class=""><span class="menu-title">Catalogue</span></a>
+                            <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">aaaa</span></a>
                                 <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
                                     <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
                                         <ul class='   sub-menu' style="">
@@ -373,9 +398,49 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 	</header><!-- #masthead -->
     <!-- #page-title -->
+
+
+
 	<div id="content" class="site-content">
-		
-			    <div class="page-title-product_2" style="background-color: #bcbabb;">
+
+
+
+
+
+
+    <?php 
+
+
+
+include_once "../../../config.php";
+include_once "../../../core/bookcore.php";
+include_once "../../../core/auteurcore.php";
+
+
+
+$book = New Bookcore();
+$auteur = New Auteurcore();
+
+
+$donnees = $book->Get_Livre_id($_GET['Livre']);
+
+
+$nbr_comm = $commentaire->Nbr_Commentaire($_GET['Livre']);
+
+
+
+$donnes_auteur = $auteur->Recupere_auteur_id ($donnees["AUTHOR"]);
+
+
+
+
+
+ ?>
+
+
+
+
+                <div class="page-title-product_2" style="background-color: <?php echo $donnees['couleur']; ?>;">
 
         <div class="container">
 
@@ -386,16 +451,16 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                     <div class="wrap-thumbnail"
                          style="box-shadow: 0 5px 15px -5px #e9e7e8">
 
-                        <img width="330" height="500" src="../../<?php echo getONE('IMG_PATH',$_GET['Livre']); ?>" class="attachment-shop_catalog_image_size size-shop_catalog_image_size wp-post-image" alt="" />                    </div>
+                        <img width="330" height="500" src="../../wp-content/uploads/<?php  echo $donnees['IMAGE']; ?> " class="attachment-shop_catalog_image_size size-shop_catalog_image_size wp-post-image" alt="" />                    </div>
 
                     <div class="wrap-content">
 
                         <div class="author" style="color:black;">
-                            <img src="../../wp-content/uploads/man_author_8.jpg"
+                            <img src="../../wp-content/uploads/<?php echo $donnes_auteur['IMAGE']; ?>"
                                  alt="">
-                            <?php echo getONE('AUTEUR',$_GET['Livre']); ?>                     </div>
+                            <?php echo $donnes_auteur['NOM']; ?>                      </div>
 
-                        <h4 style="color:black;"><?php echo getONE('NOM',$_GET['Livre']); ?> </h4>
+                        <h4 style="color:black;"><?php    echo $donnees['NOM']; ?></h4>
 
                         <div><div class="woocommerce">
                 <div class="woocommerce-product-rating">
@@ -404,9 +469,9 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                 </span><span class="bj-rating-counts" style="color:#7151ed;">0 Ratings</span></div>
                 </div></div>
 
-                        <p  style="color:black;"><?php echo getONE('DESCRIPTION',$_GET['Livre']); ?></p>
+                        <p  style="color:black;"><?php   echo $donnees['OVERVIEW'];  ?></p>
 
-                        <script>
+                       <script>
                             function redirect()
                             {
                                 setTimeout((function(){location.replace('http://localhost/AvenirCulturel/Views/user-profile/book-shelf/BibliothequeCore.php?Livre=<?php echo $_GET['Livre']; ?>');
@@ -415,9 +480,40 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </script>
                         <div class="wrap-button">
 
-	                        <form class="cart" method="post" enctype='multipart/form-data'>
-		                    <button type="submit" name="add-to-cart" value="388" class="single_add_to_cart_button alt <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">Acheter <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo getONE('ANCIEN_PRIX',$_GET['Livre']); ?></span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo getONE('PRIX',$_GET['Livre']); ?></span></ins></button>
-		                	</form>
+                       
+
+
+    <form class="cart" method="post" enctype='multipart/form-data'>
+        
+        <button type="submit" name="add-to-cart" value="388" class="single_add_to_cart_button alt">Buy <del>
+
+       
+
+
+
+        <?php
+
+if ($donnees['REDUCTION']!=0)
+{
+   echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></del>'; 
+
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['REDUCTION'].'</span></ins>';
+}else    {
+
+       echo  '<span class="woocommerce-Price-currencySymbol"></span></span></del>'; 
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></ins>';
+
+
+
+}
+?>
+
+
+
+
+        </button>
+
+            </form>
 
 
 
@@ -434,9 +530,36 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
 
 
                         </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     </div>
+
+
+
                 </div>
             </div>
         </div>
@@ -452,62 +575,64 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
             <li>
                 <div class="info-single-title">Genre:</div>
                 <span>
-                     <a href="../../product-category/thriller/index.html" rel="tag"><?php echo getONE('CATEGORY',$_GET['Livre']); ?></a>                </span>
-            </li>
+                    <a href="../index.php?s=&product_cat=<?php echo $donnees['GNERE']; ?>&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" rel="tag"><?php     echo $donnees['GNERE'];   ?></a>               </span>
+            </li>   
             <li>
                 <div class="info-single-title">Originally Published:</div>
                 <span>
-                    NA                </span>
+                    <?php   echo $donnees['ORIGINALITE'];  ?>                </span>
             </li>
             <li>
                 <div class="info-single-title">Hardcover:</div>
                 <span>
-                    NA                </span>
+                    <?php   echo $donnees['HARDCOVER'];  ?>               </span>
             </li>
             <li>
-                <div class="info-single-title">Language: </div>
+                <div class="info-single-title">Language:</div>
                 <span>
-                    <?php echo getONE('LANGUAGE',$_GET['Livre']); ?>                </span>
+                    <?php   echo $donnees['LANGUAGE'];  ?>             </span>
             </li>
         </ul>
                     </div>
                                 <div class="wrap-overview">
-                    <h3>DESCRIPTION</h3>
+                    <h3>Overview</h3>
                     <div class="content">
-                        <p><?php echo getONE('DESCRIPTION',$_GET['Livre']); ?></p>
+                        <p><?php    echo $donnees['OVERVIEW'];  ?></p>
                     </div>
                 </div>
                 <div class="wrap-details clearfix">
                     <div class="detail">
-                        <h6>DETAIL DU LIVRE</h6>
+                        <h6>BOOK DETAILS</h6>
                                 <ul>
             <li>
                 <span class="info-single-title">Hardcover:</span>
                 <span>
-                    NA                </span>
+                      <?php   echo $donnees['HARDCOVER'];  ?>              </span>
             </li>
             <li>
-                <span class="info-single-title">Maison d'edition:  </span>
+                <span class="info-single-title">Publisher:</span>
                 <span>
-                      <?php echo getONE('MAISON_EDITION',$_GET['Livre']); ?>        </span>
+                    <?php   $donnes_auteur['PUBLISHER']; ?>             </span>
             </li>
             <li>
-                <span class="info-single-title">Language:  </span>
+                <span class="info-single-title">Language:</span>
                 <span>
-                              <?php echo getONE('LANGUAGE',$_GET['Livre']); ?>      </span>
+                    <?php   echo $donnees['LANGUAGE'];  ?>               </span>
             </li>
             <li>
                 <span class="info-single-title">ISBN-10:</span>
                 <span>
-                    NA                </span>
+                    <?php   echo $donnees['ISBN'];  ?>                </span>
             </li>
             <li>
                 <span class="info-single-title">Dimensions:</span>
                 <span>
-                    NA                </span>
+                    <?php   echo $donnees['DIMENSION'];   ?>          </span>
             </li>
         </ul>
                         </div>
+
+
                     <div class="gallery-review">
                         <h6>PREVIEW</h6>
                         
@@ -517,7 +642,7 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
                 </div>
                 <div class="review">
                     <h5>Avis de lecteurs</h5>
-                    <div id="reviews" class="woocommerce-Reviews">
+                    <div id="reviews" class="<?php if (isset($_SESSION['id'])) echo "woocommerce-Reviews"; else echo "go_to_login_link"; ?>">
     <button class="bj-write-cmt-btn">Donner son avis</button>
     <div id="comments">
         <div class="wrap-rating">
@@ -573,83 +698,199 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
                           style="color:;">
                           </span>
                 </div>
-            </div>
+            
             <?php
             }
             ?>
 
-
+</div>
         </div>
             <div id="review_form_wrapper" class="bj-comment-form">
                 <div id="review_form">
                     	<div id="respond" class="comment-respond">
-		<span id="reply-title" class="comment-reply-title">Be the first to review &ldquo;Shattered&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel reply</a></small></span>			<form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required /></p>
-<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required /></p>
-<div class="comment-form-rating"><label for="rating">Your rating</label><select name="rating" id="rating" aria-required="true" required>
-                                <option value="">Rate&hellip;</option>
-                                <option value="5">Perfect</option>
-                                <option value="4">Good</option>
-                                <option value="3">Average</option>
-                                <option value="2">Not that bad</option>
-                                <option value="1">Very poor</option>
-                            </select></div><p class="comment-form-comment"><label for="comment">Your review <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit" /> <input type='hidden' name='comment_post_ID' value='388' id='comment_post_ID' />
-<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+		<span id="reply-title" class="comment-reply-title">Be the first to review &ldquo;Shattered&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel reply</a></small></span>			
+        <form action="#" method="post" id="commentform" class="comment-form">
+				
+
+                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+
+
+                
+
+
+
+                             <p class="comment-form-comment"><label for="comment">Your review <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit" />
+                             <?php echo $_SESSION['id']; ?>
 </p>			</form>
+
+
+
+
+
 			</div><!-- #respond -->
 	                </div>
             </div>
-            <p class="woocommerce-noreviews">There are no reviews yet.</p>
+
+
+<?php  
+                if (isset($_POST['submit']))
+                    if (isset($_POST['comment']))
+                    $commentaire->Ajouter_commentaire($donnees['ID'],$_POST['comment'],$_SESSION['id']);
+
+?>
+
+<?php if ($nbr_comm['NbNews']==0){ ?> <p class="woocommerce-noreviews">There are no reviews yet.</p> <?php  } ?> 
+
+
+<?php
+
+
+
+$req_comm =  $commentaire->Afficher_commentaire_id ($_GET['Livre']);    
+
+
+                                while ($product = $req_comm->fetch(PDO::FETCH_ASSOC)) :
+
+?>
+                
+           
+             <ol class="commentlist">
+                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-103">
+
+    <div id="comment-103" class="comment_container">
+
+        <div class="comment-body">
+        
+    <p class="meta">
+        <strong class="woocommerce-review__author">
+
+
+        <?php 
+
+
+                
+                
+
+                echo $product['ID_COMPTE']; 
+
+
+
+
+        ?>
+            
+
+        </strong> <em class="woocommerce-review__verified verified">(verified owner)</em> <span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="2017-09-28T14:27:21+00:00">September 28, 2017</time>
+    </p>
+
+<div class="description"><p><?php  echo $product['COMMENTAIRE']; ?></p>
+</div>
+        </div>
+    </div>
+
+</li><!-- #comment-## -->
+
+<?php  endwhile;?>
+
+
+
+            </ol>
 
             </div>
     <div class="clear"></div>
 </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-lg-2">
+
+
+
+
+
+
+  <div class="col-xs-12 col-sm-4 col-lg-2">
                 <div class="wrap-single-sidebar">
                     <div class="wrap-book-author">
-                        <h4 class="sg-sidebar-title">BOOKS BY Peter Cawdron</h4>
+                        <h4 class="sg-sidebar-title">BOOKS BY <?php   echo $donnes_auteur['NOM'];  ?></h4>
                         
+
+<?php
+
+
+
+
+$bks = $book->Get_Livre_idAuteur ($donnes_auteur['ID']);
+
+
+
+
+
+?>
+
+
+
+                                <?php
+                                    while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+                                ?>
+
+
+
                                 <div class="item-product clearfix">
+
+
+
 
                                     
                                     <div class="wrap-thumbnail"
                                          style="box-shadow: 0 5px 15px -5px #e9e7e8">
 
                                         <a href="index.html">
-                                            <img width="330" height="500" src="../../wp-content/uploads/shattered.jpg" class="attachment-single-product size-single-product wp-post-image" alt="" />                                        </a>
+                                            <img width="330" height="500" src="../../wp-content/uploads/<?php   echo $product['IMAGE'];  ?>" class="attachment-single-product size-single-product wp-post-image" alt="" />                                        </a>
                                     </div>
 
                                     <div class="wrap-content">
 
-                                        <a href="index.html">Shattered</a>
+                                        <a href="index.html"><?php    echo $product['NOM'];     ?></a>
 
                                         <div class="wrap-price">
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
+    <span class="price"><del><span class="woocommerce-Price-amount amount">
+
+
+
+
+<?php
+
+if ($product['REDUCTION']!=0)
+{
+   echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></del>'; 
+
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['REDUCTION'].'</span></ins>';
+}else    {
+
+       echo  '<span class="woocommerce-Price-currencySymbol"></span></span></del>'; 
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></ins>';
+
+
+
+}
+?>
+
+
+
+
+
+
+    </span>
 </div>
                                     </div>
                                 </div>
                                 
-                                <div class="item-product clearfix">
+                              
+                    <?php  endwhile;?>
 
-                                    
-                                    <div class="wrap-thumbnail"
-                                         style="box-shadow: 0 5px 15px -5px #e9e7e8">
 
-                                        <a href="../freefall/index.html">
-                                            <img width="330" height="500" src="../../wp-content/uploads/freefall.jpg" class="attachment-single-product size-single-product wp-post-image" alt="" />                                        </a>
-                                    </div>
 
-                                    <div class="wrap-content">
 
-                                        <a href="../freefall/index.html">Freefall</a>
 
-                                        <div class="wrap-price">
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-</div>
-                                    </div>
-                                </div>
+
                                                     </div>
 
                     <h4 class="sg-sidebar-title">SHARE THIS BOOK</h4>
@@ -920,10 +1161,6 @@ var bj_handle = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/book
 
 <!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/shop/shattered/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:30:33 GMT -->
 </html>
-
-
-
-
 
 
 
