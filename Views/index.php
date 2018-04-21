@@ -2,6 +2,25 @@
 include '../Core/LoginCore.php';
 include '../Core/LivreCore.php';
 include '../Core/AuteurCore.php';
+
+
+
+include_once '../Core/bookcore.php';
+include_once '../Core/auteurcore.php';
+
+
+
+
+$book = New Bookcore();
+$auteur = New Auteurcore();
+
+
+$bookdonnes = $book->afficher_book_nom();
+$bookimage = $book->afficher_book_img();
+$bookid = $book->afficher_book_id();
+
+
+
 function countLivre($compte)
 {
     $c=Connexion::getConnexion();
@@ -9,9 +28,51 @@ function countLivre($compte)
         $liste=$c->query($sql);
         return $liste->rowCount();
 }
-require_once '../Core/googlelogin/config.php';
+require_once 'C:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 ?>
+
+
+
+
+<style type="text/css">
+    
+
+    .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+</style>
+
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -165,7 +226,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         ?>
                         <center>
                         <div class="col-md-3">
-                            <img style="width: 80%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
+                            <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
                         </div>
                         </center>
 
@@ -195,8 +256,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                     }
                         ?>
 <a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id'];
-                    echo $_SESSION['NOM'] ?> </strong>
+    <strong> <?php echo $_SESSION['id']; ?> </strong>
 </a>
                                   <?php
                                 }
@@ -253,36 +313,139 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 	            <div class="col-xs-12 col-md-8 col-lg-9">
 	               	
-	               	<form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
-						<div class="wrap-search clearfix">
-							<input type="text" class="form-search" name="s" value="" placeholder="Rechercher un livre, un auteur, une collection ...">
+	             <form class="searchform clearfix"  autocomplete="off">
+            <div class="wrap-search clearfix">
 
-								<div class="wrap-cat">
-									
-    <select name="product_cat" id="product_cat">
+              <input type="text" class="form-search" id="search_auto" name="s" value="" placeholder="Search for the perfect book..." class="searchform">
+                            
+                
+            </div>
 
-        <option value="">Catégories </option>
-        <option value=Arts>Arts</option>
-        <option value=Dictionnaires>Dictionnaires </option>
-        <option value=Droit>Droit &amp; Sciences Politiques </option>
-        <option value=Droit>Cuisine </option>
-        <option value=Histoire>Histoire &amp; Géographie</option>
-        <option value=Informatique>Informatique &amp; multimedia </option>    
-        <option value=Jeunesse>Jeunesse</option>
-        <option value=Littérature>Littérature &amp; Linguistique</option>
-        <option value=Loisirs>Loisirs</option>
-        <option value=Religions>Religions &amp; Spiritualités</option>
-        <option value=Romans>Romans</option>
-        <option value=Scolaire>Scolaire &amp; pédagogie</option>
-        <option value=Economiques>Sciences Economiques &amp; Gestion</option>
-        <option value=Humaines>Sciences Humaines</option>
-        <option value=Humaines>Sciences Techniques &amp; High-Tech </option>
-        </select>
-    								</div>
-					 	</div>
-						 <button type="submit" class="search-submit">Ok</button>
-					 	<input type="hidden" name="post_type" value="product" />
-					</form>
+             <button type="submit" class="search-submit">Go</button>
+            <input type="hidden" name="post_type" value="product" />
+          </form>
+                    
+                    <script>
+function autocomplete(inp, arr,img,id) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<img src='wp-content/uploads/"+ img[i] + "'  width='50px' height='100px'>";
+          /*insert a input field that will hold the current array item's value:*/
+          
+          b.innerHTML += "<input type='hidden' value='" + id[i] + "'>";
+        
+
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+             // inp.value = this.getElementsByTagName("input")[0].value;
+              
+
+                                window.location.href = 'shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
+
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        
+        e.preventDefault();
+
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+      });
+}
+
+/*An array containing all the country names in the world:*/
+
+var js_array = [<?php echo '"'.implode('","', $bookdonnes).'"' ?>];
+var js_array_img = [<?php echo '"'.implode('","', $bookimage).'"' ?>];
+var js_array_id = [<?php echo '"'.implode('","', $bookid).'"' ?>];
+
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_array_id);
+</script>
+
+
+
 	            </div><!-- #site-logo -->
 	        </div>
 	    </div>
@@ -303,7 +466,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 	<li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="homepage-5/index.html" class=""><span class="menu-title">Page 5</span></a></li>
 </ul>
 </li>
-<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="#" class=""><span class="menu-title">Catalogue</span></a>
+<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">Catalogue</span></a>
 <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
 	<li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
 	<ul class='   sub-menu' style="">
@@ -566,67 +729,116 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503975536992 vc_row-has-fill"><div class="column-wg-left wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div  class="wpb_widgetised_column wpb_content_element">
-
-
-
                             <div class="wpb_wrapper">
 			
-			<aside id="recent_product-2" class="widget-home widget_recent_product">
-                <h3 class="wg-home-title">LES NOUVEAUTÉS</h3>
-                <?php
 
-                $affiche=new LivreCore();
-                $afficheNouv=$affiche->afficherNouveaute();
-                foreach ($afficheNouv as $nouv) {
-                    ?>
-                    <div class="review-item clearfix">
-                        <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #e9e7e8">
-                            <a href="shop/Livres/index?Livre=<?php echo $nouv['ID']  ?>">
-                                <img src="<?php echo $nouv['IMG_PATH'];?>" alt="Thumbnail">
-                            </a>
-                        </div>
-                        <div class="contents">
-                            <a href="shop/Livres/index?Livre=<?php echo $nouv['ID']  ?>" class="title">
-                                <?php echo $nouv['NOM'];?> </a>
-                            <div class="author-product">
-                                by <?php echo $nouv['AUTEUR'];?>
-                            </div>
+<?php
 
-                            <span class="price"><del>
-            <span class="woocommerce-Price-amount amount">
-                <span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $nouv['ANCIEN_PRIX'];?></span>
-        </del> <ins><span class="woocommerce-Price-amount amount">
-                <span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $nouv['PRIX'];?></span>
-        </ins></span>
-                        </div>
-                    </div>
+
+
+
+
+
+$sort = $book->Sort_Livre ("DATE");
+
+
+$bks = $book->Afficher_sort();
+
+
+
+$count=0;
+
+?>
+
+            <aside id="recent_product-2" class="widget-home widget_recent_product"><h3 class="wg-home-title">Nouveauté</h3>    
+
+
+
                     <?php
+
+                                while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+
+                                    $donnes_auteur = $auteur->Recupere_auteur_id($product['AUTHOR']);
+
+
+                           $count++;
+                            if ($count<5)
+                            {
+                            
+                    ?>
+
+                        <div class="review-item clearfix">
+
+
+                    <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #e9e7e8">
+                        <a href="shop/shattered/index.html">
+                            <img src="wp-content/uploads/<?= $product['IMAGE']?>"
+                             alt="Thumbnail">
+                         </a>
+                    </div>
+
+                    <div class="contents">
+                        <a href="shop/shattered/index.html" class="title">
+                           <?php echo $product['NOM']; ?>                        </a>
+                        <div class="author-product">
+                            by <?php echo $donnes_auteur['NOM']; ?>                        </div>
+                        
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $product['PRIX']; ?></span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
+                    </div>
+                </div>
+
+                <?php  
+                
+                
+
                 }
+                endwhile;
+                
+
                 ?>
 
-                </aside>
-                                <?php
-                                $AfficherAut=$Aut->afficherAut();
-                                foreach ($AfficherAut as $rows)
-                                {
-                                ?>
-<aside id="browse_author-3" class="widget-home widget_browse_author"><h3 class="wg-home-title">PAR AUTEURS</h3>
+
+
+<aside id="browse_author-3" class="widget-home widget_browse_author"><h3 class="wg-home-title">BROWSE BY AUTHOR</h3>            
+
+<?php
+
+
+$bks = $auteur->Afficher_auteur();
+
+
+
+?>
+           
+
+
+         <?php
+                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+
+
+                                $donnees = $auteur->Nbr_livre_id($product['ID']);
+        ?>
 
             <div class="bj-brs-author-item clearfix" style="display:block">
                 <div class="wrap-thumbnail">
-                    <a href="author-profile/index.php?ID_AUT=<?php echo $rows['ID_AUT']; ?>">
-                        <img src="<?php if($rows['IMG_PATH']=='') echo 'wp-content/uploads/anonyme.png'; else echo $rows['IMG_PATH']; ?>" alt="">
+                    <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>">
+                        <img src="wp-content/uploads/<?= $product['IMAGE'] ?>" alt="">
                     </a>
                 </div>
                 <div class="wrap-info">
-                    <a href="author-profile/index.php?ID_AUT=<?php echo $rows['ID_AUT']; ?>"><?php echo $rows['LOGIN']; ?></a>
-                    <div class="bj-brs-author-count"><?php echo $rows['LIVRE']; ?></div>
+                    <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>"><?php echo $product['NOM']; ?></a>
+                    <div class="bj-brs-author-count"><?php echo $donnees['NbNews'];  ?> Book</div>
                 </div>
             </div>
-    <?php
-    }
-    ?>
+            <?php endwhile;?>                
+
+            
             </aside>
+
+
+
+
+
 		</div>
 	</div>
 </div></div></div><div class="column-cont-right wpb_column vc_column_container vc_col-sm-12 vc_col-lg-9 vc_col-md-9">
@@ -659,77 +871,90 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 			                    </li>
                          </ul>
 			    </div>
+                
+
+
+
+
+<?php
+
+
+
+$bks = $book->afficher_book();
+
+
+
+
+
+
+?>
+
+
+
+            
                 <div class="row cms-grid cms-grid-masonry-2">
-                <?php
-                $LCore=new LivreCore();
-                $LivreParPage=9;
-
-                if(isset($_GET['page']) AND !empty($_GET['page']))
-                {
-                $_GET['page']=intval($_GET['page']);
-                $pageCourante=$_GET['page'];
-                }
-                else{
-                $pageCourante=1;
-                }
-                $debut_enrg=($pageCourante-1)*$LivreParPage;
-              if(isset($_GET['Category']) and !empty($_GET['Category']))
-              {
-                  $Livres= $LCore->DiviserLivreCategory($debut_enrg,$LivreParPage,$_GET['Category']);
-                  $NbTotal=$LCore->NbTotalLivreCategory($_GET['Category']);
-              }
-              else
-              {
-                  $Livres= $LCore->DiviserLivre($debut_enrg,$LivreParPage);
-                  $NbTotal=$LCore->NbTotalLivre();
-              }
-                $pagesTotal=ceil($NbTotal/9);
-                foreach ($Livres as $row)
-                {
-                ?>
-        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"
-     data-groups='["all","category-comedy","category-thriller"]'>
-    <figure class="zoom_livre" >
-    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 20px #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -20px #e9e7e8';">
-                     <a href="shop/Livres/index.php?Livre=<?php echo $row['ID'];?>">
-                      <img alt="<?php echo $row['CATEGORY'];?>" title="<?php echo $row['DESCRIPTION'];?>" width="330" height="500" src="<?php echo $row['IMG_PATH']?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" />
-                         <figcaption class="category_text"><?php echo $row['CATEGORY'];?></figcaption>
-                     </a>
-                        </div>
-                        </figure>
-<br>
-                        <div class="info-product">
-                         <a class="product-title" href="shop/Livres/index.php?Livre='<?php echo $row['ID'];?>'"><?php echo $row['NOM']; ?></a>
-                            <p class="product-author">by: <?php echo $row['AUTEUR']; ?></p>
-                            <span class="price">
-<del>
-<span class="woocommerce-Price-amount amount">
-<span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $row['ANCIEN_PRIX']; ?></span></del>
-
-                            <ins>
-<span class="woocommerce-Price-amount amount">
-<span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $row['PRIX']; ?></span></ins></span>
-                        </div></div>
                     <?php
-                    }
-                    ?>
-                </div>
-            </div>
-              </div></div>
-                                <?php
-                    for ($i=1;$i<=$pagesTotal;$i++)
-                    {
-                    if(isset($_GET['Category']))
-                    {
-                        echo '<a href="index.php?Category='.$_GET['Category'].'&amp;page='.$i.'  "> '.$i.'</a>';
-                    }
-                    else
-                    {
-                            echo '<a href="index.php?page='.$i.'  "> '.$i.'</a>';
-                    }
-                    }
+                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+
+
+
+                                $donnes_auteur = $auteur->Recupere_auteur_id ($product['AUTHOR'])
 
                     ?>
+
+
+                    
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/profil.php?id_book=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/shattered/profil.php?id_book=<?php echo $product['ID'] ?>"><?php  echo $product['NOM'] ; ?></a>
+                                <p class="product-author">by: <?php echo $donnes_auteur['NOM'] ;   ?></p>                           
+    <span class="price"><del><span class="woocommerce-Price-amount amount">
+
+
+
+<?php
+
+if ($product['REDUCTION']!=0)
+{
+   echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></del>'; 
+
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['REDUCTION'].'</span></ins>';
+}else    {
+
+       echo  '<span class="woocommerce-Price-currencySymbol"></span></span></del>'; 
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></ins>';
+
+
+
+}
+?>
+
+    </span>
+                            </div>
+                        </div>
+
+                    <?php  endwhile;?>
+
+
+                        
+               
+                                        </div>
+
+                            </div>
+
+        </div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
                                 <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1503989158128">
                                     <div class="wpb_column vc_column_container vc_col-sm-12">
                                         <div class="vc_column-inner ">

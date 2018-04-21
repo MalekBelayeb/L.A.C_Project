@@ -162,4 +162,11 @@ if(isset($_GET['Code']) )
         $inscri->ajouter_compte();
     }
 }
+
+
+
+
+
+
+
 ?>
