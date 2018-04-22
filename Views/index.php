@@ -783,7 +783,7 @@ $count=0;
                         <div class="author-product">
                             by <?php echo $donnes_auteur['NOM']; ?>                        </div>
                         
-    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $product['PRIX']; ?></span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $product['PRIX']; ?></span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo ($product['PRIX']-($product['PRIX']*$product['REDUCTION'])/100) ?></span></ins></span>
                     </div>
                 </div>
 
@@ -919,7 +919,8 @@ if ($product['REDUCTION']!=0)
 {
    echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></del>'; 
 
-    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['REDUCTION'].'</span></ins>';
+    echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.($product['PRIX']-($product['PRIX']*$product['REDUCTION'])/100)
+.'</span></ins>';
 }else    {
 
        echo  '<span class="woocommerce-Price-currencySymbol"></span></span></del>'; 
