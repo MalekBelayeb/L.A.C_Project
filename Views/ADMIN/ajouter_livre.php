@@ -9,7 +9,7 @@
 
     $category = New categorieCore();
     $auteur_class = New Auteurcore();
-    $donnes = $auteur_class->afficher_auteur();
+    $donnes_auteur = $auteur_class->afficher_auteur();
     $donnes_categorie = $category->Afficher_categorie();
 
 
@@ -32,7 +32,7 @@
         $auteur = $_POST['choisir_auteur'];    
         $category= $_POST['category'];   
         $image = $_POST['img'];
-        $date = date('Y-m-d');
+        $date = $_POST['date'];
 
         $red = $_POST['reduction'];
         $ov = $_POST['Overview'];
@@ -240,7 +240,7 @@
                         <label>Date</label>
                         <div>
                       
-                            <input name="text" disabled="" type="date"  placeholder="Date" value="<?php echo !empty($date)?$date:'';?>">
+                            <input name="date"  type="date"  placeholder="Date" value="<?php echo !empty($date)?$date:'';?>">
                             <?php if (!empty($dateError)): ?>
                                 <span class="help-inline"><?php echo $dateError;?></span>
                             <?php endif; ?>
@@ -266,7 +266,7 @@
                       
                               <select class="option" name="choisir_auteur">
                                         <option value="" selected="" >choisir un auteur</option>
-                                <?php     while ($product = $donnes->fetch(PDO::FETCH_ASSOC)) :  ?>
+                                <?php     while ($product = $donnes_auteur->fetch(PDO::FETCH_ASSOC)) :  ?>
 
                                 <option value="<?php echo $product['ID']; ?>"   >    <?php  echo "ID: ".$product['ID']." || NOM: ".$product['NOM'];     ?></option>
                                 <?php   endwhile; ?>  

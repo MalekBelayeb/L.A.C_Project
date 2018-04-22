@@ -9,7 +9,7 @@
     $category = New categorieCore();
     $auteur_class = New Auteurcore();
     $book = New bookcore();
-    $donnes = $auteur_class->afficher_auteur();
+    $donnes_auteur = $auteur_class->afficher_auteur();
     $donnes_categorie = $category->Afficher_categorie();
 
     $id = null;
@@ -125,7 +125,7 @@
         if ($valid) {
             
 
-            $book->Update_Livre($nom,$prix,$genre,$image,$date,$reduction,$auteur,$overview,$Originalite,$hardcover,$language,$ISBN,$dimension,$id);
+            $book->modifier_auteur($nom,$prix,$genre,$image,$date,$reduction,$auteur,$overview,$Originalite,$hardcover,$language,$ISBN,$dimension,$id);
 
             //Database::disconnect();
             header("Location: crud_index_livre.php");
@@ -293,7 +293,7 @@
                       
                               <select class="option" name="choisir_auteur">
                                         <option value="" selected="" >choisir un auteur</option>
-                                <?php     while ($product = $donnes->fetch(PDO::FETCH_ASSOC)) :  ?>
+                                <?php     while ($product = $donnes_auteur->fetch(PDO::FETCH_ASSOC)) :  ?>
 
                                 <option value="<?php echo $product['ID']; ?>"   >    <?php  echo "ID: ".$product['ID']." || NOM: ".$product['NOM'];     ?></option>
                                 <?php   endwhile; ?>  

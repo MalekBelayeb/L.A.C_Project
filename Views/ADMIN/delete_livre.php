@@ -2,8 +2,8 @@
     
 
 
-    include_once 'C:/wamp64/www/first_proj/bookjunky/backoffice/config.php';
-    include_once 'C:/wamp64/www/first_proj/bookjunky/backoffice/core/bookcore.php';
+    include_once 'C:/wamp64/www/AvenirCulturel/config.php';
+    include_once 'C:/wamp64/www/AvenirCulturel/core/bookcore.php';
 
     $id_ev = 0;
      
