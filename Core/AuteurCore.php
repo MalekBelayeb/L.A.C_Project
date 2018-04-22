@@ -62,6 +62,15 @@ class Auteurcore
 
 	}
 
+	function modifier_auteur($nom,$image,$text_auteur,$Publisher,$id)
+	{
+		 $pdo = connexion:: getConnexion();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE auteur SET NOM=?,IMAGE=?,text_auteur=?,PUBLISHER=? WHERE ID=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($nom,$image,$text_auteur,$Publisher,$id));
+	}
+
 	function delete_auteur($bk)
 	{
 
@@ -117,6 +126,19 @@ class Auteurcore
             $donnees = $req1->fetch();
 
             return $donnees;
+	}
+
+
+
+
+	function afficher_order_id()
+	{
+		$pdo = connexion:: getConnexion();
+        $sql = 'SELECT * FROM auteur ORDER BY ID DESC';
+
+        $x=$pdo->query($sql);
+
+        return $x;
 	}
 
 

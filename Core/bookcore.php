@@ -272,12 +272,56 @@ class Bookcore
 
 		$c = Connexion::getConnexion();
 
-			$req1 = $c->query("SELECT * FROM book where ID = ".$id_livre."");
+			$req1 = $c->query("SELECT * FROM book where ID = $id_livre");
 			$donnees = $req1->fetch();
 
 		return $donnees;
 	}
+function get_nbr_rating ($rat)
+{
 
+	$c = Connexion::getConnexion();
+
+			$req1 = $c->query("SELECT count(*) as nbr FROM `book` WHERE rating=$rat");
+			$donnees = $req1->fetch();
+			return $donnees['nbr'];
+
+}
+
+
+
+
+
+
+function afficher_book_quantite()
+	{
+
+		$c = Connexion::getConnexion();
+
+
+		try {
+			$liste=$c->query("SELECT * FROM `book` WHERE quantite=0");
+			return $liste;
+			
+		} catch (Exception $e) {
+			die('Erreur : '.$e->getMessage());
+			
+		}
+	}
+
+
+
+
+	function changer_quantite ($id,$quan)
+	{
+
+			$pdo = Connexion:: getConnexion();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE `book` SET `QUANTITE`=? WHERE ID=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($quan,$id));
+
+	}
 
 
 }

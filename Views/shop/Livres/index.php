@@ -482,6 +482,12 @@ $donnes_auteur = $auteur->Recupere_auteur_id ($donnees["AUTHOR"]);
 
                        
 
+<?php if ($donnees['QUANTITE']!=0)
+{
+?>
+
+
+
 
     <form class="cart" method="post" enctype='multipart/form-data'>
         
@@ -504,9 +510,9 @@ if ($donnees['REDUCTION']!=0)
     echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></ins>';
 
 
-
 }
-?>
+}else  { ?>      <button type="submit" name="add-to-cart" value="388" class="single_add_to_cart_button alt"> hors stock<del><?php }?>
+
 
 
 
