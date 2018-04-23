@@ -880,7 +880,34 @@ $bks = $auteur->Afficher_auteur();
 
 
 
-$bks = $book->afficher_book();
+                $LCore=new LivreCore();
+                $LivreParPage=9;
+
+                if(isset($_GET['page']) AND !empty($_GET['page']))
+                {
+                $_GET['page']=intval($_GET['page']);
+                $pageCourante=$_GET['page'];
+                }
+                else{
+                $pageCourante=1;
+                }
+                $debut_enrg=($pageCourante-1)*$LivreParPage;
+              if(isset($_GET['Category']) and !empty($_GET['Category']))
+              {
+                  $Livres= $LCore->DiviserLivreCategory($debut_enrg,$LivreParPage,$_GET['Category']);
+                  $NbTotal=$LCore->NbTotalLivreCategory($_GET['Category']);
+              }
+              else
+              {
+                  $Livres= $LCore->DiviserLivre($debut_enrg,$LivreParPage);
+                  $NbTotal=$LCore->NbTotalLivre();
+              }
+                $pagesTotal=ceil($NbTotal/9);
+               
+
+
+
+
 
 
 
@@ -894,7 +921,7 @@ $bks = $book->afficher_book();
             
                 <div class="row cms-grid cms-grid-masonry-2">
                     <?php
-                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+                            while ($product = $Livres->fetch(PDO::FETCH_ASSOC)) :
 
 
 
@@ -937,13 +964,41 @@ if ($product['REDUCTION']!=0)
                     <?php  endwhile;?>
 
 
-                        
+                    
                
                                         </div>
 
+                                            <?php
+                    for ($i=1;$i<=$pagesTotal;$i++)
+                    {
+                    if(isset($_GET['Category']))
+                    {
+                        echo '<a class="page-numbers current" href="index.php?Category='.$_GET['Category'].'&amp;page='.$i.'  "> '.$i.'</a>';
+                    }
+                    else
+                    {
+                            echo '<a class="page-numbers current" href="index.php?page='.$i.'  "> '.$i.'</a>';
+                    }
+                    }
+
+
+?>
+
                             </div>
 
-        </div></div></div></div>
+        </div></div>
+
+ 
+
+        </div>
+
+
+
+
+
+
+
+        </div>
 
 
 
