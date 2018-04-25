@@ -1,5 +1,5 @@
 <?php
-include_once "../config.php";
+include_once "C:/xampp/htdocs/AvenirCulturel/Config.php";
 
 
 /**
@@ -11,15 +11,15 @@ class livreurC
 
 
 	function ajouterLivreur($livreur){
-		$sql="INSERT INTO livreur (cin,nom,prenom,mail,num_tel,ville_actuelle,situation,lat,lng) values (:cin, :nom,:prenom,:mail,:num_tel,:ville_actuelle,:situation,:lat,:lng)";
+		$sql="INSERT INTO livreur (nom,prenom,mail,num_tel,ville_actuelle,situation,lat,lng) values ( :nom,:prenom,:mail,:num_tel,:ville_actuelle,:situation,:lat,:lng)";
 		//$sql="INSERT INTO `employe`(`cin`, `nom`, `prenon`, `nbHeurs`, `tarifHeur`) VALUES (:c,:nom,:prenon,:nbHeurs,:tarifHeur)";
 	
 
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		
-        $cin=$livreur->getcin();
+       
         $nom=$livreur->getnom();
         $prenom=$livreur->getprenom();
         
@@ -38,7 +38,7 @@ $ville_actuelle=$livreur->getville_actuelle();
 
 
 
-		$req->bindValue(':cin',$cin);
+		
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
 		
@@ -66,7 +66,7 @@ $ville_actuelle=$livreur->getville_actuelle();
 function afficherLivreur(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From livreur";
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -78,7 +78,7 @@ function afficherLivreur(){
 
 	function supprimerLivreur($cin){
 		$sql="DELETE FROM livreur where cin= :cin";
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
         $req=$db->prepare($sql);
 		$req->bindValue(':cin',$cin);
 		try{
@@ -96,7 +96,7 @@ function afficherLivreur(){
 		//$sql="INSERT INTO employe (cin,nom,prenon,nbHeurs,tarifHeur) values (:cin, :nom,:prenom,:nbH,:tarifH)";
 		//$sql="INSERT INTO laivraison (code_Livraison,nom,prenom,adresse_ligne_1,adresse_ligne_2,ville,mail,num_tel,code_livre) values (:code_Livraison, :nom,:prenom,:adresse_ligne_1,:adresse_ligne_2,:ville,:mail,:num_tel,:code_livre)";
 		
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
@@ -151,7 +151,7 @@ try{
 
 	function recupererLivreur($cin){
 		$sql="SELECT * from livreur where cin=$cin";
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -163,7 +163,7 @@ try{
 
 	function recupererLaivraison($code_Livraison){
 		$sql="SELECT * from laivraison where code_Livraison=$code_Livraison";
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -181,7 +181,7 @@ try{
 	public function getcollegesblanklating(){
 		
 		$sql ="SELECT * FROM livreur WHERE lat IS null AND lng IS null LIMIT 1";
-		$db = config::getConnexion();
+		$db = Connexion::getConnexion();
 
 		
 
@@ -198,7 +198,7 @@ try{
 	public function getallcollg(){
 		
 		$sql ="SELECT * FROM livreur";
-			$db = config::getConnexion();
+			$db = Connexion::getConnexion();
 		 $stmt= $db->prepare($sql);
 		 $stmt->execute();
 		 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -213,7 +213,7 @@ try{
     public function updatecolegeswithlant(){
 
     	$sql ="UPDATE  livreur SET lat =:lat AND lng =:lng WHERE id =:id";
-    	$db = config::getConnexion();
+    	$db = Connexion::getConnexion();
 
     	$stmt= $db->prepare($sql);
 

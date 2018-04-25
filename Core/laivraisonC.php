@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include_once "C:/xampp/htdocs/AvenirCulturel/Config.php";
 
 
 /**
@@ -13,9 +13,9 @@ class laivraisonC
 
 	
 	function ajouterLaivraison($laivraison){
-		$sql="INSERT INTO laivraison (nom,prenom,adresse_ligne_1,adresse_ligne_2,ville,mail,num_tel,code_livre,date_laivraison,affectation,livreur) values ( :nom,:prenom,:adresse_ligne_1,:adresse_ligne_2,:ville,:mail,:num_tel,:code_livre,:date_laivraison,:affectation,:livreur)";
+		$sql="INSERT INTO laivraison (nom,prenom,adresse_ligne_1,adresse_ligne_2,ville,mail,num_tel,code_livre,date_laivraison,affectation,livreur,prix) values ( :nom,:prenom,:adresse_ligne_1,:adresse_ligne_2,:ville,:mail,:num_tel,:code_livre,:date_laivraison,:affectation,:livreur,:prix)";
 		//$sql="INSERT INTO `employe`(`cin`, `nom`, `prenon`, `nbHeurs`, `tarifHeur`) VALUES (:c,:nom,:prenon,:nbHeurs,:tarifHeur)";
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		
@@ -32,6 +32,7 @@ class laivraisonC
          $date_laivraison=$laivraison->getdate_laivraison();
           $affectation=$laivraison->getaffectation();
           $livreur=$laivraison->getlivreur();
+           $prix=$laivraison->getprix();
 
 
 
@@ -51,6 +52,7 @@ class laivraisonC
 		$req->bindValue(':date_laivraison',$date_laivraison);
 		$req->bindValue(':affectation',$affectation);
 		$req->bindValue(':livreur',$livreur);
+		$req->bindValue(':prix',$prix);
 
 		
             $req->execute();
@@ -74,7 +76,7 @@ class laivraisonC
 	function afficherLaivraison(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From laivraison";
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -84,12 +86,48 @@ class laivraisonC
         }	
 	}
 
-		function afficherLaivraisonforone($rre){
+	function afficherLaivraison_livreur($rre){
+		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+		$sql="SELECT * from laivraison where  livreur='$rre'";
+		$db =Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
+
+
+
+		function afficherLaivraisonforone($rre,$date){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		//$sql="SElECT * From laivraison where prenom=$rre ";
-		$sql="SELECT * from laivraison where nom='$rre'";
+		$sql="SELECT * from laivraison where nom='$rre' and date_laivraison >='$date'";
 
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+
+
+       
+
+
+
+	}
+
+		function afficherLaivraisonforonetous($rre){
+		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+		//$sql="SElECT * From laivraison where prenom=$rre ";
+		$sql="SELECT * from laivraison where nom='$rre' ";
+
+		$db =Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -106,9 +144,10 @@ class laivraisonC
 	}
 
 
+
 	function supprimerLaivraison($code_Livraison){
 		$sql="DELETE FROM laivraison where code_Livraison= :code_Livraison";
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
         $req=$db->prepare($sql);
 		$req->bindValue(':code_Livraison',$code_Livraison);
 		try{
@@ -120,12 +159,28 @@ class laivraisonC
         }
 	}
 
+		function modifierLaivraison_livreur($code_Livraison){
+		$sql="UPDATE laivraison SET affectation='1' where code_Livraison= :code_Livraison";
+		$db =Connexion::getConnexion();
+        $req=$db->prepare($sql);
+		$req->bindValue(':code_Livraison',$code_Livraison);
+		try{
+            $req->execute();
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+
+
+
 	function modifierLaivraison($laivraison,$code_Livraison){
-		$sql="UPDATE laivraison SET code_Livraison=:code_Livraisonn, nom=:nom,prenom=:prenom,adresse_ligne_1=:adresse_ligne_1,adresse_ligne_2=:adresse_ligne_2,ville=:ville,mail=:mail,num_tel=:num_tel,code_livre=:code_livre,date_laivraison=:date_laivraison,affectation=:affectation ,livreur=:livreur WHERE code_Livraison=:code_Livraison";
+		$sql="UPDATE laivraison SET code_Livraison=:code_Livraisonn, nom=:nom,prenom=:prenom,adresse_ligne_1=:adresse_ligne_1,adresse_ligne_2=:adresse_ligne_2,ville=:ville,mail=:mail,num_tel=:num_tel,code_livre=:code_livre,date_laivraison=:date_laivraison,affectation=:affectation ,livreur=:livreur ,prix=:prix WHERE code_Livraison=:code_Livraison";
 		//$sql="INSERT INTO employe (cin,nom,prenon,nbHeurs,tarifHeur) values (:cin, :nom,:prenom,:nbH,:tarifH)";
 		//$sql="INSERT INTO laivraison (code_Livraison,nom,prenom,adresse_ligne_1,adresse_ligne_2,ville,mail,num_tel,code_livre) values (:code_Livraison, :nom,:prenom,:adresse_ligne_1,:adresse_ligne_2,:ville,:mail,:num_tel,:code_livre)";
 		
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
         $req=$db->prepare($sql);
@@ -145,13 +200,14 @@ try{
         $date_laivraison=$laivraison->getdate_laivraison();
         $affectation=$laivraison->getaffectation();
         $livreur=$laivraison->getlivreur();
+        $prix=$laivraison->getprix();
         
 
 
 
 
 
-		$datas = array(':code_Livraisonn'=>$code_Livraisonn, ':code_Livraison'=>$code_Livraison, ':nom'=>$nom,':prenom'=>$prenom,':adresse_ligne_1'=>$adresse_ligne_1,':adresse_ligne_2'=>$adresse_ligne_2,':ville'=>$ville,':mail'=>$mail,':num_tel'=>$num_tel,':code_livre'=>$code_livre,':date_laivraison'=>$date_laivraison,':affectation'=>$affectation ,':livreur'=>$livreur);
+		$datas = array(':code_Livraisonn'=>$code_Livraisonn, ':code_Livraison'=>$code_Livraison, ':nom'=>$nom,':prenom'=>$prenom,':adresse_ligne_1'=>$adresse_ligne_1,':adresse_ligne_2'=>$adresse_ligne_2,':ville'=>$ville,':mail'=>$mail,':num_tel'=>$num_tel,':code_livre'=>$code_livre,':date_laivraison'=>$date_laivraison,':affectation'=>$affectation ,':livreur'=>$livreur ,':prix'=>$prix);
 
 		$req->bindValue(':code_Livraisonn',$code_Livraisonn);
 		$req->bindValue(':code_Livraison',$code_Livraison);
@@ -168,6 +224,7 @@ try{
 		$req->bindValue(':date_laivraison',$date_laivraison);
 		$req->bindValue(':affectation',$affectation);
 		$req->bindValue(':livreur',$livreur);
+		$req->bindValue(':prix',$prix);
 		
 		
             $s=$req->execute();
@@ -187,7 +244,7 @@ try{
 
 	function recupererLaivraison($code_Livraison){
 		$sql="SELECT * from laivraison where code_Livraison=$code_Livraison";
-		$db = config::getConnexion();
+		$db =Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
 		return $liste;
@@ -196,6 +253,34 @@ try{
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+		function recupererprix($region){
+		
+		$sql="SELECT * FROM prix WHERE `region`='".$region."'";
+		$db =Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+
+
+		function recupererLivreur($cin){
+		$sql="SELECT * from livreur where cin=$cin";
+		$db =Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+
+	
 
 
 

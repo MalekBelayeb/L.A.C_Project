@@ -270,7 +270,7 @@
         <div class="card-body">
           <div class="table-responsive">
              <?php
-                             include "core/laivraison_postC.php";
+                             include "../../Core/laivraison_postC.php";
                              $employe1C=new laivraison_posteC();
                              $listeEmployes=$employe1C->afficherLaivraison_p();
 

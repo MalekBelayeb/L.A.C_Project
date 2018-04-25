@@ -19,9 +19,10 @@ class laivraison
 	private $date_laivraison;
 	private $affectation;
 	private $livreur;
+	private $prix;
 
 	
-	function __construct($nom,$prenom,$adresse_ligne_1,$adresse_ligne_2,$ville,$mail,$num_tel, $code_livre,$date_laivraison,$affectation,$livreur)
+	function __construct($nom,$prenom,$adresse_ligne_1,$adresse_ligne_2,$ville,$mail,$num_tel, $code_livre,$date_laivraison,$affectation,$livreur,$prix)
 	{
 		
 		$this->nom=$nom;
@@ -35,6 +36,7 @@ class laivraison
 		$this->date_laivraison=$date_laivraison;
 		$this->affectation=$affectation;
 		$this->livreur=$livreur;
+		$this->prix=$prix;
 	}
 
 	function getcode_Livraison(){
@@ -73,6 +75,10 @@ class laivraison
 	}
 		function getlivreur(){
 		return $this->livreur;
+	}
+
+	function getprix(){
+		return $this->prix;
 	}
 	
 
@@ -121,6 +127,9 @@ class laivraison
 	}
 	function setlivreur($livreur){
 		$this->livreur=$livreur;
+	}
+	function setprix($prix){
+		$this->prix=$prix;
 	}
 
 

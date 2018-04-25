@@ -267,8 +267,10 @@
      
   <?php  
 
-include_once"config.php";
-$connect =config::getconnexion();
+//include_once"config.php";
+include_once "../../Config.php";
+
+$connect =Connexion::getConnexion();
  $query = "SELECT nom, count(*) as number FROM laivraison GROUP BY nom";  
  $res = $connect->query($query);  
  ?> 

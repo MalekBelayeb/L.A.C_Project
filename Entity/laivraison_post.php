@@ -15,10 +15,11 @@ private $code_Livraison_p;
 	private $num_tel;
 	private $code_livre;
 	private $date_laivraison_p;
+	private $prix;
 
 
 	
-	function __construct($nom,$prenom,$code_postale,$ville,$mail,$num_tel, $code_livre,$date_laivraison_p)
+	function __construct($nom,$prenom,$code_postale,$ville,$mail,$num_tel, $code_livre,$date_laivraison_p,$prix)
 	{
 		
 		$this->nom=$nom;
@@ -29,6 +30,7 @@ private $code_Livraison_p;
 		$this->num_tel=$num_tel;
 		$this->code_livre=$code_livre;
 		$this->date_laivraison_p=$date_laivraison_p;
+		$this->prix=$prix;
 		
 	}
 
@@ -60,6 +62,9 @@ private $code_Livraison_p;
 	}
 	function getdate_laivraison_p(){
 		return $this->date_laivraison_p;
+	}
+	function getprix(){
+		return $this->prix;
 	}
 
 
@@ -100,6 +105,9 @@ private $code_Livraison_p;
 
 	function setdate_laivraison_d($date_laivraison_p){
 		$this->date_laivraison_p=$date_laivraison_p;
+	}
+	function setprix($prix){
+		$this->prix=$prix;
 	}
 	
 

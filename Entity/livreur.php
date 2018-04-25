@@ -10,8 +10,10 @@ class livreur
 	private $cin;
 	private $nom;
 	private $prenom;
+	
 	private $mail;
 	private $num_tel;
+	
 	private $ville_actuelle;
 	private $situation;
 	private $lat;
@@ -19,9 +21,9 @@ class livreur
 
 
 	
-	function __construct($cin,$nom,$prenom,$mail,$num_tel, $ville_actuelle,$situation,$lat,$lng)
+	function __construct($nom,$prenom,$mail,$num_tel, $ville_actuelle,$situation,$lat,$lng)
 	{
-		$this->cin=$cin;
+		
 		$this->nom=$nom;
 		$this->prenom=$prenom;
 		
@@ -32,6 +34,7 @@ class livreur
 		$this->situation=$situation;
 
 		$this->lat=$lat;
+
 		$this->lng=$lng;
 	}
 
