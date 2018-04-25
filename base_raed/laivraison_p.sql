@@ -46,7 +46,7 @@ CREATE TABLE `laivraison_p` (
 --
 
 INSERT INTO `laivraison_p` (`code_Livraison_p`, `nom`, `prenom`, `code_postale`, `ville`, `mail`, `num_tel`, `code_livre`, `date_laivraison_p`, `prix`) VALUES
-(3, 'zorgui', 'takwa', 0, 'tunis', 'zorgui@yahoo.com', '22222222', '20', '2018-03-27', 0),
+(3, 'zorgui', 'slim', 0, 'tunis', 'zorgui@yahoo.com', '22222222', '20', '2018-03-27', 0),
 (6, 'rim', 'nasri', 885, 'tunis', 'housm@yahoo.com', '215489633', '11', '0000-00-00', 0),
 (7, 'gg', 'nasri', 0, 'tunis', 'housm@yahoo.com', '215489633', '90', '0000-00-00', 0),
 (8, 'rrrr', 'nasri', 0, 'tunis', 'housm@yahoo.com', '215489633', '9688', '2018-03-27', 0),
