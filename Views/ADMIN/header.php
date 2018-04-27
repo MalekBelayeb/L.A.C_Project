@@ -103,9 +103,14 @@
             <li>
               <a href="livraison1.php">livraison</a>
             </li>
-            <li>
-              <a href="register.php">livreur</a>
+             <li>
+              <a href="admin_livreur.php">livreur</a>
             </li>
+            <li>
+              <a href="prix.php">prix livraison</a>
+            </li>
+
+
            
           </ul>
         </li>
