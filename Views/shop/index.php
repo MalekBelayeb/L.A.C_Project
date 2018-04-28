@@ -1,8 +1,8 @@
-
 <?php
 
 include '../../Core/LoginCore.php';
-
+include '../../Entity/Panier.php';
+$panier=new Panier();
 
 
 
@@ -270,13 +270,13 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                  alt="icon 2">
                             <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
                                 <h5>
-                                                                        <a href="shop-cart/index.html">
+                                                                        <a href="../shop-cart/index.php">
 
                                         Mon Panier                                                                            </a>
                                                                 </h5>
-                                                                    <span>
-                                0.00                            </span>
-                                                            </div>
+                                <span><span class="woocommerce-Price-currencySymbol">&pound;</span>
+                                <span id="totale"><?= number_format($panier->total(),2); ?> </span>                     </span>
+                            </div>
                         </div>
 
                     </div>
@@ -750,7 +750,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
                         <div class="catalog_ordering clearfix">
 
                             <p class="woocommerce-result-count">
-	 <?php  echo $rows['NbNews'];  ?> BOOKS FOUND</p>
+	 <?php  echo $rows['NbNews'];?> BOOKS FOUND</p>
 	 
 	
 	</form>
@@ -927,7 +927,7 @@ if ($product['REDUCTION']!=0)
 
 		<div class="excerpt-product"><?php echo $product['OVERVIEW']; ?></div>
 
-		</a><a rel="nofollow" href="index3a6b.html?add-to-cart=340" data-quantity="1" data-product_id="340" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to Basket <i class="zmdi zmdi-plus-circle-o"></i></a>	</div>
+		</a><input type="button" rel="nofollow" href="../../Core/addpanier.php?id=<?=$product['ID']?>" data-quantity="<?= $product['QUANTITE'] ?>" data-product_id="<?= $product['ID'] ?>" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart addPanier"  value="Add to Basket">	</div>
 </div>
                                 
 <?php endwhile; ?>                                                            
@@ -1168,6 +1168,7 @@ var bj_handle = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/book
 </script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/bj-handle.js'></script>
 <script type='text/javascript' src='../wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript' src='../../panier.js'></script>
 <script type='text/javascript' src='../wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
 </body>
 
