@@ -582,8 +582,8 @@ $url=$gClient->createAuthUrl();
                         <label class="raed">num telephone</label>
                         <input type="text" class="livraison7" name="num_tel" value="" placeholder="num telephone..."><br>
 
-                         <label class="raed">code livre</label>
-                        <input type="text" class="livraison8" name="code_livre" value="" placeholder="code livre..."><br>
+                         <label class="prix8">code livre</label>
+                        <input type="text" class="prix8" name="code_livre" value="" placeholder="code livre..."><br>
 
                         <label class="prix8">prix</label>
                         <input type="text" class="prix8" name="prix" value="" placeholder="code livre..."><br>

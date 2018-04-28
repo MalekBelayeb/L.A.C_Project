@@ -48,9 +48,9 @@ if ($_POST['ville']=='gafssa') {
 
 
 
-if ( isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['code_postale'])  and isset($_POST['ville'])and isset($_POST['mail'])and isset($_POST['num_tel'])and isset($_POST['code_livre'])){
+if ( isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['code_postale'])  and isset($_POST['ville'])and isset($_POST['mail'])and isset($_POST['num_tel']) ){
 
-$laivraison1=new laivraisonposte($_POST['nom'],$_POST['prenom'],$_POST['code_postale'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],$_POST['code_livre'],date("Y-m-d"),$_POST['prix']);
+$laivraison1=new laivraisonposte($_POST['nom'],$_POST['prenom'],$_POST['code_postale'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],0,date("Y-m-d"),$_POST['prix']);
 
 $_SESSION['livraisonPrix'] = $_POST['prix'];
 //Partie2
