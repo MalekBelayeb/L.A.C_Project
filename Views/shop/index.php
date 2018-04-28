@@ -1,9 +1,7 @@
 <?php
-
 include '../../Core/LoginCore.php';
 include '../../Entity/Panier.php';
 $panier=new Panier();
-
 
 
 include_once "../../config.php";
@@ -926,8 +924,15 @@ if ($product['REDUCTION']!=0)
 	</span>
 
 		<div class="excerpt-product"><?php echo $product['OVERVIEW']; ?></div>
+            <?php
+            if(!isset($_SESSION['panier'][$product['ID']]))
+            {
+                $_SESSION['panier'][$product['ID']]=0;
+            }
+            ?>
 
-		</a><input type="button" rel="nofollow" href="../../Core/addpanier.php?id=<?=$product['ID']?>" data-quantity="<?= $product['QUANTITE'] ?>" data-product_id="<?= $product['ID'] ?>" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart addPanier"  value="Add to Basket">	</div>
+
+            </a><input type="button" rel="nofollow" href="../../Core/addpanier.php?id=<?=$product['ID']?>" data-quantity="<?= $product['QUANTITE'] ?>" data-product_id="<?= $product['ID'] ?>" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart addPanier"  value="Add to Basket">	</div>
 </div>
                                 
 <?php endwhile; ?>                                                            

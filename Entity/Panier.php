@@ -53,19 +53,22 @@ class Panier
     public function total()
     {
         $total=0;
-        $id = array_keys($_SESSION['panier']);
-        $pdo = Connexion::getConnexion();
-        $sql = 'SELECT * FROM book where ID IN (' . implode(',', $id) . ')';
-        $stmt = $pdo->prepare($sql);
-        $product = $stmt->execute();
-        $product = $stmt->fetchAll(PDO::FETCH_OBJ);
-        foreach ($product as $livre)
+        if(!empty($_SESSION['panier']))
         {
-            $total+=$_SESSION['panier'][$livre->ID]*$livre->PRIX;
-        }
-        if(isset($_SESSION['coupon']))
-        {
-            $total=$total-(($total*$_SESSION['coupon'])/100);
+            $id = array_keys($_SESSION['panier']);
+            $pdo = Connexion::getConnexion();
+            $sql = 'SELECT * FROM book where ID IN (' . implode(',', $id) . ')';
+            $stmt = $pdo->prepare($sql);
+            $product = $stmt->execute();
+            $product = $stmt->fetchAll(PDO::FETCH_OBJ);
+            foreach ($product as $livre)
+            {
+                $total+=$_SESSION['panier'][$livre->ID]*$livre->PRIX;
+            }
+            if(isset($_SESSION['coupon']))
+            {
+                $total=$total-(($total*$_SESSION['coupon'])/100);
+            }
         }
         return $total;
     }
