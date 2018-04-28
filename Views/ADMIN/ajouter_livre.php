@@ -137,14 +137,17 @@
               
 
             $core-> ajouter_book($bk);
-
+            $cat = "";
 
             $last_id = $core->get_last_livre();
             foreach ($_POST['cat'] as $row) {
 
                       $core->insert_category($last_id['ID'],$row);
-                
+                      $cat .= $row;
               }
+
+              $core->modifier_MAJ_category($cat,$last_id['ID']);
+
 
 
 
@@ -154,7 +157,15 @@
             //Database::disconnect();
             header("Location: crud_index_livre.php");
         }
+
+
+
     }
+
+
+
+
+
 ?>
 
 

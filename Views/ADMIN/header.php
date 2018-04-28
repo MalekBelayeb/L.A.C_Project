@@ -226,7 +226,7 @@
        
         <li class="nav-item dropdown">
          <?php   
-            include_once 'C:/wamp/www/AvenirCulturel/core/bookcore.php';
+            include_once 'C:/wamp64/www/AvenirCulturel/core/bookcore.php';
                    
                   $book = New bookcore();
                   $donnes = $book->afficher_book_quantite();
