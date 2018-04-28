@@ -26,6 +26,17 @@ class CommentaireCore
 	}
 
 
+
+	function delete_comment($id)
+	{
+		$pdo = Connexion:: getConnexion();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "DELETE FROM `commentaire` WHERE  ID = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+
+	}
+
 	function Nbr_Commentaire($id_book)
 	{
 		$c = connexion::getConnexion();
