@@ -541,6 +541,10 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 
 
     <form class="searchform" action="<?php echo $_SERVER['PHP_SELF'];  ?>" method="get">
+      
+
+
+
         <div class="wrap-cat">
             
     <select name="product_cat" id="product_cat">
@@ -561,25 +565,20 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
        </select>
             </div>
 
-        <div class="wrap-year">
-                <select name="bj_tax_pa_year_publication" id="term">
+     <div class="wrap-cat">
+   
 
-        <option value="">Year</option>
-        <option value="1955" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="1955") echo "selected=''"; else echo "";  ?> >1955</option>
-        <option value="1991" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="1991") echo "selected=''"; else echo "";  ?> >1991</option>
-        <option value="1992" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="1992") echo "selected=''"; else echo "";  ?> >1992</option>
-        <option value="1993" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="1993") echo "selected=''"; else echo "";  ?> >1993</option>
-        <option value="2000" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2000") echo "selected=''"; else echo "";  ?> >2000</option>
-        <option value="2002" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2002") echo "selected=''"; else echo "";  ?> >2002</option>
-        <option value="2003" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2003") echo "selected=''"; else echo "";  ?> >2003</option>
-        <option value="2007" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2007") echo "selected=''"; else echo "";  ?> >2007</option>
-        <option value="2010" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2010") echo "selected=''"; else echo "";  ?> >2010</option>
-        <option value="2011" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2011") echo "selected=''"; else echo "";  ?> >2011</option>
-        <option value="2013" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2013") echo "selected=''"; else echo "";  ?> >2013</option>
-        <option value="2015" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2015") echo "selected=''"; else echo "";  ?> >2015</option>
-        <option value="2016" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2016") echo "selected=''"; else echo "";  ?> >2016</option>
-        <option value="2017" <?php if (isset($_GET['bj_tax_pa_year_publication']))  if ($_GET['bj_tax_pa_year_publication']=="2017") echo "selected=''"; else echo "";  ?> >2017</option>    </select>
-            </div>
+<select name="orderby" class="orderby">
+          <option value="menu_order"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='menu_ordre')   echo "selected=''"; else echo "";   ?>  >Default sorting</option>
+          <option value="popularity"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='popularity')   echo "selected=''"; else echo "";   ?>  >Sort by popularity</option>
+          <option value="RATING"      <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='RATING')   echo "selected=''"; else echo "";   ?>    >Sort by average rating</option>
+          <option value="DATE"        <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='DATE')   echo "selected=''"; else echo "";   ?>      >Sort by newness</option>
+          <option value="price"     <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='price')   echo "selected=''"; else echo "";   ?>     >Sort by price: low to high</option>
+          <option value="PRIX"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='PRIX')   echo "selected=''"; else echo "";   ?>  >Sort by price: high to low</option>
+      </select>
+   
+</div>
+
 
         <div class="wrap-search">
             <input type="text" class="form-search" name="s" value="<?php  if (isset($_GET['s'])) if (empty($_GET['s'])) echo "";  echo $_GET['s']; ?>"
@@ -604,36 +603,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 <div class='bj-filter-rs'> <a href="index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order"">  Reset </a></div>            </div>
                       
                                         
-                        <div class="bj-ft-age">
-                <h3>Age Range</h3>
-                                        <div class="bj-ft-age-item">
-                            <input type="checkbox" class="bj-ft-input-age"
-                                   id="bj-ft-age-0-6"
-                                   value="0:6" ><label
-                                    for="bj-ft-age-0-6">0 - 6</label>
-                        </div>
-                                                <div class="bj-ft-age-item">
-                            <input type="checkbox" class="bj-ft-input-age"
-                                   id="bj-ft-age-6-12"
-                                   value="6:12" ><label
-                                    for="bj-ft-age-6-12">6 - 12</label>
-                        </div>
-                                                <div class="bj-ft-age-item">
-                            <input type="checkbox" class="bj-ft-input-age"
-                                   id="bj-ft-age-12-18"
-                                   value="12:18" ><label
-                                    for="bj-ft-age-12-18">12 - 18</label>
-                        </div>
-                                                <div class="bj-ft-age-item">
-                            <input type="checkbox" class="bj-ft-input-age"
-                                   id="bj-ft-age-18"
-                                   value="18:max" ><label
-                                    for="bj-ft-age-18">18+</label>
-                        </div>
-                                        <input type="hidden" name="bj_meta_ef3-age_accordant"
-                       value="">
-            </div>
-
+                        
             <div class="bj-ft-rating">
                 <h3>Average Rating</h3>
                                         <div class="bj-ft-rating-item">
@@ -690,15 +660,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
                 
                 <div class="col-xs-12 col-md-8 col-lg-9">
 
-                	<select name="orderby" class="orderby">
-					<option value="menu_order"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='menu_ordre')   echo "selected=''"; else echo "";   ?> 	>Default sorting</option>
-					<option value="popularity"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='popularity')   echo "selected=''"; else echo "";   ?>	>Sort by popularity</option>
-					<option value="RATING"      <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='RATING')   echo "selected=''"; else echo "";   ?>		>Sort by average rating</option>
-					<option value="DATE"        <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='DATE')   echo "selected=''"; else echo "";   ?>			>Sort by newness</option>
-					<option value="price" 		<?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='price')   echo "selected=''"; else echo "";   ?>			>Sort by price: low to high</option>
-					<option value="PRIX"  <?php  if (isset($_GET['orderby'])) if ($_GET['orderby']=='PRIX')   echo "selected=''"; else echo "";   ?>	>Sort by price: high to low</option>
-			</select>
-   
+                	
 
                             
 <?php
