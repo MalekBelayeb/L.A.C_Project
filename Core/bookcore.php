@@ -21,6 +21,111 @@ class Bookcore
 	}
 
 
+	
+
+
+
+	function modifier_MAJ_category($cat,$id)
+	{
+		$pdo = Connexion:: getConnexion();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE `book` SET `GNERE`=? WHERE ID=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($cat,$id));
+	}
+
+
+
+	function get_category ()
+	{
+
+		$c = Connexion::getConnexion();
+		$array = array();
+
+		
+			$liste=$c->query("SELECT * FROM book_category group by CATEGORY  ORDER BY `CATEGORY` ASC");
+					while ($row = $liste->fetch(PDO::FETCH_ASSOC))
+					{
+						array_push($array, $row['CATEGORY']);
+					}
+					
+
+
+
+				
+			return $array;
+
+
+
+
+	}
+
+	function get_category_nbr ()
+	{
+
+		$c = Connexion::getConnexion();
+		$array = array();
+
+		
+			$liste=$c->query("SELECT count(*) as nbr FROM book_category group by CATEGORY  ORDER BY `CATEGORY` ASC");
+					while ($row = $liste->fetch(PDO::FETCH_ASSOC))
+					{
+						array_push($array, $row['nbr']);
+					}
+					
+
+
+
+				
+			return $array;
+
+
+
+
+	}
+
+
+
+	function get_category_livre ($id)
+	{
+		
+		$c = Connexion::getConnexion();
+			$liste=$c->query("SELECT * FROM `book_category` WHERE ID_LIVRE = $id");
+			return $liste;
+
+	}
+
+	function delete_category ($id)
+	{
+
+
+		 $pdo = Connexion:: getConnexion();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "DELETE FROM `book_category` WHERE ID_LIVRE=?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+	}
+
+	function insert_category ($id,$category)
+	{
+		$pdo = Connexion:: getConnexion();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "INSERT INTO `book_category`(`ID_LIVRE`, `CATEGORY`) VALUES (?,?)";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($id,$category));
+
+	}
+
+	function get_last_livre ()
+	{
+				$c = Connexion::getConnexion();
+
+				$donnes = $c->query("SELECT * FROM `book` ORDER BY `book`.`ID` DESC limit 1");
+				$id = $donnes->fetch();
+				return $id;
+
+	}
+
 
 
 	function afficher_book()
@@ -324,19 +429,104 @@ function afficher_book_quantite()
 	}
 
 
+
+	function update_nbr_visist ($id)
+	{
+
+
+		
+
+		$c = Connexion::getConnexion();
+
+			$req1 = $c->query("SELECT * FROM `book` WHERE ID = $id");
+			$donnes = $req1->fetch();
+
+            $sql = "UPDATE `book` SET `NBR_VISIT`=? WHERE ID=?";
+            $q = $c->prepare($sql);
+            $q->execute(array(($donnes['NBR_VISIT']+1),$id));
+
+
+
+	}
+
+	function get_livre_nom_nbr_visit ()
+	{
+
+
+		$c = Connexion::getConnexion();
+
+			$req1 = $c->query("SELECT * FROM `book` ORDER BY NBR_VISIT DESC LIMIT 5");
+			$array = array();
+
+			while ($row = $req1->fetch(PDO::FETCH_ASSOC))
+					{
+						array_push($array, $row['NOM']);
+					}
+					
+
+
+
+				
+			return $array;
+
+			
+	}
+
+
+
+	function get_livre_nbr_visit ()
+	{
+
+
+		$c = Connexion::getConnexion();
+
+			$req1 = $c->query("SELECT * FROM `book` ORDER BY NBR_VISIT DESC LIMIT 5");
+			$array = array();
+
+			while ($row = $req1->fetch(PDO::FETCH_ASSOC))
+					{
+						array_push($array, $row['NBR_VISIT']);
+					}
+					
+
+
+
+				
+			return $array;
+
+			
+	}
+
+	function get_livre_vente_nbr_visit ()
+	{
+
+
+		$c = Connexion::getConnexion();
+
+			$req1 = $c->query("SELECT * FROM `book` ORDER BY NBR_VISIT DESC LIMIT 5");
+			$array = array();
+
+			while ($row = $req1->fetch(PDO::FETCH_ASSOC))
+					{
+						array_push($array, $row['NBR_VENTE']);
+					}
+					
+
+
+
+				
+			return $array;
+
+			
+	}
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

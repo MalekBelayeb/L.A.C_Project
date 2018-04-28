@@ -146,12 +146,19 @@ if (empty($_POST['cat']))
             
             $book->delete_category($id);
 
+
+                        $cat = "";
+
+
             foreach ($_POST['cat'] as $row) {
 
 
                       $book->insert_category($id,$row);
+                        $cat .= $row;
+
                 
               }
+              $book->modifier_MAJ_category($cat,$id);
 
             //Database::disconnect();
             header("Location: crud_index_livre.php");
