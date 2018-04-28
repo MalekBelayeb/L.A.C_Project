@@ -12,6 +12,7 @@
     $donnes_auteur = $auteur_class->afficher_auteur();
     $donnes_categorie = $category->Afficher_categorie();
 
+
     $id = null;
 
 
@@ -19,6 +20,8 @@
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
         $donnes_book = $book->Get_Livre_id($id);
+        $category_livre = $book->get_category_livre($id);
+
     }
      
     if ( null==$id ) {
@@ -36,12 +39,19 @@
         $reductionError = NULL;
         $inviteError = null;
         $dateError = null;
+                $langError = NULL;
+
          
         // keep track post values
         $nom = $_POST['nom'];
         $prix = $_POST['Prix'];
         $auteur = $_POST['choisir_auteur'];    
-        $category= $_POST['category'];   
+
+if (empty($_POST['cat']))
+        $category = NULL;
+        else  
+        $category= $_POST['cat'];   
+
         $image = $_POST['img'];
         $date = $_POST['date'];
         $red = $_POST['reduction'];
@@ -117,6 +127,12 @@
           $reductionError = "Please Enter number";
           $valid = false;
         }
+
+         if (strlen($lang)>3)
+        {
+          $langError = "entrer une valeur comme (fr,ang)";
+          $valid = false;
+        }
         
         
          
@@ -125,7 +141,17 @@
         if ($valid) {
             
 
-            $book->modifier_auteur($nom,$prix,$genre,$image,$date,$reduction,$auteur,$overview,$Originalite,$hardcover,$language,$ISBN,$dimension,$id);
+            $book->Update_Livre($nom,$prix,$category[0],$image,$date,$red,$auteur,$ov,$or,$har,$lang,$ISBN,$dim,$id);
+
+            
+            $book->delete_category($id);
+
+            foreach ($_POST['cat'] as $row) {
+
+
+                      $book->insert_category($id,$row);
+                
+              }
 
             //Database::disconnect();
             header("Location: crud_index_livre.php");
@@ -204,7 +230,7 @@
 
 
 
-                      <form  action="ajouter_livre.php" method="post">
+                      <form  action="update_livre.php?id=<?php echo $id ?>" method="post">
                       
                       <div <?php echo !empty($nameError)?'error':'';?>">
                         <label>Nom</label>
@@ -234,15 +260,10 @@
                         <label>Genre</label>
                         <div>
                       
-                              <select name="category">
-                                
-                              <option value="" >chose category</option>
-                                      <?php     while ($product = $donnes_categorie->fetch(PDO::FETCH_ASSOC)) :  ?>
-                                        <option value="<?php echo  $product['CATEGORY'];   ?>"    > <?php echo  $product['CATEGORY'];   ?></option>
-
+                               <?php     while ($product = $donnes_categorie->fetch(PDO::FETCH_ASSOC)) :  ?>
+                                        <p><input type="checkbox" name="cat[]" value="<?php echo  $product['CATEGORY'] ?>" <?php foreach ($book->get_category_livre($id) as $row) if ( $product['CATEGORY']==$row['CATEGORY'])  echo 'checked=""';   ?>><?php echo  $product['CATEGORY']  ?></p>
                                       <?php  endwhile;   ?>
 
-                              </select>
                            
                             <?php if (!empty($categoryError)): ?>
                                 <span class="help-inline"><?php echo $categoryError;?></span>
@@ -342,7 +363,9 @@
                         <div>
                       
                             <input name="lang" type="text"  placeholder="Language" value="<?php  echo $donnes_book['LANGUAGE']; ?>">
-                            
+                             <?php if (!empty($langError)): ?>
+                                <span class="help-inline"><?php echo $langError;?></span>
+                            <?php endif; ?>
                      
                         </div>
                       </div>

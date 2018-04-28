@@ -18,6 +18,7 @@
         // delete data
         $core = new Bookcore();
         $core->delete_book($id);
+        $core->delete_category($id);
         //Database::disconnect();
         header("Location: crud_index_livre.php");
           

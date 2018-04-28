@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -8,10 +11,19 @@
 include_once "C:/wamp64/www/AvenirCulturel/Core/auteurcore.php";
 
 include_once "../../../core/commentaireCore.php";
-include_once "../../../core/usercore.php";
+include_once "../../../config.php";
+include_once "../../../core/bookcore.php";
+include_once "../../../core/auteurcore.php";
 
 
-$user = new Usercore();
+
+$book = New Bookcore();
+$auteur = New Auteurcore();
+
+$book->update_nbr_visist($_GET['Livre']);
+
+
+
 
 
 $commentaire = New commentaireCore();
@@ -412,17 +424,12 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
 
-include_once "../../../config.php";
-include_once "../../../core/bookcore.php";
-include_once "../../../core/auteurcore.php";
 
-
-
-$book = New Bookcore();
-$auteur = New Auteurcore();
 
 
 $donnees = $book->Get_Livre_id($_GET['Livre']);
+
+$livre_category = $book->get_category_livre ($_GET['Livre']);
 
 
 $nbr_comm = $commentaire->Nbr_Commentaire($_GET['Livre']);
@@ -580,8 +587,13 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
                             <ul>
             <li>
                 <div class="info-single-title">Genre:</div>
+<?php while ($category = $livre_category->fetch(PDO::FETCH_ASSOC)) : ?>
+
                 <span>
-                    <a href="../index.php?s=&product_cat=<?php echo $donnees['GNERE']; ?>&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" rel="tag"><?php     echo $donnees['GNERE'];   ?></a>               </span>
+                    <a href="../index.php?s=&product_cat=<?php echo $category['CATEGORY']; ?>&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" rel="tag"><?php     echo $category['CATEGORY'];   ?></a>               </span>
+            
+
+<?php endwhile; ?>
             </li>   
             <li>
                 <div class="info-single-title">Originally Published:</div>
@@ -740,7 +752,7 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
 
 <?php  
                 if (isset($_POST['submit']))
-                    if (isset($_POST['comment']))
+                    if (!empty($_POST['comment']))
                     $commentaire->Ajouter_commentaire($donnees['ID'],$_POST['comment'],$_SESSION['id']);
 
 ?>
@@ -788,12 +800,41 @@ $req_comm =  $commentaire->Afficher_commentaire_id ($_GET['Livre']);
         </strong> <em class="woocommerce-review__verified verified">(verified owner)</em> <span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="2017-09-28T14:27:21+00:00">September 28, 2017</time>
     </p>
 
-<div class="description"><p><?php  echo $product['COMMENTAIRE']; ?></p>
+<div class="description"><p><?php  echo $product['COMMENTAIRE']; ?> 
+
+
+
+
+<?php 
+    if (isset($_SESSION['id']))
+        if ($product['ID_COMPTE'] == $_SESSION['id']) { ?>
+
+                
+
+               
+
+
+                    
+
+
+                <p>
+                            <a href="supprimer_comment.php?id=<?php echo $product['ID']; ?>"><input type="submit" id="" class="button" value="supprimer"/></a>
+
+                </p>
+
+<?php  } ?>
+
+
+
+   </p>
 </div>
         </div>
     </div>
 
 </li><!-- #comment-## -->
+
+
+
 
 <?php  endwhile;?>
 

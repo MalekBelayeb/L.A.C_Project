@@ -25,12 +25,18 @@
         $reductionError = NULL;
         $inviteError = null;
         $dateError = null;
+        $langError = NULL;
          
         // keep track post values
         $nom = $_POST['nom'];
         $prix = $_POST['Prix'];
-        $auteur = $_POST['choisir_auteur'];    
-        $category= $_POST['category'];   
+        $auteur = $_POST['choisir_auteur']; 
+       
+        if (empty($_POST['cat']))
+        $category = NULL;
+        else   
+        $category= $_POST['cat'];   
+        
         $image = $_POST['img'];
         $date = $_POST['date'];
 
@@ -105,6 +111,12 @@
           $reductionError = "Please Enter number";
           $valid = false;
         }
+        if (strlen($lang)>3)
+        {
+          $langError = "entrer une valeur comme (fr,ang)";
+          $valid = false;
+        }
+
 
 
 
@@ -120,9 +132,20 @@
             $q->execute(array($nom_ev,$image));*/
 
 
-            $bk = new Book($_POST['nom'],$_POST['Prix'],$_POST['category'],$_POST['choisir_auteur'],$_POST['img'],$date,$_POST['reduction'],$_POST['Overview'],$_POST['Originalite'],$_POST['HARDCOVER'],$_POST['lang'],$_POST['ISBN'],$_POST['Dimension'],$_POST['couleur']);
+            $bk = new Book($_POST['nom'],$_POST['Prix'],$_POST['cat'][0],$_POST['choisir_auteur'],$_POST['img'],$date,$_POST['reduction'],$_POST['Overview'],$_POST['Originalite'],$_POST['HARDCOVER'],$_POST['lang'],$_POST['ISBN'],$_POST['Dimension'],$_POST['couleur']);
             $core = new Bookcore();
+              
+
             $core-> ajouter_book($bk);
+
+
+            $last_id = $core->get_last_livre();
+            foreach ($_POST['cat'] as $row) {
+
+                      $core->insert_category($last_id['ID'],$row);
+                
+              }
+
 
 
 
@@ -207,15 +230,11 @@
                         <label>Genre</label>
                         <div>
                       
-                              <select name="category">
                                 
-                              <option value="" selected="">chose category</option>
                                       <?php     while ($product = $donnes_categorie->fetch(PDO::FETCH_ASSOC)) :  ?>
-                                        <option value="<?php echo  $product['CATEGORY'];   ?>"><?php echo  $product['CATEGORY'];   ?></option>
-
+                                        <p><input type="checkbox" name="cat[]" value="<?php echo  $product['CATEGORY'] ?>"><?php echo  $product['CATEGORY']  ?></p>
                                       <?php  endwhile;   ?>
 
-                              </select>
                            
                             <?php if (!empty($categoryError)): ?>
                                 <span class="help-inline"><?php echo $categoryError;?></span>
@@ -315,6 +334,9 @@
                         <div>
                       
                             <input name="lang" type="text"  placeholder="Language" value="<?php echo !empty($lang)?$lang:'';?>">
+                              <?php if (!empty($langError)): ?>
+                                <span class="help-inline"><?php echo $langError;?></span>
+                            <?php endif; ?>
                             
                      
                         </div>

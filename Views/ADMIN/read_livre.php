@@ -119,7 +119,7 @@
                         <label>Image</label>
                         <div>
                             <label>
-                                <?php echo $data['IMAGE'];?><br><br>
+                                <img src="../wp-content/uploads/<?php echo $data['IMAGE'];?>"><br><br>
                             </label>
                         </div>
                       </div>
