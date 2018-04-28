@@ -40,50 +40,6 @@
 
 
 
-/**************************************************************************
-
-
-            body{
-                background : #f6f6f6;
-            }
-
-            .countdownContainer{
-
-                position: absolute;
-                top :15%; 
-                left: 20%;
-                tranform : translateX(-50%) translateY(-50%);
-                background: #ddd;
-                border: 5px solid #999;
-                padding: 1px;
-                box-shadow: 0 0 2px 4px #ccc;
-                width:4px; 
-                height:4px;"
-
-            }
-
-            .infoo{
-                font-size: 10px;
-
-            }
-
-
-
-
-**************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
 img.wp-smiley,
 img.emoji {
     display: inline !important;
@@ -352,6 +308,11 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 </ul>
 </li>
 <li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="../contact-us/index.html" class=""><span class="menu-title">Contact Us</span></a></li>
+
+<!--*************************************************************-->
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="../promo.php" class=""><span class="menu-title">Top Promo</span>
+<!--**********************************************************-->
+
 </ul></div>                </nav>
             </div>
         </div>
@@ -597,8 +558,8 @@ if($interval1->invert<=0)
                          <?php include_once ('server.php'); ?>
 
         <footer class="entry-footer">
-            <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>">Read more</a> 
-<!--*****************************************************************like/dislike******************************************************************************-->
+            <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>">Read more</a>
+             <!--*****************************************************************like/dislike******************************************************************************-->
 <!--*****************************************************************like/dislike******************************************************************************-->
 <!--*****************************************************************like/dislike******************************************************************************-->
 
@@ -662,7 +623,7 @@ else{
             <p readonly class="fa fa-thumbs-up like-btn"></p> 
           <?php else: ?>
               
-            <p readonly class="fa fa-thumbs-o-up like-btn"></p>
+            <p  class="fa fa-thumbs-o-up like-btn"></p>
           <?php endif ?>
           </i>
         <span class="likes"><?php echo getLikes($product['id_ev']); ?></span>
@@ -690,10 +651,6 @@ else{
 <!--*****************************************************************like/dislike******************************************************************************-->
 <!--*****************************************************************like/dislike******************************************************************************-->
 <!--*****************************************************************like/dislike******************************************************************************-->
-
-
-
-
 
 
 <!--********************************************************************************-->
@@ -764,7 +721,7 @@ else{
 
     <div class="wrap-right">
 
-        <h3 class="entry-title"><a href="../the-world-of-abstract-art/index.php?id_ev=<?php echo $product['id_ev']; ?>"><?php   echo $product['nom_ev']; ?></a></h3>
+        <h3 class="entry-title"><a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>"><?php echo $product['nom_ev']; ?></a></h3>
 
         
         <div class="detail-date">
@@ -777,7 +734,7 @@ else{
 
                 
         <footer class="entry-footer">
-            <a href="../the-world-of-abstract-art/index.php?id_ev=<?php echo $product['id_ev']; ?>">Read more</a>
+            <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>">Read more</a>
 
 <!--******************************************************************************like/dislike******************************************************************************-->
              
@@ -791,8 +748,10 @@ else{
         &nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
 
+                         <?php include_once ('server.php'); ?>
 
                   <?php
+                  
 
     if(isset($_SESSION['id']))
 
@@ -841,7 +800,7 @@ else{
             <p readonly class="fa fa-thumbs-up like-btn"></p> 
           <?php else: ?>
               
-            <p readonly class="fa fa-thumbs-o-up like-btn"></p>
+            <p  class="fa fa-thumbs-o-up like-btn"></p>
           <?php endif ?>
           </i>
         <span class="likes"><?php echo getLikes($product['id_ev']); ?></span>

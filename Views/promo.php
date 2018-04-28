@@ -4,7 +4,6 @@ include '../Core/LivreCore.php';
 include '../Core/AuteurCore.php';
 
 
-
 include_once '../Core/bookcore.php';
 include_once '../Core/auteurcore.php';
 
@@ -44,20 +43,6 @@ $url=$gClient->createAuthUrl();
   display: inline-block;
 }
 
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-
-
 .promo3{
      background: url("cc.png") no-repeat;
  float: left;
@@ -75,8 +60,17 @@ $url=$gClient->createAuthUrl();
      font-size: 25px;
 }
 
-
-
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
@@ -102,6 +96,12 @@ $url=$gClient->createAuthUrl();
 <!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:22:03 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
+
+ <script >
+                                                    aaaaaaaaaa;                            alert($_SESSION['id_login']);
+                                                                            </script>
+
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -298,8 +298,9 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
                                                                     </a>
                                                             <span class="aj-count">
-                                     <?php if(isset($_SESSION['id'])) echo countLivre($_SESSION['id']); ?>  livre
+                                     <?php if(isset($_SESSION['id'])) echo countLivre($_SESSION['id']);  ?>  livre
                                                                             </span>
+                                                                           
                             </div>
                         </div>
 
@@ -531,7 +532,10 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </ul>
 </li>
 
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="news/evenements.php" class=""><span class="menu-title">Événement</span>
+
+
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="news/evenements.php" class=""><span class="menu-title">Evenement</span>
+
 
 <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Maisons d'édition</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
@@ -560,9 +564,11 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 <li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
 
 
-<!--*************************************************************-->
+
 <li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="promo.php" class=""><span class="menu-title">Top Promo</span>
-<!--**********************************************************-->
+
+
+
 
 </ul></div>                </nav>
             </div>
@@ -604,7 +610,6 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 			<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503973713559 vc_row-has-fill"><div class="column-fill wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">        <div class="carousel-product extend-right">
 
 
-<p class="title-carousel">LES MEILLEURES VENTES DE LA SEMAINE</p>
 
             <div class="cms-carousel owl-carousel" id="cms-carousel">
                 
@@ -874,29 +879,7 @@ $bks = $auteur->Afficher_auteur();
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
     		<div class="cms-grid-wraper grid-2 extend-space" id="cms-grid">
-    				 <div class="cms-grid-filter clearfix">
-	    			       <h3 class="title">PAR GENRE</h3>
-	    				 <ul class="cms-filter-category list-unstyled list-inline">
-			                <li><a class="active" href="index.php" data-group="all">Tous</a></li>
-
-			               <li>
-                               <a href="index.php?Category=CULTURE" data-group="category-comedy">Culture</a>
-			                    </li>
-			                    <li>
-                                <a href="index.php?Category=LOISIRS" data-group="category-romance">Loisirs</a>
-			                    </li>
-			                	<li>
-                                    <a href="index.php?Category=TECHNOLOGIE" data-group="category-thriller">Technologies</a>
-			                    </li>
-			                	<li>
-                                    <a href="index.php?Category=ARTS" data-group="category-media">Arts</a>
-			                    </li>
-			                	<li>
-                                    <a href="index.php?Category=CUISINE" data-group="category-cooking">Cuisine</a>
-			                    </li>
-                         </ul>
-			    </div>
-                
+    				 
 
 
 
@@ -905,34 +888,7 @@ $bks = $auteur->Afficher_auteur();
 
 
 
-                $LCore=new LivreCore();
-                $LivreParPage=9;
-
-                if(isset($_GET['page']) AND !empty($_GET['page']))
-                {
-                $_GET['page']=intval($_GET['page']);
-                $pageCourante=$_GET['page'];
-                }
-                else{
-                $pageCourante=1;
-                }
-                $debut_enrg=($pageCourante-1)*$LivreParPage;
-              if(isset($_GET['Category']) and !empty($_GET['Category']))
-              {
-                  $Livres= $LCore->DiviserLivreCategory($debut_enrg,$LivreParPage,$_GET['Category']);
-                  $NbTotal=$LCore->NbTotalLivreCategory($_GET['Category']);
-              }
-              else
-              {
-                  $Livres= $LCore->DiviserLivre($debut_enrg,$LivreParPage);
-                  $NbTotal=$LCore->NbTotalLivre();
-              }
-                $pagesTotal=ceil($NbTotal/9);
-               
-
-
-
-
+$bks = $book->afficher_book_reduction();
 
 
 
@@ -946,7 +902,7 @@ $bks = $auteur->Afficher_auteur();
             
                 <div class="row cms-grid cms-grid-masonry-2">
                     <?php
-                            while ($product = $Livres->fetch(PDO::FETCH_ASSOC)) :
+                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
 
 
 
@@ -954,11 +910,10 @@ $bks = $auteur->Afficher_auteur();
 
                     ?>
 
-
                     
                         <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-                           
- <?php
+
+  <?php
   if ($product['REDUCTION']!=0)
 {
       
@@ -968,12 +923,14 @@ $bks = $auteur->Afficher_auteur();
   <section class="promo3"><?php echo $product['REDUCTION']; ?>%</section>
 
   <?php }?>
-
-
                             <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
                             <div class="info-product">
+
+
+       
                                 <a class="product-title" href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><?php  echo $product['NOM'] ; ?></a>
-                                <p class="product-author">by: <?php echo $donnes_auteur['NOM'] ;   ?></p>                           
+                                <p class="product-author">by: <?php echo $donnes_auteur['NOM'] ;   ?></p>   
+
     <span class="price"><del><span class="woocommerce-Price-amount amount">
 
 
@@ -981,7 +938,7 @@ $bks = $auteur->Afficher_auteur();
 <?php
 
 if ($product['REDUCTION']!=0)
-{
+{  
    echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$product['PRIX'].'</span></del>'; 
 
     echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.($product['PRIX']-($product['PRIX']*$product['REDUCTION'])/100)
@@ -1003,41 +960,13 @@ if ($product['REDUCTION']!=0)
                     <?php  endwhile;?>
 
 
-                    
+                        
                
                                         </div>
 
-                                            <?php
-                    for ($i=1;$i<=$pagesTotal;$i++)
-                    {
-                    if(isset($_GET['Category']))
-                    {
-                        echo '<a class="page-numbers current" href="index.php?Category='.$_GET['Category'].'&amp;page='.$i.'  "> '.$i.'</a>';
-                    }
-                    else
-                    {
-                            echo '<a class="page-numbers current" href="index.php?page='.$i.'  "> '.$i.'</a>';
-                    }
-                    }
-
-
-?>
-
                             </div>
 
-        </div></div>
-
- 
-
-        </div>
-
-
-
-
-
-
-
-        </div>
+        </div></div></div></div>
 
 
 
@@ -1057,7 +986,6 @@ if ($product['REDUCTION']!=0)
                                                     <h2 style="font-size: 15px;color: #888a92;text-align: left;font-family:Voces;font-weight:400;font-style:normal" class="heading">CATEGORIES POPULAIRES</h2>
 
                                                     <div class="wrap-link">
-                     <a href="#" target="_self">TOUS LES CATEGORIES<i class="zmdi zmdi-chevron-right"></i>
                                                         </a></div></div><div class="vc_empty_space"   style="height: 7px" >
                                                     <span class="vc_empty_space_inner"></span></div>
 

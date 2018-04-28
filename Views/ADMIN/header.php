@@ -35,18 +35,20 @@
             <span class="nav-link-text">Tables</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Marketing</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="collapseMulti4">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="evenement.php">gerer evenement</a>
             </li>
-            <li>
-              <a href="cards.html">Cards</a>
+           
+             <li>
+              <a href="CouponTable.php">gerer coupon</a>
             </li>
+            
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -224,7 +226,7 @@
        
         <li class="nav-item dropdown">
          <?php   
-            include_once 'C:/wamp64/www/AvenirCulturel/core/bookcore.php';
+            include_once 'C:/wamp/www/AvenirCulturel/core/bookcore.php';
                    
                   $book = New bookcore();
                   $donnes = $book->afficher_book_quantite();

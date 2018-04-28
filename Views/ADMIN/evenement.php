@@ -38,24 +38,21 @@
             <span class="nav-link-text">Charts</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+       
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Marketing</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="collapseMulti4">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="evenement.php">gerer evenement</a>
             </li>
-            <li>
-              <a href="cards.html">Cards</a>
+           
+             <li>
+              <a href="CouponTable.php">gerer coupon</a>
             </li>
+            
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -78,56 +75,101 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Menu Levels</span>
+
+
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Livres</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="#">Second Level Item</a>
+              <a href="navbar.php">Ajouter livres</a>
             </li>
             <li>
-              <a href="#">Second Level Item</a>
+              <a href="cards.php">Modifier livres</a>
             </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
+              <li>
+                  <a href="cards.php">Supprimer livres</a>
+              </li>
+              <li>
+                  <a href="cards.php">Afficher livres</a>
+              </li>
           </ul>
         </li>
 
-  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti4" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Marketing</span>
+
+ <li class="nav-item" data-toggle="tooltip" data-placement="right" title="livraison">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapselivraison" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">livraison</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti4">
+          <ul class="sidenav-second-level collapse" id="collapselivraison">
             <li>
-              <a href="evenement.php">gerer evenement</a>
-            </li>
-            <li>
-              <a href="reduction.php">gerer promotion</a>
+              <a href="livraison1.php">livraison</a>
             </li>
              <li>
-              <a href="CouponTable.php">gerer coupon</a>
+              <a href="admin_livreur.php">livreur</a>
             </li>
-            
+            <li>
+              <a href="prix.php">prix livraison</a>
+            </li>
+
+
+           
           </ul>
         </li>
+
+ 
+
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#livres" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Gestion livres</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="livres">
+            <li>
+              <a href="crud_index_livre.php">crud livres</a>
+            </li>
+            <li>
+              <a href="crud_index_categorie.php">crud Categorie</a>
+            </li>
+            
+            <li>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Statistique</a>
+              <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                <li>
+                  <a href="stat1.php">statistique 1</a>
+                </li>
+    
+              </ul>
+            </li>
+           
+           
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#auteur" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Gestion auteur</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="auteur">
+            <li>
+              <a href="crud_index_auteur.php">crud auteur</a>
+            </li>
+           
+          </ul>
+        </li>
+
+
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+              <a class="nav-link" href="http://localhost/AvenirCulturel/Core/DeconnexionCore.php">
+                  <span class="nav-link-text">Se deconnecter</span>
+              </a>
+          </li>
 
 
 
