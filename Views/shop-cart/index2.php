@@ -542,194 +542,100 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>Shop Cart</h1>
         </div>
-        <!-- #page-title -->
-        <div id="content" class="site-content">
-            <div id="primary" class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <main id="main" class="site-main">
-
-                            <article id="post-393" class="post-393 page type-page status-publish hentry">
-                                <div class="entry-content">
-
-                                    <div class="vc_row wpb_row vc_row-fluid">
-                                        <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-1 vc_col-lg-10">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="woocommerce">
-                                                        <br>
-                                                        <form class="woocommerce-cart-form book-junky-cart" action="../../Core/updatepanier.php" method="post">
-                                                        <table class="shop_table cart woocommerce-cart-form__contents" cellspacing="0">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="product-remove">&nbsp;</th>
-                                                                <th class="product-thumbnail">&nbsp;</th>
-                                                                <th class="product-name">Product</th>
-                                                                <th class="product-price">Price</th>
-                                                                <th class="product-quantity">Quantity</th>
-                                                                <th class="product-subtotal">Total</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <span id="shop-cart">
-                                                            <?php
-                                                            if(isset($_SESSION['panier']))
-                                                            {
-                                                                $id = array_keys($_SESSION['panier'],!0,false);
-                                                                $pdo = Connexion::getConnexion();
-                                                                if(empty($id))
-                                                                {
-                                                                    echo '<p class="cart-empty">Your cart is currently empty.</p>	<p class="return-to-shop">
-                                                            <a class="button wc-backward" href="Shop.php">
-                                                                Return to shop		</a></p>';
-                                                                }
-                                                                else {
-                                                                    $sql = 'SELECT * FROM book where ID IN (' . implode(',', $id) . ')';
-                                                                    $stmt = $pdo->prepare($sql);
-                                                                    $product = $stmt->execute();
-                                                                    $product = $stmt->fetchAll(PDO::FETCH_OBJ);
-                                                                    foreach ($product as $livre):
-
-                                                                        ?>
-                                                                        <tr class="woocommerce-cart-form__cart-item cart_item">
-
-                                                                            <td class="product-remove">
-                                                                                <a href="../../Core/delpanier.php?del=<?= $livre->ID ?>"
-                                                                                   class="remove"
-                                                                                   aria-label="Remove this item"
-                                                                                   data-product_id="371"
-                                                                                   data-product_sku="">&times;</a></td>
-
-                                                                            <td class="product-thumbnail">
-                                                                                <a href="#"><img width="110"
-                                                                                                 height="170"
-                                                                                                 src="../wp-content/uploads/<?=$livre->IMAGE; ?>"
-                                                                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                                                 alt=""/></a></td>
-
-                                                                            <td class="product-name"
-                                                                                data-title="Product">
-                                                                                <a href="#"><?= $livre->NOM ?></a></td>
-
-                                                                            <td class="product-price"
-                                                                                data-title="Price">
-                                                                                <span class="woocommerce-Price-amount amount"><span
-                                                                                            class="woocommerce-Price-currencySymbol">&pound;</span><?= number_format($livre->PRIX, 2); ?></span>
-                                                                            </td>
-
-                                                                            <td class="product-quantity"
-                                                                                data-title="Quantity">
-                                                                                <div class="quantity">
-                                                                                    <label class="screen-reader-text"
-                                                                                           for="quantity_5ab194b190c19">Quantity</label>
-                                                                                    <input type="number"
-                                                                                           id="quantity_5ab194b190c19"
-                                                                                           class="input-text qty text"
-                                                                                           step="1" min="0" max=""
-                                                                                           name="quantite[<?= $livre->ID ?>]"
-                                                                                           value="<?= $_SESSION['panier'][$livre->ID] ?>"
-                                                                                           title="Qty" size="4"
-                                                                                           pattern="[0-9]*"
-                                                                                           inputmode="numeric"/>
-                                                                                </div>
-                                                                            </td>
-
-                                                                            <td class="product-subtotal"
-                                                                                data-title="Total">
-                                                                                <span class="woocommerce-Price-amount amount"><span
-                                                                                            class="woocommerce-Price-currencySymbol">&pound;</span><?= number_format($panier->total_produit($livre->ID), 2); ?></span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    <?php
-                                                                    endforeach;
-                                                                }
-                                                            }
-                                                            ?>
-                                                            </span>
-                                                            <tr>
-                                                                <td colspan="6" class="actions">
-
-                                                                    <div class="coupon">
-                                                                        <label for="coupon_code">Coupon:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" /> <input type="submit" class="button" name="apply_coupon" value="Apply coupon" />
-                                                                    </div>
 
 
-                                                                    <input type="submit" class="button update-cart-button" name="update_cart" value="Update cart" />
 
 
-                                                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="7111e01a26" /><input type="hidden" name="_wp_http_referer" value="/themeforest/bookjunky/?page_id=393" />				</td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        </form>
-                                                        <div class="cart-collaterals">
-                                                            <div class="cart_totals ">
+
+<br>
+<br><br>
 
 
-                                                                <h2>Cart totals</h2>
+                         <div class="woocommerce">   <p class="return-to-shop">
+            <a class="button wc-backward" href="laivraisondomicile.php">
+            livraison  à domicile   </a>
+            <a class="button laivraison" href="laivraisonposte.php">
+            livraison  poste     </a>
 
-                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+            
+                          </p>
+                         </div>
 
-                                                                    <tr class="cart-subtotal">
-                                                                        <th>Subtotal</th>
-                                                                        <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->totalewithoutcoupon(),2);?></span></span></td>
-                                                                    </tr>
-                                                                    <?php if (isset($_SESSION['coupon']))
-                                                                    {
-                                                                        echo '<tr class="cart-subtotal">
-                                                                        <th>Coupon</th>
-                                                                        <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">%</span><span class="totale2">'.$_SESSION['coupon'].'</span></span></td>
-                                                                    </tr>';
-                                                                    }
-                                                                    ?>
+                         
+                         &nbsp;&nbsp;&nbsp;
+                         &nbsp;                     
+                         &nbsp;
+                         &nbsp;
+                         &nbsp;
+                         &nbsp;
+                         &nbsp;                     
+                         &nbsp;
+                        
+                         <img src="th.png" class="imge1">
+                         <img src="hy.png"  class="imge2">
 
-                                                                    <tr class="shipping">
-                                                                        <th>Shipping</th>
-                                                                        <td data-title="Shipping">
-                                                                            <?php
-                                                                            if(isset($_SESSION['livraisonPrix']))
-                                                                            {
-                                                                               echo' <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2">';
+                          <br><br><br><br><br>
 
-                                                                                echo $_SESSION['livraisonPrix'];
-                                                                                echo'</span></span>';
-                                                                            }
-                                                                            else
-                                                                                echo '<a type="button" class="button" href="index2.php">Livraison</a>';
-                                                                            ?>
-                                                                        </td>
-                                                                    </tr>
+
+
+
+
+                        
+
+
+
+                        <style type="text/css">
+                            label.raed {
+                                color:  #8A2BE2;
+                                font-size: 35px;
+                                font-family: arial;
+                                margin-left: 7%;                               
+                                text-decoration: underline;
+                            }
+                            input.livraison1{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 10%;
+                            }
+
+                            img.image1{
+                                margin-left: 7%;
+                                width: 30%;
+
+                            }
+                        </style>
+
+
+                        <br><br><br><br><br>
 
 
 
 
 
 
-                                                                    <tr class="order-total">
-                                                                        <th>Total</th>
-                                                                        <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->total(),2);?></span></span></strong> </td>
-                                                                    </tr>
 
 
-                                                                </table>
-
-                                                                <?php if(!empty($id))
-                                                                {
-                                                                    echo "<div class=\"wc-proceed-to-checkout\">
-
-                                                                    <a href=\"Shop-checkout.php\" class=\"checkout-button button alt wc-forward\">
-                                                                        Proceed to checkout</a>
-                                                                </div>";
-                                                                }?>
 
 
-                                                            </div>
-                                                        </div>
-                                                    </div></div></div></div></div>
 
-                                </div><!-- .entry-content -->
-                                <?php var_dump($_SESSION['panier']);  ?>
-                                <footer class="edit-page">
+
+
+
+
+
+
+
+
+
+
+
+
+         <footer class="edit-page">
 
                                 </footer><!-- .entry-meta -->
                             </article><!-- #post -->

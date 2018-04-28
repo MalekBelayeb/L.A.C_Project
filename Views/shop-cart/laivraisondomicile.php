@@ -270,7 +270,7 @@ $url=$gClient->createAuthUrl();
                                      alt="icon 2">
                                 <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
                                     <h5>
-                                        <a href="shop-cart/index.html">
+                                        <a href="index.php">
 
                                             Mon Panier                                                                            </a>
                                     </h5>
@@ -540,414 +540,511 @@ $url=$gClient->createAuthUrl();
 <div class="page-template-default page page-id-393 woocommerce-cart woocommerce-page body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
 <!-- #masthead -->
         <div id="page-title-1" class="page-title text-center">
-            <h1>Shop Cart</h1>
+            <h1>Laivraison a domicile</h1>
         </div>
-        <!-- #page-title -->
-        <div id="content" class="site-content">
-            <div id="primary" class="container">
+                       
+                        
+
+                       
+
+
+
+                     <form id="register-form" action="ajouterLaivraison.php" method="POST">
+
+
+                        
+                       
+
+                      
+                        <label class="raed">nom       </label>
+                        <input type="text" class="livraison2" name="nom" value="<?PHP echo $_SESSION['NOM'] ?>" placeholder="nom..."><br>
+                        <label class="raed">prenom</label>
+                        <input type="text" class="livraison6" name="prenom" value="<?PHP echo $_SESSION['PRENOM'] ?>" placeholder="prenom..."><br>
+                        
+
+                        <label class="raed">adresse ligne 1:</label>
+                        <input type="text" class="livraison3" name="adresse_ligne_1" value="" placeholder="rue,voi,boite postal,nom de societé ..."><br>
+
+                        <label class="raed">adresse ligne 2:</label>
+                        <input type="text" class="livraison4" name="adresse_ligne_2" value="" placeholder="batiment,etege,lieu-dit ,indicaton au livreur ,etc .."><br>
+
+
+                        <label class="raed">ville</label>
+                        <select name="ville" class="select1">
+                        
+                        <option value="tunis"> tunis </option>
+                        <option value="bizert"> bizert </option>
+                        <option value="kef"> kef </option>
+                         <option value="sous"> sous  </option>
+                         <option value="mounestir"> mounestir  </option>
+                         <option value="jendouba"> jendouba  </option>
+                         <option value="gafssa"> gafssa  </option></select>
+                        <br>
+                        <label class="raed">e-mail</label>
+                        <input type="text" class="livraison5" name="mail" value="<?PHP echo $_SESSION['EMAIL'] ?>" placeholder="e-mail..."><br>
+
+
+                        <label class="raed">num telephone</label>
+                        <input type="text" class="livraison7" name="num_tel" value="" placeholder="num telephone..."><br>
+
+                         <label class="prix8">code livre</label>
+                        <input type="text" class="prix8" name="code_livre" value="0" placeholder="code livre..."><br>
+
+                        <label class="prix8">prix</label>
+                        <input type="text" class="prix8" name="prix" value="" placeholder="code livre..."><br>
+
+                         
+                         <p class="return-to-shop">
+                <input type="submit" name="ajouter" value="ajouter" class="btn btn-primary">
+
+            
+                          </p>
+
+                       
+
+
+                       </form>
+
+
+                       <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+
+
+  <script type="text/javascript">
+
+    $.validator.addMethod( "lettersonly", function( value, element ) {
+    return this.optional( element ) || /^[a-z]+$/i.test( value );
+    }, "Letters only please" );
+
+      $.validator.addMethod( "integer", function( value, element ) {
+    return this.optional( element ) || /^-?\d+$/.test( value );
+}, "A  number please" );
+
+
+
+
+
+      $(function () {
+    
+
+     $("#register-form").validate({
+         rules: {
+
+            
+        
+      nom: {
+        required: true,
+        lettersonly: true
+        
+        
+      },
+       prenom: {
+        required: true,
+        lettersonly: true
+
+
+        },
+       adresse_ligne_1: {
+        required: true,
+        "minlength": 5,
+            "maxlength": 25
+
+         },
+
+          adresse_ligne_2: {
+        required: true,
+        "minlength": 5,
+            "maxlength": 25
+
+         },
+
+       mail: {
+        "email": true,
+
+         },
+       num_tel: {
+        required: true,
+        integer: true,
+        "minlength": 8,
+            "maxlength": 8
+
+
+
+
+    }
+
+  },
+
+  messages: {
+      nom: {
+        required: 'Please enter an nom address.',
+        nom: 'Please enter a <em>valid</em> nom address.',
+    },
+     prenom: {
+        required: 'Please enter an prenom.',
+        prenom: 'Please enter a <em>valid</em> prenom.',
+    }
+
+
+}
+});
+
+});
+  </script>
+
+
+
+
+
+                        <style type="text/css">
+                        	label.raed {
+                        		color: 	      #2F4F4F;
+			                    font-size: 35px;
+			                    font-family: arial;
+			                    margin-left: 7%;			                   
+			                    
+                        	}
+
+                            input.button{
+                                background: rgba(255,255,255,0);
+                            }
+                              label.prix8 {
+                                display: none;
+                            }
+                            input.prix8{
+                                display: none;
+                            }
+                        	input.livraison1{
+                        		width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 10%;
+                        	}
+                            input.livraison2{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 17%;
+                            }
+                            input.livraison3{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 10%;
+                            }
+                            input.livraison4{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 10%;
+                            }
+                            input.livraison5{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 16%;
+                            }
+                            input.livraison6{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 15%;
+                            }
+                            input.livraison7{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 11%;
+                            }
+                             input.livraison8{
+                                width: 30%;
+                                padding: 12px 20px;
+                                margin: 8px 0;
+                                display: inline-block;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                 margin-left: 14%;
+                            }
+                            select.select1{
+                                background-color: #9932CC; 
+                                margin-left: 17%;
+                            }
+
+                            
+                        </style>
+
+
+                        <br><br><br><br><br>
+
+
+
+
+
+
+
+<footer class="site-footer">
+        <div id="footer-top">
+            <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <main id="main" class="site-main">
 
-                            <article id="post-393" class="post-393 page type-page status-publish hentry">
-                                <div class="entry-content">
-
-                                    <div class="vc_row wpb_row vc_row-fluid">
-                                        <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-1 vc_col-lg-10">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="woocommerce">
-                                                        <br>
-                                                        <form class="woocommerce-cart-form book-junky-cart" action="../../Core/updatepanier.php" method="post">
-                                                        <table class="shop_table cart woocommerce-cart-form__contents" cellspacing="0">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="product-remove">&nbsp;</th>
-                                                                <th class="product-thumbnail">&nbsp;</th>
-                                                                <th class="product-name">Product</th>
-                                                                <th class="product-price">Price</th>
-                                                                <th class="product-quantity">Quantity</th>
-                                                                <th class="product-subtotal">Total</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <span id="shop-cart">
-                                                            <?php
-                                                            if(isset($_SESSION['panier']))
-                                                            {
-                                                                $id = array_keys($_SESSION['panier'],!0,false);
-                                                                $pdo = Connexion::getConnexion();
-                                                                if(empty($id))
-                                                                {
-                                                                    echo '<p class="cart-empty">Your cart is currently empty.</p>	<p class="return-to-shop">
-                                                            <a class="button wc-backward" href="Shop.php">
-                                                                Return to shop		</a></p>';
-                                                                }
-                                                                else {
-                                                                    $sql = 'SELECT * FROM book where ID IN (' . implode(',', $id) . ')';
-                                                                    $stmt = $pdo->prepare($sql);
-                                                                    $product = $stmt->execute();
-                                                                    $product = $stmt->fetchAll(PDO::FETCH_OBJ);
-                                                                    foreach ($product as $livre):
-
-                                                                        ?>
-                                                                        <tr class="woocommerce-cart-form__cart-item cart_item">
-
-                                                                            <td class="product-remove">
-                                                                                <a href="../../Core/delpanier.php?del=<?= $livre->ID ?>"
-                                                                                   class="remove"
-                                                                                   aria-label="Remove this item"
-                                                                                   data-product_id="371"
-                                                                                   data-product_sku="">&times;</a></td>
-
-                                                                            <td class="product-thumbnail">
-                                                                                <a href="#"><img width="110"
-                                                                                                 height="170"
-                                                                                                 src="../wp-content/uploads/<?=$livre->IMAGE; ?>"
-                                                                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                                                                 alt=""/></a></td>
-
-                                                                            <td class="product-name"
-                                                                                data-title="Product">
-                                                                                <a href="#"><?= $livre->NOM ?></a></td>
-
-                                                                            <td class="product-price"
-                                                                                data-title="Price">
-                                                                                <span class="woocommerce-Price-amount amount"><span
-                                                                                            class="woocommerce-Price-currencySymbol">&pound;</span><?= number_format($livre->PRIX, 2); ?></span>
-                                                                            </td>
-
-                                                                            <td class="product-quantity"
-                                                                                data-title="Quantity">
-                                                                                <div class="quantity">
-                                                                                    <label class="screen-reader-text"
-                                                                                           for="quantity_5ab194b190c19">Quantity</label>
-                                                                                    <input type="number"
-                                                                                           id="quantity_5ab194b190c19"
-                                                                                           class="input-text qty text"
-                                                                                           step="1" min="0" max=""
-                                                                                           name="quantite[<?= $livre->ID ?>]"
-                                                                                           value="<?= $_SESSION['panier'][$livre->ID] ?>"
-                                                                                           title="Qty" size="4"
-                                                                                           pattern="[0-9]*"
-                                                                                           inputmode="numeric"/>
-                                                                                </div>
-                                                                            </td>
-
-                                                                            <td class="product-subtotal"
-                                                                                data-title="Total">
-                                                                                <span class="woocommerce-Price-amount amount"><span
-                                                                                            class="woocommerce-Price-currencySymbol">&pound;</span><?= number_format($panier->total_produit($livre->ID), 2); ?></span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    <?php
-                                                                    endforeach;
-                                                                }
-                                                            }
-                                                            ?>
-                                                            </span>
-                                                            <tr>
-                                                                <td colspan="6" class="actions">
-
-                                                                    <div class="coupon">
-                                                                        <label for="coupon_code">Coupon:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" /> <input type="submit" class="button" name="apply_coupon" value="Apply coupon" />
-                                                                    </div>
-
-
-                                                                    <input type="submit" class="button update-cart-button" name="update_cart" value="Update cart" />
-
-
-                                                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="7111e01a26" /><input type="hidden" name="_wp_http_referer" value="/themeforest/bookjunky/?page_id=393" />				</td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        </form>
-                                                        <div class="cart-collaterals">
-                                                            <div class="cart_totals ">
-
-
-                                                                <h2>Cart totals</h2>
-
-                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
-
-                                                                    <tr class="cart-subtotal">
-                                                                        <th>Subtotal</th>
-                                                                        <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->totalewithoutcoupon(),2);?></span></span></td>
-                                                                    </tr>
-                                                                    <?php if (isset($_SESSION['coupon']))
-                                                                    {
-                                                                        echo '<tr class="cart-subtotal">
-                                                                        <th>Coupon</th>
-                                                                        <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">%</span><span class="totale2">'.$_SESSION['coupon'].'</span></span></td>
-                                                                    </tr>';
-                                                                    }
-                                                                    ?>
-
-                                                                    <tr class="shipping">
-                                                                        <th>Shipping</th>
-                                                                        <td data-title="Shipping">
-                                                                            <?php
-                                                                            if(isset($_SESSION['livraisonPrix']))
-                                                                            {
-                                                                               echo' <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2">';
-
-                                                                                echo $_SESSION['livraisonPrix'];
-                                                                                echo'</span></span>';
-                                                                            }
-                                                                            else
-                                                                                echo '<a type="button" class="button" href="index2.php">Livraison</a>';
-                                                                            ?>
-                                                                        </td>
-                                                                    </tr>
-
-
-
-
-
-
-                                                                    <tr class="order-total">
-                                                                        <th>Total</th>
-                                                                        <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->total(),2);?></span></span></strong> </td>
-                                                                    </tr>
-
-
-                                                                </table>
-
-                                                                <?php if(!empty($id))
-                                                                {
-                                                                    echo "<div class=\"wc-proceed-to-checkout\">
-
-                                                                    <a href=\"Shop-checkout.php\" class=\"checkout-button button alt wc-forward\">
-                                                                        Proceed to checkout</a>
-                                                                </div>";
-                                                                }?>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div></div></div></div></div>
-
-                                </div><!-- .entry-content -->
-                                <?php var_dump($_SESSION['panier']);  ?>
-                                <footer class="edit-page">
-
-                                </footer><!-- .entry-meta -->
-                            </article><!-- #post -->
-
-                        </main><!-- .site-main -->
-                    </div>
-                </div>
-            </div><!-- .content-area -->
-
-        </div>
-</div><!-- .site-content -->
-    <link rel='stylesheet' href='wp-content/plugins/DataTables/css/dataTables.bootstrap.min.css' type='text/css' media='all' />
-    <script type='text/javascript' src='wp-content/plugins/DataTables/js/dataTables.bootstrap.min.js'></script>
-    <script type='text/javascript' src='wp-content/plugins/DataTables/js/jquery.dataTables.min.js'></script>
-        <footer class="site-footer">
-            <div id="footer-top">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="wrap-about col-md-3 col-sm-12 col-xs-12 col-lg-4">
-                            <div class="footer-about">
-                                <a href="../index.html"><img class="logo-footer"
+                                    <div class="wrap-about col-md-3 col-sm-12 col-xs-12 col-lg-4">
+                        <div class="footer-about">
+        <a href="../index.php"><img class="logo-footer"
                                                              src="../wp-content/themes/book-junky/assets/images/footer-logo.png"
                                                              alt="Book Junky"></a>
-                                <p>Suspendisse potenti. Nulla facilisi. Vestibulum non blandit nulla. Vivamus id orci condimentum, suscipit nunc non, viverra justo. Phasellus sit amet justo ac felis sagittis elementum a at dui.</p>
-                                <ul>
+        <p>Suspendisse potenti. Nulla facilisi. Vestibulum non blandit nulla. Vivamus id orci condimentum, suscipit nunc non, viverra justo. Phasellus sit amet justo ac felis sagittis elementum a at dui.</p>
+                    <ul>
                                     <li><a href="#"><i
-                                                    class="zmdi zmdi-facebook-box"></i></a></li>
-                                    <li><a href="#"><img
-                                                    src="../wp-content/themes/book-junky/assets/images/instagram.png"
-                                                    alt="Instagram"></a></li>
-                                    <li><a href="#"><i
-                                                    class="zmdi zmdi-twitter-box"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12"><aside id="recent_views_book_2-2" class="widget-footer widget_recent_views_book_2"><h3 class="wg-ft-title">THIS WEEKS REVIEWD</h3>        <div class="recent-review-2">
-                                    <div class="recent-review-item clearfix">
+                                    class="zmdi zmdi-facebook-box"></i></a></li>
+                                                    <li><a href="#"><img
+                                    src="../wp-content/themes/book-junky/assets/images/instagram.png"
+                                    alt="Instagram"></a></li>
+                                                    <li><a href="#"><i
+                                    class="zmdi zmdi-twitter-box"></i></a></li>
+                                                                                                                            </ul>
+                </div>
+                    </div>
+                <div class="col-md-3 col-sm-12 col-xs-12"><aside id="recent_views_book_2-2" class="widget-footer widget_recent_views_book_2"><h3 class="wg-ft-title">THIS WEEKS REVIEWD</h3>        <div class="recent-review-2">
+                            <div class="recent-review-item clearfix">
+                
+                    <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #000000">
+                        <a href="../shop/freefall/index.php">
+                            <img src="../wp-content/uploads/freefall.jpg"
+                             alt="Thumbnail">
+                         </a>
+                    </div>
+                    <div class="contents">
 
-                                        <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #000000">
-                                            <a href="freefall/index.html">
-                                                <img src="../wp-content/uploads/freefall.jpg"
-                                                     alt="Thumbnail">
-                                            </a>
-                                        </div>
-                                        <div class="contents">
+                        <a href="../shop/freefall/index.php" class="title">
 
-                                            <a href="freefall/index.html" class="title">
+                           Freefall                        </a>
+                        <div class="author-product">
+                            by Peter Cawdron                        </div>
 
-                                                Freefall                        </a>
-                                            <div class="author-product">
-                                                by Peter Cawdron                        </div>
-
-                                            <div class="woocommerce">
-                                                <div class="woocommerce-product-rating">
+                        <div class="woocommerce">
+                <div class="woocommerce-product-rating">
                 <span class="star-rating ">
                     <span style="width:0%"></span>
                 </span></div>
-                                            </div>                    </div>
-                                    </div>
-                                    <div class="recent-review-item clearfix">
-
-                                        <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #f5f5f5">
-                                            <a href="darknet/index.html">
-                                                <img src="../wp-content/uploads/darknet.jpg"
-                                                     alt="Thumbnail">
-                                            </a>
-                                        </div>
-                                        <div class="contents">
-
-                                            <a href="darknet/index.html" class="title">
-
-                                                Darknet                        </a>
-                                            <div class="author-product">
-                                                by Matthew Mather                        </div>
-
-                                            <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating" style="color:;"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span></span></div></div>                    </div>
-                                    </div>
-                                    <div class="recent-review-item clearfix">
-
-                                        <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #ededa6">
-                                            <a href="the-happy-lemon/index.html">
-                                                <img src="../wp-content/uploads/the_happy_lemon.jpg"
-                                                     alt="Thumbnail">
-                                            </a>
-                                        </div>
-                                        <div class="contents">
-
-                                            <a href="the-happy-lemon/index.html" class="title">
-
-                                                The Happy Lemon                        </a>
-                                            <div class="author-product">
-                                                by Kurt Yamashita                        </div>
-
-                                            <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating" style="color:;"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5 based on <span class="rating">2</span> customer ratings</span></span></div></div>                    </div>
-                                    </div>
-                                </div>
-                            </aside></div><div class="col-md-3 col-sm-12 col-xs-12"><aside id="custom_html-2" class="widget_text widget-footer widget_custom_html"><h3 class="wg-ft-title">GENRES</h3><div class="textwidget custom-html-widget"><ul>
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Comedy</a></li>
-                                        <li><a href="#">Drama</a></li>
-                                        <li><a href="#">E-Books</a></li>
-                                        <li><a href="#">Horror</a></li>
-                                        <li><a href="#">Kids</a></li>
-                                        <li><a href="#">Romantic Comedy</a></li>
-                                        <li><a href="#">Sci-Fi</a></li>
-                                    </ul></div></aside></div><div class="col-md-3 col-sm-12 col-xs-12 col-lg-2"><aside id="custom_html-3" class="widget_text widget-footer widget_custom_html"><h3 class="wg-ft-title">CONTACT</h3><div class="textwidget custom-html-widget"><ul>
-                                        <li>BookJunky,</li>
-                                        <li>80 Crown Street,</li>
-                                        <li>London, WC2B 7UJ</li>
-                                        <li>&nbsp;</li>
-                                        <li>Call: <a href="tel:07724100110">0772 410 0110</a></li>
-                                        <li><a href="mailto:email@bookjunky.co.uk">Email:email@bookjunky.co.uk</a></li>
-                                    </ul></div></aside></div>
-                    </div>
+                </div>                    </div>
                 </div>
-            </div><!-- #footer-top -->
-
-            <div id="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-
-                            Copyright © 2018 <a href="http://cmssuperheroes.com/">CMSSuperheroes. </a>All Right Reserved                </div>
+                                <div class="recent-review-item clearfix">
+                
+                    <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #f5f5f5">
+                        <a href="../shop/darknet/index.php">
+                            <img src="../wp-content/uploads/darknet.jpg"
+                             alt="Thumbnail">
+                         </a>
                     </div>
+                    <div class="contents">
+
+                        <a href="../shop/darknet/index.php" class="title">
+
+                           Darknet                        </a>
+                        <div class="author-product">
+                            by Matthew Mather                        </div>
+
+                        <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating" style="color:;"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span></span></div></div>                    </div>
                 </div>
-            </div><!-- #footer-bottom -->
+                                <div class="recent-review-item clearfix">
+                
+                    <div class="thumbnail-review" style="box-shadow: 0 5px 15px -5px #ededa6">
+                        <a href="../shop/the-happy-lemon/index.php">
+                            <img src="../wp-content/uploads/the_happy_lemon.jpg"
+                             alt="Thumbnail">
+                         </a>
+                    </div>
+                    <div class="contents">
 
-        </footer><!-- .site-footer -->
+                        <a href="../shop/the-happy-lemon/index.php" class="title">
 
-    </div><!-- .site -->
+                           The Happy Lemon                        </a>
+                        <div class="author-product">
+                            by Kurt Yamashita                        </div>
+
+                        <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating" style="color:;"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5 based on <span class="rating">2</span> customer ratings</span></span></div></div>                    </div>
+                </div>
+                        </div>
+        </aside></div><div class="col-md-3 col-sm-12 col-xs-12"><aside id="custom_html-2" class="widget_text widget-footer widget_custom_html"><h3 class="wg-ft-title">GENRES</h3><div class="textwidget custom-html-widget"><ul>
+<li><a href="#">Action</a></li>
+<li><a href="#">Comedy</a></li>
+<li><a href="#">Drama</a></li>
+<li><a href="#">E-Books</a></li>
+<li><a href="#">Horror</a></li>
+<li><a href="#">Kids</a></li>
+<li><a href="#">Romantic Comedy</a></li>
+<li><a href="#">Sci-Fi</a></li>
+</ul></div></aside></div><div class="col-md-3 col-sm-12 col-xs-12 col-lg-2"><aside id="custom_html-3" class="widget_text widget-footer widget_custom_html"><h3 class="wg-ft-title">CONTACT</h3><div class="textwidget custom-html-widget"><ul>
+    <li>BookJunky,</li>
+    <li>80 Crown Street,</li>
+    <li>London, WC2B 7UJ</li>
+    <li>&nbsp;</li>
+    <li>Call: <a href="tel:07724100110">0772 410 0110</a></li>
+    <li><a href="mailto:email@bookjunky.co.uk">Email:email@bookjunky.co.uk</a></li>
+</ul></div></aside></div>
+                </div>
+            </div>
+        </div><!-- #footer-top -->
+
+        <div id="footer-bottom">
+            <div class="container">
+                <div class="row">
+                <div class="col-xs-12">
+
+                    Copyright © 2018 <a href="http://cmssuperheroes.com/">CMSSuperheroes. </a>All Right Reserved                </div>
+                </div>
+            </div>
+        </div><!-- #footer-bottom -->
+
+    </footer><!-- .site-footer -->
+
+</div><!-- .site -->
 
 </div>        <div class="book-junky-back-to-top"><i class="fa fa-angle-double-up"></i></div>    <div id="cover_open_modal" class="cover_modal">
 
-    <div class="login_dialog">
+        <div class="login_dialog">
 
-        <a class="boxclose"></a>
+            <a class="boxclose"></a>
 
-        <form class="login_form" id="login_form" method="post" action="#">
-            <h2>Please Login</h2>
-            <input type="text" class="alert_status" readonly>
-            <label for="login_user"> Username</label>
-            <input type="text" name="login_user" id="login_user" />
-            <label for="pass_user"> Password </label>
-            <input type="password" name="pass_user" id="pass_user" />
-            <label for="rememberme" id="lb_rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Remember Me</label>
-            <input type="submit" name="login_submit" value="LOGIN" class="login_submit" />
+            <form class="login_form" id="login_form" method="post" action="#">
+                <h2>Please Login</h2>
+                <input type="text" class="alert_status" readonly>
+                <label for="login_user"> Username</label>
+                <input type="text" name="login_user" id="login_user" />
+                <label for="pass_user"> Password </label>
+                <input type="password" name="pass_user" id="pass_user" />
+                <label for="rememberme" id="lb_rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Remember Me</label>
+                <input type="submit" name="login_submit" value="LOGIN" class="login_submit" />
 
-            <div class="social-login">
+                <div class="social-login">
+                                        
+                    
+                                    </div>
+            </form>
 
+            <form class="register_form" id="register_form" 
+                action="http://demo.cmssuperheroes.com/themeforest/bookjunky" method="post">
+                <h2>Registration</h2>
+                <input type="text" class="alert_status" readonly>
+                <label for="register_user">Username</label>
+                <input type="text" name="register_user" id="register_user" value="" >
+                <label for="register_email">E-mail</label>
+                <input type="email" name="register_email" id="register_email" value="">
+                <div id="allow_pass">
+                    <label for="register_pass">Password</label>
+                    <input type="password" name="register_pass" id="register_pass" value="">
+                    <label for="confirm_pass">Confirm Password</label>
+                    <input type="password" name="confirm_pass" id="confirm_pass" value="">
+                </div>
+                                <input type="submit" name="register_submit" id="register_submit" value="REGISTER" />
+            </form>
+
+            <form class="lost_pwd_form" action="http://demo.cmssuperheroes.com/themeforest/bookjunky" method="post">
+                <h2>Forgotten Password?</h2>
+                <input type="text" class="alert_status" readonly>
+                <label for="lost_pwd_user_email">Username or Email Adress</label>
+                <input type="text" name="lost_pwd_user_email" id="lost_pwd_user_email">
+                <input type="submit" name="lost_pwd_submit" id="lost_pwd_submit" value="GET NEW PASSWORD">
+            </form>
+
+            <div class="pass_and_register" id="pass_and_register">
+
+                <a class="go_to_register_link" href="#" style="">Register</a>
+                <span style="color: black"> </span>
+                <a class="go_to_lostpassword_link" href="#">Forgot Password</a>
+                <span style="color: black"></span>
+                <a class="back_login" href="#">Back to Login</a>
 
             </div>
-        </form>
 
-        <form class="register_form" id="register_form"
-              action="http://demo.cmssuperheroes.com/themeforest/bookjunky" method="post">
-            <h2>Registration</h2>
-            <input type="text" class="alert_status" readonly>
-            <label for="register_user">Username</label>
-            <input type="text" name="register_user" id="register_user" value="" >
-            <label for="register_email">E-mail</label>
-            <input type="email" name="register_email" id="register_email" value="">
-            <div id="allow_pass">
-                <label for="register_pass">Password</label>
-                <input type="password" name="register_pass" id="register_pass" value="">
-                <label for="confirm_pass">Confirm Password</label>
-                <input type="password" name="confirm_pass" id="confirm_pass" value="">
-            </div>
-            <input type="submit" name="register_submit" id="register_submit" value="REGISTER" />
-        </form>
-
-        <form class="lost_pwd_form" action="http://demo.cmssuperheroes.com/themeforest/bookjunky" method="post">
-            <h2>Forgotten Password?</h2>
-            <input type="text" class="alert_status" readonly>
-            <label for="lost_pwd_user_email">Username or Email Adress</label>
-            <input type="text" name="lost_pwd_user_email" id="lost_pwd_user_email">
-            <input type="submit" name="lost_pwd_submit" id="lost_pwd_submit" value="GET NEW PASSWORD">
-        </form>
-
-        <div class="pass_and_register" id="pass_and_register">
-
-            <a class="go_to_register_link" href="#" style="">Register</a>
-            <span style="color: black"> </span>
-            <a class="go_to_lostpassword_link" href="#">Forgot Password</a>
-            <span style="color: black"></span>
-            <a class="back_login" href="#">Back to Login</a>
 
         </div>
-
-
     </div>
-</div>
-<script src='../../../../www.google.com/recaptcha/api.js'></script>
-<script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@graph":[{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/bash-and-lucy-fetch-confidence\/","name":"Bash and Lucy Fetch Confidence","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/bash-and-lucy-fetch-confidence\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/be-well-be\/","name":"Be Well Be","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/be-well-be\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/boring-girls-a-novel\/","name":"Boring Girls, A Novel","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/boring-girls-a-novel\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/adipiscing-elit\/","name":"By The Time You Read This, I'll Be Dead","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/adipiscing-elit\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/carbonel\/","name":"Carbonel","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/carbonel\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/clever-lands\/","name":"Clever Lands","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/clever-lands\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/darknet\/","name":"Darknet","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/darknet\/"},{"@type":"Product","@id":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/labore-et-dolore\/","name":"Forget Her Nots","url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop\/labore-et-dolore\/"}]}</script><link rel='stylesheet' id='js_composer_front-css'  href='../wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all' />
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var wpcf7 = {"apiSettings":{"root":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
-    /* ]]> */
+    <script src='../../../../www.google.com/recaptcha/api.js'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/plugins/contact-form-7/includes/js/scripts.js'></script>
 <script type='text/javascript'>
-    /* <![CDATA[ */
-    var flexFavorites = {"ajax":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","action":"like_post"};
-    /* ]]> */
+/* <![CDATA[ */
+var flexFavorites = {"ajax":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","action":"like_post"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/plugins/flex-favorites/assets/js/flex-favorites.js'></script>
+<script type='text/javascript'>
+
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/country-select.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_address_i18n_params = {"locale":"{\"AE\":{\"postcode\":{\"required\":false,\"hidden\":true},\"state\":{\"required\":false}},\"AF\":{\"state\":{\"required\":false}},\"AT\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"AU\":{\"city\":{\"label\":\"Suburb\"},\"postcode\":{\"label\":\"Postcode\"},\"state\":{\"label\":\"State\"}},\"AX\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"BD\":{\"postcode\":{\"required\":false},\"state\":{\"label\":\"District\"}},\"BE\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false,\"label\":\"Province\"}},\"BI\":{\"state\":{\"required\":false}},\"BO\":{\"postcode\":{\"required\":false,\"hidden\":true}},\"BS\":{\"postcode\":{\"required\":false,\"hidden\":true}},\"CA\":{\"state\":{\"label\":\"Province\"}},\"CH\":{\"postcode\":{\"priority\":65},\"state\":{\"label\":\"Canton\",\"required\":false}},\"CL\":{\"city\":{\"required\":true},\"postcode\":{\"required\":false},\"state\":{\"label\":\"Region\"}},\"CN\":{\"state\":{\"label\":\"Province\"}},\"CO\":{\"postcode\":{\"required\":false}},\"CZ\":{\"state\":{\"required\":false}},\"DE\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"DK\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"EE\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"FI\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"FR\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"GP\":{\"state\":{\"required\":false}},\"GF\":{\"state\":{\"required\":false}},\"HK\":{\"postcode\":{\"required\":false},\"city\":{\"label\":\"Town \\\/ District\"},\"state\":{\"label\":\"Region\"}},\"HU\":{\"state\":{\"label\":\"County\"}},\"ID\":{\"state\":{\"label\":\"Province\"}},\"IE\":{\"postcode\":{\"required\":false,\"label\":\"Eircode\"},\"state\":{\"label\":\"County\"}},\"IS\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"IL\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"IT\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":true,\"label\":\"Province\"}},\"JP\":{\"state\":{\"label\":\"Prefecture\",\"priority\":66},\"postcode\":{\"priority\":65}},\"KR\":{\"state\":{\"required\":false}},\"KW\":{\"state\":{\"required\":false}},\"LB\":{\"state\":{\"required\":false}},\"MQ\":{\"state\":{\"required\":false}},\"NL\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false,\"label\":\"Province\"}},\"NZ\":{\"postcode\":{\"label\":\"Postcode\"},\"state\":{\"required\":false,\"label\":\"Region\"}},\"NO\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"NP\":{\"state\":{\"label\":\"State \\\/ Zone\"},\"postcode\":{\"required\":false}},\"PL\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"PT\":{\"state\":{\"required\":false}},\"RE\":{\"state\":{\"required\":false}},\"RO\":{\"state\":{\"required\":false}},\"SG\":{\"state\":{\"required\":false}},\"SK\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"SI\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"ES\":{\"postcode\":{\"priority\":65},\"state\":{\"label\":\"Province\"}},\"LI\":{\"postcode\":{\"priority\":65},\"state\":{\"label\":\"Municipality\",\"required\":false}},\"LK\":{\"state\":{\"required\":false}},\"SE\":{\"postcode\":{\"priority\":65},\"state\":{\"required\":false}},\"TR\":{\"postcode\":{\"priority\":65},\"state\":{\"label\":\"Province\"}},\"US\":{\"postcode\":{\"label\":\"ZIP\"},\"state\":{\"label\":\"State\"}},\"GB\":{\"postcode\":{\"label\":\"Postcode\"},\"state\":{\"label\":\"County\",\"required\":false}},\"VN\":{\"state\":{\"required\":false},\"postcode\":{\"priority\":65,\"required\":false,\"hidden\":false},\"address_2\":{\"required\":false,\"hidden\":true}},\"WS\":{\"postcode\":{\"required\":false,\"hidden\":true}},\"YT\":{\"state\":{\"required\":false}},\"ZA\":{\"state\":{\"label\":\"Province\"}},\"ZW\":{\"postcode\":{\"required\":false,\"hidden\":true}},\"default\":{\"first_name\":{\"label\":\"First name\",\"required\":true,\"class\":[\"form-row-first\"],\"autocomplete\":\"given-name\",\"autofocus\":true,\"priority\":10},\"last_name\":{\"label\":\"Last name\",\"required\":true,\"class\":[\"form-row-last\"],\"autocomplete\":\"family-name\",\"priority\":20},\"company\":{\"label\":\"Company name\",\"class\":[\"form-row-wide\"],\"autocomplete\":\"organization\",\"priority\":30},\"country\":{\"type\":\"country\",\"label\":\"Country\",\"required\":true,\"class\":[\"form-row-wide\",\"address-field\",\"update_totals_on_change\"],\"autocomplete\":\"country\",\"priority\":40},\"address_1\":{\"label\":\"Street address\",\"placeholder\":\"House number and street name\",\"required\":true,\"class\":[\"form-row-wide\",\"address-field\"],\"autocomplete\":\"address-line1\",\"priority\":50},\"address_2\":{\"placeholder\":\"Apartment, suite, unit etc. (optional)\",\"class\":[\"form-row-wide\",\"address-field\"],\"required\":false,\"autocomplete\":\"address-line2\",\"priority\":60},\"city\":{\"label\":\"Town \\\/ City\",\"required\":true,\"class\":[\"form-row-wide\",\"address-field\"],\"autocomplete\":\"address-level2\",\"priority\":70},\"state\":{\"type\":\"state\",\"label\":\"State \\\/ County\",\"required\":true,\"class\":[\"form-row-wide\",\"address-field\"],\"validate\":[\"state\"],\"autocomplete\":\"address-level1\",\"priority\":80},\"postcode\":{\"label\":\"Postcode \\\/ ZIP\",\"required\":true,\"class\":[\"form-row-wide\",\"address-field\"],\"validate\":[\"postcode\"],\"autocomplete\":\"postal-code\",\"priority\":90}}}","locale_fields":"{\"address_1\":\"#billing_address_1_field, #shipping_address_1_field\",\"address_2\":\"#billing_address_2_field, #shipping_address_2_field\",\"state\":\"#billing_state_field, #shipping_state_field, #calc_shipping_state_field\",\"postcode\":\"#billing_postcode_field, #shipping_postcode_field, #calc_shipping_postcode_field\",\"city\":\"#billing_city_field, #shipping_city_field, #calc_shipping_city_field\"}","i18n_required_text":"required"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/address-i18n.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%","update_shipping_method_nonce":"e2c01b83dd","apply_coupon_nonce":"6edaac6417","remove_coupon_nonce":"6490654bac"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/cart.min.js'></script>
+<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-admin/js/password-strength-meter.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_password_strength_meter_params = {"min_password_strength":"3","i18n_password_error":"Please enter a stronger password.","i18n_password_hint":"Hint: The password should be at least twelve characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! \" ? $ % ^ & )."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/password-strength-meter.min.js'></script>
 <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js'></script>
 <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js'></script>
 <script type='text/javascript'>
-    /* <![CDATA[ */
-    var woocommerce_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%"};
-    /* ]]> */
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js'></script>
 <script type='text/javascript'>
-    /* <![CDATA[ */
-    var wc_cart_fragments_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments_ef2fb5d85d4ddcc5d0939ad45105c3a3"};
-    /* ]]> */
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments_ef2fb5d85d4ddcc5d0939ad45105c3a3"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js'></script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/main.js'></script>
@@ -956,21 +1053,18 @@ $url=$gClient->createAuthUrl();
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/book-junky.js'></script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/menu.js'></script>
 <script type='text/javascript'>
-    /* <![CDATA[ */
-    var nectarLove = {"ajaxurl":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","postID":"371","rooturl":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky"};
-    /* ]]> */
+/* <![CDATA[ */
+var nectarLove = {"ajaxurl":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","postID":"393","rooturl":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/post_favorite.js'></script>
 <script type='text/javascript'>
-    /* <![CDATA[ */
-    var bj_handle = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php"};
-    /* ]]> */
+/* <![CDATA[ */
+var bj_handle = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php"};
+/* ]]> */
 </script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/bj-handle.js'></script>
 <script type='text/javascript' src='../wp-includes/js/wp-embed.min.js'></script>
-<script type='text/javascript' src='../../panier.js'></script>
 <script type='text/javascript' src='../wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
-</body>
 
-    <!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/shop/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:28:45 GMT -->
-    </html>
+</html>
