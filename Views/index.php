@@ -7,7 +7,7 @@ include '../Core/AuteurCore.php';
 
 include_once '../Core/bookcore.php';
 include_once '../Core/auteurcore.php';
-
+include "../Core/VuCore.php";
 
 
 
@@ -872,16 +872,22 @@ $bks = $auteur->Afficher_auteur();
 
 
          <?php
-                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+         $vu= new VuCore();
 
+                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+                                if(isset($_SESSION['id']))
+                                    $vu->setCompte($_SESSION['id']);
+
+                                $vu->setAut($product['ID']);
 
                                 $donnees = $auteur->Nbr_livre_id($product['ID']);
         ?>
 
-            <div class="bj-brs-author-item clearfix" style="display:block">
+            <div class="bj-brs-author-item clearfix" style="display:block;
+            <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "background-color: 	#F0F0F0"; ?>  ">
                 <div class="wrap-thumbnail">
                     <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>">
-                        <img src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
+                        <img style="  <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "border: 2px solid #8a3ab8;"; ?>  " src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
                     </a>
                 </div>
                 <div class="wrap-info">

@@ -638,12 +638,18 @@ $bks = $book->Get_Livre_idAuteur($_GET['id_author']);
                
 
                     <?php
-
-
+                    include "../../Core/VuCore.php";
+                    $v=new VuCore();
+                    if(isset($_SESSION['id']))
+                        $v->setCompte($_SESSION['id']);
+                    $v->setAut($_GET['id_author']);
                         while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
-
-
-
+                            $v->setLivre($product['ID']);
+                            if(isset($_SESSION['id']))
+                            {
+                                if(!$v->Existe($_SESSION['id'],$product['ID']))
+                                    $v->ajouterVu();
+                            }
                     ?>
 
 
