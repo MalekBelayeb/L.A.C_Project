@@ -22,7 +22,31 @@
  <?php require_once "header.php"; ?>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script>
+  
+$(document).ready(function () {
+
+  $("#input").keyup(function () {
+    var name = $("#input").val();
+    $.post("suggestion_category.php", {
+      suggestion : name
+    }, function(data,status){
+      $("#test").html(data);
+    });
+
+
+
+
+  });
+
+
+
+});
+
+
+</script>
 
 
 
@@ -36,10 +60,12 @@
               <p>
                   <a href="ajouter_category.php" class="btn btn-success">Create</a>
                 </p>
+                 <input class="form-control" type="text" placeholder="Search for..." id="input">
 
 
 
-                <table class="table table-striped table-bordered">
+
+                <table class="table table-striped table-bordered" id="test">
                   <thead>
                     <tr>
                       <th>ID             </th>
@@ -51,13 +77,15 @@
                   <tbody>
 
  <?php
-                   include_once 'C:/wamp64/www/AvenirCulturel/config.php';
+                   include_once 'C:/wamp64/www/AvenirCulturel/core/categorieCore.php';
                    
                   
+                    $category = new CategorieCore();
 
-                   $pdo = connexion:: getConnexion();
-                   $sql = 'SELECT * FROM category ORDER BY ID DESC';
-                   foreach ($pdo->query($sql) as $row) {
+                    $pdo = $category->Afficher_categorie();
+
+
+                   foreach ($pdo as $row) {
                             echo '<tr>';
                             echo '<td>'. $row['ID'] . '</td>';
                             echo '<td>'. $row['CATEGORY'] . '</td>';

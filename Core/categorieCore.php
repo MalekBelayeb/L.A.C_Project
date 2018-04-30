@@ -33,7 +33,7 @@ class CategorieCore
 
 		$c = connexion::getConnexion();
 
-			$ctg = $c->query("SELECT * FROM `category` ");
+			$ctg = $c->query("SELECT * FROM category ORDER BY ID DESC");
 
 			return $ctg;
 
