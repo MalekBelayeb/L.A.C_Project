@@ -28,7 +28,7 @@ function countLivre($compte)
         $liste=$c->query($sql);
         return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once '../Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 ?>
 
@@ -184,7 +184,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
     body .page-title h1,{opacity: 0;}.ie.wf-loading body .page-title h1,{visibility: hidden;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1503973713559{margin-bottom: 30px !important;border-top-width: 1px !important;padding-top: 2px !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503889319693{border-top-width: 1px !important;padding-top: 29px !important;background-color: #f9fafc !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503975536992{padding-bottom: 84px !important;background-color: #f9fafc !important;}.vc_custom_1504086144605{border-top-width: 1px !important;padding-top: 10px !important;padding-bottom: 15px !important;border-top-color: #e5e6ea !important;border-top-style: solid !important;}.vc_custom_1507284853599{margin-bottom: -16px !important;}.vc_custom_1503989158128{margin-bottom: 98px !important;}.vc_custom_1505871144817{padding-top: 10px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
 
 <body class="home page-template-default page page-id-271 body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
-<div id="div1" >
+<div id="div1" style="display: none">
     <p id="textM">Un mail a été envoyé a votre adresse veuillez confirmer votre inscription svp </p>
     </div><br>
 <div class="wrap-boxed"><div id="page" class="hfeed site">
@@ -202,14 +202,52 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         if (isset($_GET['Inscription']))
                         {
                         ?>
-                        <a id="bienV" style="font-size: 18px;"> <?php echo $_GET['Inscription'].' Bienvenue a notre librairie :) '; ?> </a>
+                            <div id="bienvenue"  >
+                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
+                            </div>
+
+
                             <script>
-                                var w=document.getElementById('bienV');
-                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+
                             </script>
                     <?php
                     }
                     ?>
+
+                        <?php
+                        if(isset($_GET['Error']))
+                        {
+                            ?>
+                            <div id="error"  >
+                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
+                            </div>
+                            <script>
+
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#error" ).effect( "shake", options, 500, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+                            </script>
+
+                            <?php
+                        }
+                        ?>
 
 
                         <?php
@@ -277,8 +315,7 @@ echo "   <a href='livreur/livreur1.php'>livreur</a>";
                                     }
                         ?>
 <a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id'];
-     echo $_SESSION['NOM']; ?> </strong>
+    <strong> <?php echo $_SESSION['id']; ?> </strong>
 </a>
                                   <?php
                                 }

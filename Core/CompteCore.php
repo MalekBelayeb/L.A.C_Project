@@ -1,5 +1,5 @@
 <?php
-if(session_status()==PHP_SESSION_DISABLED)
+if(session_status()==PHP_SESSION_NONE)
 {session_start();}
 include_once '../Config.php';
 include '../Entity/Compte.php';
@@ -131,6 +131,25 @@ function VerifCompte($code)
         }
     }
 }
+    function supprimerCompte()
+    {
+        $requete=Connexion::getConnexion()->prepare("DELETE FROM compte WHERE LOGIN=:LOGIN");
+        $requete->bindValue(':LOGIN',$this->username,PDO::PARAM_STR);
+
+        if($requete->execute())
+        {
+            header("Location: http://localhost/AvenirCulturel/Views/index.php");
+        }
+    }
+    function supprimerEtrangere($table,$columnId)
+    {
+        $requete=Connexion::getConnexion()->prepare("DELETE FROM $table WHERE $columnId=:LOGIN");
+        $requete->bindValue(':LOGIN',$this->username,PDO::PARAM_STR);
+
+        if($requete->execute())
+        {
+        }
+    }
 }
 $inscri = new CompteCore();
 
@@ -162,4 +181,16 @@ if(isset($_GET['Code']) )
         $inscri->ajouter_compte();
     }
 }
+
+
+if(  isset($_GET['supprimer']) and isset($_SESSION['id']))
+{
+echo "ssss";
+    $inscri->setUsername($_SESSION['id']);
+    //$inscri->supprimerEtrangere("abonnement","ID_COMPTE");
+    $inscri->supprimerCompte();
+    include 'DeconnexionCore.php';
+}
+
+
 ?>

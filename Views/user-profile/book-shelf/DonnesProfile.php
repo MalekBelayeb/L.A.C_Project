@@ -338,14 +338,22 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
                             {
                                 if(isset($_POST['g-recaptcha-response']))
                             {
-                                $recaptcha = new \ReCaptcha\ReCaptcha('6Lecb1AUAAAAAP_PQ199lVJQA_nL4quPVEAxkLXf');
-                                $resp = $recaptcha->verify($_POST['g-recaptcha-response']);
-                                if ($resp->isSuccess()) {
+$recaptcha = new \ReCaptcha\ReCaptcha('6Lecb1AUAAAAAP_PQ199lVJQA_nL4quPVEAxkLXf');
+ $resp = $recaptcha->verify($_POST['g-recaptcha-response']);
+if ($resp->isSuccess()) {
 
-                                    if(isset($_POST['modifier']))
-                                    {
+if(isset($_POST['modifier']))
+          {
                                         if(isset($_GET['Token']))
                                         {
+
+                                            if($_GET['Token']=="0000")
+                                            {
+                                                $param->setUsername($_GET['id']);
+                                                $param->setPassword($_POST['password']);
+                                                $param->mettreAjourMotDepasse();
+                                            }else
+                                            {
                                             $param->setUsername($_GET['id']);
                                             $param->setPassword($_POST['password']);
                                             if($param->VerifCle($_GET['Token']))
@@ -353,8 +361,9 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
                                                 $param->mettreAjourMotDepasse();
                                                 $param->SupprimerCle($_GET['Token']);
                                             }
-                                            else   echo "<script> alert('Cle invalide');</script>";
-                                        }
+                                            else  { echo "<script> alert('Cle invalide');</script>";}
+                                            }
+                                            }
                                         else
                                         {
                                             $param->setEmail($_POST['mail']);
@@ -391,7 +400,8 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
         <p class="form-row">
 			<input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="424ac59140" />
             <input type="hidden" name="_wp_http_referer" value="/themeforest/bookjunky/user-profile/book-shelf/" />
-            <input type="submit" class="woocommerce-Button button" name="modifier" value="Modifier" /> <a href="">Changer mot de passe</a>
+            <input type="submit" class="woocommerce-Button button" name="modifier" value="Modifier" /> <a href='http://localhost/AvenirCulturel/Views/user-profile/book-shelf/DonnesProfile.php?Token=0000&id=<?php if(isset($_SESSION['id'])) echo $_SESSION['id'];?>' >Changer mot de passe</a>
+           <br><br><br> <a style="color: darkred;" href="../../../Core/CompteCore.php?supprimer=true">Desactiver le compte</a>
         </p>
 	</form>
 	</div>
