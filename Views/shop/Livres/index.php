@@ -768,8 +768,10 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
 
         $(document).ready(function (){
             var commentCount = 2;
+            <?php $count = 2 ; ?>
                 $("#load").click(function (){
                     commentCount = commentCount + 2;
+                    <?php  $count = $count + 2; ?> 
                         $("#comment_load").load("load_comment.php",{
                                 commentNewCount : commentCount,
                                 id_book : <?php echo $_GET['Livre'];?>
@@ -811,7 +813,27 @@ $req_comm =  $commentaire->Afficher_commentaire_id_load ($_GET['Livre'],2);
     if (isset($_SESSION['id']))
         if ($product['ID_COMPTE'] == $_SESSION['id']) { ?>
                 <p>
-                            <a href="supprimer_comment.php?id=<?php echo $product['ID']; ?>"><input type="submit" id="" class="button" value="supprimer"/></a>
+                            <button id="<?php echo $product['ID'];  ?>" class="button">supp</button>
+                            <script>
+    
+$(document).ready(function (){
+            
+                $("#<?php echo $product['ID']; ?>").click(function (){
+                      $.post("delete.php", {
+                        suggestion : <?php echo $product['ID']; ?> ,
+                        id_book : <?php echo $_GET['Livre'];?>,
+                        count : <?php echo $count; ?>
+                        }, function(data,status){
+                            alert(status);
+                        $("#comment_load").html(data);
+                        });
+                });
+
+
+        });
+
+
+</script>
                 </p>
 <?php  } ?>
    </p>
