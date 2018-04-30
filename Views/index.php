@@ -28,8 +28,8 @@ function countLivre($compte)
         $liste=$c->query($sql);
         return $liste->rowCount();
 }
-//require_once 'C:/wamp/www/AvenirCulturel/Core/googlelogin/config.php';
-//$url=$gClient->createAuthUrl();
+require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+$url=$gClient->createAuthUrl();
 ?>
 
 
@@ -55,28 +55,6 @@ function countLivre($compte)
   left: 0;
   right: 0;
 }
-
-
-
-.promo3{
-     background: url("cc.png") no-repeat;
- float: left;
-    height: 60px;
-    margin-top:-53px;
-    left: -20px;
-    position: relative;
-    top: 20px;
-    width: 60px;
-    z-index: 999;
-    line-height: 62px;
-    text-align: center;
-     color: white;
-     font-family: Tahoma;
-     font-size: 25px;
-}
-
-
-
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
@@ -261,6 +239,27 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
                         }
                         ?>
+
+                             <?php
+
+            if (!empty($_SESSION['NOM']))
+            {
+
+
+                if ($_SESSION['NOM']=="ali") {
+                   
+echo "   <a href='livreur/livreur1.php'>livreur</a>";
+
+
+                }
+            
+    
+        }
+
+
+            ?>
+
+
                         <a >
                             <?php
                                 if(!isset($_SESSION['id']))
@@ -278,7 +277,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                     }
                         ?>
 <a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id']; ?> </strong>
+    <strong> <?php echo $_SESSION['id'];
+     echo $_SESSION['NOM']; ?> </strong>
 </a>
                                   <?php
                                 }
@@ -308,7 +308,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                                  alt="icon 2">
                             <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
                                 <h5>
-                                                                        <a href="shop-cart/index.html">
+                                                                        <a href="shop-cart/index.php">
 
                                         Mon Panier                                                                            </a>
                                                                 </h5>
@@ -530,9 +530,12 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </li>
 </ul>
 </li>
-
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="news/evenements.php" class=""><span class="menu-title">Événement</span>
-
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="shop/index.html" class=""><span class="menu-title">événement</span></a>
+<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
+	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="shop-cart/index.html" class=""><span class="menu-title">événements programmés</span></a></li>
+	<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="shop-checkout/index.html" class=""><span class="menu-title">Historique des événements</span></a></li>
+</ul>
+</li>
 <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Maisons d'édition</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
 	<li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
@@ -558,12 +561,6 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </ul>
 </li>
 <li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
-
-
-<!--*************************************************************-->
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="promo.php" class=""><span class="menu-title">Top Promo</span>
-<!--**********************************************************-->
-
 </ul></div>                </nav>
             </div>
     	</div>
@@ -957,19 +954,6 @@ $bks = $auteur->Afficher_auteur();
 
                     
                         <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-                           
- <?php
-  if ($product['REDUCTION']!=0)
-{
-      
-
-?>
-
-  <section class="promo3"><?php echo $product['REDUCTION']; ?>%</section>
-
-  <?php }?>
-
-
                             <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
                             <div class="info-product">
                                 <a class="product-title" href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><?php  echo $product['NOM'] ; ?></a>
