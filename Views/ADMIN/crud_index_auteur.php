@@ -22,7 +22,31 @@
 
  <?php  require_once "header.php"  ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script>
+  
+$(document).ready(function () {
+
+  $("#input").keyup(function () {
+    var name = $("#input").val();
+    $.post("suggestion_auteur.php", {
+      suggestion : name
+    }, function(data,status){
+      $("#test").html(data);
+    });
+
+
+
+
+  });
+
+
+
+});
+
+
+</script>
 
 
 
@@ -36,10 +60,11 @@
               <p>
                   <a href="ajouter_auteur.php" class="btn btn-success">Create</a>
                 </p>
+                <input class="form-control" type="text" placeholder="Search for..." id="input">
 
 
 
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered" id="test">
                   <thead>
                     <tr>
                       <th>ID             </th>
@@ -72,7 +97,6 @@
                                 echo '<a class="btn btn-danger" href="delete_auteur.php?id='.$row['ID'].'">Delete</a>';
                                 echo '</td>';
                                 echo '</tr>';
-                            echo '</tr>';
                    }
                   // Database::disconnect();
                   ?>
