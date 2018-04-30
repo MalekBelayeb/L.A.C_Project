@@ -91,6 +91,34 @@ class CommentaireCore
 
 	}
 
+	function Afficher_commentaire_id_load ($id_book,$x)
+	{
+
+		$c = connexion::getConnexion();
+
+
+		$rating_user = $c->query ("SELECT * FROM commentaire where ID_LIVRE = ".$id_book." LIMIT $x ");
+
+		return $rating_user;
+
+
+	}
+
+	function get_nbr_commentaire_id_livre ($id_live)
+	{
+
+		$c = connexion::getConnexion();
+
+
+		$rating_user = $c->query ("SELECT count(*) as Nbr FROM `commentaire` WHERE ID_LIVRE=".$id_live." ");
+		$nbr_comm = $rating_user->fetch();
+
+		return $nbr_comm['Nbr'];
+
+
+
+	}
+
 
 
 

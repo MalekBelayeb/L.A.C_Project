@@ -760,82 +760,65 @@ if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<sc
 <?php if ($nbr_comm['NbNews']==0){ ?> <p class="woocommerce-noreviews">There are no reviews yet.</p> <?php  } ?> 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script >
+    
+
+        $(document).ready(function (){
+            var commentCount = 2;
+                $("#load").click(function (){
+                    commentCount = commentCount + 2;
+                        $("#comment_load").load("load_comment.php",{
+                                commentNewCount : commentCount,
+                                id_book : <?php echo $_GET['Livre'];?>
+                        });
+
+                });
+
+
+        });
+
+
+
+    
+
+</script>
+
+
+
+
+
+<div id="comment_load">
 <?php
-
-
-
-$req_comm =  $commentaire->Afficher_commentaire_id ($_GET['Livre']);    
-
-
+$req_comm =  $commentaire->Afficher_commentaire_id_load ($_GET['Livre'],2);    
                                 while ($product = $req_comm->fetch(PDO::FETCH_ASSOC)) :
-
 ?>
-                
-           
              <ol class="commentlist">
                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-103">
-
     <div id="comment-103" class="comment_container">
-
-        <div class="comment-body">
-        
+        <div class="comment-body">   
     <p class="meta">
         <strong class="woocommerce-review__author">
-
-
         <?php 
-
-
-                
-                
-
                 echo $product['ID_COMPTE']; 
-
-
-
-
         ?>
-            
-
         </strong> <em class="woocommerce-review__verified verified">(verified owner)</em> <span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="2017-09-28T14:27:21+00:00">September 28, 2017</time>
     </p>
-
 <div class="description"><p><?php  echo $product['COMMENTAIRE']; ?> 
-
-
-
-
 <?php 
     if (isset($_SESSION['id']))
         if ($product['ID_COMPTE'] == $_SESSION['id']) { ?>
-
-                
-
-               
-
-
-                    
-
-
                 <p>
                             <a href="supprimer_comment.php?id=<?php echo $product['ID']; ?>"><input type="submit" id="" class="button" value="supprimer"/></a>
-
                 </p>
-
 <?php  } ?>
-
-
-
    </p>
 </div>
         </div>
     </div>
-
 </li><!-- #comment-## -->
-
-
-
-
 <?php  endwhile;?>
 
 
@@ -843,10 +826,18 @@ $req_comm =  $commentaire->Afficher_commentaire_id ($_GET['Livre']);
             </ol>
 
             </div>
+<button id="load">sow more</button>
+
+
+</div>
     <div class="clear"></div>
+
 </div>
                 </div>
             </div>
+
+
+
 
 
 
@@ -939,6 +930,7 @@ if ($product['REDUCTION']!=0)
 
 
                                                     </div>
+
 
                     <h4 class="sg-sidebar-title">SHARE THIS BOOK</h4>
                     
