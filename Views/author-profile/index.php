@@ -2,7 +2,7 @@
 include_once "../../Config.php";
 function getONE($atribute,$condition)
 {
-    $sql=Connexion::getConnexion()->prepare("select $atribute from auteurs WHERE ID_AUT=$condition ");
+    $sql=Connexion::getConnexion()->prepare("select $atribute from auteur WHERE ID=$condition ");
     $sql->execute();
     while($result=$sql->fetch(PDO::FETCH_ASSOC))
     {
@@ -11,7 +11,7 @@ function getONE($atribute,$condition)
 }
 function getLivre($atribute,$condition)
 {
-    $sql=Connexion::getConnexion()->prepare("select $atribute from livre WHERE ID_AUT=$condition ");
+    $sql=Connexion::getConnexion()->prepare("select $atribute from book WHERE AUTHOR=$condition ");
     $sql->execute();
     while($result=$sql->fetch(PDO::FETCH_ASSOC))
     {
@@ -324,6 +324,20 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                     </div>
                 </div>
             </div>
+        <form method="post" >
+            <script src="ResponseAbonnement.js"></script>
+            <input id="AUT" name="AUT" hidden value="<?php echo $_GET['ID_AUT']; ?>">
+            <div class="bj-latest-show-more wrap-view-more">
+                <div class="cms-button-wrapper text-left inline spa-right" id="cms-button-2">
+                    <input type="button" value="" id="abonner" class="text-center" target="_self"
+                           style="transition: all 0.5s ease 0s ; background-color: #5f45eb; background-image: -webkit-linear-gradient( #5f45eb , #7e5bef) ; background-image: linear-gradient( #5f45eb , #7e5bef) ; color: #f9fafc; border: 1px solid #7e5bef; box-shadow: 0 5px 15px rgba(0,0,0,0.25); border-radius:6px; width:200px;"  onmouseout="this.style.color='#f9fafc';this.style.backgroundColor='#5f45eb';this.style.borderColor='#7e5bef';this.style.backgroundImage='linear-gradient( #5f45eb , #7e5bef )';" onmouseover="this.style.background='#f9fafc';this.style.color='#7e5bef';this.style.borderColor='#7e5bef';">
+                    </input>
+                </div>
+                <p id="test"></p>
+            </div>
+            <a style="font-size: 20px; margin-left: 590px; " id="heart"></a>
+            <script src="RequestAbonnement.js"></script>
+        </form>
             <!-- #page-title -->
 	<div id="content" class="site-content">
 <div id="primary" class="container">

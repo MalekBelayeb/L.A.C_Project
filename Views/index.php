@@ -881,7 +881,7 @@ $bks = $auteur->Afficher_auteur();
             <div class="bj-brs-author-item clearfix" style="display:block">
                 <div class="wrap-thumbnail">
                     <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>">
-                        <img src="wp-content/uploads/<?= $product['IMAGE'] ?>" alt="">
+                        <img src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
                     </a>
                 </div>
                 <div class="wrap-info">
@@ -1130,8 +1130,8 @@ if ($product['REDUCTION']!=0)
                   <div class="vc_column-inner ">
            <div class="wpb_wrapper">
            <div class="heading-3 clearfix">
-         <h2 style="font-size: 15px;color: #888a92;text-align: left;font-family:Voces;font-weight:400;font-style:normal" class="heading">RECOMMENDED FOR YOU</h2>
-      <div class="wrap-link"><a href="#" target="_self">All Recommended<i class="zmdi zmdi-chevron-right"></i>
+         <h2 style="font-size: 15px;color: #888a92;text-align: left;font-family:Voces;font-weight:400;font-style:normal" class="heading">Mes abonnements</h2>
+      <div class="wrap-link"><a href="#" target="_self"><i class="zmdi zmdi-chevron-right"></i>
       </a></div></div></div></div></div></div>
     <div class="vc_empty_space"   style="height: 12px" ><span class="vc_empty_space_inner"></span></div>
 
@@ -1139,60 +1139,24 @@ if ($product['REDUCTION']!=0)
     			 
 
 			    <div class="row cms-grid">
-<div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/index.html"><img width="330" height="500" src="wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/shattered/index.html">Shattered</a>
-				                <p class="product-author">by: Peter Cawdron</p>
-
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="shop/freefall/index.html"><img width="330" height="500" src="wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/freefall/index.html">Freefall</a>
-				                <p class="product-author">by: Peter Cawdron</p>
-
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="shop/darknet/index.html"><img width="330" height="500" src="wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/darknet/index.html">Darknet</a>
-				                <p class="product-author">by: Matthew Mather</p>
-
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="shop/holy-ghosts/index.html"><img width="330" height="500" src="wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/holy-ghosts/index.html">Holy Ghosts</a>
-				                <p class="product-author">by: David J. Schmidt</p>
-
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/radical_gardening.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html">Radical Gardening</a>
-				                <p class="product-author">by: George McKay</p>
-
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>4.00</span></span>
-							</div>
-			            </div>
+                    <?php
+                    if(isset($_SESSION['id']))
+                    {
+                        $aff=$auteur->AfficherMesAbonnments($_SESSION['id']);
+                        foreach ($aff as $a) {
+                            ?>
+                            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
+                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/<?php echo $a['IMAGE']; ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                                <div class="info-product">
+                                    <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><?php echo $a['NOM']; ?> </a>
+                                    <p class="product-author">par: <?php echo $a['AUTHOR']; ?></p>
+                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $a['PRIX']; ?></span></span>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
 			            			    </div>
 
 			    			</div>

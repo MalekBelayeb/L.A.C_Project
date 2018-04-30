@@ -1,5 +1,4 @@
 <?php
-
 include '../../Core/LoginCore.php';
 
 
@@ -554,12 +553,30 @@ $donnees = $auteur->Afficher_auteur_id($_GET['id_author']);
 
                 <div class="wrap-content">
                     <div class="avatar">
-                        <img src="../wp-content/uploads/<?php echo $donnees['IMAGE']; ?>" alt="Avatar author">
+                        <img src="../wp-content/uploads/<?php if($donnees['IMAGE']=='') echo 'anonyme.png'; else echo $donnees['IMAGE']; ?>" alt="Avatar author">
                     </div>
 
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                     <h3 class="name-author">  <?php  echo $donnees['NOM'];  ?> </h3>
+                    <form style="" method="post" >
+                        <script src="ResponseAbonnement.js"></script>
+                        <input id="AUT" name="AUT" hidden value="<?php echo $_GET['id_author']; ?>">
+                        <div class="bj-latest-show-more wrap-view-more">
+                            <div class="cms-button-wrapper text-left inline spa-right" id="cms-button-2">
+                                <input type="button" value="" id="abonner" class="text-center" target="_self"
+                                       style=" margin-left:30px; transition: all 0.5s ease 0s ; background-color: #5f45eb; background-image: -webkit-linear-gradient( #5f45eb , #7e5bef) ; background-image: linear-gradient( #5f45eb , #7e5bef) ; color: #f9fafc; border: 1px solid #7e5bef; box-shadow: 0 5px 15px rgba(0,0,0,0.25); border-radius:6px; width:200px;"  onmouseout="this.style.color='#f9fafc';this.style.backgroundColor='#5f45eb';this.style.borderColor='#7e5bef';this.style.backgroundImage='linear-gradient( #5f45eb , #7e5bef )';" onmouseover="this.style.background='#f9fafc';this.style.color='#7e5bef';this.style.borderColor='#7e5bef';">
+                                </input>
+                            </div>
+                            <p id="test"></p>
+                        </div>
+                        <a style="font-size: 20px;  " id="heart"></a>
+                        <script src="RequestAbonnement.js"></script>
+                    </form>
 
+<br>
+<br>
                     <p class="des-author"><?php      echo $donnees['text_auteur'];    ?></p>
+
 
                     <div class="share">
                         <p class="title-share">SHARE THIS AUTHOR</p>

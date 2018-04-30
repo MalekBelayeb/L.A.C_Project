@@ -141,7 +141,19 @@ class Auteurcore
         return $x;
 	}
 
-
+    function AfficherMesAbonnments($compte)
+    {
+        $c=Connexion::getConnexion();
+        $sql="SELECT * From book inner join abonnement  on book.AUTHOR=abonnement.ID_AUT and abonnement.ID_COMPTE='$compte' ";
+        try
+        {
+            $liste=$c->query($sql);
+            return $liste;
+        } catch (PDOException $e)
+        {
+            die( "Echec de connexion".$e->getMessage());
+        }
+    }
 	
 
 
