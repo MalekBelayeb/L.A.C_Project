@@ -1,4 +1,4 @@
-<?php include 'C:/wamp64/www/AvenirCulturel/Core/LoginCore.php'; 
+<?php include 'C:/wamp/www/AvenirCulturel/Core/LoginCore.php'; 
  //session_start();
 ?>
 
@@ -352,7 +352,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
                 <!-- #page-title -->
     <div id="content" class="site-content">
 <section id="primary" class="container blog-default is-sidebar-right">
@@ -386,8 +387,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
 
-include_once "C:/wamp64/www/AvenirCulturel/Config.php";
-include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp/www/AvenirCulturel/Config.php";
+include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
 
                 $c = connexion::getConnexion();
 /*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
@@ -397,37 +398,29 @@ include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
 /*****************************************************************rechercher par nom pagination*********************************************************************************/
 
 
-                        if (empty($_GET['q']))
+                        if (isset($_GET['q']) and isset($_GET['date_rech'])  )
                             
                             {
                        
-$ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpage();
+                        $ev_classe = New evenementcore();
+$rows = $ev_classe->nbrpagerechercher($_GET['q'],$_GET['date_rech']);
+    
+
+
+
+
+
 
 
                             }else {
-                          
-                        $ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpagerechercher($_GET['q']);
-                            }
+                      $ev_classe = New evenementcore();
+$rows = $ev_classe->nbrpage();
+    
+                        }
 
 
 /*****************************************************************rechercher par date pagination*********************************************************************************/
-                        if (empty($_GET['date_rech']))
-                            
-                            {
-                       
-$ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpage();
-
-
-                            }else {
-                          
-                  $ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpagerechercherpardate($_GET['date_rech']);
-
-
-                            }
+                     
 /*******************************************************************************************************************************************************************************/
                         $page_row = 2;   //nombre d'article afficher dans une page
                         $last = ceil($rows['NbNews']/$page_row);
@@ -457,33 +450,17 @@ $rows = $ev_classe->nbrpagerechercherpardate($_GET['date_rech']);
 
 /*---------------------------------------------------------------------RECHERCHE -----------------------------------------------------------------------------------*/
 $ev_classe = New evenementcore();
-  if (empty($_GET['date_rech']))
-{
-$a = $ev_classe->afficherrev($limit);
-}
+  if (isset($_GET['q']) and isset($_GET['date_rech']))
+
+$bks = $ev_classe->recherche_evenement($_GET['q'],$_GET['date_rech']);
+  
 else{
-$a = $ev_classe->recherche_evenement_par_date($_GET['date_rech'],$limit);
-}
-
-
-
-$ev_classe = New evenementcore();
-  if (empty($_GET['q']))
-{
 $bks = $ev_classe->afficherrev($limit);
-}
-else{
-$bks = $ev_classe->recherche_evenement($_GET['q'],$limit);
-}
 
-/*---------------------------------------------------------------------RECHERCHE -----------------------------------------------------------------------------------*/
-   
+    }
+                 
 
-
-
-                     
-
-/*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------PAGE TO PAGE------------------------------------------------------------------------*/
 
 
 $paginationCTR = '';
@@ -535,6 +512,7 @@ $paginationCTR = '';
         while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
 
 $ev_classe = New evenementcore();
+$rows = $ev_classe->nbrlike($product['id_ev']);
 echo $product['id_ev'];
 
 //alert($rows['nbrlike']);
@@ -909,25 +887,24 @@ else{
 </form></aside>
 -->
     <div class="wrap-search">
+ 
  <form method="GET">
-               <input type="date" id="rech" name="date_rech"  value="">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-           <button class="fa fa-search" id="valide" type="submit" name="button2" >valider</button>
-
-</form>
-     <br><br>
-
-<form method="GET">
               
-                              <input class="form-search" type="text" name="q" id="rech" placeholder="recherche..." value="">
-                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                  
+                                          <input class="form-search" type="text" name="q" id="rech" placeholder="rechercher..." value="">
+                              
+                              <br>
+                              <br>
+                              <input  class="form-search" type="date" name="date_rech" id="rech"  value="">
+                                      &nbsp;&nbsp;&nbsp;&nbsp;
+                                      &nbsp;&nbsp;&nbsp;&nbsp;
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;                                      
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+
   <button class="fa fa-search" id="valide" type="submit" name="button" >valider</button>
 
 </form><br>
@@ -935,12 +912,6 @@ else{
 
 
 </form><br>
-
-
-
-
-
-
 
 
 
@@ -956,8 +927,8 @@ else{
 
 
 <?php
-include_once "C:/wamp64/www/AvenirCulturel/Config.php";
-include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp/www/AvenirCulturel/Config.php";
+include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
 
 
         $ev_classe = New evenementcore();
@@ -981,7 +952,7 @@ $count=0;
 
 
 
-                        <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>"><img width="150" height="120" src="../wp-content/uploads/<?php echo $product['image_ev'];  ?>" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" sizes="(max-width: 150px) 100vw, 150px" /></a>
+                        <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php"><img width="150" height="120" src="../wp-content/uploads/<?php echo $product['image_ev'];  ?>" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" sizes="(max-width: 150px) 100vw, 150px" /></a>
                     </div>
                     <div class="recent-post-content">
                         <a class="entry-widget-title" href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>"><?php echo $product['nom_ev']; ?></a>
