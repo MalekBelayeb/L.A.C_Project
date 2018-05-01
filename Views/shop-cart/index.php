@@ -336,7 +336,7 @@ $url=$gClient->createAuthUrl();
                                                 /*make the matching letters bold:*/
                                                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
                                                 b.innerHTML += arr[i].substr(val.length);
-                                                b.innerHTML += "<img src='wp-content/uploads/"+ img[i] + "'  width='50px' height='100px'>";
+                                                b.innerHTML += "<img src='../wp-content/uploads/"+ img[i] + "'  width='50px' height='100px'>";
                                                 /*insert a input field that will hold the current array item's value:*/
 
                                                 b.innerHTML += "<input type='hidden' value='" + id[i] + "'>";
@@ -348,7 +348,7 @@ $url=$gClient->createAuthUrl();
                                                     // inp.value = this.getElementsByTagName("input")[0].value;
 
 
-                                                    window.location.href = 'shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
+                                                    window.location.href = '../shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
 
                                                     /*close the list of autocompleted values,
                                                     (or any other open lists of autocompleted values:*/
@@ -434,95 +434,92 @@ $url=$gClient->createAuthUrl();
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row">
-                    <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
+            
+ <div class="container">
+      <div class="row">
+        <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
 
-                        <nav id="site-navigation" class="main-navigation">
+                <nav id="site-navigation" class="main-navigation">
 
-                            <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children no_group abccs menu-item-11" data-depth="0"><a href="../index.html" class=""><span class="menu-title">Home</span></a>
-                                        <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-                                            <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-420" data-depth="1"><a href="../homepage-1/index.html" class=""><span class="menu-title">HomePage 1</span></a></li>
-                                            <li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-419" data-depth="1"><a href="../homepage-2/index.html" class=""><span class="menu-title">HomePage 2</span></a></li>
-                                            <li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-421" data-depth="1"><a href="../homepage-3/index.html" class=""><span class="menu-title">HomePage 3</span></a></li>
-                                            <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-418" data-depth="1"><a href="../homepage-4/index.html" class=""><span class="menu-title">HomePage 4</span></a></li>
-                                            <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="../homepage-5/index.html" class=""><span class="menu-title">HomePage 5</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="#" class=""><span class="menu-title">Mega Menu</span></a>
-                                        <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
-                                            <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Featured</span></a>
-                                                <ul class='   sub-menu' style="">
-                                                    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">Highest Rated Fiction</span></a></li>
-                                                    <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Bestsellers</span></a></li>
-                                                    <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Clearance Books</span></a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Categories</span></a>
-                                                <ul class='   sub-menu' style="">
-                                                    <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Crime &#038; Detectives</span></a></li>
-                                                    <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Comedy</span></a></li>
-                                                    <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Fantasy Fiction</span></a></li>
-                                                    <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Horror</span></a></li>
-                                                    <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Mystery</span></a></li>
-                                                    <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Romantic</span></a></li>
-                                                    <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Tragedy</span></a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
-                                                <ul class='   sub-menu' style="">
-                                                    <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="#" class=""><span class="menu-title">Thriller / Suspense</span></a></li>
-                                                    <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Fairy Tales</span></a></li>
-                                                    <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Fan Fiction</span></a></li>
-                                                    <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Fictional Biography</span></a></li>
-                                                    <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Western</span></a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
-                                                <ul class='   sub-menu' style="">
-                                                    <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Featured book</h5><div class="textwidget custom-html-widget"><a href="#"><img src="../wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current-menu-item current_page_item no_group menu-item-250" data-depth="0"><a href="#" class=""><span class="menu-title">Shop</span></a>
-                                        <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-                                            <li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="../shop-cart/index.html" class=""><span class="menu-title">Shop Cart</span></a></li>
-                                            <li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="../shop-checkout/index.html" class=""><span class="menu-title">Shop Checkout</span></a></li>
-                                            <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-product no_group menu-item-404" data-depth="1"><a href="the-world-of-abstract-art/index.html" class=""><span class="menu-title">Single Book</span></a></li>
-                                            <li id="menu-item-470" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-470" data-depth="1"><a href="../user-profile/index.html" class=""><span class="menu-title">User Profile</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Pages</span></a>
-                                        <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-                                            <li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
-                                                <ul class='   sub-menu' style="">
-                                                    <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-242" data-depth="2"><a href="../buttons/index.html" class=""><span class="menu-title">Buttons</span></a></li>
-                                                    <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-241" data-depth="2"><a href="../lightboxes/index.html" class=""><span class="menu-title">Lightboxes</span></a></li>
-                                                    <li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-426" data-depth="2"><a href="../book-displays/index.html" class=""><span class="menu-title">Book Displays</span></a></li>
-                                                    <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-240" data-depth="2"><a href="../message-boxes/index.html" class=""><span class="menu-title">Message Boxes</span></a></li>
-                                                    <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-239" data-depth="2"><a href="../team/index.html" class=""><span class="menu-title">Team</span></a></li>
-                                                    <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-238" data-depth="2"><a href="../accordions/index.html" class=""><span class="menu-title">Accordions</span></a></li>
-                                                    <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-237" data-depth="2"><a href="../news-styles/index.html" class=""><span class="menu-title">News Styles</span></a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="../news/index.html" class=""><span class="menu-title">News</span></a>
-                                        <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-                                            <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="../news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
-                                            <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="../news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
-                                            <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="../news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
-                                            <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="../news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
-                                            <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="../news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="../contact-us/index.html" class=""><span class="menu-title">Contact Us</span></a></li>
-                                </ul></div>                </nav>
-                    </div>
-                </div>
+                    <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/index.php" class=""><span class="menu-title">Accueil </span></a></li>
+
+
+
+
+<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">Catalogue</span></a>
+<ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
+  <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
+    <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
+    <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
+    <li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
+    <li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
+    <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
+    <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
+    <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
+    <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
+    <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
+    <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
+    <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
+    <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
+    <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
+    <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
+    <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
+    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
+    <li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
+</li>
+  </ul>
+</li>
+</ul>
+</li>
+
+
+
+
+
+
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php" class=""><span class="menu-title">Événement</span>
+
+</a></li>
+
+
+
+
+
+<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="news/index.html" class=""><span class="menu-title">Forum</span></a>
+<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
+  <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
+  <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
+  <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
+  <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
+  <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
+</ul>
+</li>
+<li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
+</ul></div>                </nav>
             </div>
+      </div>
+    </div>
+
+
+
+
         </div><!-- #site-navigation -->
 
 

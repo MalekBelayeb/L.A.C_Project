@@ -1,21 +1,28 @@
 <?php
-include '../../Core/LoginCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once "c:/wamp64/www/AvenirCulturel/Core/VuCore.php";
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LivreCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/AuteurCore.php';
 
 
 
+include_once 'c:/wamp64/www/AvenirCulturel/Core/bookcore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/auteurcore.php';
 
-include_once "../../config.php";
+
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
+$panier=new Panier();
 
 
-include_once "../../core/bookcore.php";
-include_once "../../core/auteurcore.php";
-include_once "../../core/userCore.php";
 $book = New Bookcore();
 $auteur = New Auteurcore();
+
 
 $bookdonnes = $book->afficher_book_nom();
 $bookimage = $book->afficher_book_img();
 $bookid = $book->afficher_book_id();
+
 
 
 function countLivre($compte)
@@ -25,11 +32,8 @@ function countLivre($compte)
         $liste=$c->query($sql);
         return $liste->rowCount();
 }
-require_once 'C:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'c:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
-
-
-
 ?>
 
 
@@ -74,32 +78,28 @@ $url=$gClient->createAuthUrl();
 </style>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/shop/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:28:45 GMT -->
+<!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:22:03 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="initial-scale=1, width=device-width" />
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="../xmlrpc.php" />
-<link rel="shortcut icon" type="image/x-icon" href="../wp-content/uploads/fav-1.png" />
-<title>Products &#8211; Book Junky</title>
-<link rel='dns-prefetch' href='http://ajax.aspnetcdn.com/' />
-<link rel='dns-prefetch' href='http://s.w.org/' />
-<link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Feed" href="../feed/index.html" />
-<link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Comments Feed" href="../comments/feed/index.html" />
-<link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Products Feed" href="feed/index.html" />
-        <script type="text/javascript">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="xmlrpc.php" />
+    <link rel="shortcut icon" type="image/x-icon" href="../wp-content/uploads/fav-1.png" />
+    <title>Librairie Avenir Culturel &#8211; L.A.C</title>
+    <link rel='dns-prefetch' href='http://ajax.aspnetcdn.com/' />
+    <link rel='dns-prefetch' href='http://s.w.org/' />
+    <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Feed" href="feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Comments Feed" href="comments/feed/index.html" />
+    <script type="text/javascript">
             window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-includes\/js\/wp-emoji-release.min.js"}};
             !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
         </script>
-        <style type="text/css">
-img.wp-smiley,
+    <style type="text/css">
+            img.wp-smiley,
 img.emoji {
     display: inline !important;
     border: none !important;
@@ -111,66 +111,89 @@ img.emoji {
     background: none !important;
     padding: 0 !important;
 }
+        </style>
+    <link rel='stylesheet' id='cms-plugin-stylesheet-css'  href='c:/wamp64/www/AvenirCulturel/views/wp-content/plugins/cmssuperheroesv2/assets/css/cms-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css'  href='../wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='widget_style-css'  href='../wp-content/plugins/csh-login/assets/css/default.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='layout1_style-css'  href='../wp-content/plugins/csh-login/assets/css/layout1.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='flex-favorites-style.css-css'  href='../wp-content/plugins/flex-favorites/assets/css/flex-favorites-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='rs-plugin-settings-css'  href='../wp-content/plugins/revslider/public/assets/css/settings.css' type='text/css' media='all' />
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+    #rs-demo-id {}
 </style>
-<link rel='stylesheet' id='cms-plugin-stylesheet-css'  href='../wp-content/plugins/cmssuperheroesv2/assets/css/cms-style.css' type='text/css' media='all' />
-<link rel='stylesheet' id='contact-form-7-css'  href='../wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
-<link rel='stylesheet' id='widget_style-css'  href='../wp-content/plugins/csh-login/assets/css/default.css' type='text/css' media='all' />
-<link rel='stylesheet' id='layout1_style-css'  href='../wp-content/plugins/csh-login/assets/css/layout1.css' type='text/css' media='all' />
-<link rel='stylesheet' id='flex-favorites-style.css-css'  href='../wp-content/plugins/flex-favorites/assets/css/flex-favorites-style.css' type='text/css' media='all' />
-<link rel='stylesheet' id='rs-plugin-settings-css'  href='../wp-content/plugins/revslider/public/assets/css/settings.css' type='text/css' media='all' />
-<style id='rs-plugin-settings-inline-css' type='text/css'>
-#rs-demo-id {}
+    <link rel='stylesheet' id='woocommerce-layout-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='woocommerce-smallscreen-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' id='woocommerce-general-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/book-junky/assets/css/bootstrap.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='owl-carousel-style-css'  href='../wp-content/themes/book-junky/assets/css/owl.carousel.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='book-junky-font-css'  href='../wp-content/themes/book-junky/assets/css/font.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='iThing.css-css'  href='../wp-content/themes/book-junky/assets/css/iThing.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='book-junky-style-css'  href='../wp-content/themes/book-junky/style.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='book-junky-static-css'  href='../wp-content/themes/book-junky/assets/css/static.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='book-ic-css'  href='../wp-content/themes/book-junky/assets/css/scrollablemenu.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-dynamic-css'  href='../wp-content/themes/book-junky/assets/css/custom-dynamic.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='zoom-css'  href='../wp-content/themes/book-junky/assets/css/zoom_livre.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='Slide-css'  href='../wp-content/themes/book-junky/assets/css/Slide.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='Slide-csss'  href='../wp-content/themes/book-junky/assets/css/mail.css' type='text/css' media='all' />
+    <style id='custom-dynamic-inline-css' type='text/css'>
+    .site-content{padding-top:;}.site-content{padding-bottom:;}.header-3 .main-logo-3{max-height:200px;}.site-content{padding-top:0;}.site-content{padding-bottom:0;}
 </style>
-<link rel='stylesheet' id='woocommerce-layout-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
-<link rel='stylesheet' id='woocommerce-general-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/book-junky/assets/css/bootstrap.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='owl-carousel-style-css'  href='../wp-content/themes/book-junky/assets/css/owl.carousel.min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='book-junky-font-css'  href='../wp-content/themes/book-junky/assets/css/font.css' type='text/css' media='all' />
-<link rel='stylesheet' id='iThing.css-css'  href='../wp-content/themes/book-junky/assets/css/iThing.css' type='text/css' media='all' />
-<link rel='stylesheet' id='book-junky-style-css'  href='../wp-content/themes/book-junky/style.css' type='text/css' media='all' />
-<link rel='stylesheet' id='book-junky-static-css'  href='../wp-content/themes/book-junky/assets/css/static.css' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-dynamic-css'  href='../wp-content/themes/book-junky/assets/css/custom-dynamic.css' type='text/css' media='all' />
-<style id='custom-dynamic-inline-css' type='text/css'>
-.site-content{padding-top:;}.site-content{padding-bottom:;}.header-3 .main-logo-3{max-height:200px;}
-</style>
-<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js'></script>
-<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js'></script>
-<script type='text/javascript' src='../../../../ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
+    <link rel='stylesheet' id='js_composer_front-css'  href='../wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='../../../ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js'></script>
+    <script type='text/javascript'>
+
+
+
+
+
+    /* <![CDATA[ */
 var jsPassData = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","display_labels":"Labels","type_modal":"Popup","get_login_redirect":"Current Page","login_redirect":"","register_redirect":"","genrated_pass":""};
 /* ]]> */
 </script>
-<script type='text/javascript' src='../wp-content/plugins/csh-login/assets/js/widget-script.js'></script>
-<script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js'></script>
-<script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
+    <script type='text/javascript' src='../wp-content/plugins/csh-login/assets/js/widget-script.js'></script>
+    <script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js'></script>
+    <script type='text/javascript' src='../wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js'></script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
 var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","wc_ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/shop-cart\/","is_cart":"","cart_redirect_after_add":"no"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js'></script>
-<script type='text/javascript' src='../wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js'></script>
-<script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/bootstrap.min.js'></script>
-<link rel='https://api.w.org/' href='../wp-json/index.html' />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 4.9.2" />
-<meta name="generator" content="WooCommerce 3.2.6" />
+    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js'></script>
+    <script type='text/javascript' src='../wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js'></script>
+    <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/bootstrap.min.js'></script>
+    <link rel='https://api.w.org/' href='wp-json/index.html' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 4.9.2" />
+    <meta name="generator" content="WooCommerce 3.2.6" />
+    <link rel="canonical" href="index.html" />
+    <link rel='shortlink' href='index.html' />
+    <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embedc14a.json?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed72ff?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2F&amp;format=xml" />
     <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
     <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
-<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.6 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-<script type="text/javascript">function setREVStartSize(e){
-                try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;                   
-                    if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})                  
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.6 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+    <script type="text/javascript">function setREVStartSize(e){
+        try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+                    if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
                 }catch(d){console.log("Failure at Presize of Slider:"+d)}
-            };</script>
-<style type="text/css" title="dynamic-css" class="options-output">body .page-title h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body .page-title h1,{opacity: 0;}.ie.wf-loading body .page-title h1,{visibility: hidden;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+    };</script>
+    <style type="text/css" title="dynamic-css" class="options-output">
+        body .page-title
+        h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading
+    body .page-title h1,{opacity: 0;}.ie.wf-loading body .page-title h1,{visibility: hidden;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1503973713559{margin-bottom: 30px !important;border-top-width: 1px !important;padding-top: 2px !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503889319693{border-top-width: 1px !important;padding-top: 29px !important;background-color: #f9fafc !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503975536992{padding-bottom: 84px !important;background-color: #f9fafc !important;}.vc_custom_1504086144605{border-top-width: 1px !important;padding-top: 10px !important;padding-bottom: 15px !important;border-top-color: #e5e6ea !important;border-top-style: solid !important;}.vc_custom_1507284853599{margin-bottom: -16px !important;}.vc_custom_1503989158128{margin-bottom: 98px !important;}.vc_custom_1505871144817{padding-top: 10px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
 
-<body class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
+<body class="home page-template-default page page-id-271 body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 <div class="wrap-boxed"><div id="page" class="hfeed site">
-      <header id="masthead" class="site-header">
+        <header id="masthead" class="site-header">
         <div id="cshero-header" class="header-3">
 
             <div class="header-top">
@@ -184,14 +207,56 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         if (isset($_GET['Inscription']))
                         {
                         ?>
-                        <a id="bienV" style="font-size: 18px;"> <?php echo $_GET['Inscription'].' Bienvenue a notre librairie :) '; ?> </a>
+                            <div id="bienvenue"  >
+                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
+                            </div>
+
+
                             <script>
-                                var w=document.getElementById('bienV');
-                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+
                             </script>
                     <?php
                     }
                     ?>
+
+                        <?php
+                        if(isset($_GET['Error']))
+                        {
+                            ?>
+                            <div id="error"  >
+                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
+                            </div>
+                            <script>
+
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#error" ).effect( "shake", options, 500, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+                            </script>
+
+                            <?php
+                        }
+                        ?>
+
+
+                       
+
 
 
                         <?php
@@ -206,12 +271,23 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                             <?php
                         }
                         ?>
+
+
+                        <?php
+                        if (isset($_SESSION['id']))
+                        {
+
+                        
+                        ?>
                         <center>
                         <div class="col-md-3">
                             <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
                         </div>
                         </center>
+                        <?php
 
+                        }
+                        ?>
 
                         <?php
                             if(isset($_SESSION['id'])) {
@@ -221,6 +297,27 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
                         }
                         ?>
+
+                             <?php
+
+            if (!empty($_SESSION['NOM']))
+            {
+
+
+                if ($_SESSION['NOM']=="ali") {
+                   
+echo "   <a href='http://localhost/AvenirCulturel/Views/livreur/livreur1.php'>livreur</a>";
+
+
+                }
+            
+    
+        }
+
+
+            ?>
+
+
                         <a >
                             <?php
                                 if(!isset($_SESSION['id']))
@@ -237,7 +334,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
          echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
                                     }
                         ?>
-<a href="user-profile/book-shelf/DonnesProfile.php">
+<a href="http://localhost/AvenirCulturel/Views/user-profile/book-shelf/DonnesProfile.php">
     <strong> <?php echo $_SESSION['id']; ?> </strong>
 </a>
                                   <?php
@@ -246,13 +343,13 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </a>
                     </div>
                     <p id="FQQ"> </p>
-                    <div class="col-xs-12 col-md-6 top-right-3">
+                     <div class="col-xs-12 col-md-6 top-right-3">
 
                         <div class="wrap-book-shelf clearfix">
-                            <img src="../wp-content/themes/book-junky/assets/images/icon-1.png"
+                            <img src="http://localhost/AvenirCulturel/Views/wp-content/themes/book-junky/assets/images/icon-1.png"
                                  alt="icon 1">
                             <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
-                            <a href="user-profile/book-shelf/index.php"
+                            <a href="http://localhost/AvenirCulturel/Views/user-profile/book-shelf/index.php"
                             alt="My Account">
                                                                         <h5>Bibliothèque</h5>
 
@@ -264,17 +361,17 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </div>
 
                         <div class="wrap-your-basket clearfix">
-                            <img src="../wp-content/themes/book-junky/assets/images/icon-2.png"
+                            <img src="http://localhost/AvenirCulturel/Views/wp-content/themes/book-junky/assets/images/icon-2.png"
                                  alt="icon 2">
                             <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
                                 <h5>
-                                                                        <a href="shop-cart/index.html">
+                                                                        <a href="../shop-cart/index.php">
 
                                         Mon Panier                                                                            </a>
                                                                 </h5>
-                                                                    <span>
-                                0.00                            </span>
-                                                            </div>
+                                <span><span class="woocommerce-Price-currencySymbol">&pound;</span>
+                                <span id="totale"><?= number_format($panier->total(),2); ?> </span>                     </span>
+                            </div>
                         </div>
 
                     </div>
@@ -289,8 +386,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
               <div class="col-xs-12 col-md-4 col-lg-3">
 
-                  <div class="main-logo-3"><a href="../index.php"><img alt="Book Junky" src="../wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
-                  <a href="../index.php" class="menu"><i class="fa fa-bars"></i> Menu</a>
+                  <div class="main-logo-3"><a href="http://localhost/AvenirCulturel/Views/index.php"><img alt="Book Junky" src="../wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
+                  <a href="http://localhost/AvenirCulturel/Views/index.php" class="menu"><i class="fa fa-bars"></i> Menu</a>
               </div>
 
               <div class="col-xs-12 col-md-8 col-lg-9">
@@ -346,7 +443,7 @@ function autocomplete(inp, arr,img,id) {
              // inp.value = this.getElementsByTagName("input")[0].value;
               
 
-                                window.location.href = '../shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
+                                window.location.href = 'http://localhost/AvenirCulturel/Views/shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
 
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
@@ -425,104 +522,107 @@ var js_array_id = [<?php echo '"'.implode('","', $bookid).'"' ?>];
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_array_id);
 </script>
-                </div><!-- #site-logo -->
-            </div>
-        </div>
+
+
+
+              </div><!-- #site-logo -->
+          </div>
+      </div>
     </div>
 
     <div class="container">
-        <div class="row">
-            <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
+      <div class="row">
+        <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
 
                 <nav id="site-navigation" class="main-navigation">
 
-                    <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children no_group abccs menu-item-11" data-depth="0"><a href="../index.html" class=""><span class="menu-title">Home</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-    <li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-420" data-depth="1"><a href="../homepage-1/index.html" class=""><span class="menu-title">HomePage 1</span></a></li>
-    <li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-419" data-depth="1"><a href="../homepage-2/index.html" class=""><span class="menu-title">HomePage 2</span></a></li>
-    <li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-421" data-depth="1"><a href="../homepage-3/index.html" class=""><span class="menu-title">HomePage 3</span></a></li>
-    <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-418" data-depth="1"><a href="../homepage-4/index.html" class=""><span class="menu-title">HomePage 4</span></a></li>
-    <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="../homepage-5/index.html" class=""><span class="menu-title">HomePage 5</span></a></li>
-</ul>
-</li>
-<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="#" class=""><span class="menu-title">Mega Menu</span></a>
+                    <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/index.php" class=""><span class="menu-title">Accueil </span></a></li>
+
+
+
+
+<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">Catalogue</span></a>
 <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
-    <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Featured</span></a>
-    <ul class='   sub-menu' style="">
-        <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">Highest Rated Fiction</span></a></li>
-        <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Bestsellers</span></a></li>
-        <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Clearance Books</span></a></li>
-    </ul>
+  <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
+    <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
+    <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
+    <li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
+    <li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
+  </ul>
 </li>
-    <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Categories</span></a>
-    <ul class='   sub-menu' style="">
-        <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Crime &#038; Detectives</span></a></li>
-        <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Comedy</span></a></li>
-        <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Fantasy Fiction</span></a></li>
-        <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Horror</span></a></li>
-        <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Mystery</span></a></li>
-        <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Romantic</span></a></li>
-        <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Tragedy</span></a></li>
-    </ul>
+  <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
+    <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
+    <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
+    <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
+    <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
+    <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
+    <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
+    <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
+  </ul>
 </li>
-    <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
-    <ul class='   sub-menu' style="">
-        <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="#" class=""><span class="menu-title">Thriller / Suspense</span></a></li>
-        <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Fairy Tales</span></a></li>
-        <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Fan Fiction</span></a></li>
-        <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Fictional Biography</span></a></li>
-        <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Western</span></a></li>
-    </ul>
+  <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
+    <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
+    <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
+    <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
+    <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
+    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
+    <li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
+  </ul>
 </li>
-    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
-    <ul class='   sub-menu' style="">
-        <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Featured book</h5><div class="textwidget custom-html-widget"><a href="#"><img src="../wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
+  <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
 </li>
-    </ul>
+  </ul>
 </li>
 </ul>
 </li>
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="../shop/index.html" class=""><span class="menu-title">Shop</span></a>
+
+
+
+
+
+
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php" class=""><span class="menu-title">Événement</span>
+
+</a></li>
+
+
+
+
+
+<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="news/index.html" class=""><span class="menu-title">Forum</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-    <li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="../shop-cart/index.html" class=""><span class="menu-title">Shop Cart</span></a></li>
-    <li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="../shop-checkout/index.html" class=""><span class="menu-title">Shop Checkout</span></a></li>
-    <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-product no_group menu-item-404" data-depth="1"><a href="../shop/the-world-of-abstract-art/index.html" class=""><span class="menu-title">Single Book</span></a></li>
-    <li id="menu-item-470" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-470" data-depth="1"><a href="../user-profile/index.html" class=""><span class="menu-title">User Profile</span></a></li>
+  <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
+  <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
+  <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
+  <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
+  <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
 </ul>
 </li>
-<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Pages</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-    <li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
-    <ul class='   sub-menu' style="">
-        <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-242" data-depth="2"><a href="../buttons/index.html" class=""><span class="menu-title">Buttons</span></a></li>
-        <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-241" data-depth="2"><a href="../lightboxes/index.html" class=""><span class="menu-title">Lightboxes</span></a></li>
-        <li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-426" data-depth="2"><a href="../book-displays/index.html" class=""><span class="menu-title">Book Displays</span></a></li>
-        <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-240" data-depth="2"><a href="../message-boxes/index.html" class=""><span class="menu-title">Message Boxes</span></a></li>
-        <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-239" data-depth="2"><a href="../team/index.html" class=""><span class="menu-title">Team</span></a></li>
-        <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-238" data-depth="2"><a href="../accordions/index.html" class=""><span class="menu-title">Accordions</span></a></li>
-        <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-237" data-depth="2"><a href="../news-styles/index.html" class=""><span class="menu-title">News Styles</span></a></li>
-    </ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="../news/index.html" class=""><span class="menu-title">News</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-    <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="../news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
-    <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="../news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
-    <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="../news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
-    <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="../news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
-    <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="../news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
-</ul>
-</li>
-<li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="../contact-us/index.html" class=""><span class="menu-title">Contact Us</span></a></li>
+<li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
 </ul></div>                </nav>
             </div>
-        </div>
+      </div>
     </div>
+
 </div><!-- #site-navigation -->
 
 
-    </header><!-- #masthead -->
+  </header><!-- #masthead -->
+                       
+
+
+
+
+
+
                 <div class="page-title-author">
                 <div class="wrap-backround" style="background-color: #7151ed;">
                 </div>
@@ -639,7 +739,7 @@ $bks = $book->Get_Livre_idAuteur($_GET['id_author']);
 
                     <?php
 
-                    include "../../Core/VuCore.php";
+                    include_once "../../Core/VuCore.php";
                     $v=new VuCore();
                     if(isset($_SESSION['id']))
                         $v->setCompte($_SESSION['id']);

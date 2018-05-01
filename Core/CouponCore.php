@@ -5,8 +5,8 @@
  * Date: 05/04/2018
  * Time: 09:31
  */
-include "C:/wamp64/www/AvenirCulturel/Entity/Coupon.php";
-include_once "C:/wamp64/www/AvenirCulturel/config.php";
+include_once "C:/wamp64/www/AvenirCulturel/Entity/Coupon.php";
+include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 class CouponCore extends Coupon
 {
 
@@ -124,7 +124,7 @@ return $bks;
 
     public function getval($id)
     {
-        $pdo=getConnexion   ::getConnexion();
+        $pdo= connexion::getConnexion();
         $sql="select VALEUR from coupon  where ID=:id";
         if($stmt=$pdo->prepare($sql))
         {

@@ -1,3 +1,76 @@
+<?php
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once "c:/wamp64/www/AvenirCulturel/Core/VuCore.php";
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LivreCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/AuteurCore.php';
+
+
+
+include_once 'c:/wamp64/www/AvenirCulturel/Core/bookcore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/auteurcore.php';
+
+
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
+$panier=new Panier();
+
+
+$book = New Bookcore();
+$auteur = New Auteurcore();
+
+
+$bookdonnes = $book->afficher_book_nom();
+$bookimage = $book->afficher_book_img();
+$bookid = $book->afficher_book_id();
+
+
+
+require_once 'c:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
+$url=$gClient->createAuthUrl();
+?>
+
+
+
+
+<style type="text/css">
+    
+
+    .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+</style>
+
+
 
 
 
@@ -6,6 +79,9 @@
 
 <html lang="en-US">
 <?php
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
+$panier=new Panier();
 
 
 include_once "C:/wamp64/www/AvenirCulturel/Core/auteurcore.php";
@@ -219,193 +295,418 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 	        <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 top-left-3">
-     <a class="go_to_login_link" href="../../wlogin.html" id="ins_iden">S'inscrire / S'identifier</a>
-            <a href="#">FAQ</a><a href="#">Contact </a>
+                  <div class="col-xs-12 col-md-6 top-left-3">
+                        <a class="go_to_login_link" href="" id='ins_iden'>S'inscrire / S'identifier</a>
+
                         <?php
-                        if(!isset($_SESSION['id']))
+                        if (isset($_GET['Inscription']))
                         {
-                        }else
+                        ?>
+                            <div id="bienvenue"  >
+                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
+                            </div>
+
+
+                            <script>
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+
+                            </script>
+                    <?php
+                    }
+                    ?>
+
+                        <?php
+                        if(isset($_GET['Error']))
                         {
-                            echo "<script>var t=document.getElementById('ins_iden'); t.innerHTML=''; </script>";
-                            echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
                             ?>
-                            <a> <strong> <?php echo $_SESSION['id']; ?> </strong> </a>
+                            <div id="error"  >
+                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
+                            </div>
+                            <script>
+
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#error" ).effect( "shake", options, 500, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+                            </script>
+
                             <?php
                         }
                         ?>
+
+
+                       
+
+
+
+                        <?php
+                        if (isset($_GET['Mail']))
+                        {
+                            ?>
+                            <a id="bienV" style="font-size: 13px;"> <?php echo 'Un code sera envoyé a votre mail veuillez patientez .. :) '; ?> </a>
+                            <script>
+                                var w=document.getElementById('bienV');
+                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
+                            </script>
+                            <?php
+                        }
+                        ?>
+
+
+                        <?php
+                        if (isset($_SESSION['id']))
+                        {
+
+                        
+                        ?>
+                        <center>
+                        <div class="col-md-3">
+                            <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
+                        </div>
+                        </center>
+                        <?php
+
+                        }
+                        ?>
+
+                        <?php
+                            if(isset($_SESSION['id'])) {
+                            ?>
+                            <a href="#">FAQ</a><a href="#">Contact</a>
+                            <?php
+
+                        }
+                        ?>
+
+                             <?php
+
+            if (!empty($_SESSION['NOM']))
+            {
+
+
+                if ($_SESSION['NOM']=="ali") {
+                   
+echo "   <a href='http://localhost/AvenirCulturel/Views/livreur/livreur1.php'>livreur</a>";
+
+
+                }
+            
+    
+        }
+
+
+            ?>
+
+
+                        <a >
+                            <?php
+                                if(!isset($_SESSION['id']))
+                                {
+                                }else
+                                {
+                                    if($_SESSION['id']=='admin')
+                                    {
+         echo "<script> location.assign('http://localhost/AvenirCulturel/Views/ADMIN/index.php'); </script>";
+                                    }
+                                    else
+                                    {
+         echo "<script>var t=document.getElementById('ins_iden'); t.innerHTML=''; </script>";
+         echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
+                                    }
+                        ?>
+<a href="http://localhost/AvenirCulturel/Views/user-profile/book-shelf/DonnesProfile.php">
+    <strong> <?php echo $_SESSION['id']; ?> </strong>
+</a>
+                                  <?php
+                                }
+                            ?>
+                        </a>
                     </div>
-                    <div class="col-xs-12 col-md-6 top-right-3">
+                    <p id="FQQ"> </p>
+                     <div class="col-xs-12 col-md-6 top-right-3">
+
                         <div class="wrap-book-shelf clearfix">
-                            <img src="../../wp-content/themes/book-junky/assets/images/icon-1.png"
+                            <img src="http://localhost/AvenirCulturel/Views/wp-content/themes/book-junky/assets/images/icon-1.png"
                                  alt="icon 1">
                             <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
-                                                                <a href="../../user-profile/book-shelf/index.php"
-                                   alt="My Account">
+                            <a href="http://localhost/AvenirCulturel/Views/user-profile/book-shelf/index.php"
+                            alt="My Account">
                                                                         <h5>Bibliothèque</h5>
+
                                                                     </a>
                                                             <span class="aj-count">
-                                      <?php if(isset($_SESSION['id'])) echo countLivre($_SESSION['id']); ?> livre                                </span>
+                                     <?php if(isset($_SESSION['id'])) echo countLivre($_SESSION['id']); ?>  livre
+                                                                            </span>
                             </div>
                         </div>
-                        <div class="wrap-your-basket clearfix">
-                            <img src="../../wp-content/themes/book-junky/assets/images/icon-2.png"
-                                 alt="icon 2">
-                            <div class="content">
-                                <h5>
-                                                                        <a href="../../shop-cart/index.html">
 
-                                                                            Mon Panier                                                                            </a>
+                        <div class="wrap-your-basket clearfix">
+                            <img src="http://localhost/AvenirCulturel/Views/wp-content/themes/book-junky/assets/images/icon-2.png"
+                                 alt="icon 2">
+                            <div class="content <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>">
+                                <h5>
+                                                                        <a href="../../shop-cart/index.php">
+
+                                        Mon Panier                                                                            </a>
                                                                 </h5>
-                                                                    <span>
-                                0.00                            </span>
-                                                            </div>
+                                <span><span class="woocommerce-Price-currencySymbol">&pound;</span>
+                                <span id="totale"><?= number_format($panier->total(),2); ?> </span>                     </span>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        	<div class="wrap-middler">
-	    <div class="container">
+            <br>
+          <div class="wrap-middler">
+      <div class="container">
 
-	        <div class="row">
+          <div class="row">
 
-	            <div class="col-xs-12 col-md-4 col-lg-3">
+              <div class="col-xs-12 col-md-4 col-lg-3">
 
-	                <div class="main-logo-3"><a href="../../index.php"><img alt="Book Junky" src="../../wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
-	                <a href="#" class="menu"><i class="fa fa-bars"></i> Menu</a>
-	            </div>
+                  <div class="main-logo-3"><a href="http://localhost/AvenirCulturel/Views/index.php"><img alt="Book Junky" src="../../wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
+                  <a href="http://localhost/AvenirCulturel/Views/index.php" class="menu"><i class="fa fa-bars"></i> Menu</a>
+              </div>
 
-	            <div class="col-xs-12 col-md-8 col-lg-9">
+              <div class="col-xs-12 col-md-8 col-lg-9">
+                  
+               <form class="searchform clearfix"  autocomplete="off">
+            <div class="wrap-search clearfix">
 
-	               	<form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
-						<div class="wrap-search clearfix">
-							<input type="text" class="form-search" name="s" value="" placeholder="Rechercher un livre, un auteur, une collection ...">
+              <input type="text" class="form-search" id="search_auto" name="s" value="" placeholder="Search for the perfect book..." class="searchform">
+                            
+                
+            </div>
 
-								<div class="wrap-cat">
+             <button type="submit" class="search-submit">Go</button>
+            <input type="hidden" name="post_type" value="product" />
+          </form>
+                    
+                    <script>
+function autocomplete(inp, arr,img,id) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<img src='../../wp-content/uploads/"+ img[i] + "'  width='50px' height='100px'>";
+          /*insert a input field that will hold the current array item's value:*/
+          
+          b.innerHTML += "<input type='hidden' value='" + id[i] + "'>";
+        
 
-                                    <select name="product_cat" id="product_cat">
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+             // inp.value = this.getElementsByTagName("input")[0].value;
+              
 
-                                        <option value="">Catégories </option>
-                                        <option value=Arts>Arts</option>
-                                        <option value=Dictionnaires>Dictionnaires </option>
-                                        <option value=Droit>Droit &amp; Sciences Politiques </option>
-                                        <option value=Droit>Cuisine </option>
-                                        <option value=Histoire>Histoire &amp; Géographie</option>
-                                        <option value=Informatique>Informatique &amp; multimedia </option>
-                                        <option value=Jeunesse>Jeunesse</option>
-                                        <option value=Littérature>Littérature &amp; Linguistique</option>
-                                        <option value=Loisirs>Loisirs</option>
-                                        <option value=Religions>Religions &amp; Spiritualités</option>
-                                        <option value=Romans>Romans</option>
-                                        <option value=Scolaire>Scolaire &amp; pédagogie</option>
-                                        <option value=Economiques>Sciences Economiques &amp; Gestion</option>
-                                        <option value=Humaines>Sciences Humaines</option>
-                                        <option value=Humaines>Sciences Techniques &amp; High-Tech </option>
-                                    </select>
-    								</div>
-					 	</div>
-						 <button type="submit" class="search-submit">Go</button>
-					 	<input type="hidden" name="post_type" value="product" />
-					</form>
+                                window.location.href = 'http://localhost/AvenirCulturel/Views/shop/Livres/index?Livre='+this.getElementsByTagName("input")[0].value+' ';
+
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        
+        e.preventDefault();
+
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+      });
+}
+
+/*An array containing all the country names in the world:*/
+
+var js_array = [<?php echo '"'.implode('","', $bookdonnes).'"' ?>];
+var js_array_img = [<?php echo '"'.implode('","', $bookimage).'"' ?>];
+var js_array_id = [<?php echo '"'.implode('","', $bookid).'"' ?>];
+
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_array_id);
+</script>
+
+
 	            </div><!-- #site-logo -->
 	        </div>
 	    </div>
     </div>
 
-    <div class="container">
-    	<div class="row">
-    		<div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
+   
+ <div class="container">
+      <div class="row">
+        <div id="header-navigation" class="col-xs-12 cshero-main-header sticky-desktop">
 
                 <nav id="site-navigation" class="main-navigation">
 
-                    <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children no_group abccs menu-item-11" data-depth="0"><a href="../../index.php" class=""><span class="menu-title">Accueil</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-420" data-depth="1"><a href="../../homepage-1/index.html" class=""><span class="menu-title">HomePage 1</span></a></li>
-	<li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-419" data-depth="1"><a href="../../homepage-2/index.html" class=""><span class="menu-title">HomePage 2</span></a></li>
-	<li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-421" data-depth="1"><a href="../../homepage-3/index.html" class=""><span class="menu-title">HomePage 3</span></a></li>
-	<li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-418" data-depth="1"><a href="../../homepage-4/index.html" class=""><span class="menu-title">HomePage 4</span></a></li>
-	<li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-417" data-depth="1"><a href="../../homepage-5/index.html" class=""><span class="menu-title">HomePage 5</span></a></li>
-</ul>
-</li>
-                            <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">aaaa</span></a>
-                                <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
-                                    <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
-                                        <ul class='   sub-menu' style="">
-                                            <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
-                                            <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
-                                            <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
-                                            <li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
-                                            <li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
-                                        <ul class='   sub-menu' style="">
-                                            <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
-                                            <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
-                                            <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
-                                            <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
-                                            <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
-                                            <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
-                                            <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
-                                            <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="#" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
-                                        <ul class='   sub-menu' style="">
-                                            <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
-                                            <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
-                                            <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
-                                            <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
-                                            <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
-                                            <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
-                                            <li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
-                                        <ul class='   sub-menu' style="">
-                                            <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="../../wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current_page_parent no_group menu-item-250" data-depth="0"><a href="../index.html" class=""><span class="menu-title">événement</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="../../shop-cart/index.html" class=""><span class="menu-title">événements programmés</span></a></li>
-	<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="../../shop-checkout/index.html" class=""><span class="menu-title">Historique des événements</span></a></li>
+                    <div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu menu-main-menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/index.php" class=""><span class="menu-title">Accueil </span></a></li>
 
+
+
+
+<li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu no_group menu-item-514" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/shop/index.php?s=&product_cat=&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title">Catalogue</span></a>
+<ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
+  <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
+    <li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
+    <li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="#" class=""><span class="menu-title">Top Promotions</span></a></li>
+    <li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
+    <li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
+    <li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
+    <li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
+    <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
+    <li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
+    <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
+    <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
+    <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
+    <li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
+    <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
+    <li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
+    <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
+    <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
+    <li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
+  </ul>
+</li>
+  <li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
+  <ul class='   sub-menu' style="">
+    <li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
+</li>
+  </ul>
+</li>
 </ul>
 </li>
-<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Maisons d'édition</span></a>
+
+
+
+
+
+
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php" class=""><span class="menu-title">Événement</span>
+
+</a></li>
+
+
+
+
+
+<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="news/index.html" class=""><span class="menu-title">Forum</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-242" data-depth="2"><a href="../../buttons/index.html" class=""><span class="menu-title">Buttons</span></a></li>
-		<li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-241" data-depth="2"><a href="../../lightboxes/index.html" class=""><span class="menu-title">Lightboxes</span></a></li>
-		<li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-426" data-depth="2"><a href="../../book-displays/index.html" class=""><span class="menu-title">Book Displays</span></a></li>
-		<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-240" data-depth="2"><a href="../../message-boxes/index.html" class=""><span class="menu-title">Message Boxes</span></a></li>
-		<li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-239" data-depth="2"><a href="../../team/index.html" class=""><span class="menu-title">Team</span></a></li>
-		<li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-238" data-depth="2"><a href="../../accordions/index.html" class=""><span class="menu-title">Accordions</span></a></li>
-		<li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-237" data-depth="2"><a href="../../news-styles/index.html" class=""><span class="menu-title">News Styles</span></a></li>
-	</ul>
-</li>
+  <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
+  <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
+  <li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
+  <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
+  <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
 </ul>
 </li>
-<li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-107" data-depth="0"><a href="../../news/index.html" class=""><span class="menu-title">Forum</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-114" data-depth="1"><a href="../../news-grid/index.html" class=""><span class="menu-title">News Grid</span></a></li>
-	<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-257" data-depth="1"><a href="../../news-review/index.html" class=""><span class="menu-title">News Review</span></a></li>
-	<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-110" data-depth="1"><a href="../../news-fullwidth/index.html" class=""><span class="menu-title">News Fullwidth</span></a></li>
-	<li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-234" data-depth="1"><a href="../../news-right-sidebar/index.html" class=""><span class="menu-title">News Right Sidebar</span></a></li>
-	<li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-235" data-depth="1"><a href="../../news-left-sidebar/index.html" class=""><span class="menu-title">News Left Sidebar</span></a></li>
-</ul>
-</li>
-<li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="../../contact-us/index.html" class=""><span class="menu-title">Contact</span></a></li>
+<li id="menu-item-99" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="contact-us/index.html" class=""><span class="menu-title">Contact </span></a></li>
 </ul></div>                </nav>
             </div>
-    	</div>
+      </div>
     </div>
+
 </div><!-- #site-navigation -->
 
 

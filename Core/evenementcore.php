@@ -4,8 +4,8 @@
 
 
 
-	include_once "C:/wamp/www/AvenirCulturel\Entity/ev.php";
-		include_once "C:/wamp/www/AvenirCulturel/Config.php";
+	include_once "C:/wamp64/www/AvenirCulturel\Entity/ev.php";
+		include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 
 /**
 * 
@@ -179,15 +179,7 @@ return $req;
 }
 
 
-function nbrlike($id_ev)
-{
-		$c = Connexion::getConnexion();
-$sql = "SELECT nbrlike FROM `like` WHERE id_ev = ".$id_ev."";
-$req = $c->query($sql);
-return $req;
 
-
-}
 
 }
 

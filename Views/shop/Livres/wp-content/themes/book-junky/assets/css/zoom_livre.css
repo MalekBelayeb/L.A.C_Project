@@ -1,0 +1,29 @@
+.zoom_livre
+{
+    transition: transform .2s;
+}
+
+.zoom_livre:hover
+{
+    transform: scale(1.09);
+}
+
+.cms-grid-media
+{
+    display: inline-block;
+}
+.category_text
+{
+  opacity:0;
+text-align:center;
+font-size: 15px;
+position:absolute;
+bottom:0;
+right:0;
+}
+
+.cms-grid-media:hover .category_text
+{
+   transition:all .5s;
+  opacity:1;
+}

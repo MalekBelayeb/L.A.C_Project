@@ -1,5 +1,11 @@
 <?php
-session_start();
+
+if(session_status()==PHP_SESSION_NONE)
+{
+    session_start();
+}
+
+
 include_once 'C:/wamp64/www/AvenirCulturel/Config.php';
 include 'C:/wamp64/www/AvenirCulturel/Entity/Login.php';
 
