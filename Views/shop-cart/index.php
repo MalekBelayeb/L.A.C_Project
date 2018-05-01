@@ -542,6 +542,7 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>Shop Cart</h1>
         </div>
+        </div>
         <!-- #page-title -->
         <div id="content" class="site-content">
             <div id="primary" class="container">

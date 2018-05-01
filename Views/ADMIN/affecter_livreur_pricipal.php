@@ -82,6 +82,7 @@ include "../../Core/laivraisonC.php";
         $date_laivraison=$row['date_laivraison'];
         $affectation=$row['affectation'];
         $livreur=$row['livreur'];
+        $prix = $row['prix'];
         
         
 
@@ -161,6 +162,13 @@ include "../../Core/laivraisonC.php";
      <tr>
 <td id="data1" >date_laivraison</td>
 <td><input id="data1" type="text" name="date_laivraison" value="<?PHP echo $date_laivraison ?> "></td>
+</tr>
+<tr>
+
+
+     <tr>
+<td id="data1" >prix</td>
+<td><input id="data1" type="text" name="prix" value="<?PHP echo $prix ?> "></td>
 </tr>
 <tr>
 
@@ -251,7 +259,7 @@ require "../../Core/livreurC.php";
  }   
 
 if (isset($_POST['modifier'])){
-    $employe=new laivraison($_POST['nom'],$_POST['prenom'],$_POST['adresse_ligne_1'],$_POST['adresse_ligne_2'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],$_POST['code_livre'],$_POST['date_laivraison'],"0",$_POST['livreur'],15);
+    $employe=new laivraison($_POST['nom'],$_POST['prenom'],$_POST['adresse_ligne_1'],$_POST['adresse_ligne_2'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],$_POST['code_livre'],$_POST['date_laivraison'],"0",$_POST['livreur'],floatval($_POST['prix']));
 
 $employe->setcode_Livraison($_POST['code_Livraison']);
 

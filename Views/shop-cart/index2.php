@@ -546,20 +546,37 @@ $url=$gClient->createAuthUrl();
 
 
 
-
 <br>
 <br><br>
+                         </div>
 
 
-                         <div class="woocommerce">   <p class="return-to-shop">
+<div class="woocommerce">
+<table>
+    <tr>
+        <td> 
+        <p class="return-to-shop">
             <a class="button wc-backward" href="laivraisondomicile.php">
             livraison  à domicile   </a>
+            
             <a class="button laivraison" href="laivraisonposte.php">
             livraison  poste     </a>
 
             
                           </p>
+        </td>
+    </tr>
+    <tr>
+        <td>             <img src="th.png" class="image1">
+                         <img src="hy.png"  class="image1"></td>
+    </tr>
+
+</table>
+            
+
+
                          </div>
+
 
                          
                          &nbsp;&nbsp;&nbsp;
@@ -570,10 +587,7 @@ $url=$gClient->createAuthUrl();
                          &nbsp;
                          &nbsp;                     
                          &nbsp;
-                        
-                         <img src="th.png" class="imge1">
-                         <img src="hy.png"  class="imge2">
-
+                       
                           <br><br><br><br><br>
 
 

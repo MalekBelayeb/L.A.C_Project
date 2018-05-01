@@ -542,6 +542,7 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>MODIFIER Laivraison post</h1>
         </div>
+        </div>
                         <!-- #page-title -->
 
                         <!-- #crud laivraison -->
@@ -593,11 +594,11 @@ if (isset($_GET['cin'])){
 
 <tr>
 <td>Nom</td>
-<td><input type="text" name="nom" value="<?PHP echo $nom ?>"></td>
+<td><input type="text" name="nom" readonly="" value="<?PHP echo $nom ?>"></td>
 </tr>
 <tr>
 <td>Prenom</td>
-<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>"></td>
+<td><input type="text" name="prenom" readonly="" value="<?PHP echo $prenom ?>"></td>
 </tr>
 <tr>
 

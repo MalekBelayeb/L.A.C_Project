@@ -542,6 +542,7 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>LISTE DES Laivraison post</h1>
         </div>
+        </div>
 
 
                         <!-- #page-title -->
@@ -580,7 +581,6 @@ $url=$gClient->createAuthUrl();
 <td>ville</td>
 <td>mail</td>
 <td>num_tel</td>
-<td>code_livre</td>
 <td>date_laivraison_p</td>
 <td>prix</td>
 <td>supprimer</td>
@@ -601,7 +601,6 @@ foreach($listeEmployes as $row){
     <td><?PHP echo $row['ville']; ?></td>
     <td><?PHP echo $row['mail']; ?></td>
     <td><?PHP echo $row['num_tel']; ?></td>
-    <td><?PHP echo $row['code_livre']; ?></td>
     <td><?PHP echo $row['date_laivraison_p']; ?></td>
     <td><?PHP echo $row['prix']; ?></td>
     <td><form method="POST" action="supprimerLivraisonpost.php">
@@ -644,7 +643,6 @@ foreach($listeEmployes as $row){
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 
 
@@ -663,7 +661,6 @@ foreach($listeEmployestous as $row){
     <td><?PHP echo $row['ville']; ?></td>
     <td><?PHP echo $row['mail']; ?></td>
     <td><?PHP echo $row['num_tel']; ?></td>
-    <td><?PHP echo $row['code_livre']; ?></td>
     <td><?PHP echo $row['date_laivraison_p']; ?></td>
      <td><?PHP echo $row['prix']; ?></td>
     

@@ -542,6 +542,7 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>LISTE DES Laivraison a domicile</h1>
         </div>
+        </div>
                         <!-- #page-title -->
 
                         <!-- #crud laivraison -->
@@ -580,7 +581,6 @@ include "../../Core/laivraisonC.php";
 <td>ville</td>
 <td>mail</td>
 <td>num_tel</td>
-<td>code_livre</td>
 <td>date_laivraison</td>
 <td>affectation</td>
 <td>prix</td>
@@ -602,7 +602,6 @@ foreach($listeEmployes as $row){
     <td><?PHP echo $row['ville']; ?></td>
     <td><?PHP echo $row['mail']; ?></td>
     <td><?PHP echo $row['num_tel']; ?></td>
-    <td><?PHP echo $row['code_livre']; ?></td>
     <td><?PHP echo $row['date_laivraison']; ?></td>
      <td><?PHP echo $row['affectation']; ?></td>
       <td><?PHP echo $row['prix']; ?></td>
@@ -655,7 +654,6 @@ if ($date >$today) {
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 
 <td></td>
 <td></td>
@@ -680,7 +678,6 @@ foreach($listeEmployestous as $row){
     <td><?PHP echo $row['ville']; ?></td>
     <td><?PHP echo $row['mail']; ?></td>
     <td><?PHP echo $row['num_tel']; ?></td>
-    <td><?PHP echo $row['code_livre']; ?></td>
     <td><?PHP echo $row['date_laivraison']; ?></td>
     
     

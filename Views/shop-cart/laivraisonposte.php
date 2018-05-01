@@ -542,6 +542,7 @@ $url=$gClient->createAuthUrl();
         <div id="page-title-1" class="page-title text-center">
             <h1>Livraison post</h1>
         </div>
+        </div>
                        
                        
                        
@@ -592,7 +593,7 @@ $url=$gClient->createAuthUrl();
                      
 
                            <p class="return-to-shop">
-                <input type="submit" name="ajouter" value="ajouter" class="btn btn-primary">
+                <center><input type="submit" name="ajouter" value="ajouter" class="btn btn-primary"></center>
 
             
                           </p>
