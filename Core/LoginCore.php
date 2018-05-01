@@ -94,6 +94,8 @@ if(isset($_POST['login_user']) AND isset($_POST['pass_user']))
         $_SESSION['id'] = $_POST['login_user'];
         $_SESSION['pass'] = $_POST['pass_user'];
          $_SESSION['NOM'] =$NOM;
+         $_SESSION['PRENOM'] = $PRENOM;
+         $_SESSION['EMAIL'] = $EMAIL;   
                                 }
                                 else
                                 {
