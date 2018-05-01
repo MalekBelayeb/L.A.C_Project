@@ -1,5 +1,5 @@
 <?php
-include_once "C:/wamp64/www/AvenirCulturel/Config.php";
+include_once "C:/xampp/htdocs/AvenirCulturel/Config.php";
 
 /**
 * 
@@ -163,8 +163,50 @@ try{
 
 
 
+	function recupererprix_p($region){
+		
+		$sql="SELECT * FROM prix WHERE `region`='".$region."'";
+		$db = Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
 
 
+	function afficherLaivraisonforone_p($rre,$date){
+		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+		//$sql="SElECT * From laivraison where prenom=$rre ";
+		$sql="SELECT * from laivraison_p where nom='$rre' and date_laivraison_p >='$date'";
+
+		$db = Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+function afficherLaivraisonforonetous_p($rre){
+		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+		//$sql="SElECT * From laivraison where prenom=$rre ";
+		$sql="SELECT * from laivraison_p where nom='$rre' ";
+
+		$db = Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+}
 
 
 
