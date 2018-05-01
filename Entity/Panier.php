@@ -73,6 +73,15 @@ class Panier
         return $total;
     }
 
+    public function totalaveclivraison()
+    {
+        if(isset($_SESSION['livraisonPrix'])) {
+            return $_SESSION['livraisonPrix']+$this->total();
+        }
+        else
+            return $this->total();
+    }
+
     public function totalewithoutcoupon()
     {
         $total=0;

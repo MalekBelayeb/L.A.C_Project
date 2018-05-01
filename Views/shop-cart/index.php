@@ -525,9 +525,9 @@ $url=$gClient->createAuthUrl();
 
     </header>
 
-<link rel='stylesheet' id='select2-css'  href='wp-content/plugins/woocommerce/assets/css/select2.css' type='text/css' media='all' />
-<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed31cb.json?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F" />
-<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed23a9?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F&amp;format=xml" />
+<link rel='stylesheet' id='select2-css'  href='../wp-content/plugins/woocommerce/assets/css/select2.css' type='text/css' media='all' />
+<link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embed31cb.json?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed23a9?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F&amp;format=xml" />
 <script type='text/javascript'>
     /* <![CDATA[ */
     var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-includes\/js\/zxcvbn.min.js"};
@@ -538,7 +538,6 @@ $url=$gClient->createAuthUrl();
 <!-- #masthead -->
         <div id="page-title-1" class="page-title text-center">
             <h1>Shop Cart</h1>
-        </div>
         </div>
         <!-- #page-title -->
         <div id="content" class="site-content">
@@ -705,7 +704,7 @@ $url=$gClient->createAuthUrl();
 
                                                                     <tr class="order-total">
                                                                         <th>Total</th>
-                                                                        <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->total(),2);?></span></span></strong> </td>
+                                                                        <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span><span class="totale2"><?= number_format($panier->totalaveclivraison(),2);?></span></span></strong> </td>
                                                                     </tr>
 
 
@@ -715,7 +714,7 @@ $url=$gClient->createAuthUrl();
                                                                 {
                                                                     echo "<div class=\"wc-proceed-to-checkout\">
 
-                                                                    <a href=\"Shop-checkout.php\" class=\"checkout-button button alt wc-forward\">
+                                                                    <a href=\"../shop-checkout/index.php\" class=\"checkout-button button alt wc-forward\">
                                                                         Proceed to checkout</a>
                                                                 </div>";
                                                                 }?>
@@ -726,7 +725,6 @@ $url=$gClient->createAuthUrl();
                                                     </div></div></div></div></div>
 
                                 </div><!-- .entry-content -->
-                                <?php var_dump($_SESSION['panier']);  ?>
                                 <footer class="edit-page">
 
                                 </footer><!-- .entry-meta -->
