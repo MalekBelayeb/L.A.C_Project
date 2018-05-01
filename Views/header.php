@@ -34,6 +34,49 @@ function countLivre($compte)
 }
 require_once 'c:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
+
+function getCinLivreur($condition)
+{
+    $sql=Connexion::getConnexion()->prepare("select cin from livreur WHERE mail='$condition' ");
+    $sql->execute();
+    while($result=$sql->fetch(PDO::FETCH_ASSOC))
+    {
+        return $result['cin'];
+    }
+}
+
+
+require_once '../Core/googlelogin/config.php';
+$url=$gClient->createAuthUrl();
+
+
+function getDataLivreur($id,$C,$column,$table)  // ESPACE LIVREUR
+{
+    $sql=Connexion::getConnexion()->prepare("select $column from $table WHERE $C='$id' ");
+    $sql->execute();
+    while($result=$sql->fetch(PDO::FETCH_ASSOC))
+    {
+        return $result[$column];
+    }
+}
+
+function ExisteLivreur($mailLivreur) // ESPACE LIVREUR
+{
+    $c=Connexion::getConnexion();
+    $sql="select * from livreur WHERE mail='$mailLivreur' ";
+    try{
+        $liste=$c->query($sql);
+        if( $liste->rowCount()!=0)
+        {
+            return true;
+        }
+    }catch (PDOException $e)
+    {
+        die( "Echec de connexion".$e->getMessage());
+    }
+}
+
+
 ?>
 
 
@@ -297,7 +340,20 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
                         }
                         ?>
+                        <?php
 
+                        //ESPACE LIVREUR (rag)
+                        if(isset($_SESSION['id']))
+                        {
+                            if(ExisteLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte')))
+                            {
+                                echo "<a href='livreur/livreur1.php'>livreur</a>";
+                                $_SESSION['cin_liv']=getCinLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte'));
+
+                            }
+                        }
+                        if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
+                        ?>
                              <?php
 
             if (!empty($_SESSION['NOM']))
