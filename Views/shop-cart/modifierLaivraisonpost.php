@@ -27,7 +27,7 @@ function countLivre($compte)
     $liste=$c->query($sql);
     return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'c:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 
 
@@ -774,7 +774,7 @@ if (isset($_GET['cin'])){
  }   
 
 if (isset($_POST['modifier'])){
-    $employe=new laivraisonposte($_POST['nom'],$_POST['prenom'],$_POST['code_postale'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],$_POST['code_livre'],$_POST['date_laivraison_p'],$_POST['prix']);
+    $employe=new laivraisonposte($_POST['nom'],$_POST['prenom'],$_POST['code_postale'],$_POST['ville'],$_POST['mail'],$_POST['num_tel'],$_POST['code_livre'],$_POST['date_laivraison_p'],$_SESSION['livraisonPrix']);
 
     $employe->setcode_Livraison_p($_POST['code_Livraison_p']);
 

@@ -350,7 +350,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 <?php
 
 //include_once "C:/wamp/www/AvenirCulture/Config.php";
-include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
 
 
       $ev_classe = New evenementcore();
@@ -485,7 +485,7 @@ $donnes = $req->fetch();
                 </script>
 
  <?php 
-include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
 
         $date_ev = $donnes['date_ev'];
   //      echo $date_ev;

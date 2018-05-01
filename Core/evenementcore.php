@@ -4,8 +4,8 @@
 
 
 
-	include_once "C:/wamp/www/AvenirCulturel\Entity/ev.php";
-		include_once "C:/wamp/www/AvenirCulturel/Config.php";
+	include_once "C:/wamp64/www/AvenirCulturel\Entity/ev.php";
+		include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 
 /**
 * 
@@ -135,6 +135,19 @@ return $bks;
 
 
 
+	function recherche_evenement_par_date($date_ev,$limit)
+	{
+		$c = Connexion::getConnexion();
+                           
+                            $sql = "SELECT * FROM evenement WHERE date_ev ='$date_ev' ";
+
+
+                        $bks = $c->query($sql);
+return $bks;
+	}
+
+
+
 
 function nbrpage()
 {
@@ -150,6 +163,15 @@ function nbrpagerechercher($nom_ev)
 	{	$c = Connexion::getConnexion();
 
 	          $req = $c->query("SELECT count(*) as NbNews FROM evenement WHERE nom_ev = '".$nom_ev."'  ");/*page to page RECHERCHE*/
+                        $rows = $req->fetch();
+                        return $rows;
+
+}
+
+function nbrpagerechercherpardate($date_ev)
+	{	$c = Connexion::getConnexion();
+
+	          $req = $c->query("SELECT count(*) as NbNews FROM evenement WHERE date_ev = '".$date_ev."'  ");/*page to page RECHERCHE*/
                         $rows = $req->fetch();
                         return $rows;
 
@@ -176,15 +198,7 @@ return $req;
 }
 
 
-function nbrlike($id_ev)
-{
-		$c = Connexion::getConnexion();
-$sql = "SELECT nbrlike FROM `like` WHERE id_ev = ".$id_ev."";
-$req = $c->query($sql);
-return $req;
 
-
-}
 
 }
 

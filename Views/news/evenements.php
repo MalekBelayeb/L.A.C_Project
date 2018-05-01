@@ -1,4 +1,4 @@
-<?php include 'C:/wamp/www/AvenirCulturel/Core/LoginCore.php'; 
+<?php include 'C:/wamp64/www/AvenirCulturel/Core/LoginCore.php'; 
  //session_start();
 ?>
 
@@ -26,7 +26,6 @@
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="main.css">
 
 
 
@@ -38,7 +37,25 @@
 
 
 
+i {
+  color: blue;
+}
 
+#rech{
+     padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+#valide{
+     position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#207cca;
+                color:#fafafa;
+                background-color:#fafafa;
+                color:#207cca;
+}
 
 img.wp-smiley,
 img.emoji {
@@ -126,8 +143,6 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         
                                             <a class="go_to_login_link" href="../wp-login.html" >Login / Register</a>
             <a href="#">FAQ</a><a href="#">Contact Us</a>   <br>
-<!--************************************************************************connexion***********************************************************************-->  
- <!--************************************************************************connexion***********************************************************************-->  
 
                   
 
@@ -337,7 +352,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </div>
                     </div>
                 </div>
-            </div>
+            
                 <!-- #page-title -->
     <div id="content" class="site-content">
 <section id="primary" class="container blog-default is-sidebar-right">
@@ -371,14 +386,15 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
 
-include_once "C:/wamp/www/AvenirCulturel/Config.php";
-include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp64/www/AvenirCulturel/Config.php";
+include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
 
                 $c = connexion::getConnexion();
 /*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
 
+/*****************************************************************rechercher par nom pagination*********************************************************************************/
 
 
                         if (empty($_GET['q']))
@@ -395,7 +411,25 @@ $rows = $ev_classe->nbrpage();
 $rows = $ev_classe->nbrpagerechercher($_GET['q']);
                             }
 
-                        $page_row = 2;
+
+/*****************************************************************rechercher par date pagination*********************************************************************************/
+                        if (empty($_GET['date_rech']))
+                            
+                            {
+                       
+$ev_classe = New evenementcore();
+$rows = $ev_classe->nbrpage();
+
+
+                            }else {
+                          
+                  $ev_classe = New evenementcore();
+$rows = $ev_classe->nbrpagerechercherpardate($_GET['date_rech']);
+
+
+                            }
+/*******************************************************************************************************************************************************************************/
+                        $page_row = 2;   //nombre d'article afficher dans une page
                         $last = ceil($rows['NbNews']/$page_row);
 
                         if ($last <1 )
@@ -423,6 +457,17 @@ $rows = $ev_classe->nbrpagerechercher($_GET['q']);
 
 /*---------------------------------------------------------------------RECHERCHE -----------------------------------------------------------------------------------*/
 $ev_classe = New evenementcore();
+  if (empty($_GET['date_rech']))
+{
+$a = $ev_classe->afficherrev($limit);
+}
+else{
+$a = $ev_classe->recherche_evenement_par_date($_GET['date_rech'],$limit);
+}
+
+
+
+$ev_classe = New evenementcore();
   if (empty($_GET['q']))
 {
 $bks = $ev_classe->afficherrev($limit);
@@ -432,8 +477,10 @@ $bks = $ev_classe->recherche_evenement($_GET['q'],$limit);
 }
 
 /*---------------------------------------------------------------------RECHERCHE -----------------------------------------------------------------------------------*/
+   
 
-         
+
+
                      
 
 /*---------------------------------------------------------------------PAGE TO PAGE -----------------------------------------------------------------------------------*/
@@ -488,7 +535,6 @@ $paginationCTR = '';
         while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
 
 $ev_classe = New evenementcore();
-$rows = $ev_classe->nbrlike($product['id_ev']);
 echo $product['id_ev'];
 
 //alert($rows['nbrlike']);
@@ -862,33 +908,34 @@ else{
     </div>
 </form></aside>
 -->
-
     <div class="wrap-search">
  <form method="GET">
-               <input class="form-search" type="text" name="q" placeholder="recherche..." value="">
-               <button class="fa fa-search" type="submit" name="button" >valider</button>
+               <input type="date" id="rech" name="date_rech"  value="">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+           <button class="fa fa-search" id="valide" type="submit" name="button2" >valider</button>
+
+</form>
+     <br><br>
+
+<form method="GET">
+              
+                              <input class="form-search" type="text" name="q" id="rech" placeholder="recherche..." value="">
+                                 &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="fa fa-search" id="valide" type="submit" name="button" >valider</button>
+
+</form><br>
+<br><br>
+
 
 </form><br>
 
-
-
-
-
-<aside id="categories-3" class="widget widget_categories"><h3 class="wg-title">CATEGORIES</h3>      <ul>
-    <li class="cat-item cat-item-23"><a href="../category/action/" >Action</a>
-</li>
-    <li class="cat-item cat-item-26"><a href="../category/comedy/index.html" >Comedy</a>
-</li>
-    <li class="cat-item cat-item-25"><a href="../category/drama/index.html" >Drama</a>
-</li>
-    <li class="cat-item cat-item-21"><a href="../category/e-books/index.html" >E-Books</a>
-</li>
-    <li class="cat-item cat-item-22"><a href="../category/kids/index.html" >Kids</a>
-</li>
-    <li class="cat-item cat-item-24"><a href="../category/romantic-comedy/index.html" >Romantic Comedy</a>
-</li>
-        </ul>
-</aside><aside id="cms_recent_posts-2" class="widget cms-recent-posts"><h3 class="wg-title">RECENT POSTS</h3>                                   
 
 
 
@@ -905,11 +952,12 @@ else{
 <!--***************************************************************************************************************************************************************************-->
 
 
+<aside id="cms_recent_posts-2" class="widget cms-recent-posts"><h3 class="wg-title">A Venir</h3>                                   
 
 
 <?php
-include_once "C:/wamp/www/AvenirCulturel/Config.php";
-include_once "C:/wamp/www/AvenirCulturel/Core/evenementcore.php";
+include_once "C:/wamp64/www/AvenirCulturel/Config.php";
+include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
 
 
         $ev_classe = New evenementcore();
@@ -933,7 +981,7 @@ $count=0;
 
 
 
-                        <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php"><img width="150" height="120" src="../wp-content/uploads/<?php echo $product['image_ev'];  ?>" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" sizes="(max-width: 150px) 100vw, 150px" /></a>
+                        <a href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>"><img width="150" height="120" src="../wp-content/uploads/<?php echo $product['image_ev'];  ?>" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" sizes="(max-width: 150px) 100vw, 150px" /></a>
                     </div>
                     <div class="recent-post-content">
                         <a class="entry-widget-title" href="../10-ways-you-might-be-reading-your-book-wrong/index.php?id_ev=<?php echo $product['id_ev']; ?>"><?php echo $product['nom_ev']; ?></a>
@@ -942,7 +990,6 @@ $count=0;
                     </div>
 
                 </article>
-
 
 
 
@@ -966,16 +1013,7 @@ $count=0;
                        
                             <!-- END WIDGET -->
         </aside>
-        <aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="wg-title">POPULAR TAGS</h3><div class="tagcloud"><a href="../tag/best-sellers/index.html" class="tag-cloud-link tag-link-31 tag-link-position-1" style="font-size: 19.846153846154pt;" aria-label="Best Sellers (6 items)">Best Sellers</a>
-<a href="../tag/comics/index.html" class="tag-cloud-link tag-link-33 tag-link-position-2" style="font-size: 18.338461538462pt;" aria-label="Comics (5 items)">Comics</a>
-<a href="../tag/drama/index.html" class="tag-cloud-link tag-link-34 tag-link-position-3" style="font-size: 18.338461538462pt;" aria-label="Drama (5 items)">Drama</a>
-<a href="../tag/fiction/index.html" class="tag-cloud-link tag-link-35 tag-link-position-4" style="font-size: 22pt;" aria-label="Fiction (8 items)">Fiction</a>
-<a href="../tag/hard-cover/index.html" class="tag-cloud-link tag-link-32 tag-link-position-5" style="font-size: 14.461538461538pt;" aria-label="Hard Cover (3 items)">Hard Cover</a>
-<a href="../tag/litterature/index.html" class="tag-cloud-link tag-link-30 tag-link-position-6" style="font-size: 22pt;" aria-label="Litterature (8 items)">Litterature</a>
-<a href="../tag/lorem-ipsum/index.html" class="tag-cloud-link tag-link-29 tag-link-position-7" style="font-size: 11.876923076923pt;" aria-label="Lorem ipsum (2 items)">Lorem ipsum</a>
-<a href="../tag/top-10/index.html" class="tag-cloud-link tag-link-27 tag-link-position-8" style="font-size: 8pt;" aria-label="Top 10 (1 item)">Top 10</a>
-<a href="../tag/top-10-book/index.html" class="tag-cloud-link tag-link-28 tag-link-position-9" style="font-size: 11.876923076923pt;" aria-label="Top 10 Book (2 items)">Top 10 Book</a></div>
-</aside></div><!-- .widget-area -->            </div>
+        </div><!-- .widget-area -->            </div>
 
         
     </div>
@@ -1218,7 +1256,6 @@ var bj_handle = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/book
 </script>
 <script type='text/javascript' src='../wp-content/themes/book-junky/assets/js/bj-handle.js'></script>
 <script type='text/javascript' src='../wp-includes/js/wp-embed.min.js'></script>
-
 
 
 

@@ -6,6 +6,7 @@
  * Time: 09:31
  */
 include "C:/wamp64/www/AvenirCulturel/Entity/Coupon.php";
+include_once "C:/wamp64/www/AvenirCulturel/config.php";
 class CouponCore extends Coupon
 {
 
@@ -20,7 +21,6 @@ class CouponCore extends Coupon
 
     public function AjouterCoupon($bk)
     {
-      require_once '../Config.php';
 
         $c = connexion::getConnexion();
 

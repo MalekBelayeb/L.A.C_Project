@@ -1,7 +1,57 @@
 <?php
 session_start();
-require_once 'C:/wamp/www/AvenirCulturel/Config.php';
+require_once 'C:/wamp64/www/AvenirCulturel/Config.php';
 
+
+if ( !empty($_POST)) {
+        // keep track validation errors
+     
+
+          $pourcentageError=null;
+          $codeError=null;
+      
+         
+        // keep track post values
+      
+        $pourcentage=$_POST['value_coupon'];
+        $code=$_POST['code_coupon'];
+       
+      
+        $valid = true;
+
+        if (empty($pourcentage)) {
+            $pourcentageError = 'entrer la pourcentage';
+            $valid = false;
+        }
+         if (empty($code)) {
+            $codeError = 'entrer le code du coupon';
+            $valid = false;
+        }
+
+
+    
+ if($pourcentage>100)
+        {
+             $pourcentageError = 'verifier pourcentage';
+            $valid = false;
+
+        }
+          if($pourcentage<0)
+        {
+             $pourcentageError = 'verifier pourcentage';
+            $valid = false;
+
+        }
+
+  if ($valid) {
+include "C:/wamp64/www/AvenirCulturel/Core/CouponCore.php";
+        $c=new Coupon($_POST['code_coupon'],$_POST['value_coupon']);
+        $cc=new CouponCore();
+        $result =$cc->AjouterCoupon($c);
+        header('location:http://localhost/AvenirCulturel/Views/ADMIN/CouponTable.php');
+
+    }
+}
 ?>
 
 
@@ -27,275 +77,13 @@ require_once 'C:/wamp/www/AvenirCulturel/Config.php';
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navb
-ar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Start Bootstrap</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.php">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Charts</span>
-                </a>
-            </li>
-           
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti4" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Marketing</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti4">
-            <li>
-              <a href="evenement.php">gerer evenement</a>
-            </li>
-           
-             <li>
-              <a href="CouponTable.php">gerer coupon</a>
-            </li>
-            
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Example Pages</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-            <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
-            </li>
-            <li>
-              <a href="blank.html">Blank Page</a>
-            </li>
-          </ul>
-        </li>
-
-
-
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Livres</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.php">Ajouter livres</a>
-            </li>
-            <li>
-              <a href="cards.php">Modifier livres</a>
-            </li>
-              <li>
-                  <a href="cards.php">Supprimer livres</a>
-              </li>
-              <li>
-                  <a href="cards.php">Afficher livres</a>
-              </li>
-          </ul>
-        </li>
-
-
- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="livraison">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapselivraison" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">livraison</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapselivraison">
-            <li>
-              <a href="livraison1.php">livraison</a>
-            </li>
-             <li>
-              <a href="admin_livreur.php">livreur</a>
-            </li>
-            <li>
-              <a href="prix.php">prix livraison</a>
-            </li>
-
-
-           
-          </ul>
-        </li>
-
- 
-
-
-<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#livres" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Gestion livres</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="livres">
-            <li>
-              <a href="crud_index_livre.php">crud livres</a>
-            </li>
-            <li>
-              <a href="crud_index_categorie.php">crud Categorie</a>
-            </li>
-            
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Statistique</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="stat1.php">statistique 1</a>
-                </li>
-    
-              </ul>
-            </li>
-           
-           
-          </ul>
-        </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#auteur" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Gestion auteur</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="auteur">
-            <li>
-              <a href="crud_index_auteur.php">crud auteur</a>
-            </li>
-           
-          </ul>
-        </li>
-
-
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-              <a class="nav-link" href="http://localhost/AvenirCulturel/Core/DeconnexionCore.php">
-                  <span class="nav-link-text">Se deconnecter</span>
-              </a>
-          </li>
 
 
 
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Link</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-left"></i>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-envelope"></i>
-                    <span class="d-lg-none">Messages
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-                    <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                    <h6 class="dropdown-header">New Messages:</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>David Miller</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>Jane Smith</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>John Doe</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item small" href="#">View all messages</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-bell"></i>
-                    <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-            </span>
-                    <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-                    <h6 class="dropdown-header">New Alerts:</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item small" href="#">View all alerts</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0 mr-lg-2">-
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Search for...">
-                        <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="content-wrapper">
+
+<?php require_once "header.php"; ?>
+
     <div class="container-fluid">
 
 
@@ -321,12 +109,7 @@ ar-dark bg-dark fixed-top" id="mainNav">
 
 
     <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Order Table</li>
-    </ol>
+    
     <!-- Example DataTables Card-->
     <div class="card mb-3">
         <div class="card-header">
@@ -355,7 +138,7 @@ ar-dark bg-dark fixed-top" id="mainNav">
                    <tbody>
  <?php
                 
-include_once "C:/wamp/www/AvenirCulturel/core/CouponCore.php";
+include "C:/wamp64/www/AvenirCulturel/Core/CouponCore.php";
 $core = new CouponCore();
 $liste = $core->affichercoupon();
 
@@ -385,25 +168,47 @@ $liste = $core->affichercoupon();
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
     </div>
     </div>
+
    
 
 <!--*****************************************************************************************ajouter**************************************************************************************-->
 
     <div id="couponModal" class="modal fade">
         <div class="modal-dialog">
-            <form method="post" id="coupon_form" action="addCoupon.php" enctype="multipart/form-data">
+            <form method="post" id="coupon_form" action="CouponTable.php" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 align="centre" class="modal-title">Add Coupon</h4>
                     </div>
                     <div class="modal-body">
-                        <label>Enter Code Coupon</label>
-                        <input type="text" name="code_coupon"  placeholder="code coupon" id="code_coupon" class="form-control" />
-                        <br />
-                        <label>Enter Value</label>
-                        <input type="text" name="value_coupon"  placeholder="le pourcentage de reduction" id="value_coupon" class="form-control" />
-                        <br />
+                       
+
+                      
+                     <h4 >Enter Code Coupon</h4>
+                     <div>
+                    <input type="number" name="code_coupon" id="code_coupon" placeholder="Code Coupon" class="form-control" value="<?php echo !empty($code)?$code:'';?>"></input>
+ 
+                            <?php if (!empty($codeError)): ?>
+                                <span class="help-inline"><?php echo $codeError;?></span>
+                            <?php endif;?>
+                        </div>
+
+
+                        
+
+                        <h4 >Enter Value</h4>
+                        <div>
+                         <input type="number" name="value_coupon"  placeholder="la pourcentage de reduction" id="value_coupon" class="form-control" value="<?php echo !empty($pourcentage)?$pourcentage:'';?>"></input>
+
+                            <?php if (!empty($pourcentageError)): ?>
+                                <span class="help-inline"><?php echo $pourcentageError;?></span>
+                            <?php endif;?>
+                        </div>
+
                     </div>
+
+
+       
                     <div class="modal-footer">
                         <input type="hidden" name="user_id" id="user_id" />
                         <input type="hidden" name="operation" id="operation" />
@@ -415,6 +220,10 @@ $liste = $core->affichercoupon();
         </div>
     </div>
     <!-- /.container-fluid-->
+
+
+
+
 
 <!--*****************************************************************************************ajouter**************************************************************************************-->
 
@@ -487,7 +296,7 @@ $liste = $core->affichercoupon();
 <!-- Custom scripts for this page-->
 <script src="js/sb-admin-datatables.min.js"></script>
 <script src="js/sb-admin-charts.min.js"></script>
-</div>
+
 </body>
 
 </html>

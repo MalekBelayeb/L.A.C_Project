@@ -21,7 +21,21 @@ class Bookcore
 	}
 
 
-	
+	function afficher_book_reduction()
+	{
+
+		$c = Connexion::getConnexion();
+
+
+		try {
+			$liste=$c->query("SELECT * FROM book  WHERE REDUCTION!=0 order by  REDUCTION desc  ");
+			return $liste;
+			
+		} catch (Exception $e) {
+			die('Erreur : '.$e->getMessage());
+			
+		}
+	}
 
 
 

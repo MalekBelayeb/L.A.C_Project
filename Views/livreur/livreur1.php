@@ -27,7 +27,7 @@ function countLivre($compte)
     $liste=$c->query($sql);
     return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'C:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 
 
@@ -606,9 +606,9 @@ echo "   <a href='#'>livreur</a>";
 
    <p id="demo"></p>
    <p id="demo2"></p>
-   <input type="text" name="demo3" id="demo3" >
+   <input type="text" name="demo3" id="demo3" value="0">
    <br>
-   <input type="text" name="demo4" id="demo4" >
+   <input type="text" name="demo4" id="demo4" value="0">
 
 
 
@@ -657,7 +657,7 @@ if (isset($_POST['modifier'])){
     
 
             ?>
-       
+ <!--      
 <style type="text/css">
   #demo3{
       display: none;
@@ -666,7 +666,7 @@ if (isset($_POST['modifier'])){
       display: none;
     }
 </style>
-            
+     --!>       
 
             
 	</p>

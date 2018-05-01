@@ -28,7 +28,7 @@ function countLivre($compte)
     $liste=$c->query($sql);
     return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'C:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 
 
@@ -373,7 +373,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 echo $_SESSION['id'];
 $id= 7;
 echo $id;
-include_once "C:/xampp/htdocs/AvenirCulturel/Config.php";
+include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 $connect =Connexion::getconnexion();
 
     //Selecting events records from events table

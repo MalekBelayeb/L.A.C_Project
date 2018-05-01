@@ -7,7 +7,7 @@ include '../Core/AuteurCore.php';
 
 include_once '../Core/bookcore.php';
 include_once '../Core/auteurcore.php';
-include "../Core/VuCore.php";
+
 
 
 
@@ -248,6 +248,10 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                             <?php
                         }
                         ?>
+
+
+                       
+
 
 
                         <?php
@@ -567,12 +571,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </li>
 </ul>
 </li>
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="shop/index.html" class=""><span class="menu-title">événement</span></a>
-<ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
-	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-403" data-depth="1"><a href="shop-cart/index.html" class=""><span class="menu-title">événements programmés</span></a></li>
-	<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-402" data-depth="1"><a href="shop-checkout/index.html" class=""><span class="menu-title">Historique des événements</span></a></li>
-</ul>
-</li>
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no_group menu-item-250" data-depth="0"><a href="news/evenements.php" class=""><span class="menu-title">Événement</span>
 <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-17" data-depth="0"><a href="#" class=""><span class="menu-title">Maisons d'édition</span></a>
 <ul class='standar-dropdown standard autodrop_submenu sub-menu' style="width:200px;">
 	<li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no_group menu-item-236" data-depth="1"><a href="#" class=""><span class="menu-title">Shortcodes</span></a>
@@ -872,22 +871,16 @@ $bks = $auteur->Afficher_auteur();
 
 
          <?php
-         $vu= new VuCore();
-
                             while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
-                                if(isset($_SESSION['id']))
-                                    $vu->setCompte($_SESSION['id']);
 
-                                $vu->setAut($product['ID']);
 
                                 $donnees = $auteur->Nbr_livre_id($product['ID']);
         ?>
 
-            <div class="bj-brs-author-item clearfix" style="display:block;
-            <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "background-color: 	#F0F0F0"; ?>  ">
+            <div class="bj-brs-author-item clearfix" style="display:block">
                 <div class="wrap-thumbnail">
                     <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>">
-                        <img style="  <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "border: 2px solid #8a3ab8;"; ?>  " src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
+                        <img src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
                     </a>
                 </div>
                 <div class="wrap-info">

@@ -27,7 +27,7 @@ function countLivre($compte)
     $liste=$c->query($sql);
     return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'C:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 
 
@@ -557,9 +557,9 @@ $url=$gClient->createAuthUrl();
 
                       
                         <label class="raed">nom       </label>
-                        <input type="text" class="livraison2" name="nom" value="<?PHP echo $_SESSION['NOM'] ?>" placeholder="nom..."><br>
+                        <input type="text" class="livraison2" name="nom" value="<?PHP if (isset($_SESSION['id'])) echo $_SESSION['NOM'] ?>" placeholder="nom..."><br>
                         <label class="raed">prenom</label>
-                        <input type="text" class="livraison6" name="prenom" value="<?PHP echo $_SESSION['PRENOM'] ?>" placeholder="prenom..."><br>
+                        <input type="text" class="livraison6" name="prenom" value="<?PHP if (isset($_SESSION['PRENOM'])) echo $_SESSION['PRENOM'] ?>" placeholder="prenom..."><br>
                         
 
                         <label class="raed">adresse ligne 1:</label>

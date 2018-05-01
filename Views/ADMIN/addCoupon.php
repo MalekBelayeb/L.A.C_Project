@@ -26,8 +26,8 @@
     <!-- /.container-fluid-->
 
 <?php
-include('C:/wamp/www/AvenirCulturel/Config.php');
-include "C:/wamp/www/AvenirCulturel/core/CouponCore.php";
+include('C:/wamp64/www/AvenirCulturel/Config.php');
+include "C:/wamp64/www/AvenirCulturel/core/CouponCore.php";
         $c=new Coupon($_POST['code_coupon'],$_POST['value_coupon']);
         $cc=new CouponCore();
         $result =$cc->AjouterCoupon($c);

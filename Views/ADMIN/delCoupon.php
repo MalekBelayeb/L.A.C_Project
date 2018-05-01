@@ -1,7 +1,7 @@
 <?php
 
-include "C:/wamp/www/AvenirCulturel/Config.php";
-include "C:/wamp/www/AvenirCulturel/core/CouponCore.php";
+include "C:/wamp64/www/AvenirCulturel/Config.php";
+include "C:/wamp64/www/AvenirCulturel/core/CouponCore.php";
 
 $id=0;
 $cc=new CouponCore();

@@ -27,7 +27,7 @@ function countLivre($compte)
     $liste=$c->query($sql);
     return $liste->rowCount();
 }
-require_once 'C:/xampp/htdocs/AvenirCulturel/Core/googlelogin/config.php';
+require_once 'c:/wamp64/www/AvenirCulturel/Core/googlelogin/config.php';
 $url=$gClient->createAuthUrl();
 
 
