@@ -239,6 +239,24 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
                         }
                         ?>
+
+                        <?php
+
+                        //ESPACE LIVREUR (rag)
+                        if(isset($_SESSION['id']))
+                        {
+                            if(ExisteLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte')))
+                            {
+                                echo "<a href='livreur/livreur1.php'>livreur</a>";
+                                $_SESSION['cin_liv']=getCinLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte'));
+
+                            }
+                        }
+                        //if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
+                        ?>
+
+
+
                         <a >
                             <?php
                                 if(!isset($_SESSION['id']))

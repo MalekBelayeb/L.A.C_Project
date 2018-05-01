@@ -3,13 +3,8 @@ include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
 include_once "c:/wamp64/www/AvenirCulturel/Core/VuCore.php";
 include_once 'c:/wamp64/www/AvenirCulturel/Core/LivreCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Core/AuteurCore.php';
-
-
-
 include_once 'c:/wamp64/www/AvenirCulturel/Core/bookcore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Core/auteurcore.php';
-
-
 include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
 $panier=new Panier();
