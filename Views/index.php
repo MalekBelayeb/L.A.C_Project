@@ -1,5 +1,6 @@
 <?php
 include '../Core/LoginCore.php';
+include "../Core/VuCore.php";
 include '../Core/LivreCore.php';
 include '../Core/AuteurCore.php';
 
@@ -184,9 +185,10 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
     body .page-title h1,{opacity: 0;}.ie.wf-loading body .page-title h1,{visibility: hidden;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1503973713559{margin-bottom: 30px !important;border-top-width: 1px !important;padding-top: 2px !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503889319693{border-top-width: 1px !important;padding-top: 29px !important;background-color: #f9fafc !important;border-top-color: #eff0f3 !important;border-top-style: solid !important;}.vc_custom_1503975536992{padding-bottom: 84px !important;background-color: #f9fafc !important;}.vc_custom_1504086144605{border-top-width: 1px !important;padding-top: 10px !important;padding-bottom: 15px !important;border-top-color: #e5e6ea !important;border-top-style: solid !important;}.vc_custom_1507284853599{margin-bottom: -16px !important;}.vc_custom_1503989158128{margin-bottom: 98px !important;}.vc_custom_1505871144817{padding-top: 10px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
 
 <body class="home page-template-default page page-id-271 body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
-<div id="div1" style="display: none">
-    <p id="textM">Un mail a été envoyé a votre adresse veuillez confirmer votre inscription svp </p>
-    </div><br>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 <div class="wrap-boxed"><div id="page" class="hfeed site">
         <header id="masthead" class="site-header">
         <div id="cshero-header" class="header-3">
@@ -266,12 +268,23 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                             <?php
                         }
                         ?>
+
+
+                        <?php
+                        if (isset($_SESSION['id']))
+                        {
+
+                        
+                        ?>
                         <center>
                         <div class="col-md-3">
                             <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
                         </div>
                         </center>
+                        <?php
 
+                        }
+                        ?>
 
                         <?php
                             if(isset($_SESSION['id'])) {
@@ -684,7 +697,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
                                href="shop/aaaaa/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
 
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#191f12"><img width="300" height="455" src="wp-content/uploads/book-2.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
+                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#191f12"><img width="300" height="455" src="wp-content/uploads/the_happy_lemon.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
                     
                     <div class="cms-carousel-item clearfix" style="background-image: url(_http_/demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/bg-product-1.html);background-size: cover;background-repeat: no-repeat;">
 
@@ -871,16 +884,25 @@ $bks = $auteur->Afficher_auteur();
 
 
          <?php
-                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
 
+         $vu= new VuCore();
+
+
+
+                            while ($product = $bks->fetch(PDO::FETCH_ASSOC)) :
+                                if(isset($_SESSION['id']))
+                                    $vu->setCompte($_SESSION['id']);
+
+                                $vu->setAut($product['ID']);
 
                                 $donnees = $auteur->Nbr_livre_id($product['ID']);
         ?>
 
-            <div class="bj-brs-author-item clearfix" style="display:block">
+            <div class="bj-brs-author-item clearfix" style="display:block;
+            <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "background-color: 	#F0F0F0"; ?>  ">
                 <div class="wrap-thumbnail">
                     <a href="author-profile/profil_author.php?id_author=<?php echo $product['ID'] ?>">
-                        <img src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
+                        <img style="  <?php if($vu->countNonVu()>$vu->countVu() and isset($_SESSION['id'])) echo "border: 2px solid #8a3ab8;"; ?>  " src="wp-content/uploads/<?php if($product['IMAGE']=='') echo 'anonyme.png'; else echo $product['IMAGE']; ?>" alt="">
                     </a>
                 </div>
                 <div class="wrap-info">
@@ -980,8 +1002,6 @@ $bks = $auteur->Afficher_auteur();
                 <div class="row cms-grid cms-grid-masonry-2">
                     <?php
                             while ($product = $Livres->fetch(PDO::FETCH_ASSOC)) :
-
-
 
                                 $donnes_auteur = $auteur->Recupere_auteur_id ($product['AUTHOR'])
 

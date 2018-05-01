@@ -209,7 +209,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 <body class="product-template-default single single-product postid-388 woocommerce woocommerce-page body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
 <script type='text/javascript' src='Rating/Get_rate_ajx.js'></script>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div class="wrap-boxed"><div id="page" class="hfeed site">
 	<header id="masthead" class="site-header">

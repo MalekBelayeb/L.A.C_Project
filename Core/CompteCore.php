@@ -187,10 +187,9 @@ if(  isset($_GET['supprimer']) and isset($_SESSION['id']))
 {
 echo "ssss";
     $inscri->setUsername($_SESSION['id']);
-    //$inscri->supprimerEtrangere("abonnement","ID_COMPTE");
+    $inscri->supprimerEtrangere("abonnement","ID_COMPTE");
+    $inscri->supprimerEtrangere("vente","ID_COMPTE");
     $inscri->supprimerCompte();
     include 'DeconnexionCore.php';
 }
-
-
 ?>
