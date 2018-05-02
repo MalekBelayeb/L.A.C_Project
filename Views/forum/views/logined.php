@@ -1,7 +1,5 @@
-<?php
-session_start (); 
-if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
-{ ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -943,13 +941,7 @@ var mc4wp_forms_config = [];
 <script type='text/javascript' src='http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js'></script>
 <![endif]-->
 
-<?php }
 
-else { 
-      echo 'Veuillez vous connecter </br>';  
-      echo '<a href="./auth.html">Cliquer pour se connecter</a>';
-
-}  
 //définir la session une session est un tableau temporaire 
 //1 er point c quoi une session
 // 
