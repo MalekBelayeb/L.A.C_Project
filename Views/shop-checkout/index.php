@@ -807,8 +807,8 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
         </div><!-- .content-area -->
 
     </div><!-- .site-content -->
-    <script type='text/javascript' src='../../coupon.js'></script>
-    <script type='text/javascript' src='../../checkout.js'></script>
+    <script type='text/javascript' src='coupon.js'></script>
+    <script type='text/javascript' src='checkout.js'></script>
 
         <link rel='stylesheet' href='../wp-content/plugins/DataTables/css/dataTables.bootstrap.min.css' type='text/css' media='all' />
         <script type='text/javascript' src='../wp-content/plugins/DataTables/js/dataTables.bootstrap.min.js'></script>

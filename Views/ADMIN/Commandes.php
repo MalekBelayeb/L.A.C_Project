@@ -72,9 +72,13 @@ require_once '../../Config.php';
                   {
                       $etat='Payment effectué';
                   }
-                  else
+                  elseif($item->ETAT==0)
                   {
                       $etat='Payment non effectué';
+                  }
+                  elseif($item->ETAT==2)
+                  {
+                      $etat='Commande Annulée';
                   }
               ?>
                 <tr>

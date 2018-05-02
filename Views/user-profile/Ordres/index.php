@@ -158,6 +158,127 @@ function countLivre($ID_C)
                                                     <div class="vc_column-inner vc_custom_1504755756862">
                                                         <div class="wpb_wrapper">
                                                             <div class="woocommerce">
+                                                                <br><br><br><br><br>
+                                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>ID</th>
+                                                                        <th>User</th>
+                                                                        <th>Totale</th>
+                                                                        <th>Methode de payment</th>
+                                                                        <th>Etat</th>
+                                                                        <th>Annuler</th>
+                                                                        <th>Articles</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                    <tr>
+                                                                        <th>ID</th>
+                                                                        <th>User</th>
+                                                                        <th>Totale</th>
+                                                                        <th>Methode de payment</th>
+                                                                        <th>Etat</th>
+                                                                        <th>Annuler</th>
+                                                                        <th>Articles</th>
+                                                                    </tr>
+                                                                    </tfoot>
+                                                                    <tbody>
+                                                                    <?php
+                                                                    $pdo=Connexion::getConnexion();
+                                                                    $sql='SELECT * FROM `commande` WHERE user=:user';
+                                                                    $stmt=$pdo->prepare($sql);
+                                                                    $stmt->bindValue(':user',$_SESSION['id']);
+                                                                    $stmt->execute();
+                                                                    $row=$stmt->fetchAll(PDO::FETCH_OBJ);
+                                                                    foreach ($row as $item):
+                                                                        if($item->ETAT==1)
+                                                                        {
+                                                                            $etat='Payment effectué';
+                                                                        }
+                                                                        elseif($item->ETAT==2)
+                                                                        {
+                                                                            $etat='Commande Annulée';
+                                                                        }
+                                                                        elseif($item->ETAT==0)
+                                                                        {
+                                                                            $etat='Commande en cours';
+                                                                        }
+                                                                        ?>
+                                                                        <tr>
+                                                                            <td><?=$item->ID?></td>
+                                                                            <td><?=$item->user?></td>
+                                                                            <td><?=$item->totale?></td>
+                                                                            <td><?=$item->MP?></td>
+                                                                            <td><?=$etat?></td>
+                                                                            <?php
+                                                                            $datecommande=new DateTime($item->DATE);
+                                                                            $dateverif=new DateTime("yesterday");
+                                                                            if($datecommande>= $dateverif && $item->ETAT!=2)
+                                                                            {
+                                                                                echo '<td><a href="Annuler.php?val='.$item->ID.'">Annuler</a></td>';
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                echo '<td></td>';
+                                                                            }
+                                                                            ?>
+                                                                            <td><button type="button" id="<?=$item->ID?>" data-toggle="modal" data-target="#couponModal<?=$item->ID?>" class="btn btn-info btn-lg">Products</button></td>
+                                                                        </tr>
+                                                                    <?php endforeach;?>
+                                                                    </tbody>
+                                                                </table>
+                                                                <?php foreach ($row as $item):?>
+                                                                    <div id = "couponModal<?=$item->ID?>" class="modal fade" >
+                                                                        <div class="modal-dialog" >
+                                                                            <div class="modal-content" >
+                                                                                <form>
+                                                                                    <div class="modal-header" >
+                                                                                        <h4 align = "centre" class="modal-title" >Articles</h4 >
+                                                                                    </div >
+                                                                                    <div class="modal-body" >
+                                                                                        <?php
+                                                                                        $pdo2=Connexion::getConnexion();
+                                                                                        $sql2='SELECT * FROM lignecommande WHERE ID_COMMANDE=:idCommande ';
+                                                                                        $stmt2=$pdo2->prepare($sql2);
+                                                                                        $stmt2->bindValue(':idCommande',$item->ID);
+                                                                                        $stmt2->execute();
+                                                                                        $lignecommmande=$stmt2->fetchAll(PDO::FETCH_OBJ);
+                                                                                        ?>
+                                                                                        <table>
+                                                                                            <thead>
+                                                                                            <th>IMAGE</th>
+                                                                                            <th>NAME</th>
+                                                                                            <th>QUANTITE</th>
+                                                                                            </thead>
+                                                                                            <?php
+                                                                                            foreach ($lignecommmande as $value) {
+                                                                                            $sql2 = 'SELECT * FROM book WHERE ID=:id ';
+                                                                                            $stmt2 = $pdo2->prepare($sql2);
+                                                                                            $stmt2->bindValue(':id', $value->ID_PRODUIT);
+                                                                                            $stmt2->execute();
+                                                                                            $livre = $stmt2->fetch(PDO::FETCH_OBJ);
+                                                                                            ?>
+                                                                                            <tbody>
+
+                                                                                            <tr>
+                                                                                                <td><img width="110"
+                                                                                                         height="170"
+                                                                                                         src="../Views/<?= $livre->IMAGE ?>"
+                                                                                                         class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+                                                                                                         alt=""/></td>
+                                                                                                <td><input class="form-control" type="text" value="<?= $livre->NOM ?>"></td>
+                                                                                                <td><input class="form-control" type="number" value="<?=$value->QUANTITE?>"></td>
+                                                                                            </tr>
+                                                                                    <?php
+                                                                                    }?>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div >
+                                                                                </form>
+                                                                            </div >
+                                                                        </div >
+                                                                    </div >
+                                                                <?php endforeach;?>
 
 
 

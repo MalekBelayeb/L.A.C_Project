@@ -91,6 +91,19 @@ class Commande
         }
     }
 
+    public static function Annuler($id)
+    {
+        $pdo=Connexion::getConnexion();
+        $sql='UPDATE `commande` SET `ETAT`=:etat WHERE `ID`=:id';
+        if($stmt=$pdo->prepare($sql))
+        {
+            $etat=2;
+            $stmt->bindParam(':etat',$etat);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+        }
+    }
+
 
 
 }
