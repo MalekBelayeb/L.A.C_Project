@@ -13,6 +13,7 @@ class Commande
     protected $totale;
     protected $mp;
     protected $etat;
+    protected $date;
 
     /**
      * Commande constructor.
@@ -21,25 +22,28 @@ class Commande
      * @param $totale
      * @param $mp
      */
-    public function __construct($id,$user, $totale, $mp,$etat)
+    public function __construct($id,$user, $totale, $mp,$etat,$date)
     {
         $this->id=$id;
         $this->user = $user;
         $this->totale = $totale;
         $this->mp = $mp;
         $this->etat=$etat;
+        $this->date=$date;
     }
 
     public function AjouterCommande()
     {
         $pdo=Connexion::getConnexion();
-        $sql='INSERT INTO `commande`( `user`, `totale`, `MP`,`ETAT`) VALUES (:user,:totale,:mp,:etat)';
+        $sql='INSERT INTO `commande`(`user`, `totale`, `MP`, `ETAT`, `DATE`) VALUES (:user,:totale,:mp,:etat,:date)';
         if($stmt=$pdo->prepare($sql))
         {
             $stmt->bindParam(':user',$this->user);
             $stmt->bindParam(':totale',$this->totale);
             $stmt->bindParam(':mp',$this->mp);
             $stmt->bindParam(':etat',$this->etat);
+            $stmt->bindParam(':date',$this->date);
+
             $stmt->execute();
         }
     }
@@ -73,6 +77,20 @@ class Commande
         }
 
     }
+
+    public static function Valider($id)
+    {
+        $pdo=Connexion::getConnexion();
+        $sql='UPDATE `commande` SET `ETAT`=:etat WHERE `ID`=:id';
+        if($stmt=$pdo->prepare($sql))
+        {
+            $etat=1;
+            $stmt->bindParam(':etat',$etat);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+        }
+    }
+
 
 
 }
