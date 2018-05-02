@@ -1,0 +1,23 @@
+#menu
+{
+	background-color: #7E5BEF;
+	margin: 0;
+	width: 90em;
+	height: 8em;
+	
+	border-width: 2px;
+	border-color: #000;
+	
+}
+a.s
+{
+	color: #FFFFFF;
+}
+
+#th{
+
+	margin-left: 10px;
+	font-style: italic; 
+	}
+
+
