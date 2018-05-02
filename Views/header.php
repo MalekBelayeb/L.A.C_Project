@@ -349,24 +349,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         }
                         if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
                         ?>
-                             <?php
-
-            if (!empty($_SESSION['NOM']))
-            {
-
-
-                if ($_SESSION['NOM']=="ali") {
-                   
-echo "   <a href='livreur/livreur1.php'>livreur</a>";
-
-
-                }
-            
-    
-        }
-
-
-            ?>
+          
 
 
                         <a >

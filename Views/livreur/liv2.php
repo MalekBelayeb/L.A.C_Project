@@ -371,7 +371,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
     //Creating database connection.
 
 echo $_SESSION['id'];
-$id= 7;
+$id=  $_SESSION['cin_liv'];
 echo $id;
 include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 $connect =Connexion::getconnexion();

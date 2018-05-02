@@ -578,7 +578,7 @@ echo "   <a href='#'>livreur</a>";
 include "../../Core/laivraisonC.php";
 
                              $employe1C=new laivraisonC();
-                             $listeEmployes=$employe1C->afficherLaivraison_livreur('7');
+                             $listeEmployes=$employe1C->afficherLaivraison_livreur( $_SESSION['cin_liv']);
 
                              // e 7 athika hiya lid ta3 livreur 
 

@@ -627,7 +627,7 @@ include "../../Core/livreurC.php";
 
 if (isset($_POST['modifier'])){
     $employeC2 = new livreurC();
-    $result=$employeC2->recupererLivreur('7');
+    $result=$employeC2->recupererLivreur($_SESSION['cin_liv']);
     foreach($result as $row){
         $cin=$row['cin'];
         $nom=$row['nom'];

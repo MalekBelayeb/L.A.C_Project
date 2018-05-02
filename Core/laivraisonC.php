@@ -86,9 +86,11 @@ class laivraisonC
         }	
 	}
 
-	function afficherLaivraison_livreur($rre){
+
+
+		function afficherLaivraison_livreur($rre){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SELECT * from laivraison where  livreur='$rre'";
+		$sql="SELECT * from laivraison where  livreur='$rre' and affectation=0";
 		$db =Connexion::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -98,6 +100,7 @@ class laivraisonC
             die('Erreur: '.$e->getMessage());
         }	
 	}
+
 
 
 

@@ -653,7 +653,7 @@ if (isset($_GET['cin'])){
 
     <tr>
 <td>code_livre</td>
-<td><input type="text" name="code_livre" value="<?PHP echo $code_livre ?>"></td>
+<td><input type="text" name="code_livre" readonly=""   value="<?PHP echo $code_livre ?>"></td>
 </tr>
 <tr>
 
