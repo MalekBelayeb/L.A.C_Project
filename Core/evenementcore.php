@@ -122,11 +122,11 @@ return $bks;
 
 }
 
-	function recherche_evenement($nom_ev,$date_ev)
+	function recherche_evenement($nom_ev,$date_ev,$limit)
 	{
 		$c = Connexion::getConnexion();
                            
-                            $sql = "SELECT * FROM evenement WHERE nom_ev like '%$nom_ev%' and date_ev like '%$date_ev%'    ";
+                            $sql = "SELECT * FROM evenement WHERE nom_ev like '%$nom_ev%' and date_ev like '%$date_ev%' $limit    ";
 
 
                         $bks = $c->query($sql);
@@ -150,7 +150,7 @@ function nbrpage()
 function nbrpagerechercher($nom_ev,$date_ev)
 	{	$c = Connexion::getConnexion();
 
-	          $req = $c->query("SELECT count(*) as NbNews FROM evenement WHERE nom_ev like '%$nom_ev%' and date_ev = '$date_ev'");/*page to page RECHERCHE*/
+	          $req = $c->query("SELECT count(*) as NbNews FROM evenement WHERE nom_ev like '%$nom_ev%' && date_ev like '%$date_ev%' ");/*page to page RECHERCHE*/
                         $rows = $req->fetch();
                         return $rows;
 

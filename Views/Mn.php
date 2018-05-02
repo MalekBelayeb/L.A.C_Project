@@ -777,9 +777,12 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
         </div>
         </div></div></div></div><div class="vc_row-full-width"></div>
 
+
+
 <div id="page-title-1" class="page-title text-center">
-                    <h1>Top Promotion</h1>
+                    <h1>Meilleur Notes</h1>
                 </div>
+
 
         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503975536992 vc_row-has-fill"><div class="column-wg-left wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div  class="wpb_widgetised_column wpb_content_element">
                             <div class="wpb_wrapper">
@@ -892,7 +895,7 @@ $count=0;
 
 
 
-$bks = $book->afficher_book_reduction();
+$bks = $book->Mellieur_note();
 
 
 
@@ -924,7 +927,6 @@ $bks = $book->afficher_book_reduction();
 
 ?>
 
-  <section class="promo3"><?php echo $product['REDUCTION']; ?>%</section>
 
   <?php }?>
                             <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>

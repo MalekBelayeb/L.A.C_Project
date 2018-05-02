@@ -21,6 +21,40 @@ class Bookcore
 	}
 
 
+
+	function Mellieur_vente ()
+	{
+
+			$c = Connexion::getConnexion();
+
+
+		try {
+			$liste=$c->query("SELECT * FROM `book` ORDER by NBR_VENTE DESC LIMIT 5");
+			return $liste;
+			
+		} catch (Exception $e) {
+			die('Erreur : '.$e->getMessage());
+			
+		}
+	}
+
+	function Mellieur_note ()
+	{
+
+		$c = Connexion::getConnexion();
+
+
+		try {
+			$liste=$c->query("SELECT * FROM `book` GROUP by ID ORDER by RATING DESC LIMIT 5");
+			return $liste;
+			
+		} catch (Exception $e) {
+			die('Erreur : '.$e->getMessage());
+			
+		}
+
+	}
+
 	function afficher_book_reduction()
 	{
 

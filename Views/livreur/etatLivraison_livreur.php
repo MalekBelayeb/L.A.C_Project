@@ -561,6 +561,7 @@ echo "   <a href='#'>livreur</a>";
         <div id="page-title-1" class="page-title text-center">
             <h1>livreur</h1>
         </div>
+        </div>
 
         
                         <!-- #page-title -->

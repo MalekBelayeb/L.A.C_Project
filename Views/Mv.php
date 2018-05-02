@@ -401,20 +401,20 @@ echo "   <a href='livreur/livreur1.php'>livreur</a>";
             </div>
         </div>
             <br>
-        	<div class="wrap-middler">
-	    <div class="container">
+            <div class="wrap-middler">
+        <div class="container">
 
-	        <div class="row">
+            <div class="row">
 
-	            <div class="col-xs-12 col-md-4 col-lg-3">
+                <div class="col-xs-12 col-md-4 col-lg-3">
 
-	                <div class="main-logo-3"><a href="index.php"><img alt="Book Junky" src="wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
-	                <a href="#" class="menu"><i class="fa fa-bars"></i> Menu</a>
-	            </div>
+                    <div class="main-logo-3"><a href="index.php"><img alt="Book Junky" src="wp-content/themes/book-junky/assets/images/logo-2.png"></a></div>
+                    <a href="#" class="menu"><i class="fa fa-bars"></i> Menu</a>
+                </div>
 
-	            <div class="col-xs-12 col-md-8 col-lg-9">
-	               	
-	             <form class="searchform clearfix"  autocomplete="off">
+                <div class="col-xs-12 col-md-8 col-lg-9">
+                    
+                 <form class="searchform clearfix"  autocomplete="off">
             <div class="wrap-search clearfix">
 
               <input type="text" class="form-search" id="search_auto" name="s" value="" placeholder="Search for the perfect book..." class="searchform">
@@ -547,9 +547,9 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 
 
 
-	            </div><!-- #site-logo -->
-	        </div>
-	    </div>
+                </div><!-- #site-logo -->
+            </div>
+        </div>
     </div>
 
      <div class="container">
@@ -637,23 +637,23 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </div><!-- #site-navigation -->
 
 
-	</header><!-- #masthead -->
+    </header><!-- #masthead -->
                     <!-- #page-title -->
 
 
        
         <script type='text/javascript' src='wp-content/themes/book-junky/assets/js/Slide.js'></script>
 
-	<div id="content" class="site-content">
+    <div id="content" class="site-content">
 <div id="primary" class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <main id="main" class="site-main">
 
                 <article id="post-271" class="post-271 page type-page status-publish hentry">
-	<div class="entry-content">
+    <div class="entry-content">
 
-			<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503973713559 vc_row-has-fill"><div class="column-fill wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">        <div class="carousel-product extend-right">
+            <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503973713559 vc_row-has-fill"><div class="column-fill wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">        <div class="carousel-product extend-right">
 
 
 
@@ -777,13 +777,16 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
         </div>
         </div></div></div></div><div class="vc_row-full-width"></div>
 
+
+
 <div id="page-title-1" class="page-title text-center">
-                    <h1>Top Promotion</h1>
+                    <h1>Meilleur ventes</h1>
                 </div>
+
 
         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1503975536992 vc_row-has-fill"><div class="column-wg-left wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div  class="wpb_widgetised_column wpb_content_element">
                             <div class="wpb_wrapper">
-			
+            
 
 <?php
 
@@ -873,8 +876,8 @@ $count=0;
 
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 </div></div></div><div class="column-cont-right wpb_column vc_column_container vc_col-sm-12 vc_col-lg-9 vc_col-md-9">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
@@ -882,8 +885,8 @@ $count=0;
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
-    		<div class="cms-grid-wraper grid-2 extend-space" id="cms-grid">
-    				 
+            <div class="cms-grid-wraper grid-2 extend-space" id="cms-grid">
+                     
 
 
 
@@ -892,7 +895,7 @@ $count=0;
 
 
 
-$bks = $book->afficher_book_reduction();
+$bks = $book->Mellieur_vente();
 
 
 
@@ -924,7 +927,6 @@ $bks = $book->afficher_book_reduction();
 
 ?>
 
-  <section class="promo3"><?php echo $product['REDUCTION']; ?>%</section>
 
   <?php }?>
                             <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/Livres/index?Livre=<?php echo $product['ID'] ?>"><img width="330" height="500" src="wp-content/uploads/<?=$product['IMAGE'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
@@ -994,49 +996,49 @@ if ($product['REDUCTION']!=0)
                                                     <span class="vc_empty_space_inner"></span></div>
 
                                                 <div class="cms-category">
-			<div class="row">
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/thriller/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/cate-thrillers.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Thriller</h5>
-			    				<h6>Edge of your seat type and more think</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/romance/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/cate-romantic.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Romance</h5>
-			    				<h6>Fall in love with a book today</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-								<div class="cat-item col-xs-12 col-sm-6 col-md-4">
-					<div class="item-cat">
-						<a href="product-category/children/index.html">
-							<div class="thumbnail-cat">
-								<img src="wp-content/uploads/childrens.png" alt="thumbnail">
-							</div>
-							<div class="info">
-								<h5>Childrens</h5>
-			    				<h6>Amazing stories for kids</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-							</div>
-		</div>
-	</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid">
+            <div class="row">
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/thriller/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/cate-thrillers.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Thriller</h5>
+                                <h6>Edge of your seat type and more think</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/romance/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/cate-romantic.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Romance</h5>
+                                <h6>Fall in love with a book today</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="cat-item col-xs-12 col-sm-6 col-md-4">
+                    <div class="item-cat">
+                        <a href="product-category/children/index.html">
+                            <div class="thumbnail-cat">
+                                <img src="wp-content/uploads/childrens.png" alt="thumbnail">
+                            </div>
+                            <div class="info">
+                                <h5>Childrens</h5>
+                                <h6>Amazing stories for kids</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
                   <div class="vc_column-inner ">
            <div class="wpb_wrapper">
@@ -1046,86 +1048,86 @@ if ($product['REDUCTION']!=0)
       </a></div></div></div></div></div></div>
     <div class="vc_empty_space"   style="height: 12px" ><span class="vc_empty_space_inner"></span></div>
 
-    		<div class="cms-grid-wraper grid-2 extend-space" id="cms-grid-2">
-    			 
+            <div class="cms-grid-wraper grid-2 extend-space" id="cms-grid-2">
+                 
 
-			    <div class="row cms-grid">
+                <div class="row cms-grid">
 <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-comedy","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/index.html"><img width="330" height="500" src="wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/shattered/index.html">Shattered</a>
-				                <p class="product-author">by: Peter Cawdron</p>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="shop/shattered/index.html"><img width="330" height="500" src="wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/shattered/index.html">Shattered</a>
+                                <p class="product-author">by: Peter Cawdron</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="shop/freefall/index.html"><img width="330" height="500" src="wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/freefall/index.html">Freefall</a>
-				                <p class="product-author">by: Peter Cawdron</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="shop/freefall/index.html"><img width="330" height="500" src="wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/freefall/index.html">Freefall</a>
+                                <p class="product-author">by: Peter Cawdron</p>
 
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="shop/darknet/index.html"><img width="330" height="500" src="wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/darknet/index.html">Darknet</a>
-				                <p class="product-author">by: Matthew Mather</p>
+                                
+    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="shop/darknet/index.html"><img width="330" height="500" src="wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/darknet/index.html">Darknet</a>
+                                <p class="product-author">by: Matthew Mather</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="shop/holy-ghosts/index.html"><img width="330" height="500" src="wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/holy-ghosts/index.html">Holy Ghosts</a>
-				                <p class="product-author">by: David J. Schmidt</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-thriller"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="shop/holy-ghosts/index.html"><img width="330" height="500" src="wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/holy-ghosts/index.html">Holy Ghosts</a>
+                                <p class="product-author">by: David J. Schmidt</p>
 
-								
-	<span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
-							</div>
-			            </div>
-			            
-			            <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
-				            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/radical_gardening.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-				            <div class="info-product">
-				                <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html">Radical Gardening</a>
-				                <p class="product-author">by: George McKay</p>
+                                
+    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
+                            </div>
+                        </div>
+                        
+                        <div class="cms-grid-item col-lg-2.4 col-md-4 col-sm-6 col-xs-12 new-col-lg-5"  data-groups='["all","category-business","category-home-garden"]'>
+                            <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #332c28;" onmouseover="this.style.boxShadow ='0 0 20px 0 #332c28';" onmouseout="this.style.boxShadow ='0 0 15px -2px #332c28';" ><a href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html"><img width="330" height="500" src="wp-content/uploads/radical_gardening.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
+                            <div class="info-product">
+                                <a class="product-title" href="shop/radical-gardening-politics-idealism-rebellion-in-the-garden/index.html">Radical Gardening</a>
+                                <p class="product-author">by: George McKay</p>
 
-								
-	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>4.00</span></span>
-							</div>
-			            </div>
-			            			    </div>
+                                
+    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>4.00</span></span>
+                            </div>
+                        </div>
+                                        </div>
 
-			    			</div>
+                            </div>
 
-    	<div class="cms-button-wrapper text-center " id="cms-button">
+        <div class="cms-button-wrapper text-center " id="cms-button">
 
     <a class="text-center" target="_self" href="#" 
     style="transition: all 0.5s ease 0s ; background: #ffffff; color: #7e5bef; border: 1px solid #7e5bef; border-radius:6px; width:155px;" onmouseout="this.style.color='#7e5bef';this.style.background='#ffffff';this.style.borderColor='#7e5bef';" onmouseover="this.style.background='#7e5bef';this.style.color='#ffffff';this.style.borderColor='#7e5bef';">
         Voir plus    </a>
 </div>
 </div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1504086144605 vc_row-has-fill row-gradient-color">
-	<div class="gradient-color" 
-		style="
-			height: 100%;
-		    background: #6b4dcc;   
-		    background: -webkit-linear-gradient(#6b4dcc , #523bc9);
-		    background: -o-linear-gradient(#6b4dcc, #523bc9);
-		    background: -moz-linear-gradient(#6b4dcc, #523bc9);
-		    background: linear-gradient(#6b4dcc , #523bc9);
-		    opacity: 1;
-		">
-	</div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1505871144817"><div class="wpb_wrapper"><div class="wrap-cms-popuplar-book">
+    <div class="gradient-color" 
+        style="
+            height: 100%;
+            background: #6b4dcc;   
+            background: -webkit-linear-gradient(#6b4dcc , #523bc9);
+            background: -o-linear-gradient(#6b4dcc, #523bc9);
+            background: -moz-linear-gradient(#6b4dcc, #523bc9);
+            background: linear-gradient(#6b4dcc , #523bc9);
+            opacity: 1;
+        ">
+    </div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1505871144817"><div class="wpb_wrapper"><div class="wrap-cms-popuplar-book">
     <div class="row">
         <div class="most-popular-info col-xs-12 col-md-4 col-lg-3">
             <p class="title-1">our</p>
@@ -1238,10 +1240,10 @@ if ($product['REDUCTION']!=0)
 
 </div></div></div></div><div class="vc_row-full-width"></div>
 
-	</div><!-- .entry-content -->
-	<footer class="edit-page">
+    </div><!-- .entry-content -->
+    <footer class="edit-page">
 
-				</footer><!-- .entry-meta -->
+                </footer><!-- .entry-meta -->
 </article><!-- #post -->
 
             </main><!-- .site-main -->

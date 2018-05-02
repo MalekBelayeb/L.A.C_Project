@@ -99,6 +99,30 @@ $url=$gClient->createAuthUrl();
             !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
         </script>
     <style type="text/css">
+
+
+
+i {
+  color: blue;
+}
+
+#rech{
+     padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+#valide{
+     position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#207cca;
+                color:#fafafa;
+                background-color:#fafafa;
+                color:#207cca;
+}
+
+
             img.wp-smiley,
 img.emoji {
     display: inline !important;
@@ -589,7 +613,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 
 
 
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php" class=""><span class="menu-title">Événement</span>
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php?pn=1&q=&date_rech=&button=" class=""><span class="menu-title">Événement</span>
 
 </a></li>
 
@@ -686,27 +710,14 @@ include_once "C:/wamp64/www/AvenirCulturel/Core/evenementcore.php";
                             
                             {
                        
-                        $ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpagerechercher($_GET['q'],$_GET['date_rech']);
-    
-
-
-
-
-
-
-
-                            }else {
-                      $ev_classe = New evenementcore();
-$rows = $ev_classe->nbrpage();
-    
-                        }
-
+                                $ev_classe = New evenementcore();
+                                $rows = $ev_classe->nbrpagerechercher($_GET['q'],$_GET['date_rech']);
+                            }
 
 /*****************************************************************rechercher par date pagination*********************************************************************************/
                      
 /*******************************************************************************************************************************************************************************/
-                        $page_row = 2;   //nombre d'article afficher dans une page
+                        $page_row = 1;   //nombre d'article afficher dans une page
                         $last = ceil($rows['NbNews']/$page_row);
 
                         if ($last <1 )
@@ -736,7 +747,7 @@ $rows = $ev_classe->nbrpage();
 $ev_classe = New evenementcore();
   if (isset($_GET['q']) and isset($_GET['date_rech']))
 
-$bks = $ev_classe->recherche_evenement($_GET['q'],$_GET['date_rech']);
+$bks = $ev_classe->recherche_evenement($_GET['q'],$_GET['date_rech'],$limit);
   
 else{
 $bks = $ev_classe->afficherrev($limit);
@@ -757,12 +768,12 @@ $paginationCTR = '';
         if ($pagenum > 1 )
         {
             $previous = $pagenum - 1;
-            $paginationCTR .= "<a class='prev page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$previous."'><i class='fa fa-angle-left'></i> Previous Page</a>";
+            $paginationCTR .= "<a class='prev page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$previous."&q=".$_GET['q']."&date_rech=".$_GET['date_rech']."&button='><i class='fa fa-angle-left'></i> Previous Page</a>";
         
             for ($i=$pagenum-4; $i <$pagenum ; $i++) { 
                 if ($i >0)
                 {
-                    $paginationCTR .="<a class='page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$i."' >".$i."</a>";
+                    $paginationCTR .="<a class='page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$i."&q=".$_GET['q']."&date_rech=".$_GET['date_rech']."&button=' >".$i."</a>";
                 }
             }
 
@@ -770,7 +781,7 @@ $paginationCTR = '';
         $paginationCTR .="<span class='page-numbers current'>".$pagenum."</span>";
 
         for ($i=$pagenum+1; $i <= $last ; $i++) { 
-            $paginationCTR .="<a class='page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$i."' >".$i."</a>";
+            $paginationCTR .="<a class='page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$i."&q=".$_GET['q']."&date_rech=".$_GET['date_rech']."&button=' >".$i."</a>";
             if ($i >= $pagenum + 2)
             {
                 break;
@@ -779,7 +790,7 @@ $paginationCTR = '';
         if ($pagenum != $last)
         {
             $next = $pagenum +1;
-            $paginationCTR .= "<a class='next page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$next."'>Next Page <i class='fa fa-angle-right'></i></a>";
+            $paginationCTR .= "<a class='next page-numbers' href='".$_SERVER['PHP_SELF']."?pn=".$next."&q=".$_GET['q']."&date_rech=".$_GET['date_rech']."&button='>Next Page <i class='fa fa-angle-right'></i></a>";
         }
     }
 

@@ -7,8 +7,13 @@ include_once 'c:/wamp64/www/AvenirCulturel/Core/bookcore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Core/auteurcore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
+include_once 'c:/wamp64/www/AvenirCulturel/core/categorieCore.php';
+
+
+
 $panier=new Panier();
 
+$comt = new CategorieCore();
 
 $book = New Bookcore();
 $auteur = New Auteurcore();
@@ -17,6 +22,9 @@ $auteur = New Auteurcore();
 $bookdonnes = $book->afficher_book_nom();
 $bookimage = $book->afficher_book_img();
 $bookid = $book->afficher_book_id();
+
+
+
 
 
 
@@ -579,8 +587,8 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 <ul class='multicolumn columns4 drop_to_center sub-menu' style="width:800px;">
 	<li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-515" data-depth="1"><a href="#" class=""><span class="menu-title">Top des ventes</span></a>
 	<ul class='   sub-menu' style="">
-		<li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="#" class=""><span class="menu-title">les mieux notés</span></a></li>
-		<li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="#" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
+		<li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-516" data-depth="2"><a href="Mn.php" class=""><span class="menu-title">les mieux notés</span></a></li>
+		<li id="menu-item-517" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-517" data-depth="2"><a href="Mv.php" class=""><span class="menu-title">Meilleures Ventes</span></a></li>
 		<li id="menu-item-518" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-518" data-depth="2"><a href="promo.php" class=""><span class="menu-title">Top Promotions</span></a></li>
 		<li id="menu-item-5188" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-5188" data-depth="2"><a href="#" class=""><span class="menu-title">Top auteurs</span></a></li>
 		<li id="menu-item-51888" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-51888" data-depth="2"><a href="#" class=""><span class="menu-title">Top Catégories</span></a></li>
@@ -588,27 +596,21 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 </li>
 	<li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-519" data-depth="1"><a href="#" class=""><span class="menu-title">Catégories</span></a>
 	<ul class='   sub-menu' style="">
-		<li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="#" class=""><span class="menu-title">Arts</span></a></li>
-		<li id="menu-item-521" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-521" data-depth="2"><a href="#" class=""><span class="menu-title">Dictionnaires</span></a></li>
-		<li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-522" data-depth="2"><a href="#" class=""><span class="menu-title">Droit &amp; Sciences Politiques</span></a></li>
-		<li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-524" data-depth="2"><a href="#" class=""><span class="menu-title">Cuisine</span></a></li>
-		<li id="menu-item-525" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-525" data-depth="2"><a href="#" class=""><span class="menu-title">Histoire &amp; Géographie</span></a></li>
-		<li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-526" data-depth="2"><a href="#" class=""><span class="menu-title">Informatique &amp; multimedia</span></a></li>
-		<li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-527" data-depth="2"><a href="#" class=""><span class="menu-title">Jeunesse</span></a></li>
-		<li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-529" data-depth="2"><a href="index.php?Category=CULTURE" class=""><span class="menu-title">Littérature &amp; Linguistique</span></a></li>
+    <?php  $comt_donnes = $comt->Afficher_categorie(); 
+
+                while ($category = $comt_donnes->fetch(PDO::FETCH_ASSOC)) :
+    ?>
+
+
+		<li id="menu-item-520" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-520" data-depth="2"><a href="http://localhost/AvenirCulturel/Views/shop/index.php?s=&product_cat=<?php echo $category['CATEGORY']; ?>&bj_meta__wc_average_rating=&min_price=0&max_price=100&sort=&orderby=menu_order" class=""><span class="menu-title"><?php echo $category['CATEGORY']; ?></span></a></li>
+
+
+    <?php endwhile; ?>
+		
 	</ul>
 </li>
-	<li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children no-title group title menu-item-528" data-depth="1">
-	<ul class='   sub-menu' style="">
-		<li id="menu-item-530" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-530" data-depth="2"><a href="#" class=""><span class="menu-title">Loisirs</span></a></li>
-		<li id="menu-item-531" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-531" data-depth="2"><a href="#" class=""><span class="menu-title">Religions &amp; Spiritualités</span></a></li>
-		<li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-532" data-depth="2"><a href="#" class=""><span class="menu-title">Romans</span></a></li>
-		<li id="menu-item-533" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-533" data-depth="2"><a href="#" class=""><span class="menu-title">Scolaire &amp; pédagogie</span></a></li>
-		<li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-534" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Economiques &amp; Gestion</span></a></li>
-		<li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-535" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Humaines</span></a></li>
-		<li id="menu-item-536" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-536" data-depth="2"><a href="#" class=""><span class="menu-title">Sciences Techniques &amp; High-Tech</span></a></li>
-	</ul>
-</li>
+	
+
 	<li id="menu-item-535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children group menu-item-535" data-depth="1">
 	<ul class='   sub-menu' style="">
 		<li id="menu-item-537" class="menu-item menu-item-type-custom menu-item-object-custom no_group menu-item-537" data-depth="2"><li id="custom_html-5" class="widget_text widget widget_custom_html"><h5 class="wg-mega-menu-title">Coup de coeur</h5><div class="textwidget custom-html-widget"><a href="#"><img src="wp-content/uploads/mega-menu.png" alt="Featured Book"></a></div></li>
@@ -623,7 +625,7 @@ autocomplete(document.getElementById("search_auto"),js_array,js_array_img,js_arr
 
 
 
-<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="news/evenements.php" class=""><span class="menu-title">Événement</span>
+<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-99" data-depth="0"><a href="http://localhost/AvenirCulturel/Views/news/evenements.php?pn=1&q=&date_rech=&button=" class=""><span class="menu-title">Événement</span>
 
 </a></li>
 

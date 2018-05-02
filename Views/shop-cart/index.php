@@ -525,6 +525,7 @@ $url=$gClient->createAuthUrl();
 
     </header>
 
+
 <link rel='stylesheet' id='select2-css'  href='../wp-content/plugins/woocommerce/assets/css/select2.css' type='text/css' media='all' />
 <link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embed31cb.json?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F" />
 <link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed23a9?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fshop-cart%2F&amp;format=xml" />
@@ -538,6 +539,7 @@ $url=$gClient->createAuthUrl();
 <!-- #masthead -->
         <div id="page-title-1" class="page-title text-center">
             <h1>Shop Cart</h1>
+        </div>
         </div>
         <!-- #page-title -->
         <div id="content" class="site-content">

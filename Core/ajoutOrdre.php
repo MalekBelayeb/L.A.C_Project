@@ -16,7 +16,7 @@ include '../Config.php';
 include '../Entity/LigneCommande.php';
 include '../Entity/Commande.php';
 include '../Entity/Panier.php';
-include '../api/PayPal-PHP-SDK-master/vendor/autoload.php';
+//include '../api/PayPal-PHP-SDK-master/vendor/autoload.php';
 $panier=new Panier();
 $paymentMethod='';
 $etat=0;
