@@ -328,10 +328,8 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 
 
                         <?php
-                        if (isset($_SESSION['id']))
+                        if (isset($_SESSION['id']) and isset($_SESSION['idd']))
                         {
-
-                        
                         ?>
                         <center>
                         <div class="col-md-3">
@@ -339,7 +337,6 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </div>
                         </center>
                         <?php
-
                         }
                         ?>
 

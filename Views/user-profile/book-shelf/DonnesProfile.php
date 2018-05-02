@@ -30,22 +30,22 @@ function countLivre($ID_C)
 <link rel='dns-prefetch' href='http://s.w.org/' />
 <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Feed" href="../../feed/index.html" />
 <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Comments Feed" href="../../comments/feed/index.html" />
-        <script type="text/javascript">
-            window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-includes\/js\/wp-emoji-release.min.js"}};
-            !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
-        </script>
-        <style type="text/css">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
 img.wp-smiley,
 img.emoji {
-    display: inline !important;
-    border: none !important;
-    box-shadow: none !important;
-    height: 1em !important;
-    width: 1em !important;
-    margin: 0 .07em !important;
-    vertical-align: -0.1em !important;
-    background: none !important;
-    padding: 0 !important;
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
 }
 </style>
 <link rel='stylesheet' id='cms-plugin-stylesheet-css'  href='../../wp-content/plugins/cmssuperheroesv2/assets/css/cms-style.css' type='text/css' media='all' />
@@ -108,15 +108,15 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 <link rel='shortlink' href='../../indexecc4.html?p=432' />
 <link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed4d82.json?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fuser-profile%2F" />
 <link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed35f0?url=http%3A%2F%2Fdemo.cmssuperheroes.com%2Fthemeforest%2Fbookjunky%2Fuser-profile%2F&amp;format=xml" />
-    <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
-    <meta name='robots' content='noindex,follow' />
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name='robots' content='noindex,follow' />
 <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.6 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
 <script type="text/javascript">function setREVStartSize(e){
-                try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;                   
-                    if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})                  
-                }catch(d){console.log("Failure at Presize of Slider:"+d)}
-            };</script>
+				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;					
+					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+				}catch(d){console.log("Failure at Presize of Slider:"+d)}
+			};</script>
 <style type="text/css" title="dynamic-css" class="options-output">body .page-title h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body .page-title h1,{opacity: 0;}.ie.wf-loading body .page-title h1,{visibility: hidden;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1504772666848{border-top-width: 1px !important;border-top-color: #d8dadf !important;border-top-style: solid !important;}.vc_custom_1504755756862{padding-top: 0px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -126,7 +126,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 
                     <!-- #page-title -->
 
-    <div id="content" class="site-content">
+	<div id="content" class="site-content">
 
 <div id="primary" class="container">
     <div class="row">
@@ -144,16 +144,16 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
                                             <ul id="menu-shortcode-menu" class="menu">
                                                 <li id="menu-item-213" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-213"><a href="#">Modifier les parametres du compte</a></li>
                                                 <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="../../book-displays/index.php">Afficher mes abonnements</a></li>
-                                                <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="reclamtion.html">Reclamation</a></li>
-                                                <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="../../book-displays/index.php">Mes achats</a></li>
-                                                <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../Ordres/index.php">Orders</a></li>
+                                                <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="#">Reclamation</a></li>
+                                                <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="#">Mes achats</a></li>
+                                                <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="#">Orders</a></li>
 
                                             </ul></div></div></div></div></div></div>
                     <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1504494642071 vc_row-has-fill">
 
 
 
-            <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1504772666848 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1504755756862"><div class="wpb_wrapper"><div class="woocommerce">
+			<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1504772666848 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1504755756862"><div class="wpb_wrapper"><div class="woocommerce">
 
 
 
@@ -210,18 +210,18 @@ if(isset($_POST['modifier']))
                             }
                                 ?>
 <div class="wrap-woo-login">
-    <div class="content-login">
-    <h2> <?php if(isset($_GET['Token']))  echo "Réinitialisation du mot de passe"; else echo "Parametres du compte"?> </h2>
+	<div class="content-login">
+	<h2> <?php if(isset($_GET['Token']))  echo "Réinitialisation du mot de passe"; else echo "Parametres du compte"?> </h2>
 
-    <form class="woocommerce-form-login" method="post">
-        <div class="input-login">
-            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="username">Nom d'utilisateur <span class="required">*</span></label>
-            <input <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" <?php if(isset($_SESSION['id'])) echo "disabled";   ?>  value="<?php if(isset($_SESSION['id'])) echo $_SESSION['id']; ?> " />
-        </div>
-        <div class="input-login">
-            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="password">Adresse mail <span class="required">*</span></label>
-            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="email" name="mail" id="password" value="<?php if(isset($_SESSION['id'])) echo $param->getEMAIL($_SESSION['id']); ?>" />
-        </div>
+	<form class="woocommerce-form-login" method="post">
+		<div class="input-login">
+			<label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="username">Nom d'utilisateur <span class="required">*</span></label>
+			<input <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" <?php if(isset($_SESSION['id'])) echo "disabled";   ?>  value="<?php if(isset($_SESSION['id'])) echo $_SESSION['id']; ?> " />
+		</div>
+		<div class="input-login">
+			<label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="password">Adresse mail <span class="required">*</span></label>
+			<input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="email" name="mail" id="password" value="<?php if(isset($_SESSION['id'])) echo $param->getEMAIL($_SESSION['id']); ?>" />
+		</div>
         <div class="input-login">
             <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Nom ">Nom <span class="required">*</span></label>
             <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="Nom" id="Nom" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'NOM'); ?>" />
@@ -251,21 +251,21 @@ if(isset($_POST['modifier']))
         <div class="g-recaptcha" data-sitekey="6Lecb1AUAAAAAI6EgB8HrZ2ogtyl6MvXy_27k0Ps"></div>
 
         <p class="form-row">
-            <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="424ac59140" />
+			<input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="424ac59140" />
             <input type="hidden" name="_wp_http_referer" value="/themeforest/bookjunky/user-profile/book-shelf/" />
             <input type="submit" class="woocommerce-Button button" name="modifier" value="Modifier" /> <a href='http://localhost/AvenirCulturel/Views/user-profile/book-shelf/DonnesProfile.php?Token=0000&id=<?php if(isset($_SESSION['id'])) echo $_SESSION['id'];?>' >Changer mot de passe</a>
            <br><br><br> <a style="color: darkred;" href="../../../Core/CompteCore.php?supprimer=true">Desactiver le compte</a>
         </p>
-    </form>
-    </div>
+	</form>
+	</div>
 </div>
 
 </div></div></div></div></div><div class="vc_row-full-width"></div>
 
-    </div><!-- .entry-content -->
-    <footer class="edit-page">
+	</div><!-- .entry-content -->
+	<footer class="edit-page">
 
-                </footer><!-- .entry-meta -->
+				</footer><!-- .entry-meta -->
 </article><!-- #post -->
 
             </main><!-- .site-main -->

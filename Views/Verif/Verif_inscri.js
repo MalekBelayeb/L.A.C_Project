@@ -361,7 +361,6 @@ function verif(event)
     {
     var y=username()+Email()+Password()+confirm()+nom()+prenom()+adresse()+tel();
 
-         alert(y);
         
         if(y==0)
      {  
