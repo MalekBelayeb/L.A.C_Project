@@ -194,6 +194,11 @@ if(isset($_POST['modifier']))
                                         {
                                             $param->setEmail($_POST['mail']);
                                             $param->setUsername($_SESSION['id']);
+                                            $param->setNom($_POST['Nom']);
+                                            $param->setPrenom($_POST['Prenom']);
+                                            $param->setAdresse($_POST['Adresse']);
+                                            $param->setDatenaiss($_POST['Date']);
+                                            $param->setTel($_POST['Tel']);
                                             $param->mettreAjour();
                                         }
                                     }
@@ -217,6 +222,28 @@ if(isset($_POST['modifier']))
 			<label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="password">Adresse mail <span class="required">*</span></label>
 			<input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="email" name="mail" id="password" value="<?php if(isset($_SESSION['id'])) echo $param->getEMAIL($_SESSION['id']); ?>" />
 		</div>
+        <div class="input-login">
+            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Nom ">Nom <span class="required">*</span></label>
+            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="Nom" id="Nom" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'NOM'); ?>" />
+        </div>
+        <div class="input-login">
+            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Prenom">Prenom<span class="required">*</span></label>
+            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="Prenom" id="Prenom" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'PRENOM'); ?>" />
+        </div>
+        <div class="input-login">
+            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Adresse">Adresse<span class="required">*</span></label>
+            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="Adresse" id="Adresse" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'ADRESSE'); ?>" />
+        </div>
+        <div class="input-login">
+            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Tel">Tel<span class="required">*</span></label>
+            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="Tel" id="Tel" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'TEL'); ?>" />
+        </div>
+
+        <div class="input-login">
+            <label <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> for="Date">Date naiss.<span class="required">*</span></label><br>
+            <input  <?php if(isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="date" name="Date" id="Date" value="<?php if(isset($_SESSION['id'])) echo $param->getData($_SESSION['id'],'DATE_NAISS'); ?>" />
+        </div>
+
         <div class="input-login">
             <label  <?php if(!isset($_GET['Token']))  echo "style='display: none' "; ?>  for="mail">Mot de passe<span class="required">*</span></label>
             <input  <?php if(!isset($_GET['Token']))  echo "style='display: none' "; ?> class="woocommerce-Input woocommerce-Input--text input-text" type="password"  name="password" id="mail" value="<?php if(isset($_SESSION['id'])) echo $param->getPASSWORD($_SESSION['id']); ?>" />

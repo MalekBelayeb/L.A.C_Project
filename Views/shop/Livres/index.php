@@ -91,28 +91,15 @@ include_once "../../../config.php";
 include_once "../../../core/bookcore.php";
 include_once "../../../core/auteurcore.php";
 
-
-
 $book = New Bookcore();
+
 $auteur = New Auteurcore();
 
 $book->update_nbr_visist($_GET['Livre']);
 
-
-
-
-
 $commentaire = New commentaireCore();
 
-
-
-
-
 //$auteur = New Auteurcore();
-
-
-
-
 
 if(session_status()==PHP_SESSION_NONE)
 {
@@ -789,49 +776,24 @@ $donnes_auteur = $auteur->Recupere_auteur_id ($donnees["AUTHOR"]);
                         </script>
                         <div class="wrap-button">
 
-                       
-
 <?php if ($donnees['QUANTITE']!=0)
 {
 ?>
-
-
-
-
     <form class="cart" method="post" enctype='multipart/form-data'>
-        
         <button type="submit" name="add-to-cart" value="388" class="single_add_to_cart_button alt">Buy <del>
-
-       
-
-
-
         <?php
 
 if ($donnees['REDUCTION']!=0)
 {
-   echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></del>'; 
-
+   echo  '<span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></del>';
     echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['REDUCTION'].'</span></ins>';
 }else    {
-
        echo  '<span class="woocommerce-Price-currencySymbol"></span></span></del>'; 
     echo  '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>'.$donnees['PRIX'].'</span></ins>';
-
-
 }
 }else  { ?>      <button type="submit" name="add-to-cart" value="388" class="single_add_to_cart_button alt"> hors stock<del><?php }?>
-
-
-
-
-
         </button>
-
             </form>
-
-
-
                             <button class="flex-favorites <?php if(!isset($_SESSION['id'])) echo 'go_to_login_link' ?>" data-id="388" <?php if(isset($_SESSION['id'])) echo "onclick='redirect()'" ?>  >
                             <span class="ff-icon zmdi zmdi-favorite-outline"></span>
                             <p class="ff-label " id="BIB"   data-counts="aj-count">Ajouter dans bibliothèque</p>
@@ -842,44 +804,12 @@ if ($donnees['REDUCTION']!=0)
 <?php
 if (isset($_SESSION['id'])) if(Existe($_GET['Livre'],$_SESSION['id'])) echo "<script>var b=document.getElementById('BIB'); b.innerHTML='Supprimer de ma bibliotheque';</script>";
 ?>
-
-
                         </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
-
                 </div>
             </div>
         </div>
     </div>
-    
 <div class="wrap-single-product post-388 product type-product status-publish has-post-thumbnail product_cat-comedy product_cat-thriller product_tag-shattered first instock sale taxable shipping-taxable purchasable product-type-simple">
     <div class="container">
         <div class="row">

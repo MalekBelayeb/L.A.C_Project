@@ -120,17 +120,10 @@ include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
 
 <?php
 
-
-
-
-
-
 $sort = $book->Sort_Livre ("DATE");
 
 
 $bks = $book->Afficher_sort();
-
-
 
 $count=0;
 
