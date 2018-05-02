@@ -24,3 +24,39 @@ Application path: /livechat/php/app.php?install-wizard-2
 Application path: /livechat/php/app.php?install-wizard-2
 2018-05-01 20:17:16 Undefined index: smtp on line 78 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
 2018-05-01 20:17:16 Undefined index: smtp on line 151 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+Application path: /AvenirCulturel/Views/livechat/php/app.php?login
+2018-05-02 17:35:10 [error] SQLSTATE[HY000] [1049] Base 'forum' inconnue
+Stack trace:
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\service\Database.php:46 (Logger:error())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\service\Database.php:64 (Database:connect())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\service\Database.php:25 (Database:reconnect())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\lib\Service.php:17 (Database:onRegister())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\model\UserModel.php:241 (Model:__construct())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\controller\AuthenticationController.php:170 (UserModel:repo())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:155 (AuthenticationController:loginAction())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:79 (Application:runAction())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app.php:26 (Application:run())
+
+2018-05-02 17:35:10 [error] SQLSTATE[HY000] [1049] Base 'forum' inconnue
+Stack trace:
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:79 (Application:runAction())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app.php:26 (Application:run())
+
+Application path: /AvenirCulturel/Views/livechat/php/app.php?contact
+2018-05-02 17:40:57 mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() on line 677 in C:\wamp64\www\AvenirCulturel\Views\livechat\php\lib\PHPMailer\class.phpmailer.php
+Application path: /AvenirCulturel/Views/livechat/php/app.php?contact
+2018-05-02 17:40:57 [error] Could not instantiate mail function.
+Debug information:
+
+
+Stack trace:
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\service\Mailer.php:57 (Logger:error())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\controller\ContactController.php:36 (Mailer:sendMessage())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:155 (ContactController:contactAction())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app\Application.php:79 (Application:runAction())
+C:\wamp64\www\AvenirCulturel\Views\livechat\php\app.php:26 (Application:run())
+

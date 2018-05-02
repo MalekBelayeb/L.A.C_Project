@@ -1,6 +1,6 @@
-
-<?php  include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
- ?>
+<?php  
+include_once "../core/categorie.php";
+?>
 
 
 
@@ -117,154 +117,11 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
           <div class="header-top">
             <div class="container">
                 <div class="row">
-                    
-
-                 
- <div class="col-xs-12 col-md-6 top-left-3">
-                        <a class="go_to_login_link" href="" id='ins_iden'>S'inscrire / S'identifier</a>
-
-                        <?php
-                        if (isset($_GET['Inscription']))
-                        {
-                        ?>
-                            <div id="bienvenue"  >
-                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
-                            </div>
-
-
-                            <script>
-                                $(document).ready(function(){
-                                    var options = {};
-                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
-                                    function callback() {
-                                        setTimeout(function() {
-                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
-                                        }, 1000 );
-                                    };
-                                });
-
-
-                            </script>
-                    <?php
-                    }
-                    ?>
-
-                        <?php
-                        if(isset($_GET['Error']))
-                        {
-                            ?>
-                            <div id="error"  >
-                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
-                            </div>
-                            <script>
-
-                                $(document).ready(function(){
-                                    var options = {};
-                                    $( "#error" ).effect( "shake", options, 500, callback );
-                                    function callback() {
-                                        setTimeout(function() {
-                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
-                                        }, 1000 );
-                                    };
-                                });
-
-                            </script>
-
-                            <?php
-                        }
-                        ?>
-
-
-                       
-
-
-
-                        <?php
-                        if (isset($_GET['Mail']))
-                        {
-                            ?>
-                            <a id="bienV" style="font-size: 13px;"> <?php echo 'Un code sera envoyé a votre mail veuillez patientez .. :) '; ?> </a>
-                            <script>
-                                var w=document.getElementById('bienV');
-                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
-                            </script>
-                            <?php
-                        }
-                        ?>
-
-
-                        <?php
-                        if (isset($_SESSION['id']))
-                        {
+                    <div class="col-xs-12 col-md-6 top-left-3">
 
                         
-                        ?>
-                        <center>
-                        <div class="col-md-3">
-                            <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
-                        </div>
-                        </center>
-                        <?php
-
-                        }
-                        ?>
-
-                        <?php
-                            if(isset($_SESSION['id'])) {
-                            ?>
-                            <a href="#">FAQ</a><a href="#">Contact</a>
-                            <?php
-
-                        }
-                        ?>
-                        <?php
-
-                        //ESPACE LIVREUR (rag)
-                       /* if(isset($_SESSION['id']))
-                        {
-                            if(ExisteLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte')))
-                            {
-                                echo "<a href='livreur/livreur1.php'>livreur</a>";
-                                $_SESSION['cin_liv']=getCinLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte'));
-
-                            }
-                        }*/
-                        if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
-                        ?>
-          
-
-
-                        <a >
-                            <?php
-                                if(!isset($_SESSION['id']))
-                                {
-                                }else
-                                {
-                                    if($_SESSION['id']=='admin')
-                                    {
-         echo "<script> location.assign('http://localhost/AvenirCulturel/Views/ADMIN/index.php'); </script>";
-                                    }
-                                    else
-                                    {
-         echo "<script>var t=document.getElementById('ins_iden'); t.innerHTML=''; </script>";
-         echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
-                                    }
-                        ?>
-<a href="user-profile/book-shelf/DonnesProfile.php">
-    <strong> <?php echo $_SESSION['id']; ?> </strong>
-</a>
-                                  <?php
-                                }
-                            ?>
-                        </a>
-                    </div>
-
-
-
-
-
-
-
+                                            <a class="go_to_login_link" href="../wp-login.html" >Login / Register</a>
+            <a href="#">FAQ</a><a href="#">Contact Us</a>                    </div>
                     <div class="col-xs-12 col-md-6 top-right-3">
                         <div class="wrap-book-shelf clearfix">
                             <img src="../wp-content/themes/book-junky/assets/images/icon-1.png"
@@ -419,44 +276,42 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
       </div>
     </div>
 </div><!-- #site-navigation -->
-<form class="form-wrapper">
-<link rel="stylesheet" type="text/css" href="recherche.css">
+
 
   </header><!-- #masthead -->
                             <div id="page-title-1" class="page-title text-center">
-                    <h1>Recherche</h1><br/><br/><br/>
-                   
-                </div><!-- #site-navigation -->
+                    <h1>Reclamation</h1>
+                </div>
 <br/>
 <br/>
 <br/>
-<?PHP
-include "../core/topiccore.php";
 
-
-
-if (isset($_POST["chercher"]) && isset($_POST["recherche"])) {
-	$TopicC=new Topiccore();
-	$result=$TopicC->recherche($_POST["recherche"]);
-	
-	foreach($result as $row){
-		$id=$row['id'];
-		$nom=$row['nom'];
-		
-?>
-<input type="hidden" name="id" value="<?PHP echo $id ?>" >
+<form method="POST" action="../user-profile/book-shelf/ajouterreclamation.php" >
+<input type="text" name="id" hidden="">
 <table>
-<tr>
-<td>NOM : </td>
-<td><input type="text" name="nom" readonly="" value="<?PHP echo $nom ?>"></td>
-</tr>
+	<tr>
+		<td>TYPE DE RECLAMATION:</td><td><select name="type" size="1">
+    <option>livre</option>
+    <option>bug</option>
+    <option>payment</option>
+    <option>renseignement</option>
 
-
+  </select>
+    </td>
+	</tr>
+	<tr>
+		<td>TEXTE DE RECLAMATION:</td><td><br/><textarea cols="100" rows="10" name="rec" value="reclamer"></textarea></td>
+	</tr>
+   <tr>
+    <td></td><td><input type="file" name="img" id="fileToUpload" >
+</td>
+  </tr>
+	<tr>
+	<td></td><td><input type="submit" name="ajouter" value="ajouter"></td>
+	</tr>
+ 
 </table>
 
-<!--header('Location: tasti.php');-->
-
-<?php
-}}
-?>
+</form>
 </body>
+</html>

@@ -9,17 +9,20 @@ include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
 include_once 'c:/wamp64/www/AvenirCulturel/core/categorieCore.php';
 
+
+
 $panier=new Panier();
 
 $comt = new CategorieCore();
 
 $book = New Bookcore();
-
 $auteur = New Auteurcore();
+
 
 $bookdonnes = $book->afficher_book_nom();
 $bookimage = $book->afficher_book_img();
 $bookid = $book->afficher_book_id();
+
 
 function getData($id,$C,$column,$table)  // ESPACE LIVREUR
 {
@@ -30,6 +33,8 @@ function getData($id,$C,$column,$table)  // ESPACE LIVREUR
         return $result[$column];
     }
 }
+
+
 
 function countLivre($compte)
 {
@@ -195,6 +200,10 @@ img.emoji {
     <script type='text/javascript' src='../../../ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js'></script>
     <script type='text/javascript'>
 
+
+
+
+
     /* <![CDATA[ */
 var jsPassData = {"ajax_url":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-admin\/admin-ajax.php","display_labels":"Labels","type_modal":"Popup","get_login_redirect":"Current Page","login_redirect":"","register_redirect":"","genrated_pass":""};
 /* ]]> */
@@ -299,6 +308,11 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         }
                         ?>
 
+
+                       
+
+
+
                         <?php
                         if (isset($_GET['Mail']))
                         {
@@ -312,9 +326,12 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         }
                         ?>
 
+
                         <?php
-                        if (isset($_SESSION['id']) and isset($_SESSION['idd']))
+                        if (isset($_SESSION['id']))
                         {
+
+                        
                         ?>
                         <center>
                         <div class="col-md-3">
@@ -322,6 +339,7 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
                         </div>
                         </center>
                         <?php
+
                         }
                         ?>
 

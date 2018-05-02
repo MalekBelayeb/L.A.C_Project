@@ -1,6 +1,9 @@
 <?php  
 include_once "../core/categorie.php";
 
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+
+
 // On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
 
 ?>
@@ -25,6 +28,24 @@ include_once "../core/categorie.php";
 <link rel='dns-prefetch' href='http://s.w.org/' />
 <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Feed" href="../feed/index.html" />
 <link rel="alternate" type="application/rss+xml" title="Book Junky &raquo; Comments Feed" href="../comments/feed/index.html" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11,fc-3.2.1/datatables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11,fc-3.2.1/datatables.min.js"> </script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+<script>
+$(document).ready(function(){
+  $("#my").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+
     <script type="text/javascript">
       window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/demo.cmssuperheroes.com\/themeforest\/bookjunky\/wp-includes\/js\/wp-emoji-release.min.js"}};
       !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -120,13 +141,151 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
           <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 top-left-3">
+                   
+
+               
+ <div class="col-xs-12 col-md-6 top-left-3">
+                        <a class="go_to_login_link" href="" id='ins_iden'>S'inscrire / S'identifier</a>
+
+                        <?php
+                        if (isset($_GET['Inscription']))
+                        {
+                        ?>
+                            <div id="bienvenue"  >
+                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
+                            </div>
+
+
+                            <script>
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+
+                            </script>
+                    <?php
+                    }
+                    ?>
+
+                        <?php
+                        if(isset($_GET['Error']))
+                        {
+                            ?>
+                            <div id="error"  >
+                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
+                            </div>
+                            <script>
+
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#error" ).effect( "shake", options, 500, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+                            </script>
+
+                            <?php
+                        }
+                        ?>
+
+
+                       
+
+
+
+                        <?php
+                        if (isset($_GET['Mail']))
+                        {
+                            ?>
+                            <a id="bienV" style="font-size: 13px;"> <?php echo 'Un code sera envoyé a votre mail veuillez patientez .. :) '; ?> </a>
+                            <script>
+                                var w=document.getElementById('bienV');
+                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
+                            </script>
+                            <?php
+                        }
+                        ?>
+
+
+                        <?php
+                        if (isset($_SESSION['id']))
+                        {
 
                         
-                                            <img src="sess.png" width="30" height="40">
-                    <?php 
-                     echo $_SESSION['r'].':'.$_SESSION['l']; ?>
-            <a href="#">Contact Us</a>                    </div>
+                        ?>
+                        <center>
+                        <div class="col-md-3">
+                            <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
+                        </div>
+                        </center>
+                        <?php
+
+                        }
+                        ?>
+
+                        <?php
+                            if(isset($_SESSION['id'])) {
+                            ?>
+                            <a href="#">FAQ</a><a href="#">Contact</a>
+                            <?php
+
+                        }
+                        ?>
+                        <?php
+
+                        //ESPACE LIVREUR (rag)
+                      /*  if(isset($_SESSION['id']))
+                        {
+                            if(ExisteLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte')))
+                            {
+                                echo "<a href='livreur/livreur1.php'>livreur</a>";
+                                $_SESSION['cin_liv']=getCinLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte'));
+
+                            }
+                        }*/
+                        if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
+                        ?>
+          
+
+
+                        <a >
+                            <?php
+                                if(!isset($_SESSION['id']))
+                                {
+                                }else
+                                {
+                                    if($_SESSION['id']=='admin')
+                                    {
+         echo "<script> location.assign('http://localhost/AvenirCulturel/Views/ADMIN/index.php'); </script>";
+                                    }
+                                    else
+                                    {
+         echo "<script>var t=document.getElementById('ins_iden'); t.innerHTML=''; </script>";
+         echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
+                                    }
+                        ?>
+<a href="user-profile/book-shelf/DonnesProfile.php">
+    <strong> <?php echo $_SESSION['id']; ?> </strong>
+</a>
+                                  <?php
+                                }
+                            ?>
+                        </a>
+                    </div>
+
+
+
+                   
                     <div class="col-xs-12 col-md-6 top-right-3">
                         <div class="wrap-book-shelf clearfix">
                             <img src="../wp-content/themes/book-junky/assets/images/icon-1.png"
@@ -171,21 +330,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 
               <div class="col-xs-12 col-md-8 col-lg-9">
                   
-                  <form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
-            <div class="wrap-search clearfix">
-              <input class="form-control" id="myInput" type="text" placeholder="Search..">>
-
-                <div class="wrap-cat">
-                  
-    <select name="product_cat" id="product_cat">
-
-        <option value="">Browse Categories</option>
-        <option value=business>Business</option><option value=children>Childrens</option><option value=comedy>Comedy</option><option value=comic>Comic</option><option value=cooking>Cooking</option><option value=fiction>Fiction</option><option value=home-garden>Home &amp; Garden</option><option value=media>Media</option><option value=romance>Romance</option><option value=science>Science</option><option value=space-nature>Space &amp; Nature</option><option value=thriller>Thriller</option>    </select>
-                    </div>
-            </div>
-             <button type="submit" class="search-submit">Go</button>
-            <input type="hidden" name="post_type" value="product" />
-          </form>
+                 
               </div><!-- #site-logo -->
           </div>
       </div>
@@ -293,8 +438,11 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 <br/>
 <br/>
 
+   <input class="form-control" id="my" type="text" placeholder="Search..">
+
+
 <br/><br/><br/>
-<table border="1" width="75%" >
+<table id="myTable" border="1" width="75%" >
 <tr style="background-color:#F7E9FD;">
    <th id="th"><big>Forums</big></th>
    <th ><big>modifier forum</big></th>

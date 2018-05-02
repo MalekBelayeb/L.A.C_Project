@@ -13,7 +13,7 @@ class Config
  	try {
  	     if(!isset(self::$db))
  	      {
-		      self::$db=new PDO('mysql:host=localhost;dbname=forum','root','');
+		      self::$db=new PDO('mysql:host=localhost;dbname=malek','root','');
 
 		      self::$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		      

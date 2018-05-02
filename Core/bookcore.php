@@ -22,6 +22,42 @@ class Bookcore
 
 
 
+	function rating_book ($id_book)
+	{
+		
+
+			$c = Connexion::getConnexion();
+
+
+		try {
+			$liste=$c->query("SELECT AVG(RATE) as nbr FROM `rating` WHERE ID_LIVRE = $id_book");
+			$donnes = $liste->fetch();
+			return $donnes;
+			
+		} catch (Exception $e) {
+			die('Erreur : '.$e->getMessage());
+			
+		}
+
+
+	}
+
+
+
+	 function MeilleurVentesDeLaSemaine()
+    {
+        $c=Connexion::getConnexion();
+        $sql="SELECT * FROM vente where DATEDIFF( NOW(), DATE )>0 and DATEDIFF( NOW(), DATE )<7  GROUP by ID_LIVRE ORDER BY count(ID_LIVRE) DESC";
+        try
+        {
+            $liste=$c->query($sql);
+            return $liste;
+        } catch (PDOException $e)
+        {
+            die( "Echec de connexion".$e->getMessage());
+        }
+    }
+
 	function Mellieur_vente ()
 	{
 
@@ -558,25 +594,15 @@ function afficher_book_quantite()
 					{
 						array_push($array, $row['NBR_VENTE']);
 					}
+					
+
+
+
+				
 			return $array;
+
+			
 	}
-
-
-
-    function MeilleurVentesDeLaSemaine()
-    {
-        $c=Connexion::getConnexion();
-        $sql="SELECT * FROM vente where DATEDIFF( NOW(), DATE )>0 and DATEDIFF( NOW(), DATE )<7  GROUP by ID_LIVRE ORDER BY count(ID_LIVRE) DESC";
-        try
-        {
-            $liste=$c->query($sql);
-            return $liste;
-        } catch (PDOException $e)
-        {
-            die( "Echec de connexion".$e->getMessage());
-        }
-    }
-
 
 
 

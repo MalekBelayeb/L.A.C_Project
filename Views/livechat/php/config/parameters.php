@@ -5,7 +5,7 @@ return array (
   'dbPort' => '3306',
   'dbUser' => 'root',
   'dbPassword' => '',
-  'dbName' => 'forum',
+  'dbName' => 'malek',
   'superUser' => 'admin',
   'superPass' => '123456',
   'services' => 

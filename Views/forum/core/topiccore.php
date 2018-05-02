@@ -245,7 +245,7 @@ try{
 		$serv="localhost";
 		$use="root";
 		$pass="";
-		$dbname="forum";
+		$dbname="malek";
 		$con=mysqli_connect($serv,$use,$pass,$dbname);
 		$sql="SELECT COUNT(id) AS total FROM `f_souscategories` WHERE id_categorie= '$id'";
 		//$sql="SELECT COUNT(id) AS total FROM `f_souscategories` WHERE id_categorie=:id";

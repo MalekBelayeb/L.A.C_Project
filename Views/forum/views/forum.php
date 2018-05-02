@@ -1,6 +1,13 @@
 <?php
 include_once "../core/topiccore.php";
 
+include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+
+
+
+if (!isset($_SESSION['id']))
+  header('location:../../index.php');
+
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11,fc-3.2.1/datatables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11,fc-3.2.1/datatables.min.js"> </script>
@@ -8,7 +15,7 @@ include_once "../core/topiccore.php";
 <script src="js/scripts.js"></script>
 <script>
 $(document).ready(function(){
-  $("#myInput").on("keyup", function() {
+  $("#my").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -131,13 +138,150 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
           <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6 top-left-3">
+                  
+ <div class="col-xs-12 col-md-6 top-left-3">
+                        <a class="go_to_login_link" href="" id='ins_iden'>S'inscrire / S'identifier</a>
+
+                        <?php
+                        if (isset($_GET['Inscription']))
+                        {
+                        ?>
+                            <div id="bienvenue"  >
+                                <p id="textM" style="text-align: right; color: #1c7430; font-size: 29px">Bienvenue a notre librairie :)</p>
+                            </div>
+
+
+                            <script>
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#bienvenue" ).effect( "slide", options, 1800, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#bienvenue" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+
+                            </script>
+                    <?php
+                    }
+                    ?>
+
+                        <?php
+                        if(isset($_GET['Error']))
+                        {
+                            ?>
+                            <div id="error"  >
+                                <p id="textM" style="text-align: right; color:darkred;  font-size: 29px">Compte introuvable :(</p>
+                            </div>
+                            <script>
+
+                                $(document).ready(function(){
+                                    var options = {};
+                                    $( "#error" ).effect( "shake", options, 500, callback );
+                                    function callback() {
+                                        setTimeout(function() {
+                                            $( "#error" ).removeAttr( "style" ).hide().fadeIn();
+                                        }, 1000 );
+                                    };
+                                });
+
+                            </script>
+
+                            <?php
+                        }
+                        ?>
+
+
+                       
+
+
+
+                        <?php
+                        if (isset($_GET['Mail']))
+                        {
+                            ?>
+                            <a id="bienV" style="font-size: 13px;"> <?php echo 'Un code sera envoyé a votre mail veuillez patientez .. :) '; ?> </a>
+                            <script>
+                                var w=document.getElementById('bienV');
+                                setTimeout((function(){w.innerHTML=''; location.assign('http://localhost/AvenirCulturel/Views/index.php');  }),4000);
+                            </script>
+                            <?php
+                        }
+                        ?>
+
+
+                        <?php
+                        if (isset($_SESSION['id']))
+                        {
 
                         
-                                            <img src="sess.png" width="30" height="40">
-                    <?php 
-                     echo $_SESSION['r'].':'.$_SESSION['l']; ?>
-            <a href="#">Contact Us</a>                    </div>
+                        ?>
+                        <center>
+                        <div class="col-md-3">
+                            <img style="width: 20%;" src="<?php if(isset($_SESSION['picture'])) echo $_SESSION['picture'] ?>">
+                        </div>
+                        </center>
+                        <?php
+
+                        }
+                        ?>
+
+                        <?php
+                            if(isset($_SESSION['id'])) {
+                            ?>
+                            <a href="#">FAQ</a><a href="#">Contact</a>
+                            <?php
+
+                        }
+                        ?>
+                        <?php
+
+                        //ESPACE LIVREUR (rag)
+                       /* if(isset($_SESSION['id']))
+                        {
+                            if(ExisteLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte')))
+                            {
+                                echo "<a href='livreur/livreur1.php'>livreur</a>";
+                                $_SESSION['cin_liv']=getCinLivreur(getDataLivreur($_SESSION['id'],'LOGIN','EMAIL','compte'));
+
+                            }
+                        }*/
+                        if(isset($_SESSION['cin_liv'])) echo $_SESSION['cin_liv'];
+                        ?>
+          
+
+
+                        <a >
+                            <?php
+                                if(!isset($_SESSION['id']))
+                                {
+                                }else
+                                {
+                                    if($_SESSION['id']=='admin')
+                                    {
+         echo "<script> location.assign('http://localhost/AvenirCulturel/Views/ADMIN/index.php'); </script>";
+                                    }
+                                    else
+                                    {
+         echo "<script>var t=document.getElementById('ins_iden'); t.innerHTML=''; </script>";
+         echo"<a href='http://localhost/AvenirCulturel/Core/DeconnexionCore.php'>Se Deconnecter</a>";
+                                    }
+                        ?>
+<a href="user-profile/book-shelf/DonnesProfile.php">
+    <strong> <?php echo $_SESSION['id']; ?> </strong>
+</a>
+                                  <?php
+                                }
+                            ?>
+                        </a>
+                    </div>
+
+
+
+
+
                     <div class="col-xs-12 col-md-6 top-right-3">
                         <div class="wrap-book-shelf clearfix">
                             <img src="../wp-content/themes/book-junky/assets/images/icon-1.png"
@@ -181,22 +325,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
               </div>
 
               <div class="col-xs-12 col-md-8 col-lg-9">
-                  
-                  <form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/" class="searchform clearfix"  method="get">
-            <div class="wrap-search clearfix">
-              <input class="form-control" id="myInput" type="text" placeholder="Search..">>
-
-                <div class="wrap-cat">
-                  
-    <select name="product_cat" id="product_cat">
-
-        <option value="">Browse Categories</option>
-        <option value=business>Business</option><option value=children>Childrens</option><option value=comedy>Comedy</option><option value=comic>Comic</option><option value=cooking>Cooking</option><option value=fiction>Fiction</option><option value=home-garden>Home &amp; Garden</option><option value=media>Media</option><option value=romance>Romance</option><option value=science>Science</option><option value=space-nature>Space &amp; Nature</option><option value=thriller>Thriller</option>    </select>
-                    </div>
-            </div>
-             <button type="submit" class="search-submit">Go</button>
-            <input type="hidden" name="post_type" value="product" />
-          </form>
+               
               </div><!-- #site-logo -->
           </div>
       </div>
@@ -311,6 +440,9 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
 <br/><br/><br/>
 
 <div id="table-hide">
+
+              <input class="form-control" id="my" type="text" placeholder="Search..">
+
 <table id="myTable" border="1" width="75%" >
 <tr style="background-color:#F7E9FD;">
    <th id="th"><big>Forums</big></th>

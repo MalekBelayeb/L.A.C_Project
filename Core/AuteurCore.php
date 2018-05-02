@@ -154,8 +154,11 @@ class Auteurcore
             die( "Echec de connexion".$e->getMessage());
         }
     }
+	
 
-    function afficherAuteur($id)
+
+
+function afficherAuteur($id)
     {
         $c=Connexion::getConnexion();
         $sql="SELECT * From auteur inner join abonnement  on auteur.ID=abonnement.ID_AUT and abonnement.ID_COMPTE='$id' ";
@@ -169,7 +172,6 @@ class Auteurcore
         }
 
     }
-
 
 
 

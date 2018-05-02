@@ -41,10 +41,14 @@ include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
                                 <div class="cms-carousel owl-carousel" id="cms-carousel">
 
                                     <?php
+
                                     $aff=$book->MeilleurVentesDeLaSemaine();
 
                                     foreach ($aff as $rows) {
                                         ?>
+
+
+
                                         <div class="cms-carousel-item clearfix" style="background-color: #24655e;color:white;">
 
                                             <a class="title-product" style="color:white !important;"
@@ -75,7 +79,15 @@ include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
                                                                                                                  class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                                                                                  alt=""/></div>
 
+
+                                                                                                                 
+
                                         </div>
+                                        
+
+
+
+
                                         <?php
                                     }
                                     ?>
@@ -120,10 +132,17 @@ include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
 
 <?php
 
+
+
+
+
+
 $sort = $book->Sort_Livre ("DATE");
 
 
 $bks = $book->Afficher_sort();
+
+
 
 $count=0;
 

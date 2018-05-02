@@ -4,6 +4,8 @@
 
     include_once 'C:/wamp64/www/AvenirCulturel/config.php';
     include_once 'C:/wamp64/www/AvenirCulturel/core/bookcore.php';
+    include_once 'C:/wamp64/www/AvenirCulturel/Views/user-profile/book-shelf/BibliothequeCore.php';
+    include_once 'C:/wamp64/www/AvenirCulturel/Views/shop/Livres/Rating/RankingCore.php';
 
     $id_ev = 0;
      
@@ -17,8 +19,15 @@
          
         // delete data
         $core = new Bookcore();
+        $bib = new BibliothequeCore();
+        $rate = new RankingCore();
+
+        $bib->delete_bib($id);
+        $rate->supprimer_rating_book($id);
+
         $core->delete_book($id);
         $core->delete_category($id);
+
         //Database::disconnect();
         header("Location: crud_index_livre.php");
           

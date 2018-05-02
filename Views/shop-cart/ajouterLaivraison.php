@@ -72,6 +72,8 @@ $laivraison1C->ajouterLaivraison($laivraison1);
 $last = $laivraison1C->get_last_code();
 
 $_SESSION['code_livre_livraison'] = $last['code_Livraison'];
+$_SESSION['type_livraison'] = 1;
+
 
 header('Location: afficherLaivraison.php');
 	

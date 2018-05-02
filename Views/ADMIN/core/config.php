@@ -16,7 +16,7 @@ class Config
 		      self::$db=new PDO('mysql:host=localhost;dbname=malek','root','');
 
 		      self::$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		      
+		      echo "connected to db ";
  			}
  }catch(Exception $s ){
  	die('Erreur: ' .$s.getMessage());
