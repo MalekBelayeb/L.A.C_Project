@@ -2,11 +2,6 @@
 include_once "../core/categorie.php";
 
 // On démarre la session (ceci est indispensable dans toutes les pages de notre section membre)
-session_start ();  
- 
-// On récupère nos variables de session
-if (isset($_SESSION['l']) && isset($_SESSION['p'])) 
-{ 
 
 ?>
 
@@ -346,19 +341,7 @@ if (isset($_GET['id'])){
 
 
    <?php  echo'<a href="contenir.php" > -Ajouter Un Content- </a>'; ?>
-   <br/><br/><br/><br/><?php
-
-}
-
-else { 
-      echo 'Veuillez vous connecter </br>';  
-    echo '<a href="./index.html">Cliquer pour se connecter</a>';
-
-}  
-//définir la session une session est un tableau temporaire 
-//1 er point c quoi une session
-// 
-?>
+   <br/><br/><br/><br/>
 
 </body>
 </html>
