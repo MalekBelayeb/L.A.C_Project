@@ -17,6 +17,7 @@ include '../Entity/LigneCommande.php';
 include '../Entity/Commande.php';
 include '../Entity/Panier.php';
 include "../Core/laivraisonC.php";
+include "../Core/laivraison_postC.php";
 
 //include '../api/PayPal-PHP-SDK-master/vendor/autoload.php';
 $panier=new Panier();
@@ -80,13 +81,29 @@ foreach ($product as $livre)
     var_dump($idlivre);
 }
 //var_dump($c);
+
+
+
 var_dump($idc) ;
 var_dump($_SESSION['code_livre_livraison']) ;
+var_dump($_SESSION['type_livraison']);
 
+
+
+if ($_SESSION['type_livraison'] == 1)
+{
 $livraisonn = new laivraisonC();
 
 $livraisonn->modifier_code_livre($_SESSION['code_livre_livraison'],$idc);
+}
 
+if ($_SESSION['type_livraison'] == 2   )
+{
+    $livraisonn = new laivraison_posteC();
+
+$livraisonn->modifier_code_livre($_SESSION['code_livre_livraison'],$idc);
+
+}
 
 
 

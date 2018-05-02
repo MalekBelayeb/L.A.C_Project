@@ -6,6 +6,49 @@ include_once "C:/wamp64/www/AvenirCulturel/Config.php";
 */
 class laivraison_posteC
 {
+
+
+
+
+
+		function get_last_code()
+	{
+
+
+     $sql="SELECT * FROM laivraison_p ORDER by code_Livraison_p DESC limit 1";
+		$db =Connexion::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		$donnes = $liste->fetch();
+		return $donnes;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+
+
+	}
+
+
+		function modifier_code_livre ($code_Livraison,$code_livre)
+		{
+		$sql="UPDATE laivraison_p SET code_livre=:code_livre where code_Livraison_p=:code_Livraison";
+		$db =Connexion::getConnexion();
+        $req=$db->prepare($sql);
+		
+		$req->bindValue(':code_livre',$code_livre);
+		$req->bindValue(':code_Livraison',$code_Livraison);
+		
+		try{
+            $req->execute();
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+		}
+
 	
 	function ajouterLaivraison_post($laivraison){
 		$sql="INSERT INTO laivraison_p(nom,prenom,code_postale,ville,mail,num_tel,code_livre,date_laivraison_p,prix) values ( :nom,:prenom,:code_postale,:ville,:mail,:num_tel,:code_livre,:date_laivraison_p,:prix)";
