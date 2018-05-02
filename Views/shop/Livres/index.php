@@ -765,7 +765,7 @@ $donnes_auteur = $auteur->Recupere_auteur_id ($donnees["AUTHOR"]);
                     <div class="wrap-content">
 
                         <div class="author" style="color:black;">
-                            <img src="../../wp-content/uploads/<?php echo $donnes_auteur['IMAGE']; ?>"
+                            <img src="../../wp-content/uploads/<?php if($donnes_auteur['IMAGE']=='') echo 'anonyme.png'; else echo $donnes_auteur['IMAGE']; ?> ?>"
                                  alt="">
                             <?php echo $donnes_auteur['NOM']; ?>                      </div>
 

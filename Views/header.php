@@ -9,8 +9,6 @@ include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Entity/Panier.php';
 include_once 'c:/wamp64/www/AvenirCulturel/core/categorieCore.php';
 
-
-
 $panier=new Panier();
 
 $comt = new CategorieCore();
@@ -23,10 +21,15 @@ $bookdonnes = $book->afficher_book_nom();
 $bookimage = $book->afficher_book_img();
 $bookid = $book->afficher_book_id();
 
-
-
-
-
+function getData($id,$C,$column,$table)  // ESPACE LIVREUR
+{
+    $sql=Connexion::getConnexion()->prepare("select $column from $table WHERE $C='$id' ");
+    $sql->execute();
+    while($result=$sql->fetch(PDO::FETCH_ASSOC))
+    {
+        return $result[$column];
+    }
+}
 
 function countLivre($compte)
 {

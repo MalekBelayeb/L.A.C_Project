@@ -4,12 +4,7 @@
 
 include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
 
-
  ?>
-
-
-
-
                     <!-- #page-title -->
 
 
@@ -43,122 +38,51 @@ include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
 
 <p class="title-carousel">LES MEILLEURES VENTES DE LA SEMAINE</p>
 
-            <div class="cms-carousel owl-carousel" id="cms-carousel">
-                
-                    <div class="cms-carousel-item clearfix" style="background-color: #ededa6;color:black;">
+                                <div class="cms-carousel owl-carousel" id="cms-carousel">
 
-                        <a class="title-product" style="color:black !important;"
-                           href="shop/the-happy-lemon/index.html">The Happy Lemon</a>
+                                    <?php
+                                    $aff=$book->MeilleurVentesDeLaSemaine();
 
-                        <div class="wrap-info">
+                                    foreach ($aff as $rows) {
+                                        ?>
+                                        <div class="cms-carousel-item clearfix" style="background-color: #24655e;color:white;">
 
-                            <p class="product-author" style="color:black !important;">
+                                            <a class="title-product" style="color:white !important;"
+                                               href="shop/Livres/index?Livre=<?php echo $rows['ID_LIVRE']; ?>"><?php echo getData($rows['ID_LIVRE'], 'ID', 'NOM', 'book'); ?></a>
 
-                                by: Kurt Yamashita                            </p>
-                            <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating bj-color-black" style="color:black;"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5 based on <span class="rating">2</span> customer ratings</span></span><span class="bj-rating-counts" style="color:black;">2 Ratings</span></div></div>                            <div class="excerpt-product" style="color:black !important;">
+                                            <div class="wrap-info">
 
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                            <a class="view-shop"
-                               style="color: black"
-                               href="shop/the-happy-lemon/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
+                                                <p class="product-author" style="color:white !important;">
 
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#ededa6"><img width="330" height="500" src="wp-content/uploads/the_happy_lemon.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-                    
-                    <div class="cms-carousel-item clearfix" style="background-color: #191f12;color:white;">
-
-                        <a class="title-product" style="color:white !important;"
-                           href="shop/aaaaa/index.html">Spells</a>
-
-                        <div class="wrap-info">
-
-                            <p class="product-author" style="color:white !important;">
-
-                                by: Aprilynne Pike                            </p>
-                            <div class="woocommerce">
-                <div class="woocommerce-product-rating">
+                                                    Par: <?php echo getData(getData($rows['ID_LIVRE'], 'ID', 'AUTHOR', 'book'), 'ID', 'NOM', 'auteur');    ?> </p>
+                                                <div class="woocommerce">
+                                                    <div class="woocommerce-product-rating">
                 <span class="star-rating  bj-color-white">
                     <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:white;">0 Ratings</span></div>
-                </div>                            <div class="excerpt-product" style="color:white !important;">
+                </span><span class="bj-rating-counts" style="color:white;"><?php echo getData($rows['ID_LIVRE'], 'ID', 'RATING', 'book'); ?></span></div>
+                                                </div>
+                                                <div class="excerpt-product" style="color:white !important;">
+                                                    <?php echo getData($rows['ID_LIVRE'], 'ID', 'OVERVIEW', 'book'); ?>
+                                                </div>
+                                                <a class="view-shop"
+                                                   style="color: #24655e"
+                                                   href="shop/Livres/index?Livre=<?php echo $rows['ID_LIVRE']; ?>">Voir ce livre <i
+                                                            class="zmdi zmdi-long-arrow-right"></i></a>
+                                            </div>
 
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                            <a class="view-shop"
-                               style="color: #191f12"
-                               href="shop/aaaaa/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
+                                            <div class="post-thumbnail" style="box-shadow:0 5px 8px#24655e"><img width="330" height="500"
+                                                                                                                 src="wp-content/uploads/<?php echo getData($rows['ID_LIVRE'], 'ID', 'IMAGE', 'book'); ?>"
+                                                                                                                 class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                                                                                 alt=""/></div>
 
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#191f12"><img width="300" height="455" src="wp-content/uploads/the_happy_lemon.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-                    
-                    <div class="cms-carousel-item clearfix" style="background-image: url(_http_/demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/bg-product-1.html);background-size: cover;background-repeat: no-repeat;">
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
 
-                        <a class="title-product" style=""
-                           href="shop/the-world-of-abstract-art/index.html">The World of Abstract Art</a>
 
-                        <div class="wrap-info">
 
-                            <p class="product-author" style="">
 
-                                by: Emily Robbins & J.D Hayes                            </p>
-                            <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating bj-color-white" style="color:white;"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5 based on <span class="rating">5</span> customer ratings</span></span><span class="bj-rating-counts" style="color:white;">5 Ratings</span></div></div>                            <div class="excerpt-product" style="">
-
-                                Kroin eu sapien eget ligula consequat vestibulum sit amet in mauris. Integer commodo                            </div>
-                            <a class="view-shop"
-                               style="color: #4f4387"
-                               href="shop/the-world-of-abstract-art/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
-
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#4f4387"><img width="299" height="455" src="wp-content/uploads/the_world.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-                    
-                    <div class="cms-carousel-item clearfix" style="background-color: #5a5b99;color:white;">
-
-                        <a class="title-product" style="color:white !important;"
-                           href="shop/nightshade/index.html">Nightshade</a>
-
-                        <div class="wrap-info">
-
-                            <p class="product-author" style="color:white !important;">
-
-                                by: Andrea Cremer                            </p>
-                            <div class="woocommerce">
-                <div class="woocommerce-product-rating">
-                <span class="star-rating  bj-color-white">
-                    <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:white;">0 Ratings</span></div>
-                </div>                            <div class="excerpt-product" style="color:white !important;">
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                            <a class="view-shop"
-                               style="color: #5a5b99"
-                               href="shop/nightshade/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
-
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#5a5b99"><img width="330" height="500" src="wp-content/uploads/nightshade.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-                    
-                    <div class="cms-carousel-item clearfix" style="background-color: #24655e;color:white;">
-
-                        <a class="title-product" style="color:white !important;"
-                           href="shop/history-of-modern-architecture/index.html">History of Modern Architecture</a>
-
-                        <div class="wrap-info">
-
-                            <p class="product-author" style="color:white !important;">
-
-                                by: Richard Phillips                            </p>
-                            <div class="woocommerce">
-                <div class="woocommerce-product-rating">
-                <span class="star-rating  bj-color-white">
-                    <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:white;">0 Ratings</span></div>
-                </div>                            <div class="excerpt-product" style="color:white !important;">
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                            <a class="view-shop"
-                               style="color: #24655e"
-                               href="shop/history-of-modern-architecture/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
-
-                        <div class="post-thumbnail" style="box-shadow:0 5px 8px#24655e"><img width="330" height="500" src="wp-content/uploads/history_of_modern_architecture.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
                                 </div>
         </div>
         </div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1503889319693 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><h2 style="font-size: 15px;color: #888a92;text-align: center;font-family:Voces;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1507284853599" >RECHERCHER PAR TITRE,AUTEUR...</h2><div class="wrap-search-book" id="cms-search-book">
