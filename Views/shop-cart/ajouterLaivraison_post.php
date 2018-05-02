@@ -65,6 +65,14 @@ var_dump($employe1);
 
 $laivraison1C=new laivraison_posteC();
 $laivraison1C->ajouterLaivraison_post($laivraison1);
+
+
+$last = $laivraison1C->get_last_code();
+
+$_SESSION['code_livre_livraison'] = $last['code_Livraison_p'];
+$_SESSION['type_livraison'] = 2;
+
+
 header('Location: afficherLaivraisonpost.php');
 
 
