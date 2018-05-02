@@ -1,0 +1,26 @@
+Application path: /livechat/php/app.php?install-wizard-2
+2018-05-01 19:39:43 Undefined index: smtp on line 162 in C:\wamp64\www\livechat\views\admin\install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2018-05-01 19:54:42 Undefined index: smtp on line 78 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+2018-05-01 19:54:42 Undefined index: smtp on line 151 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+Application path: /livechat/php/app.php?install-wizard-2
+2018-05-01 20:09:21 Undefined index: smtp on line 78 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+2018-05-01 20:09:21 Undefined index: smtp on line 151 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+Application path: /livechat/php/app.php?operator-get-typing-status
+2018-05-01 20:10:54 parse_ini_file(C:\wamp64\www\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\livechat\php\service\Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2018-05-01 20:10:59 parse_ini_file(C:\wamp64\www\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\livechat\php\service\Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2018-05-01 20:11:04 parse_ini_file(C:\wamp64\www\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\livechat\php\service\Memory.php
+Application path: /livechat/php/app.php?operator-update-typing-status
+2018-05-01 20:11:05 parse_ini_file(C:\wamp64\www\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\livechat\php\service\Memory.php
+2018-05-01 20:11:05 parse_ini_file(C:\wamp64\www\livechat\php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in C:\wamp64\www\livechat\php\service\Memory.php
+2018-05-01 20:11:05 array_merge(): Argument #1 is not an array on line 102 in C:\wamp64\www\livechat\php\service\Memory.php
+2018-05-01 20:11:05 array_keys() expects parameter 1 to be array, boolean given on line 104 in C:\wamp64\www\livechat\php\service\Memory.php
+2018-05-01 20:11:05 Invalid argument supplied for foreach() on line 104 in C:\wamp64\www\livechat\php\service\Memory.php
+2018-05-01 20:11:05 Invalid argument supplied for foreach() on line 79 in C:\wamp64\www\livechat\php\service\Memory.php
+Application path: /livechat/php/app.php?install-wizard-2
+2018-05-01 20:16:57 Undefined index: smtp on line 162 in C:\wamp64\www\livechat\views\admin\install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2018-05-01 20:17:16 Undefined index: smtp on line 78 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
+2018-05-01 20:17:16 Undefined index: smtp on line 151 in C:\wamp64\www\livechat\views\admin\install-wizard-2.html
