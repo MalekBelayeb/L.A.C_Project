@@ -143,7 +143,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
                     <div class="column-sc-left wpb_column vc_column_container vc_col-sm-5 vc_col-has-fill"><div class="vc_column-inner vc_custom_1503308950049"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><div class="menu-shortcode-menu-container">
                                             <ul id="menu-shortcode-menu" class="menu">
                                                 <li id="menu-item-213" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-213"><a href="#">Modifier les parametres du compte</a></li>
-                                                <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="#">Afficher mes abonnements</a></li>
+                                                <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="../../book-displays/index.php">Afficher mes abonnements</a></li>
                                                 <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="reclamtion.html">Reclamation</a></li>
                                                 <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="../../book-displays/index.php">Mes achats</a></li>
                                                 <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../Ordres/index.php">Orders</a></li>

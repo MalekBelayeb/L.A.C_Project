@@ -154,7 +154,21 @@ class Auteurcore
             die( "Echec de connexion".$e->getMessage());
         }
     }
-	
+
+    function afficherAuteur($id)
+    {
+        $c=Connexion::getConnexion();
+        $sql="SELECT * From auteur inner join abonnement  on auteur.ID=abonnement.ID_AUT and abonnement.ID_COMPTE='$id' ";
+        try
+        {
+            $liste=$c->query($sql);
+            return $liste;
+        } catch (PDOException $e)
+        {
+            die( "Echec de connexion".$e->getMessage());
+        }
+
+    }
 
 
 

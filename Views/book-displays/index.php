@@ -1,4 +1,14 @@
+<?php
+if(session_status()==PHP_SESSION_NONE)
+{
+    session_start();
+}
 
+include_once "c:\wamp64\www\AvenirCulturel\Core\AuteurCore.php";
+
+$aut=new AuteurCore();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -121,75 +131,52 @@
                                                                     <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-429"><a href="index.html">Reclamation</a></li>
                                                                     <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="#">Mes achats</a></li>
                                                                     <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../../book-displays/index.php">Orders</a></li>
-
-
                                                                 </ul></div></div></div></div></div></div>
-                                        <div class="column-ct-right wpb_column vc_column_container vc_col-sm-7 vc_col-has-fill"><div class="vc_column-inner vc_custom_1504494653301"><div class="wpb_wrapper">
-                                                    <div class="wpb_raw_code wpb_content_element wpb_raw_html vc_custom_1503563471640" >
-                                                        <div class="wpb_wrapper">
+                                        <div class="column-ct-right wpb_column vc_column_container vc_col-sm-7 vc_col-has-fill">
+                                            <div class="vc_column-inner vc_custom_1504494653301">
+                                                <div class="wpb_wrapper">
+
                                                             <div class="wrap-header-shortcode-team">
-                                                                <h3>Book Displays</h3>
-                                                                <p>Showcase the books in a range of views..</p>
+                                                                <h3>Mes abonnements</h3>
                                                             </div>
+
+
+                                                    <?php
+                                                    $result=$aut->afficherAuteur($_SESSION['id']);
+                                                    foreach ($result as $row)
+                                                    {
+
+
+                                                    ?>
+
+                                                    <div class="cms-author">
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-6 col-md-3 new-col-lg-5">
+                                                                <a href="../author-profile/profil_author.php?id_author=<?php echo $row['ID'] ;?>">
+                                                                    <div class="item">
+                                                                        <img src="../wp-content/uploads/<?php if($row['IMAGE']=='') echo 'anonyme.png'; else echo $row['IMAGE']; ?>" alt="Avt Author">
+
+                                                                        <div class="info">
+                                                                            <div style="font-size: 15px" class="bj-author-name"><?php echo $row['NOM'];?></div>
+
+                                                                            <div style="font-size: 10px" class="bj-count-book">
+
+                                                                               <?php echo $aut->Nbr_livre_id($row['ID'])['NbNews'];   ?> Livres  </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+
                                                         </div>
                                                     </div>
-                                                    <h4 style="font-size: 14px;color: #888a92;text-align: left;font-family:averta-regular;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1505891032500" >Featured Books View</h4>        <div class="carousel-product ">
+                                                    <?php
+                                                    }
+                                                    ?>
+
 
                                                         <p class="title-carousel"></p>
 
-                                                        <div class="cms-carousel owl-carousel" id="cms-carousel">
 
-                                                            <div class="cms-carousel-item clearfix" style="background-color: #bcbabb;">
-
-                                                                <a class="title-product" style="color:black;"
-                                                                   href="../shop/shattered/index.html">Shattered</a>
-
-                                                                <div class="wrap-info">
-
-                                                                    <p class="product-author" style="color:black;">
-
-                                                                        by: Peter Cawdron                            </p>
-                                                                    <div class="woocommerce">
-                                                                        <div class="woocommerce-product-rating">
-                <span class="star-rating  bj-color-black">
-                    <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:black;">0 Ratings</span></div>
-                                                                    </div>                            <div class="excerpt-product" style="color:black;">
-
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                                                                    <a class="view-shop"
-                                                                       style="color: black"
-                                                                       href="../shop/shattered/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                                                                </div>
-
-                                                                <div class="post-thumbnail" style="box-shadow:0 5px 8px#e9e7e8"><img width="330" height="500" src="../wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-
-                                                            <div class="cms-carousel-item clearfix" style="background-color: #000000;color:white;">
-
-                                                                <a class="title-product" style="color:white !important;"
-                                                                   href="../shop/freefall/index.html">Freefall</a>
-
-                                                                <div class="wrap-info">
-
-                                                                    <p class="product-author" style="color:white !important;">
-
-                                                                        by: Peter Cawdron                            </p>
-                                                                    <div class="woocommerce">
-                                                                        <div class="woocommerce-product-rating">
-                <span class="star-rating  bj-color-white">
-                    <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:white;">0 Ratings</span></div>
-                                                                    </div>                            <div class="excerpt-product" style="color:white !important;">
-
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt                            </div>
-                                                                    <a class="view-shop"
-                                                                       style="color: #000000"
-                                                                       href="../shop/freefall/index.html">View in Book Store                                <i class="zmdi zmdi-long-arrow-right"></i></a>
-                                                                </div>
-
-                                                                <div class="post-thumbnail" style="box-shadow:0 5px 8px#000000"><img width="330" height="500" src="../wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>                    </div>
-                                                        </div>
-                                                    </div>
 
                                                     <div class="wpb_raw_code wpb_content_element wpb_raw_html vc_custom_1505891324503" >
                                                         <div class="wpb_wrapper">
@@ -197,57 +184,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h4 style="font-size: 14px;color: #888a92;text-align: left;font-family:averta-regular;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1505891486718" >Grid View 1</h4>
                                                     <div class="cms-grid-wraper grid-2 " id="cms-grid">
 
 
-                                                        <div class="row cms-grid">
 
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12 "  data-groups='["all","category-comedy","category-thriller"]'>
-                                                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="../shop/shattered/index.html"><img width="330" height="500" src="../wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                <div class="info-product">
-                                                                    <a class="product-title" href="../shop/shattered/index.html">Shattered</a>
-                                                                    <p class="product-author">by: Peter Cawdron</p>
-
-
-                                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12 "  data-groups='["all","category-science","category-space-nature","category-thriller"]'>
-                                                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="../shop/freefall/index.html"><img width="330" height="500" src="../wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                <div class="info-product">
-                                                                    <a class="product-title" href="../shop/freefall/index.html">Freefall</a>
-                                                                    <p class="product-author">by: Peter Cawdron</p>
-
-
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12 "  data-groups='["all","category-thriller"]'>
-                                                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="../shop/darknet/index.html"><img width="330" height="500" src="../wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                <div class="info-product">
-                                                                    <a class="product-title" href="../shop/darknet/index.html">Darknet</a>
-                                                                    <p class="product-author">by: Matthew Mather</p>
-
-
-                                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12 "  data-groups='["all","category-thriller"]'>
-                                                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #180b06;" onmouseover="this.style.boxShadow ='0 0 20px 0 #180b06';" onmouseout="this.style.boxShadow ='0 0 15px -2px #180b06';" ><a href="../shop/holy-ghosts/index.html"><img width="330" height="500" src="../wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                <div class="info-product">
-                                                                    <a class="product-title" href="../shop/holy-ghosts/index.html">Holy Ghosts</a>
-                                                                    <p class="product-author">by: David J. Schmidt</p>
-
-
-                                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
                                                     </div>
 
@@ -258,89 +198,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h4 style="font-size: 14px;color: #888a92;text-align: left;font-family:averta-regular;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1503566304058" >Grid View 2</h4>    		<div class="cms-grid-wraper grid-1" id="cms-grid-2">
-
-                                                        <div class="row cms-grid">
-
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000';" ><a href="../shop/shattered/index.html"><img width="330" height="500" src="../wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/shattered/index.html">Shattered</a>
-                                                                        <p class="product-author">by: Peter Cawdron</p>
-
-
-                                                                        <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" ><a href="../shop/freefall/index.html"><img width="330" height="500" src="../wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/freefall/index.html">Freefall</a>
-                                                                        <p class="product-author">by: Peter Cawdron</p>
-
-
-                                                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>11.99</span></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" ><a href="../shop/darknet/index.html"><img width="330" height="500" src="../wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/darknet/index.html">Darknet</a>
-                                                                        <p class="product-author">by: Matthew Mather</p>
-
-
-                                                                        <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>7.00</span></ins></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #f5f5f5;" onmouseover="this.style.boxShadow ='0 0 20px 0 #f5f5f5';" onmouseout="this.style.boxShadow ='0 0 15px -2px #f5f5f5';" ><a href="../shop/holy-ghosts/index.html"><img width="330" height="500" src="../wp-content/uploads/holy_ghosts.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></a></div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/holy-ghosts/index.html">Holy Ghosts</a>
-                                                                        <p class="product-author">by: David J. Schmidt</p>
-
-
-                                                                        <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>8.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>6.00</span></ins></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
                                                     </div>
-
-                                                    <div class="wpb_raw_code wpb_content_element wpb_raw_html vc_custom_1503566309315" >
-                                                        <div class="wpb_wrapper">
-                                                            <div class="wrap-header-shortcode-book-display">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <h4 style="font-size: 14px;color: #888a92;text-align: left;font-family:averta-regular;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1505891570572" >List View</h4>    		<div class="cms-grid-wraper grid-4" id="cms-grid-3">
-
-                                                        <div class="row cms-grid">
-
-
-                                                            <div class="cms-grid-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000';" ><img width="330" height="500" src="../wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" /></div>
-                                                                <div class="info-product">
-                                                                    <a class="product-title" href="../shop/shattered/index.html">Shattered</a>
-                                                                    <p class="product-author">by: Peter Cawdron</p>
-
-
-                                                                    <span class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>14.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>9.99</span></ins></span>
-                                                                    <div class="excerpt-product">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
                                                     </div>
 
@@ -350,60 +209,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h4 style="font-size: 14px;color: #888a92;text-align: left;font-family:averta-regular;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1503566331171" >Sidebar And Footer View</h4>    		<div class="cms-grid-wraper grid-3" id="cms-grid-4">
-
-                                                        <div class="row cms-grid">
 
 
-                                                            <div class="cms-grid-item col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000';" >
-
-                                                                        <img width="330" height="500" src="../wp-content/uploads/shattered.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />					            </div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/shattered/index.html">Shattered</a>
-                                                                        <p class="product-author">by: Peter Cawdron</p>
-
-                                                                        <div class="woocommerce">
-                                                                            <div class="woocommerce-product-rating">
-                <span class="star-rating ">
-                    <span style="width:0%"></span>
-                </span></div>
-                                                                        </div>								</div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #e9e7e8;" onmouseover="this.style.boxShadow ='0 0 20px 0 #e9e7e8';" onmouseout="this.style.boxShadow ='0 0 15px -2px #e9e7e8';" >
-
-                                                                        <img width="330" height="500" src="../wp-content/uploads/freefall.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />					            </div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/freefall/index.html">Freefall</a>
-                                                                        <p class="product-author">by: Peter Cawdron</p>
-
-                                                                        <div class="woocommerce">
-                                                                            <div class="woocommerce-product-rating">
-                <span class="star-rating ">
-                    <span style="width:0%"></span>
-                </span></div>
-                                                                        </div>								</div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="cms-grid-item col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                <div class="wrap-content">
-                                                                    <div class="cms-grid-media" style="transition:all 0.25s ease 0s ;box-shadow: 0 0 15px -2px #000000;" onmouseover="this.style.boxShadow ='0 0 20px 0 #000000';" onmouseout="this.style.boxShadow ='0 0 15px -2px #000000';" >
-
-                                                                        <img width="330" height="500" src="../wp-content/uploads/darknet.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />					            </div>
-                                                                    <div class="info-product">
-                                                                        <a class="product-title" href="../shop/darknet/index.html">Darknet</a>
-                                                                        <p class="product-author">by: Matthew Mather</p>
-
-                                                                        <div class="woocommerce"><div class="woocommerce-product-rating"><span class="star-rating" style="color:;"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span></span></div></div>								</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
                                                     </div>
                                                 </div></div></div></div><div class="vc_row-full-width"></div>

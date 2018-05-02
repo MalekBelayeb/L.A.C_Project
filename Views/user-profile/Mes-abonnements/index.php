@@ -1,6 +1,9 @@
+
+
 <!DOCTYPE html>
 <html lang="en-US">
-
+<br>
+<br>
 <!-- Mirrored from demo.cmssuperheroes.com/themeforest/bookjunky/book-displays/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2018 22:29:05 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -96,7 +99,7 @@
 <body class="page-template-default page page-id-258 body-boxed wpb-js-composer js-comp-ver-5.2.1 vc_responsive">
 <div class="wrap-boxed"><div id="page" class="hfeed site">
         <header id="masthead" class="site-header">
-        <!-- #site-navigation -->
+            <!-- #site-navigation -->
 
 
         </header><!-- #masthead -->
@@ -114,9 +117,9 @@
                                         <div class="column-sc-left wpb_column vc_column_container vc_col-sm-5 vc_col-has-fill"><div class="vc_column-inner vc_custom_1503308950049"><div class="wpb_wrapper"><div  class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><div class="menu-shortcode-menu-container">
                                                                 <ul id="menu-shortcode-menu" class="menu">
                                                                     <li id="menu-item-213" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-213"><a href="book-shelf/DonnesProfile.php">Modifier les parametres du compte</a></li>
-                                                                    <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="Mes-abonnements/index.php">Afficher mes abonnements</a></li>
+                                                                    <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="../lightboxes/index.html">Afficher mes abonnements</a></li>
                                                                     <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-429"><a href="index.html">Reclamation</a></li>
-                                                                    <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="../message-boxes/index.html">Mes achats</a></li>
+                                                                    <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="#">Mes achats</a></li>
                                                                     <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../../book-displays/index.php">Orders</a></li>
 
 

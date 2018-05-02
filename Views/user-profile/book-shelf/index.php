@@ -659,18 +659,18 @@ class="vc_custom_heading vc_custom_1505891570572"><?php  echo $bib['DATE'];?></h
                                                      onmouseover="this.style.boxShadow ='0 0 20px 0 #000';"
                                                      onmouseout="this.style.boxShadow ='0 0 15px -2px #000';"><img
                                                             width="330" height="500"
-                                                            src="../../<?php echo $affiche->getElement('IMG_PATH',$bib['ID_LIVRE']);?>"
+                                                            src="../../wp-content/uploads/<?php echo $affiche->getElement('IMAGE',$bib['ID_LIVRE']);?>"
                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                                             alt=""/></div>
                                                      <div class="info-product">
                                                     <a class="product-title" href="../shop/shattered/index.html"><?php  /*echo $affiche->getElement('NOM',$bib['ID_LIVRE']);*/?></a>
-                                                    <p class="product-author">by:<?php  echo $affiche->getElement('AUTEUR',$bib['ID_LIVRE']);?></p>
+                                                    <p class="product-author">by:<?php  echo $affiche->getElement('AUTHOR',$bib['ID_LIVRE']);?></p>
                                                     <span class="price"><del><span
                                                                     class="woocommerce-Price-amount amount"><span
-                                                                        class="woocommerce-Price-currencySymbol">&pound;</span><?php echo $affiche->getElement('ANCIEN_PRIX',$bib['ID_LIVRE']);?></span></del> <ins><span
+                                                                        class="woocommerce-Price-currencySymbol">&pound;</span></span></del> <ins><span
                                                                     class="woocommerce-Price-amount amount"><span
                                                                         class="woocommerce-Price-currencySymbol">&pound;</span><?php  echo $affiche->getElement('PRIX',$bib['ID_LIVRE']);?></span></ins></span>
-                                                    <div class="excerpt-product"><?php  echo $affiche->getElement('DESCRIPTION',$bib['ID_LIVRE']);?>
+                                                    <div class="excerpt-product"><?php  echo $affiche->getElement('OVERVIEW',$bib['ID_LIVRE']);?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -696,9 +696,7 @@ alert(i);
 }
         </script>
 
-        <button value="" onclick="page()">
-            Voir plus
-        </button>
+
 
 
 	</div><!-- .entry-content -->
