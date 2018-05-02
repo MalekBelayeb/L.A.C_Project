@@ -146,7 +146,7 @@ var _zxcvbnSettings = {"src":"http:\/\/demo.cmssuperheroes.com\/themeforest\/boo
                                                 <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="#">Afficher mes abonnements</a></li>
                                                 <li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="reclamtion.html">Reclamation</a></li>
                                                 <li id="menu-item-211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="../../book-displays/index.php">Mes achats</a></li>
-                                                <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../../book-displays/index.php">Orders</a></li>
+                                                <li id="menu-item-2111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2111"><a href="../Ordres/index.php">Orders</a></li>
 
                                             </ul></div></div></div></div></div></div>
                     <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid width-fill vc_custom_1504494642071 vc_row-has-fill">

@@ -47,7 +47,7 @@ if (isset($_GET['id']))
 }
 $pdo=Connexion::getConnexion();
 $pdo2=Connexion::getConnexion();
-$c=new Commande('',$_SESSION['id'],0,'',0);
+$c=new Commande('',$_SESSION['id'],0,'',0,date('Y-m-d'));
 $c->AjouterCommande();
 $ids=array_keys($_SESSION['panier'],!0,false);
 $idc=$c->lastid();
@@ -57,7 +57,7 @@ for($i=0;$i<count($ids);$i++)
     //var_dump($lc);
     $lc->AjouterLigneCommande();
 }
-$c=new Commande((int)$idc,$_SESSION['id'],(float)$panier->total(),$paymentMethod,$etat);
+$c=new Commande((int)$idc,$_SESSION['id'],(float)$panier->total(),$paymentMethod,$etat,date("Y-m-d"));
 $c->ModifierCommande();
 $sql = 'SELECT * FROM book where ID IN (' . implode(',', $ids) . ')';
 $stmt = $pdo->prepare($sql);
