@@ -145,6 +145,7 @@ function Email()
     {
         var x=0;
         var  mdp=$("#MDP").val();
+            var onlyNumber=/^[0-9]*$/gm;
         if(mdp=='')
             {
                   $("#MDP").css({"background-color": "#ff7f7f"});
@@ -218,7 +219,137 @@ x++;
     
 
     
-           function mailsent()
+    
+    function nom()
+    {
+    var x=0;
+     var nom=$("#nom").val();
+            var onlyletter=/^[A-Za-z]+$/;
+        if(nom=='')
+            {
+                   $("#nom").css({"background-color": "#ff7f7f"});
+                  $("#nom_span").css({"color": "#ff7f7f"});
+                  $("#nom_span").html("    *"); 
+                x++;
+            }
+        else if(nom.match(onlyletter)==null){
+            
+            
+                $("#nom").css({"background-color": "#ff7f7f"});
+                  $("#nom_span").css({"color": "#ff7f7f"});
+                  $("#nom_span").html(""); 
+            x++;
+        }
+        else
+            {
+                  $("#nom").css({"background-color": "#98FB98"}); 
+                  $("#nom_span").html("");
+            }
+        
+        
+        
+        return x;
+    }
+    
+    function prenom()
+    {
+        var x=0;
+        var prenom=$("#prenom").val();
+            
+            var onlyletter=/^[A-Za-z]+$/;
+        if(prenom=='')
+            {
+                   $("#prenom").css({"background-color": "#ff7f7f"});
+                  $("#prenom_span").css({"color": "#ff7f7f"});
+                  $("#prenom_span").html("    *"); 
+                x++;
+            }
+        else if(prenom.match(onlyletter)==null){
+            
+            
+                $("#prenom").css({"background-color": "#ff7f7f"});
+                  $("#prenom_span").css({"color": "#ff7f7f"});
+                  $("#prenom_span").html(""); 
+            x++;
+        }
+        else
+            {
+                  $("#prenom").css({"background-color": "#98FB98"}); 
+                  $("#prenom_span").html("");
+            }
+        
+        
+        
+        return x;
+
+    }
+    
+    function adresse()
+    {
+        var x=0;
+        var adresse=$("#adresse").val();
+        
+        
+        if(adresse=='')
+        {
+             
+            $("#adresse").css({"background-color": "#ff7f7f"});
+                  $("#adresse_span").css({"color": "#ff7f7f"});
+                  $("#adresse_span").html("       Champs obligatoire ");   
+            x++;
+            
+        }else
+        {
+            $("#adresse").css({"background-color": "#98FB98"});
+                                $("#adresse_span").css({"color": "#98FB98"});
+                             $("#adresse_span").html("");              
+                      
+        }
+        
+        
+        return x;
+    }
+    
+    function tel()
+    {
+        
+        var x=0;
+        var tel=$("#tel").val();
+         var onlyNumber=/^[0-9]*$/gm;
+        
+                
+        if(tel=='')
+        {
+             
+            $("#tel").css({"background-color": "#ff7f7f"});
+                  $("#tel_span").css({"color": "#ff7f7f"});
+                  $("#tel_span").html("       Champs obligatoire ");   
+            x++;
+        }
+        
+        
+        else if((tel.length!=8) || (tel.match(onlyNumber)==null))
+                {
+                  $("#tel").css({"background-color": "#ff7f7f"});
+                  $("#tel_span").css({"color": "#ff7f7f"});
+                  $("#tel_span").html("       Saisir un numero valide ");
+                x++;
+                }
+        
+        else
+        {
+                                $("#tel").css({"background-color": "#98FB98"});
+                                $("#tel_span").css({"color": "#98FB98"});
+                                $("#tel_span").html("");              
+                      
+        }
+        
+        return x;
+    }
+     
+    
+    
+    function mailsent()
             {
                     $("#div1").fadeIn(3000);
                     $("#div1").css({"display":"inherit"});
@@ -228,19 +359,19 @@ x++;
  
 function verif(event)
     {
-    var y=username()+Email()+Password()+confirm();
+    var y=username()+Email()+Password()+confirm()+nom()+prenom()+adresse()+tel();
 
-        
+         alert(y);
         
         if(y==0)
-     {  $("#div1").fadeIn(3000);
-                    $("#div1").css({"display":"inherit"});
-                    setTimeout(function(){$("#div1").fadeOut(3000); }, 4000);
+     {  
+         
+        
          $.ajax({
                   type:"POST",
                   url:"http://localhost/AvenirCulturel/Core/CompteCore.php",
                 dataType:"html",   
-             data:{register_user:$("#register_user").val(),register_email:$("#register_email").val(),mot_de_passe:$("#MDP").val()},
+             data:{register_user:$("#register_user").val(),register_email:$("#register_email").val(),mot_de_passe:$("#MDP").val(),nom:$("#nom").val(),prenom:$("#prenom").val(),adresse:$("#adresse").val(),tel:$("#tel").val(),datenaiss:$("#datenaiss").val()},
                 
              beforeSend: function()
              {
@@ -248,6 +379,7 @@ function verif(event)
              },
              success:function(data)
                     {
+                        
                     }    
              
          });
@@ -265,6 +397,10 @@ $('#register_user').keyup(username);
 $('#register_email').keyup(Email);
 $('#MDP').keyup(Password);
 $('#MDP_confirm').keyup(confirm);
+$('#nom').keyup(nom);
+$('#prenom').keyup(prenom);
+$('#adresse').keyup(adresse);
+$('#tel').keyup(tel);
     
 $("#register_submit").click(verif);
 

@@ -2,7 +2,7 @@
 
 <?php   
 
-include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/views/header.php"
+include_once "$_SERVER[DOCUMENT_ROOT]/AvenirCulturel/Views/header.php";
 
 
  ?>
@@ -875,13 +875,19 @@ if ($product['REDUCTION']!=0)
 
             </form>
             <form class="register_form" id="register_form"
-                method="post"  >
+                  method="post"  >
                 <h2>Inscription</h2>
                 <input type="text" class="alert_status" readonly>
                 <label for="register_user">Nom d'utilisateur</label><span id="register_user_span">    </span>
                 <input type="text" name="register_user" id="register_user" value=""  >
                 <label for="register_email">E-mail</label><span id="email_span" ></span>
                 <input type="email" name="register_email" id="register_email" value=""   >
+                <label for="nom">Nom</label><span id="nom_span"></span>
+                <input style="width: 150px" type="text"  id="nom" name="nom">&nbsp;&nbsp; <label for="prenom">Prenom</label><span id="prenom_span"></span> <input style="width: 150px" type="text"  id="prenom" name="prenom" ><br>
+                <label for="adresse">Adresse</label><span id="adresse_span"></span>
+                <input type="text"  id="adresse" name="adresse" >
+                <label for="tel">Tel</label><span id="tel_span"></span>
+                <input type="text" style="width: 100px"  id="tel" name="tel" >&nbsp;&nbsp;<label for="datenaiss">Date Naiss.</label><span id="datenaiss_span"></span>&nbsp;&nbsp;&nbsp;<input style="width: 150px" type="date" style="width: 200px"  id="datenaiss" name="datenaiss" >
                 <label for="MDP">Mot de passe</label><span id="mdp_span"></span>
                 <input type="password"  id="MDP"name="mot_de_passe" >
                 <label for="MDP_confirm">Confirmer mot de passe</label><span id="ee2"></span>

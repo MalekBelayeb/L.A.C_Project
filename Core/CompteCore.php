@@ -72,13 +72,31 @@ class CompteCore extends Compte
             return $result['MDP'];
         }
     }
+    function getData($DATA,$CODE)
+    {
+
+            $sql=Connexion::getConnexion()->prepare("select $DATA from codeverification WHERE CODE='$CODE'");
+            $sql->execute();
+            while($result=$sql->fetch(PDO::FETCH_ASSOC))
+            {
+                return $result[$DATA];
+            }
+
+    }
+
+
     function ajouterTEMP()
     {
-        $requete=Connexion::getConnexion()->prepare("INSERT INTO codeverification(ID_COMPTE,MDP,EMAIL,CODE) VALUES(:COMPTE,:MDP,:MAIL,:CODE)");
+        $requete=Connexion::getConnexion()->prepare("INSERT INTO codeverification(ID_COMPTE,MDP,EMAIL,CODE,NOM,PRENOM,DATE_NAISS,ADRESSE,TEL) VALUES(:COMPTE,:MDP,:MAIL,:CODE,:NOM,:PRENOM,:DATE_NAISS,:ADRESSE,:TEL)");
         $requete->bindValue(':COMPTE',$this->username,PDO::PARAM_STR);
         $requete->bindValue(':MAIL',$this->email,PDO::PARAM_STR);
         $requete->bindValue(':MDP',$this->password,PDO::PARAM_STR);
         $requete->bindValue(':CODE',$this->codeVerif,PDO::PARAM_STR);
+        $requete->bindValue(':NOM',$this->nom,PDO::PARAM_STR);
+        $requete->bindValue(':PRENOM',$this->prenom,PDO::PARAM_STR);
+        $requete->bindValue(':DATE_NAISS',$this->datenaiss,PDO::PARAM_STR);
+        $requete->bindValue(':ADRESSE',$this->adresse,PDO::PARAM_STR);
+        $requete->bindValue(':TEL',$this->tel,PDO::PARAM_STR);
         if($requete->execute())
         {
 
@@ -87,10 +105,15 @@ class CompteCore extends Compte
 
     public function ajouter_compte()
     {
-        $requete=Connexion::getConnexion()->prepare("INSERT INTO compte(LOGIN,EMAIL,MDP) VALUES(:LOGIN,:EMAIL,:MDP)");
+        $requete=Connexion::getConnexion()->prepare("INSERT INTO compte(LOGIN,EMAIL,MDP,NOM,PRENOM,DATE_NAISS,ADRESSE,TEL) VALUES(:LOGIN,:EMAIL,:MDP,:NOM,:PRENOM,:DATE_NAISS,:ADRESSE,:TEL)");
         $requete->bindValue(':LOGIN',$this->username,PDO::PARAM_STR);
         $requete->bindValue(':EMAIL',$this->email,PDO::PARAM_STR);
         $requete->bindValue(':MDP',$this->password,PDO::PARAM_STR);
+        $requete->bindValue(':NOM',$this->nom,PDO::PARAM_STR);
+        $requete->bindValue(':PRENOM',$this->prenom,PDO::PARAM_STR);
+        $requete->bindValue(':DATE_NAISS',$this->datenaiss,PDO::PARAM_STR);
+        $requete->bindValue(':ADRESSE',$this->adresse,PDO::PARAM_STR);
+        $requete->bindValue(':TEL',$this->tel,PDO::PARAM_STR);
         if($requete->execute())
         {
             header("Location: http://localhost/AvenirCulturel/Views/index.php?Inscription=".$this->username);
@@ -158,6 +181,11 @@ if(isset($_POST['register_user']) AND isset($_POST['mot_de_passe']) AND isset($_
     $inscri->setUsername($_POST['register_user']);
     $inscri->setPassword($_POST['mot_de_passe']);
     $inscri->setEmail($_POST['register_email']);
+    $inscri->setNom($_POST['nom']);
+    $inscri->setPrenom($_POST['prenom']);
+    $inscri->setAdresse($_POST['adresse']);
+    $inscri->setTel($_POST['tel']);
+    $inscri->setDatenaiss($_POST['datenaiss']);
 
     if($inscri->verif_username())
     {
@@ -175,6 +203,11 @@ if(isset($_GET['Code']) )
     $inscri->setUsername($inscri->getLOGIN($_GET['Code']));
     $inscri->setPassword($inscri->getPASSWORD($_GET['Code']));
     $inscri->setEmail($inscri->getEMAIL($_GET['Code']));
+    $inscri->setNom($inscri->getData('NOM',$_GET['Code']));
+    $inscri->setPrenom($inscri->getData('PRENOM',$_GET['Code']));
+    $inscri->setTel($inscri->getData('TEL',$_GET['Code']));
+    $inscri->setAdresse($inscri->getData('ADRESSE',$_GET['Code']));
+    $inscri->setDatenaiss($inscri->getData('DATE_NAISS',$_GET['Code']));
     if($inscri->VerifCompte($_GET['Code']))
     {
         echo 'code true';
