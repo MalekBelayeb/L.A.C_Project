@@ -16,6 +16,8 @@ include '../Config.php';
 include '../Entity/LigneCommande.php';
 include '../Entity/Commande.php';
 include '../Entity/Panier.php';
+include "../Core/laivraisonC.php";
+
 //include '../api/PayPal-PHP-SDK-master/vendor/autoload.php';
 $panier=new Panier();
 $paymentMethod='';
@@ -77,6 +79,20 @@ foreach ($product as $livre)
     var_dump($quantite);
     var_dump($idlivre);
 }
-var_dump($c);
+//var_dump($c);
+var_dump($idc) ;
+var_dump($_SESSION['code_livre_livraison']) ;
+
+$livraisonn = new laivraisonC();
+
+$livraisonn->modifier_code_livre($_SESSION['code_livre_livraison'],$idc);
+
+
+
+
+
+
+
+
 header('location:http://localhost/AvenirCulturel/Views/shop-checkout/Payment.php?id='.$idc);
 ?>
