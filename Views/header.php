@@ -1,5 +1,6 @@
 <?php
 include_once 'c:/wamp64/www/AvenirCulturel/Core/LoginCore.php';
+include_once 'c:/wamp64/www/AvenirCulturel/Core/SeRappeler.php';
 include_once "c:/wamp64/www/AvenirCulturel/Core/VuCore.php";
 include_once 'c:/wamp64/www/AvenirCulturel/Core/LivreCore.php';
 include_once 'c:/wamp64/www/AvenirCulturel/Core/AuteurCore.php';
@@ -384,11 +385,13 @@ var wc_add_to_cart_params = {"ajax_url":"\/themeforest\/bookjunky\/wp-admin\/adm
 <a href="user-profile/book-shelf/DonnesProfile.php">
     <strong> <?php echo $_SESSION['id']; ?> </strong>
 </a>
+
                                   <?php
                                 }
-                            ?>
+                                ?>
                         </a>
                     </div>
+
                     <p id="FQQ"> </p>
                      <div class="col-xs-12 col-md-6 top-right-3">
 

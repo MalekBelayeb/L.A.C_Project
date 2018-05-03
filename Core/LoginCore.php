@@ -69,6 +69,10 @@ if(isset($_POST['login_user']) AND isset($_POST['pass_user']))
      $password = $_POST['pass_user'];
 
 
+
+
+
+
       $sqle="SELECT * from compte where LOGIN='$username'";
         
         try{
@@ -97,6 +101,15 @@ if(isset($_POST['login_user']) AND isset($_POST['pass_user']))
     $reg->setMDP($_POST['pass_user']);
 
     if ($reg->success_login()) {
+
+        if(isset($_POST['rememberme']))
+        {
+            setcookie('user', $username, time() + (86400 * 30), "/");
+        }
+        if(isset($_POST['rememberme']))
+        {
+            setcookie('pass', $password, time() + (86400 * 30), "/");
+        }
         $_SESSION['id'] = $_POST['login_user'];
         $_SESSION['pass'] = $_POST['pass_user'];
          $_SESSION['NOM'] =$NOM;
